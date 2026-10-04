@@ -27,11 +27,11 @@
     },
     {
       "brief_sha256": "da99c9e617d146855a65e356b079eca17c717aeb9551ebb6f9144c8fb24ee9e7",
-      "navigation_sha256": "5ad98d215d1afccc9d5f1c52dd48f768a767560d4953d83ef572d3ef09dd79e2",
+      "navigation_sha256": "457e0325b1b3118bea2c6906b3fe02134757c404e5086ec7d63c28378b827e35",
       "navigation_sources": [
         {
           "source_ref": "doc:quant-research.research.fundamental-evidence-navigation",
-          "sha256": "b7298209163a134ea9b688c8686bdbd5047027ccfd4d2e9ef6d002a6b279fb4a"
+          "sha256": "14a5bb06c60d09b519ed20132f364e4e1e95d72e8d6533300ea4d0160e50cfe7"
         },
         {
           "source_ref": "doc:quant-research.research.rd-execution-input-diagnostics-20261002",
@@ -39,17 +39,17 @@
         },
         {
           "source_ref": "doc:quant-research.research.rd-investment-relative-valuation",
-          "sha256": "c7abcf20597f6893c40ddae4994233d96dc3541c9cc897eb73b294b05cd0d57b"
+          "sha256": "54e47d6fc3e90cd7e8edc2d927f8d26d7c4fd6248362fd0368967d44b6a979c4"
         }
       ],
       "study_id": "rd-investment",
-      "source_revision": "ca346b2e35748a9c16bd06d9721e393f75dc0bdd",
-      "catalog_sha256": "18436d11777d358b054287c1f2de4d10fc1b08d773a1a9437139d2de11f19e30",
-      "exploration_sha256": "37abec4adc0f9b20fb44455c026cd060b41b4c0ae52bdeb1402b7f9b5b2f9af0",
+      "source_revision": "4aec1fa1e95a8f3c4f322d1d87dc90de1368ee3d",
+      "catalog_sha256": "128c20315cea4720fcc82f4c8166dffa3c4e9749a92ca134d0276568b8d2c5ef",
+      "exploration_sha256": "b790b425da860b759c45e5830cd77ee348015cbe85c6335417a438b91456aa83",
       "sources": [
         {
           "source_ref": "doc:quant-research.research.rd-investment-relative-valuation",
-          "sha256": "c7abcf20597f6893c40ddae4994233d96dc3541c9cc897eb73b294b05cd0d57b"
+          "sha256": "54e47d6fc3e90cd7e8edc2d927f8d26d7c4fd6248362fd0368967d44b6a979c4"
         },
         {
           "source_ref": "doc:quant-research.research.rd-execution-input-diagnostics-20261002",

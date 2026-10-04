@@ -2,8 +2,8 @@
   "schema_version": "observatory.study_navigation.v1",
   "study_id": "rd-investment",
   "source_ref": "doc:quant-research.research.rd-investment-relative-valuation",
-  "source_revision": "ca346b2e35748a9c16bd06d9721e393f75dc0bdd",
-  "reviewed_at": "2026-10-03",
+  "source_revision": "4aec1fa1e95a8f3c4f322d1d87dc90de1368ee3d",
+  "reviewed_at": "2026-10-04",
   "authority_ref": "doc:quant-research.research.fundamental-evidence-navigation",
   "trust": [
     {
@@ -226,8 +226,8 @@
     }
   ],
   "diagnostic_note": {
-    "en-US": "These are retrospective comparisons of matched observations. For R&D, uncertainty is estimated by resampling 12-month blocks so nearby months can stay together. The ranges do not undo the fact that the idea was explored on historical data, restore missing report versions or remove market-wide time effects.",
-    "zh-CN": "这些是对齐样本后的历史比较。研发结果的不确定范围通过重抽连续 12 个月的区块估计，让相邻月份保留在一起。这样的范围不能消除事后探索的影响，不能补回缺失的财报版本，也不能排除市场整体随时间变化造成的影响。"
+    "en-US": "These are retrospective comparisons of matched observations. For R&D, uncertainty is estimated by resampling 12-month blocks so nearby months stay together. If an R&D-minus-value or R&D-minus-inverse-size range includes zero, this sample cannot tell which association is stronger; it does not prove the effects are equal. The ranges do not undo historical exploration, restore missing report versions or remove market-wide time effects.",
+    "zh-CN": "这些是对齐样本后的历史比较。研发结果的不确定范围通过重抽连续 12 个月的区块估计，让相邻月份保留在一起。如果“研发减估值”或“研发减逆规模”的区间包含零，说明这组样本无法判断哪种关联更强，不代表效果相同。这样的范围不能消除事后探索的影响、补回缺失的财报版本，也不能排除市场整体随时间变化造成的影响。"
   },
   "scale_slices": [],
   "calibration": []

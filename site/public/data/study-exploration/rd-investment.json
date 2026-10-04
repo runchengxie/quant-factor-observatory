@@ -2,8 +2,8 @@
   "schema_version": "observatory.study_exploration.v1",
   "study_id": "rd-investment",
   "source_ref": "doc:quant-research.research.rd-investment-relative-valuation",
-  "source_revision": "ca346b2e35748a9c16bd06d9721e393f75dc0bdd",
-  "reviewed_at": "2026-10-03",
+  "source_revision": "4aec1fa1e95a8f3c4f322d1d87dc90de1368ee3d",
+  "reviewed_at": "2026-10-04",
   "evidence_stage": "exploratory",
   "summary": {
     "en-US": "The study asks whether R&D spending relative to company size is linked to later stock returns. The current screen finds a positive ranking relationship for some R&D measures, but size and valuation may explain part of it. Historical price checks and financial-report versions remain incomplete, so the result is a research lead rather than a tested trading rule.",
@@ -179,8 +179,8 @@
         "zh-CN": "研发分子能否解释与估值相同的关联？"
       },
       "finding": {
-        "en-US": "A second industry-date mapping matches the saved panel. When all measures are compared on the same company rows, company size and valuation line up more strongly with the result than the logged R&D amount. This does not tell us which one caused the return pattern.",
-        "zh-CN": "另一套行业日期匹配与存档面板一致。在完全相同的公司样本上比较时，公司大小和估值与结果的关系强于取对数后的研发金额；这仍不能说明收益模式由哪一项因素造成。"
+        "en-US": "A second industry-date mapping matches the saved panel. On the same company rows, smaller size and valuation line up more strongly with the result than logged R&D amount. The source's “inverse size” is negative log market value, so a higher score means a smaller company. These comparisons do not tell us which factor caused the return pattern.",
+        "zh-CN": "另一套行业日期匹配与存档面板一致。在完全相同的公司样本上，公司规模较小、估值较高与结果的关系都强于取对数后的研发金额。来源中的“逆规模”是总市值取负对数，因此分数越高，公司越小。这些比较仍不能说明收益模式由哪一项因素造成。"
       },
       "decision": {
         "en-US": "A field being present in this saved sample does not prove it was public on that historical date. A relationship between rankings is also different from a test of an investable portfolio.",
@@ -559,8 +559,8 @@
         "zh-CN": "这是截至 2026-09-30 的另一份早期历史重建，不是当前修正后的回放。20 日有 90 个可用月度比较，220 日有 80 个。每个日期的六项指标都使用完全相同的公司，因此差异不会只是股票样本变了造成的。图中是排序相关，不是组合收益。"
       },
       "interpretation": {
-        "en-US": "When checked one at a time, company size and valuation line up more strongly with the outcome than the R&D amount does. Earlier checks that considered them together gave a different result. These comparisons show association, not which factor caused the pattern.",
-        "zh-CN": "单独比较时，公司大小和估值与结果的对应关系强于研发金额；把这些因素一起考虑的早期分析又得到不同结果。这里看到的是相关关系，不能据此判断究竟是哪项因素造成了结果。"
+        "en-US": "“Inverse size” means negative log market value: the higher its score, the smaller the company. In this sample, smaller company size and valuation each have a stronger one-at-a-time association than the R&D amount. Earlier checks that considered these factors together gave a different result. Association alone does not show which factor caused the pattern.",
+        "zh-CN": "“逆规模”是总市值取负对数，分数越高代表公司越小。在这组样本中，单独比较时，公司规模较小和估值与结果的关系都强于研发金额；把这些因素一起考虑的早期分析又得到不同结果。仅有相关关系，不能判断究竟是哪项因素造成了结果。"
       },
       "categories": [
         {

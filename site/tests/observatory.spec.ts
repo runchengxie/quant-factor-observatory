@@ -407,7 +407,7 @@ test('all fundamental studies show source-backed exploration and optional charts
   for (const id of ids) {
     await page.goto(`/studies/${id}`)
     await expect(page.getByRole('heading', { name: 'How the evidence developed' })).toBeVisible()
-    await expect(page.locator('.study-exploration-steps > li')).toHaveCount(id === 'rd-investment' ? 7 : id === 'employee-compensation' ? 4 : 3)
+    await expect(page.locator('.study-exploration-steps > li')).toHaveCount(id === 'rd-investment' ? 8 : id === 'employee-compensation' ? 4 : 3)
     if (id === 'employee-compensation') {
       await expect(page.locator('.study-evidence-summary')).toContainText('Source matches recorded baseline')
     }
