@@ -236,7 +236,7 @@
     },
     {
       "id": "rd-investment",
-      "title": "研发投入和公司规模，谁更能解释股票表现？",
+      "title": "研发投入相对估值：信号还是规模暴露？",
       "family": "研发与无形资产",
       "status": "preliminary",
       "status_label": "初步筛选",
@@ -303,10 +303,10 @@
       ],
       "translations": {
         "en-US": {
-          "title": "Are stock returns linked to R&D, or to company size?",
+          "title": "R&D Investment Relative to Valuation: Signal or Size Exposure?",
           "family": "R&D and intangible assets",
           "status_label": "Preliminary screen",
-          "summary": "The main question is whether companies that spend more on R&D, relative to their size, tend to have better later stock returns. The corrected screen finds a positive average ranking relationship: Rank IC is 4.85% for the next 20 trading days and 12.81% for the next 220. These percentages are correlations between rankings, not stock returns. The longer-window comparisons overlap, historical financial records are incomplete, and the study has not shown that the pattern can be traded.",
+          "summary": "The main question is whether companies that spend more on R&D, relative to their size, tend to have better later stock returns. The corrected screen finds a positive average ranking relationship: Rank IC is 4.85% for the next 20 trading days and 12.81% for the next 220 (77 valid 20-day and 66 valid 220-day monthly cross-sections in the source record). These percentages are correlations between rankings, not stock returns. The longer-window comparisons overlap, historical financial records are incomplete, and the study has not shown that the pattern can be traded.",
           "period": "Corrected announcement-date-aligned study: 2020-01 to 2026-06; 77 monthly comparisons for the 20-day outcome and 66 for the 220-day outcome",
           "source_note": "Source: corrected announcement-date-aligned replay, vintage=20260926. The source reports separate results for each outcome window and a separate Top-200 trading simulation. Historical statement revisions and readiness to read the sealed future holdout remain unresolved. The older annual reconstruction extending to 2019 is a separate archive and is not included in these current results.",
           "columns": [
@@ -370,10 +370,10 @@
           ]
         },
         "zh-CN": {
-          "title": "研发投入和公司规模，谁更能解释股票表现？",
+          "title": "研发投入相对估值：信号还是规模暴露？",
           "family": "研发与无形资产",
           "status_label": "初步筛选",
-          "summary": "这项研究想知道：相对于公司规模，研发投入更多的公司，之后的股票收益是否也更好？修正后的筛查发现，研发指标排序与后续收益排序平均呈正相关：未来 20 个交易日的 Rank IC 为 4.85%，未来 220 日为 12.81%。百分数表示两个排序的相关程度，不是股票收益率。较长期窗口彼此重叠，历史财报版本也不完整，目前尚未证明这种关系能实际交易。",
+          "summary": "这项研究想知道：相对于公司规模，研发投入更多的公司，之后的股票收益是否也更好？修正后的筛查发现，研发指标排序与后续收益排序平均呈正相关：未来 20 个交易日的 Rank IC 为 4.85%，未来 220 日为 12.81%（原记录称为 77 个有效 20 日月度截面和 66 个有效 220 日月度截面）。百分数表示两个排序的相关程度，不是股票收益率。较长期窗口彼此重叠，历史财报版本也不完整，目前尚未证明这种关系能实际交易。",
           "period": "修正后的公告日期对齐研究：2020-01 至 2026-06；20 日结果有 77 个月度比较，220 日结果有 66 个",
           "source_note": "来源：修正后的公告日期对齐回放，vintage=20260926。来源分别报告了不同收益窗口的排序相关，并另做了一项 Top-200 交易模拟。历史财报修订版本和读取封存前瞻留出结果的资格仍未解决。延伸至 2019 年的早期年度重建是独立档案，不属于本页当前结果。",
           "columns": [

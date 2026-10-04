@@ -446,7 +446,7 @@
       "unit": "percent",
       "context": {
         "en-US": "This is a separate 2019–2026 historical extension. Coverage is calculated only among rows already retained in this panel (the already filtered panel), not among every stock that may have been eligible. Industry dates were matched again independently, but we have not verified when each historical record became public.",
-        "zh-CN": "这是另一份 2019–2026 年的历史扩展。覆盖率只在已经保留的面板记录中计算，不是对当时所有可能入选股票的覆盖率。行业日期匹配已独立重算，但每条历史记录何时公开仍未核实。"
+        "zh-CN": "这是另一份 2019–2026 年的历史扩展。覆盖率只在已经保留的面板记录中计算（即已筛选面板），不是对当时所有可能入选股票的覆盖率。行业日期匹配已独立重算，但每条历史记录何时公开仍未核实。"
       },
       "interpretation": {
         "en-US": "Most retained rows have the named industry or control fields, and the independent industry mapping matches the archived one. That checks alignment; it does not prove the information was available to investors on each historical date. Early years have too few retained rows to represent broad market coverage.",
@@ -636,7 +636,7 @@
       },
       "unit": "number",
       "context": {
-        "en-US": "This separate execution check uses 89 month-end portfolio starts, seven R&D measures and ten ranked groups, with a modeled one-way cost of 25 basis points (0.25%). The earlier version also counted clearly recorded full-day trading halts. The bars count how many simulated series reached each status; they are not returns and are separate from the 20/220-day signal screen.",
+        "en-US": "This separate execution check uses 89 month-end portfolio starts (89 formations in the source), seven R&D measures and ten ranked groups, with a modeled one-way cost of 25 basis points (0.25%). The earlier version also counted clearly recorded full-day trading halts. The bars count how many simulated series reached each status; they are not returns and are separate from the 20/220-day signal screen.",
         "zh-CN": "这项独立执行核查使用 89 个月末建仓时点、七种研发指标和十个排序组，并假设单边模型成本为 25 个基点（0.25%）。较早版本也计入明确记录的全天停牌。图中统计模拟序列分别走到哪种状态，不是收益表现，也与 20／220 日信号筛查分开。"
       },
       "interpretation": {
