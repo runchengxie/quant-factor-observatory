@@ -187,15 +187,16 @@
         "zh-CN": "研发分子能否解释与估值相同的关联？"
       },
       "finding": {
-        "en-US": "Independent industry mapping agrees with the archived panel. On matched rows, inverse size (negative log market cap; higher means a smaller company) and value associations exceed log R&D; this does not establish a causal return source.",
-        "zh-CN": "独立行业映射与归档面板一致。同样本中，逆规模（总市值负对数；分数越高，公司市值越小）与估值关联高于对数研发金额；这不能证明收益的因果来源。"
+        "en-US": "Independent industry mapping agrees with the archived panel. In matched observations, inverse size means negative log market cap (higher scores mean smaller companies); its univariate association and value association exceed log R&D. In a separate retrospective extension, paired R&D-minus-value and R&D-minus-inverse-size intervals span zero at both horizons. The annual mean R&D-minus-inverse-size difference is -0.51 percentage points for 20-session labels (3 of 8 slices positive) and -2.19 points for 220-session labels (4 of 7 positive).",
+        "zh-CN": "独立行业映射与归档面板一致。同样本中的逆规模是总市值负对数（分数越高，公司市值越小）；它与估值的单变量关联均高于对数研发金额。在独立历史回溯扩展中，20 日和 220 日期限下，“研发／市值减估值”及“研发／市值减逆规模”的配对区间都跨过零。研发／市值减逆规模的年度平均差：20 日为 -0.51 个百分点，8 片中 3 片为正；220 日为 -2.19 个百分点，7 片中 4 片为正。"
       },
       "decision": {
-        "en-US": "Keep conditional coverage separate from PIT qualification, and association separate from portfolio validation.",
-        "zh-CN": "条件覆盖率与 PIT 资格分开，相关性与组合验证分开。"
+        "en-US": "A zero-crossing interval means the data cannot determine which association is stronger; it does not prove equal effects. Annual slices are descriptive, the first and last years are partial, and 220-session labels overlap, so they are not independent replications. Keep this retrospective evidence separate from the corrected 77/66-section PIT screen. No independent, tradable R&D premium is established; financial revision and execution gaps remain.",
+        "zh-CN": "区间跨零表示无法判断哪种关联更强，不代表已证明效果相同。年度切片仅作描述，首尾年份不完整，220 日标签相互重叠，因此不是独立重复验证。该回溯结果与修正后的 77／66 个截面 PIT 筛查分开。当前未能确认研发带来独立、可交易的溢价；财报修订和执行缺口仍未解决。"
       },
       "source_ids": [
-        "followup"
+        "followup",
+        "paired-comparison"
       ]
     },
     {
@@ -223,33 +224,6 @@
       },
       "source_ids": [
         "followup"
-      ]
-    },
-    {
-      "id": "paired-comparison",
-      "period": {
-        "en-US": "2026-10-03",
-        "zh-CN": "2026-10-03"
-      },
-      "status": "diagnostic",
-      "title": {
-        "en-US": "Compare R&D with size and value on matched history",
-        "zh-CN": "在相同历史样本中比较研发、规模与估值"
-      },
-      "question": {
-        "en-US": "Does R&D / market cap outperform simple size or value rankings?",
-        "zh-CN": "研发／市值的排序关联是否强于单纯规模或估值排序？"
-      },
-      "finding": {
-        "en-US": "Across a separate retrospective extension, the paired 95% intervals for R&D / market cap minus value and inverse size span zero at both horizons. The annual mean difference versus inverse size is -0.51 percentage points for 20-session labels (3 of 8 year slices positive) and -2.19 points for 220-session labels (4 of 7 positive).",
-        "zh-CN": "在独立的历史回溯扩展中，20 日和 220 日期限下，“研发／市值减估值”和“研发／市值减逆规模”的配对 95% 区间均跨过零。按年度切片，研发／市值高于逆规模的有：20 日 8 片中的 3 片，月份加权平均差为 -0.51 个百分点；220 日 7 片中的 4 片，平均差为 -2.19 个百分点。"
-      },
-      "decision": {
-        "en-US": "A zero-crossing interval means these data cannot determine which comparator is stronger; it does not prove equal effects. The annual slices are descriptive, partly cover the first and last years, and are not independent replications. The 220-session labels overlap. Keep this retrospective evidence separate from the corrected 77/66-section PIT screen; no independent, tradable R&D premium is established.",
-        "zh-CN": "区间跨零表示这批数据无法判断哪个对照更强，不代表已证明效果相同。年度切片仅作描述，首尾年份不完整，也不是相互独立的重复试验；220 日标签彼此重叠。该历史回溯证据与修正后的 77／66 个截面 PIT 筛查分开，当前没有证据确认研发带来独立、可交易的溢价。"
-      },
-      "source_ids": [
-        "paired-comparison"
       ]
     }
   ],

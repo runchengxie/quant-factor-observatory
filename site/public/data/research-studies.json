@@ -506,7 +506,7 @@
       "source_ref": "doc:quant-research.research.rd-investment-relative-valuation",
       "exploration_asset": "data/study-exploration/rd-investment.json",
       "exploration_counts": {
-        "steps": 8,
+        "steps": 7,
         "charts": 5
       },
       "evidence_summary": {
