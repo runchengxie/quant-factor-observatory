@@ -11,7 +11,7 @@
 <body><main class="page">
   <p><a href="../studies/rd-investment">← Back to the R&amp;D investment study / 返回研发投入研究页</a></p>
   <h1>R&amp;D investment relative to valuation</h1>
-  <p class="stamp">Public method note · aggregate evidence only · updated 2026-10-01<br>公开方法说明 · 仅聚合证据 · 更新于 2026-10-01</p>
+  <p class="stamp">Public method note · aggregate evidence only · updated 2026-10-04<br>公开方法说明 · 仅聚合证据 · 更新于 2026-10-04</p>
   <section class="panel"><h2>Research question / 研究问题</h2>
     <p>This exploratory study asks whether R&amp;D expense scaled by market value contains cross-sectional information about future returns, and whether it remains after exposure controls. A high ratio can reflect more R&amp;D, a lower market value, or both.</p>
     <p>本探索性研究考察研发费用相对市值是否包含未来收益的截面信息，以及控制常见暴露后是否仍有信息。比值升高既可能来自研发费用增加，也可能来自市值下降，或二者同时发生。</p>
@@ -30,6 +30,24 @@
     </tbody></table>
     <p>The result is an exploratory ranking diagnostic, not a return estimate. The 220-day labels overlap, and the historical statement-revision chain remains incomplete.</p>
     <p>这些结果是探索性排序诊断，不是收益估计。220 日标签相互重叠，历史财报修订链仍不完整。</p>
+  </section>
+  <section class="panel"><h2>What “inverse size” means / “逆规模”是什么意思</h2>
+    <p>Inverse size is negative log market capitalization. A higher score means a smaller company. For example, if two companies each spend CNY 1 billion on R&amp;D, but their market caps are CNY 10 billion and CNY 100 billion, their R&amp;D/market-cap ratios are 10% and 1%. The smaller denominator raises the first company's ratio even though its R&amp;D spending is the same.</p>
+    <p>逆规模是总市值的负对数，分数越高代表公司市值越小。例如，两家公司研发费用都是 10 亿元，市值分别为 100 亿元和 1,000 亿元，那么研发／市值分别为 10% 和 1%。即使研发投入相同，较小的分母也会让第一家公司的比例更高。</p>
+    <h3>Paired historical Rank IC differences / 历史配对 Rank IC 差值</h3>
+    <p>The following intervals compare matched monthly observations in a separate retrospective extension. They are differences in Rank IC, not return differences. Intervals spanning zero cannot establish which association is stronger; they do not prove the effects are equal.</p>
+    <p>下表在独立的回溯扩展中使用相同月度观测进行配对比较。区间针对 Rank IC 差值，不是收益差。区间跨零时，无法判断哪种关联更强；这不等于证明效果相同。</p>
+    <table><thead><tr><th>Horizon / 期限</th><th>Difference / 差值</th><th>Mean (pp) / 均值（百分点）</th><th>Conditional 95% interval (pp) / 条件 95% 区间（百分点）</th></tr></thead><tbody>
+      <tr><td>20 sessions / 20 日</td><td>R&amp;D/market cap − value / 研发／市值 − 估值</td><td>-1.10</td><td>[-4.03, 2.30]</td></tr>
+      <tr><td>20 sessions / 20 日</td><td>R&amp;D/market cap − inverse size / 研发／市值 − 逆规模</td><td>-0.51</td><td>[-3.32, 2.36]</td></tr>
+      <tr><td>20 sessions / 20 日</td><td>Full style residual − R&amp;D/market cap / 完整风格残差 − 研发／市值</td><td>-2.45</td><td>[-3.64, -1.20]</td></tr>
+      <tr><td>220 sessions / 220 日</td><td>R&amp;D/market cap − value / 研发／市值 − 估值</td><td>-0.81</td><td>[-8.20, 7.51]</td></tr>
+      <tr><td>220 sessions / 220 日</td><td>R&amp;D/market cap − inverse size / 研发／市值 − 逆规模</td><td>-2.19</td><td>[-9.38, 5.20]</td></tr>
+      <tr><td>220 sessions / 220 日</td><td>Full style residual − R&amp;D/market cap / 完整风格残差 − 研发／市值</td><td>-5.52</td><td>[-8.16, -2.72]</td></tr>
+    </tbody></table>
+    <p>R&amp;D/market cap exceeds inverse size in 3 of 8 annual slices for 20-session labels (month-weighted mean difference -0.51 percentage points), and in 4 of 7 slices for 220-session labels (-2.19 points). These slices are descriptive, first and last years are partial, and 220-session labels overlap. They are not independent replications and do not replace the corrected 77/66-section PIT screen.</p>
+    <p>研发／市值在 20 日期限的 8 个年度切片中有 3 片高于逆规模，月份加权平均差为 -0.51 个百分点；220 日期限的 7 片中有 4 片高于逆规模，平均差为 -2.19 个百分点。这些切片仅作描述，首尾年份不完整，220 日标签相互重叠，因此不是独立重复验证，也不替代修正后的 77／66 个截面 PIT 筛查。</p>
+    <p class="warning"><strong>Reading / 结论边界：</strong>The comparison does not establish an independent or tradable R&amp;D premium. Financial revision history and execution gaps remain unresolved.<br>这些对照尚未证明研发带来独立或可交易的溢价。财报历史修订和执行缺口仍未解决。</p>
   </section>
   <section class="panel"><h2>Point-in-time and label rules / PIT 与标签口径</h2>
     <ul>
