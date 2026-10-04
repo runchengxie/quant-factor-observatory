@@ -1,6 +1,6 @@
 {
   "schema_version": "observatory.research_publication.v1",
-  "generated_at": "2026-10-02",
+  "generated_at": "2026-10-04",
   "source_repository": "quant-research",
   "source_manifest": "docs/research/knowledge-pilot.yml",
   "projections": [
@@ -394,7 +394,7 @@
         "private_code"
       ],
       "exploration_asset": "data/study-exploration/rd-investment.json",
-      "exploration_reviewed_at": "2026-10-02",
+      "exploration_reviewed_at": "2026-10-04",
       "navigation_asset": "data/study-navigation/rd-investment.json"
     }
   ],

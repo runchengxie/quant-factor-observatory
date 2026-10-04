@@ -27,11 +27,11 @@
     },
     {
       "brief_sha256": "da99c9e617d146855a65e356b079eca17c717aeb9551ebb6f9144c8fb24ee9e7",
-      "navigation_sha256": "47ebaf3038b435e2bde7705b404107c0b69bae8dc246126465d6cde05e624f07",
+      "navigation_sha256": "a09203c29dce82bd1434c52d5de5f2fa1b7119996098586c928b384723b096cc",
       "navigation_sources": [
         {
           "source_ref": "doc:quant-research.research.fundamental-evidence-navigation",
-          "sha256": "b7298209163a134ea9b688c8686bdbd5047027ccfd4d2e9ef6d002a6b279fb4a"
+          "sha256": "14a5bb06c60d09b519ed20132f364e4e1e95d72e8d6533300ea4d0160e50cfe7"
         },
         {
           "source_ref": "doc:quant-research.research.rd-execution-input-diagnostics-20261002",
@@ -39,21 +39,25 @@
         },
         {
           "source_ref": "doc:quant-research.research.rd-investment-relative-valuation",
-          "sha256": "c7abcf20597f6893c40ddae4994233d96dc3541c9cc897eb73b294b05cd0d57b"
+          "sha256": "54e47d6fc3e90cd7e8edc2d927f8d26d7c4fd6248362fd0368967d44b6a979c4"
         }
       ],
       "study_id": "rd-investment",
-      "source_revision": "ca346b2e35748a9c16bd06d9721e393f75dc0bdd",
-      "catalog_sha256": "c09aff1bd5fd80c8cf94c22919861c01c28c85806e53fa865ab2e33ae5a4948c",
-      "exploration_sha256": "d82e9e14ef189d68ccf3b147d4eb5399810e581d5e167d4a6f4b547570e6bfd2",
+      "source_revision": "4aec1fa1e95a8f3c4f322d1d87dc90de1368ee3d",
+      "catalog_sha256": "4d1df596a0401eef06a37740e322a411cc39894fe0a7a30cb885324f65f535a4",
+      "exploration_sha256": "99742c2949296fb2b80501e0d9257dd57f057df84c5757e22e12ec67ef0eeeb0",
       "sources": [
         {
           "source_ref": "doc:quant-research.research.rd-investment-relative-valuation",
-          "sha256": "c7abcf20597f6893c40ddae4994233d96dc3541c9cc897eb73b294b05cd0d57b"
+          "sha256": "54e47d6fc3e90cd7e8edc2d927f8d26d7c4fd6248362fd0368967d44b6a979c4"
         },
         {
           "source_ref": "doc:quant-research.research.rd-execution-input-diagnostics-20261002",
           "sha256": "bd226ed780349ff77bda10ea7aa7adfc52dd64d7c850e7957c6c79464ce6d0c9"
+        },
+        {
+          "source_ref": "doc:quant-research.research.fundamental-evidence-navigation",
+          "sha256": "14a5bb06c60d09b519ed20132f364e4e1e95d72e8d6533300ea4d0160e50cfe7"
         }
       ]
     },

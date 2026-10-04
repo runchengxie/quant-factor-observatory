@@ -2,8 +2,8 @@
   "schema_version": "observatory.study_navigation.v1",
   "study_id": "rd-investment",
   "source_ref": "doc:quant-research.research.rd-investment-relative-valuation",
-  "source_revision": "ca346b2e35748a9c16bd06d9721e393f75dc0bdd",
-  "reviewed_at": "2026-10-03",
+  "source_revision": "4aec1fa1e95a8f3c4f322d1d87dc90de1368ee3d",
+  "reviewed_at": "2026-10-04",
   "authority_ref": "doc:quant-research.research.fundamental-evidence-navigation",
   "trust": [
     {
@@ -226,8 +226,8 @@
     }
   ],
   "diagnostic_note": {
-    "en-US": "Retrospective paired diagnostics: monthly circular blocks of 12 for R&D; issuer resampling within one year for forecast errors. These intervals do not remove exploratory selection, incomplete financial revisions or market-time dependence. Positive forecast MAE differences mean worse errors.",
-    "zh-CN": "回溯配对诊断：研发按 12 个月循环区块，预测误差在同一年内重采样公司。区间不能消除探索选择、不完整财报版本或市场时间依赖；预测 MAE 差值为正表示误差更大。"
+    "en-US": "Retrospective paired diagnostics: monthly circular blocks of 12 for R&D; issuer resampling within one year for forecast errors. For an R&D-minus-value or R&D-minus-inverse-size interval that spans zero, the sample cannot establish which association is stronger; this does not prove equal effects. These intervals do not remove exploratory selection, incomplete financial revisions or market-time dependence. Positive forecast MAE differences mean worse errors.",
+    "zh-CN": "回溯配对诊断：研发使用 12 个月循环区块；预测误差按年度内公司重采样。若“研发减估值”或“研发减逆规模”的区间跨零，表示样本无法判断哪种关联更强，不代表已证明效果相同。区间不能消除探索选择、不完整财报版本或市场时间依赖；预测 MAE 差值为正表示误差更大。"
   },
   "scale_slices": [],
   "calibration": []
