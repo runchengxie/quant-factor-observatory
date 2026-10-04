@@ -141,7 +141,7 @@ test('older study catalogs without series or taxonomy metadata still render', as
 test('R&D study shows corrected PIT evidence and an accessible public method note', async ({ page }) => {
   await page.goto('studies/rd-investment')
   await expect(page.getByRole('heading', { name: 'What was measured' })).toBeVisible()
-  await expect(page.getByText('TTM R&D expense divided by equity market capitalization', { exact: false })).toBeVisible()
+  await expect(page.getByText('recent twelve-month R&D expense divided by the company’s stock-market value', { exact: false })).toBeVisible()
   await expect(page.getByText(/77 valid 20-day and 66 valid 220-day/).first()).toBeVisible()
   await expect(page.getByRole('row').filter({hasText:'4.85%'}).first()).toContainText('4.85%')
   await expect(page.getByRole('heading', { name: 'Annual replay by year' })).toBeVisible()
