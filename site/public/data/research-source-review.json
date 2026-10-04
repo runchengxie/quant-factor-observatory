@@ -45,7 +45,7 @@
       "study_id": "rd-investment",
       "source_revision": "4aec1fa1e95a8f3c4f322d1d87dc90de1368ee3d",
       "catalog_sha256": "128c20315cea4720fcc82f4c8166dffa3c4e9749a92ca134d0276568b8d2c5ef",
-      "exploration_sha256": "b790b425da860b759c45e5830cd77ee348015cbe85c6335417a438b91456aa83",
+      "exploration_sha256": "5a0bf820b0f88fb1a43230c12055c91a12caa05f6ca837b46720ab1185c72a09",
       "sources": [
         {
           "source_ref": "doc:quant-research.research.rd-investment-relative-valuation",
@@ -54,6 +54,10 @@
         {
           "source_ref": "doc:quant-research.research.rd-execution-input-diagnostics-20261002",
           "sha256": "bd226ed780349ff77bda10ea7aa7adfc52dd64d7c850e7957c6c79464ce6d0c9"
+        },
+        {
+          "source_ref": "doc:quant-research.research.fundamental-evidence-navigation",
+          "sha256": "14a5bb06c60d09b519ed20132f364e4e1e95d72e8d6533300ea4d0160e50cfe7"
         }
       ]
     },

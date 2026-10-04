@@ -25,6 +25,14 @@
         "en-US": "Historical execution, input and accounting follow-up",
         "zh-CN": "历史执行、输入与会计口径后续核验"
       }
+    },
+    {
+      "id": "paired-comparison",
+      "source_ref": "doc:quant-research.research.fundamental-evidence-navigation",
+      "label": {
+        "en-US": "Matched historical comparisons and uncertainty method",
+        "zh-CN": "相同历史样本的对照与不确定性估算方法"
+      }
     }
   ],
   "steps": [
@@ -215,6 +223,33 @@
       },
       "source_ids": [
         "followup"
+      ]
+    },
+    {
+      "id": "paired-comparison",
+      "period": {
+        "en-US": "2026-10-03",
+        "zh-CN": "2026-10-03"
+      },
+      "status": "diagnostic",
+      "title": {
+        "en-US": "Compare R&D with company size and valuation",
+        "zh-CN": "比较研发投入、公司大小和估值"
+      },
+      "question": {
+        "en-US": "Does R&D / market cap have a stronger relationship with later returns than size or value alone?",
+        "zh-CN": "相比只看公司大小或估值，“研发 / 市值”与之后收益的关系更强吗？"
+      },
+      "finding": {
+        "en-US": "In a separate historical reconstruction, the estimated 95% ranges for the R&D / market-cap result minus the value result, and minus the smaller-company result, both include zero at both time windows. The average year-by-year difference versus smaller-company size was −0.51 percentage points over 20 trading days (3 of 8 years positive) and −2.19 points over 220 days (4 of 7 years positive).",
+        "zh-CN": "在另一份历史重建中，无论看 20 日还是 220 日，研发 / 市值结果减去估值对照、或减去小市值对照后得到的 95% 不确定范围都包含零。这表示样本无法判断哪种关系更强。按年度看，研发 / 市值相对小市值对照的平均差：20 日为 −0.51 个百分点（8 年中 3 年为正）；220 日为 −2.19 个百分点（7 年中 4 年为正）。"
+      },
+      "decision": {
+        "en-US": "When the range includes zero, these data cannot tell which comparison is stronger; that does not prove the effects are equal. The year-by-year figures are descriptive, some years are incomplete, and years are not independent repeats. The 220-day windows overlap. Keep this older reconstruction separate from the corrected 77/66-month screen. There is still no evidence of an independent R&D effect that can be traded.",
+        "zh-CN": "区间包含零时，这组数据无法判断哪个对照更强；这不代表已经证明两者效果相同。逐年数字仅用于描述，首尾部分年份不完整，各年也不是互相独立的重复试验；220 日窗口还彼此重叠。请把这份较早的历史重建与修正后的 77／66 个月度筛查分开。目前仍没有证据证明研发存在独立且可交易的影响。"
+      },
+      "source_ids": [
+        "paired-comparison"
       ]
     }
   ],
