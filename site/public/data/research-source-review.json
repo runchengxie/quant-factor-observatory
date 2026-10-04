@@ -27,7 +27,7 @@
     },
     {
       "brief_sha256": "da99c9e617d146855a65e356b079eca17c717aeb9551ebb6f9144c8fb24ee9e7",
-      "navigation_sha256": "47ebaf3038b435e2bde7705b404107c0b69bae8dc246126465d6cde05e624f07",
+      "navigation_sha256": "5ad98d215d1afccc9d5f1c52dd48f768a767560d4953d83ef572d3ef09dd79e2",
       "navigation_sources": [
         {
           "source_ref": "doc:quant-research.research.fundamental-evidence-navigation",
@@ -44,8 +44,8 @@
       ],
       "study_id": "rd-investment",
       "source_revision": "ca346b2e35748a9c16bd06d9721e393f75dc0bdd",
-      "catalog_sha256": "c09aff1bd5fd80c8cf94c22919861c01c28c85806e53fa865ab2e33ae5a4948c",
-      "exploration_sha256": "d82e9e14ef189d68ccf3b147d4eb5399810e581d5e167d4a6f4b547570e6bfd2",
+      "catalog_sha256": "f7152e6ba5a48ef61bb1b3d8295e9afd54fe93faa076d0fe29e6ea3a996d3782",
+      "exploration_sha256": "f19b26065ffbe6bcfda8f800dc24d63f7b022dc94d774b06e224c86f6ef8e265",
       "sources": [
         {
           "source_ref": "doc:quant-research.research.rd-investment-relative-valuation",

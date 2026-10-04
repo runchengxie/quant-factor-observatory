@@ -363,7 +363,7 @@
           "limits": [
             "The saved history does not contain every version of each financial report as investors originally saw it. Announcement dates are aligned, but the reconstruction is not yet verified as fully point-in-time accurate; historical index membership and industry dates also need review.",
             "The 220-day outcome windows overlap. Rank IC describes how two rankings move together; it is not a return. The separate Top-200 simulation does not prove that orders could be filled at the assumed prices or that real market impact was captured.",
-            "The Top-200 simulation is separate from the registered ten-group validation. The readiness review for the sealed future test still does not permit reading its performance.",
+            "The Top-200 simulation is separate from the registered ten-group validation. The readiness review for the sealed future test (the frozen-holdout) still does not permit reading its performance.",
             "The older annual archive extending back to 2019 was rebuilt separately. Its results are not part of the corrected current results above.",
             "The 2026-10-02 input review added original and adjusted reports and began keeping versions from their actual collection dates. Because this collection began later, it cannot recreate strict historical point-in-time records. The future R&D test window runs through September 2027; all long-window results need time to mature, so the earliest expected review is around 2028. No future-test performance has been read.",
             "The newer quality and matched-component checks use the older rebuilt history. Their sample counts and results are kept separate from the corrected current study."

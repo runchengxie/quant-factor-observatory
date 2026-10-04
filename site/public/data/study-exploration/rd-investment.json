@@ -318,7 +318,7 @@
       },
       "unit": "percent",
       "context": {
-        "en-US": "A separate reconstruction for 2019–2026, with incomplete first and last years. The same company may appear in several portfolios. Closing prices and exchange price limits are warning checks; they do not show that an order was placed or actually failed. One position can receive more than one warning.",
+        "en-US": "A separate reconstructed historical extension for 2019–2026, with incomplete first and last years. The same company may appear in several portfolios. Closing prices and exchange price limits are warning checks, not actual fills; they do not show that an order was placed or actually failed. One position can receive more than one warning.",
         "zh-CN": "这是另一份覆盖 2019–2026 年的历史重建，首尾年份不完整。同一家公司可能出现在多个组合里。收盘价和交易所涨跌停规则只用于提示风险，不代表真的下过单或订单确实失败；同一持仓也可能有多个标记原因。"
       },
       "interpretation": {
@@ -445,7 +445,7 @@
       },
       "unit": "percent",
       "context": {
-        "en-US": "This is a separate 2019–2026 historical extension. Coverage is calculated only among rows already retained in this panel, not among every stock that may have been eligible. Industry dates were matched again independently, but we have not verified when each historical record became public.",
+        "en-US": "This is a separate 2019–2026 historical extension. Coverage is calculated only among rows already retained in this panel (the already filtered panel), not among every stock that may have been eligible. Industry dates were matched again independently, but we have not verified when each historical record became public.",
         "zh-CN": "这是另一份 2019–2026 年的历史扩展。覆盖率只在已经保留的面板记录中计算，不是对当时所有可能入选股票的覆盖率。行业日期匹配已独立重算，但每条历史记录何时公开仍未核实。"
       },
       "interpretation": {
@@ -555,7 +555,7 @@
       },
       "unit": "percent",
       "context": {
-        "en-US": "This is a separate older reconstruction through 2026-09-30, not the corrected current run. It has 90 usable monthly comparisons for 20 days and 80 for 220 days. All six measures use the same companies on each date, so changing sample membership does not explain their differences. The chart shows ranking correlations, not portfolio returns.",
+        "en-US": "This is a separate reconstructed historical extension through 2026-09-30, not the corrected current run. It has 90 usable monthly comparisons for 20 days and 80 for 220 days. All six measures use the same companies on each date, so changing sample membership does not explain their differences. The chart shows ranking correlations, not portfolio returns.",
         "zh-CN": "这是截至 2026-09-30 的另一份早期历史重建，不是当前修正后的回放。20 日有 90 个可用月度比较，220 日有 80 个。每个日期的六项指标都使用完全相同的公司，因此差异不会只是股票样本变了造成的。图中是排序相关，不是组合收益。"
       },
       "interpretation": {
