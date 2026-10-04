@@ -5,7 +5,7 @@
 
 ## Goal
 
-Make every technical term, formula, and displayed source field that can block a general reader's understanding easier to interpret across both public research sites, while preserving the full research record and technical meaning.
+Make every technical term, calculation, and displayed source field that can block a general reader's understanding easier to interpret across both public research sites, while preserving the full research record and technical meaning.
 
 ## Audience and success criteria
 
@@ -14,8 +14,8 @@ The primary reader is interested in the research result but may not know quantit
 The audit is complete when:
 
 1. Every public page and rendered research document in scope has been reviewed in English and Simplified Chinese.
-2. Every specialist term, formula, metric label, and source-field identifier that materially affects interpretation has a nearby plain-language explanation.
-3. Original technical names, formulas, values, units, provenance, sample details, evidence status, and limitations remain available and accurate.
+2. Every specialist term, equation, metric label, and source-field identifier that materially affects interpretation has a nearby plain-language explanation.
+3. Original technical names, equations, values, units, provenance, sample details, evidence status, and limitations remain available and accurate.
 4. No definition is guessed where a source or approved method does not establish it; the page says what is unknown and points to the available source record.
 5. Repeated definitions use consistent bilingual wording within each repository.
 
@@ -32,7 +32,7 @@ Review all public pages registered for publication, including the overview, rese
 ### Out of scope
 
 - Internal plans, agent instructions, runbooks, unpublished research notes, raw vendor data, private implementations, and machine-only schema fields that readers never see.
-- Changes to research calculations, evidence classification, dataset values, source mappings, formulas, sample definitions, or publication boundaries.
+- Changes to research calculations, evidence classification, dataset values, source mappings, equations, sample definitions, or publication boundaries.
 - Simplifying a technical label by silently replacing or deleting its original name.
 
 ## Reader-facing treatment
@@ -43,7 +43,7 @@ At the first point where a term is needed, state the original term and give a sh
 
 ### Formulas and statistics
 
-Keep each published formula and notation intact. Explain each symbol, unit, and operation in plain language, then say what the resulting number means in the displayed comparison. Preserve distinctions between metrics that look similar, such as IC and RankIC, turnover rate and traded value, cumulative return and annualized return, volatility and drawdown, and estimate versus realized outcome.
+Keep each published equation and notation intact. Explain each symbol, unit, and operation in plain language, then say what the resulting number means in the displayed comparison. Preserve distinctions between metrics that look similar, such as IC and RankIC, turnover rate and traded value, cumulative return and annualized return, volatility and drawdown, and estimate versus realized outcome.
 
 ### Raw source fields and table values
 
@@ -59,8 +59,8 @@ Write natural English and Simplified Chinese independently rather than translati
 
 ## Editorial workflow
 
-1. Build a page-by-page inventory of rendered terms, formulas, field names, and other labels that need interpretation.
-2. Check each item against the repository's source contracts, data dictionaries, formulas, source records, and applicable research notes.
+1. Build a page-by-page inventory of rendered terms, equations, field names, and other labels that need interpretation.
+2. Check each item against the repository's source contracts, data dictionaries, calculations, source records, and applicable research notes.
 3. Record the exact displayed name, the sourced meaning, the intended plain-language explanation, and any unresolved definition in both locales.
 4. Edit the appropriate reader-facing page or locale source. Do not alter the underlying values or machine contracts.
 5. Compare every edited page with its pre-edit evidence and provenance to confirm that no detail was removed, generalized, or overstated.
@@ -77,4 +77,3 @@ Required repository checks and CI must pass before merge. Reviewers should focus
 - Some displayed abbreviations and aggregate fields may lack a public definition. Preserve the identifier and state the known boundary rather than reverse-engineering or guessing.
 - Older archived studies can use terms differently from current research. Definitions must follow each study's own recorded method and dates.
 - Dense tables may need a reader note or accessible disclosure rather than repeating a full definition in every cell.
-

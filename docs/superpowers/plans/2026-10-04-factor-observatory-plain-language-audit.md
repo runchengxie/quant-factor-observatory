@@ -2,7 +2,7 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:executing-plans to implement this plan task-by-task.
 
-**Goal:** Explain every reader-facing specialist term, formula, and data field in the Factor Observatory while keeping its full research record intact.
+**Goal:** Explain every reader-facing specialist term, calculation, and data field in the Factor Observatory while keeping its full research record intact.
 
 **Architecture:** Audit the rendered site from its user-facing string catalogs, React pages, and published aggregate records. Add contextual explanations in the existing bilingual copy sources and maintain a route-by-route inventory so every definition can be traced to its evidence source.
 
@@ -13,7 +13,7 @@
 ## Global Constraints
 
 - Review every public rendered route in English and Simplified Chinese.
-- Preserve all formulas, identifiers, values, units, dates, sample scope, sources, uncertainty, and evidence status.
+- Preserve all equations, identifiers, values, units, dates, sample scope, sources, uncertainty, and evidence status.
 - Do not change calculations, source mappings, raw values, or machine schemas.
 - Do not guess definitions; identify the source or state what remains undefined.
 - Do not add or run tests for this editorial task; use `git diff --check`, source comparison, and required PR CI.
@@ -35,11 +35,11 @@
 - Inspect: `site/src/i18n.ts`, `site/src/explorationCopy.ts`, `site/src/pages/*.tsx`, `site/src/components/*.tsx`, `site/public/data/research-studies.json`, `site/public/data/study-exploration/*.json`, `site/public/data/study-navigation/*.json`, and `site/public/data/rd-investment-annual.json`
 
 **Interfaces:**
-- Produces an inventory with route, locale, displayed name or formula, source of definition, plain-language meaning, and any unresolved boundary.
+- Produces an inventory with route, locale, displayed name or equation, source of definition, plain-language meaning, and any unresolved boundary.
 
 - [ ] List every public route from `site/src/App.tsx` and every dynamic study-detail route from the published catalog.
 - [ ] Read the rendered UI strings and the exact aggregate fields used by each route; exclude fields that are never displayed.
-- [ ] Trace each candidate definition to a published method, source record, or formula. Mark unsupported definitions unresolved.
+- [ ] Trace each candidate definition to a published method, source record, or calculation. Mark unsupported definitions unresolved.
 - [ ] Check that all routes, both locales, chart labels, tables, controls, status tags, and expandable source notes are represented.
 
 **Check:** Compare the inventory against `site/src/App.tsx`, `site/src/pages/`, and the IDs in the published study catalog. No route or displayed metric may be absent.
@@ -74,7 +74,7 @@
 
 - [ ] Explain IC, RankIC, positive-rate share, group spread, coverage, p-value, BY-adjusted q-value, HAC/Newey–West lag, confidence interval, and block-bootstrap range where each is first displayed.
 - [ ] Explain the numerator, denominator, observation unit, and comparison direction for visible rates and counts.
-- [ ] Preserve the complete formulas, q-value threshold, family size, lag settings, interval values, and limitations on dependence, selection bias, point-in-time validity, and tradability.
+- [ ] Preserve the complete equations, q-value threshold, family size, lag settings, interval values, and limitations on dependence, selection bias, point-in-time validity, and tradability.
 - [ ] Explain only the metrics present in each schema version; do not imply an unavailable statistic exists.
 
 **Check:** Compare every label and explanation to `docs/alpha810-public-contract.md` and the snapshot schema fields. Confirm all currently displayed values and boundaries remain present.
@@ -103,7 +103,7 @@
 - Update: `site/tests/observatory.spec.ts` only if an existing visible-copy assertion directly contradicts the approved copy
 
 - [ ] Re-open every inventory route/locale entry and mark the explanation's final file and location.
-- [ ] Compare the pre-change and final source to confirm no evidence, sample, formula, identifier, unit, date, provenance, or limitation was removed.
+- [ ] Compare the pre-change and final source to confirm no evidence, sample, equation, identifier, unit, date, provenance, or limitation was removed.
 - [ ] Check disclosure controls retain accessible names and are keyboard-operable by inspection.
 - [ ] Run `git diff --check`; do not run a local test suite.
 - [ ] Commit and push this repository's task branch, open a PR to `main`, and merge only after required CI passes.
