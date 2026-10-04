@@ -381,7 +381,7 @@ test('routes request only the public data snapshots they need', async ({ page })
   dataResponses.length = 0
   await page.goto('studies/rd-investment')
   await expect(page.getByRole('heading', { name: 'R&D Investment Relative to Valuation: Signal or Size Exposure?' })).toBeVisible()
-  expect(dataResponses.map((response) => response.name)).toEqual(['research-studies.json', 'rd-investment-annual.json'])
+  await expect.poll(() => dataResponses.map((response) => response.name).sort()).toEqual(['research-studies.json', 'rd-investment-annual.json'].sort())
 })
 
  test('research conclusions precede evidence and methods', async ({ page }) => {
