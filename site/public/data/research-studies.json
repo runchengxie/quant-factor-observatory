@@ -306,9 +306,9 @@
           "title": "R&D Investment Relative to Valuation: Signal or Size Exposure?",
           "family": "R&D and intangible assets",
           "status_label": "Preliminary screen",
-          "summary": "Historical execution diagnostics still have unresolved prices and formation gaps; R&D remains a research candidate. The corrected sealed announcement-event PIT run reports 4.85% / 12.81% Rank IC for 20 / 220 trading-day labels across 77 / 66 horizon-specific monthly cross-sections. The result is exploratory and does not establish executable returns; the full revision chain remains incomplete.",
-          "period": "Corrected PIT replay: 2020-01 through 2026-06; 77 valid 20-day and 66 valid 220-day cross-sections",
-          "source_note": "Source: corrected announcement-event PIT replay, vintage=20260926. The current provider note reports horizon-specific Rank IC and a separate Top-200 cost probe; historical statement revisions and frozen final-OOS readiness remain unresolved. The older 2019 extended annual snapshot is retained as a separately marked legacy artifact and is not part of this current summary.",
+          "summary": "The main question is whether companies that spend more on R&D, relative to their size, tend to have better later stock returns. The corrected screen finds a positive average ranking relationship: Rank IC is 4.85% for the next 20 trading days and 12.81% for the next 220 (77 valid 20-day and 66 valid 220-day monthly cross-sections in the source record). These percentages are correlations between rankings, not stock returns. The longer-window comparisons overlap, historical financial records are incomplete, and the study has not shown that the pattern can be traded.",
+          "period": "Corrected announcement-date-aligned study: 2020-01 to 2026-06; 77 monthly comparisons for the 20-day outcome and 66 for the 220-day outcome",
+          "source_note": "Source: corrected announcement-date-aligned replay, vintage=20260926. The source reports separate results for each outcome window and a separate Top-200 trading simulation. Historical statement revisions and readiness to read the sealed future holdout remain unresolved. The older annual reconstruction extending to 2019 is a separate archive and is not included in these current results.",
           "columns": [
             "Factor variant",
             "20-day Rank IC",
@@ -352,30 +352,30 @@
             ]
           ],
           "findings": [
-            "A separate historical follow-up identifies 10,825 unique endpoint failure events across 3,894 securities. None of 70 factor/decile sequences passes every endpoint; this is not formal portfolio validation.",
-            "The corrected PIT sample contains 77 valid 20-day and 66 valid 220-day monthly cross-sections; median cross-sectional sizes are about 4,454 and 4,230 stocks.",
-            "R&D / market cap and five-year decayed R&D stock show positive exploratory Rank IC. The 220-day labels overlap and are not independent observations.",
-            "The full style residual is weaker than raw R&D / market cap. This does not establish an independent, causal, or tradable R&D premium.",
-            "R&D / revenue, R&D / assets, and R&D growth do not show stable ranking evidence in the corrected sample.",
-            "A separate fixed Top-200 platform probe at 25 bp one-way modeled cost reports 12.70% annualized return, 0.57 Sharpe, and -25.75% max drawdown over 89 holding periods. It is a research diagnostic, not a registered decile validation or production portfolio.",
-            "The 2026-10 to 2027-09 prospective final-OOS protocol is frozen but blocked from performance reading; no frozen holdout metrics have been produced."
+            "A separate history check flagged 10,825 planned holding-price checks across 3,894 securities. None of 70 factor-by-decile result series had complete prices at every checked point. These flags are not confirmed failed orders and do not count as a completed portfolio test.",
+            "The corrected screen has 77 usable monthly comparisons for the 20-day outcome and 66 for the 220-day outcome. The median number of eligible stocks per month is about 4,454 and 4,230, respectively.",
+            "R&D / market cap and the five-year decayed R&D measure have positive average Rank IC in this exploratory sample. The 220-day outcome windows overlap, so neighboring monthly comparisons share return days.",
+            "After removing the measured links to size, valuation, leverage, momentum and industry, the remaining R&D / market-cap relationship is weaker. This does not show that R&D independently causes higher returns or can be traded profitably.",
+            "R&D / revenue, R&D / assets and R&D growth do not show a stable positive ranking relationship in the corrected sample.",
+            "A separate fixed Top-200 trading simulation reports 12.70% annualized return, Sharpe 0.57 and maximum drawdown −25.75% across 89 holding periods, with a modeled one-way cost of 25 basis points. It is not the registered ten-group validation or a production portfolio.",
+            "The future test window, October 2026 through September 2027, is fixed but remains sealed. Its results have not been read or published."
           ],
           "limits": [
-            "The historical financial statement revision chain is incomplete. The corrected historical reconstruction is not revision-safe, and historical index/industry effective times are not fully point-in-time verified.",
-            "The 220-day labels overlap. Cross-sectional Rank IC and the Top-200 price-return probe do not establish executable fills, market impact, or a deployable portfolio.",
-            "The Top-200 cost probe is separate from registered decile validation; the full frozen-holdout readiness audit still blocks performance reading.",
-            "The older 2019 extended annual snapshot uses a separate retrospective reconstruction and is not included in the corrected current-run metrics above.",
-            "The 2026-10-02 input audit supplemented original and adjusted statements and implemented retrieval-time-bounded version retention. These later observations cannot certify strict historical PIT. The frozen R&D window runs through September 2027 and all long-horizon labels must mature before performance is unsealed, approximately in 2028. No frozen performance was read.",
-            "New historical quality diagnostics and matched-component comparisons use the older reconstructed extension; their counts and associations are not spliced into the corrected current PIT metrics."
+            "The saved history does not contain every version of each financial report as investors originally saw it. Announcement dates are aligned, but the reconstruction is not yet verified as fully point-in-time accurate; historical index membership and industry dates also need review.",
+            "The 220-day outcome windows overlap. Rank IC describes how two rankings move together; it is not a return. The separate Top-200 simulation does not prove that orders could be filled at the assumed prices or that real market impact was captured.",
+            "The Top-200 simulation is separate from the registered ten-group validation. The readiness review for the sealed future test (the frozen-holdout) still does not permit reading its performance.",
+            "The older annual archive extending back to 2019 was rebuilt separately. Its results are not part of the corrected current results above.",
+            "The 2026-10-02 input review added original and adjusted reports and began keeping versions from their actual collection dates. Because this collection began later, it cannot recreate strict historical point-in-time records. The future R&D test window runs through September 2027; all long-window results need time to mature, so the earliest expected review is around 2028. No future-test performance has been read.",
+            "The newer quality and matched-component checks use the older rebuilt history. Their sample counts and results are kept separate from the corrected current study."
           ]
         },
         "zh-CN": {
           "title": "研发投入相对估值：信号还是规模暴露？",
           "family": "研发与无形资产",
           "status_label": "初步筛选",
-          "summary": "历史执行诊断仍有行情与形成月份缺口，研发仍是研究候选。修正后的 sealed announcement-event PIT 回放显示，20 / 220 交易日标签的 Rank IC 分别为 4.85% / 12.81%，对应 77 / 66 个按期限分别计算的月度截面。结果仍属探索性，也不能证明收益可执行；完整历史修订链尚不具备。",
-          "period": "修正 PIT 回放：2020-01 至 2026-06；20 日有效截面 77 个，220 日有效截面 66 个",
-          "source_note": "来源：修正后的公告事件 PIT 回放，vintage=20260926。当前来源报告分期限 Rank IC 和独立的 Top-200 成本探针；历史财报修订链和冻结最终 OOS 就绪门槛仍未解决。更早的 2019 年扩展年度快照作为独立遗留产物保留，不属于此处当前汇总。",
+          "summary": "这项研究想知道：相对于公司规模，研发投入更多的公司，之后的股票收益是否也更好？修正后的筛查发现，研发指标排序与后续收益排序平均呈正相关：未来 20 个交易日的 Rank IC 为 4.85%，未来 220 日为 12.81%（原记录称为 77 个有效 20 日月度截面和 66 个有效 220 日月度截面）。百分数表示两个排序的相关程度，不是股票收益率。较长期窗口彼此重叠，历史财报版本也不完整，目前尚未证明这种关系能实际交易。",
+          "period": "修正后的公告日期对齐研究：2020-01 至 2026-06；20 日结果有 77 个月度比较，220 日结果有 66 个",
+          "source_note": "来源：修正后的公告日期对齐回放，vintage=20260926。来源分别报告了不同收益窗口的排序相关，并另做了一项 Top-200 交易模拟。历史财报修订版本和读取封存前瞻留出结果的资格仍未解决。延伸至 2019 年的早期年度重建是独立档案，不属于本页当前结果。",
           "columns": [
             "因子变体",
             "20 日 Rank IC",
@@ -419,21 +419,21 @@
             ]
           ],
           "findings": [
-            "独立历史核验发现 10,825 个去重端点失败事件，涉及 3,894 只证券。70 条因子/分组序列均未通过全部端点；这不是正式组合验证通过。",
-            "修正后的 PIT 样本有 77 个有效 20 日月度截面和 66 个有效 220 日月度截面；股票数中位数分别约为 4,454 和 4,230。",
-            "研发 / 市值与五年衰减研发资本具有正向探索性 Rank IC；220 日标签存在重叠，不能视为独立观测。",
-            "完整风格中性残差弱于原始研发 / 市值。这不能证明存在独立、因果或可交易的研发溢价。",
-            "修正样本中的研发 / 收入、研发 / 资产和研发增长没有显示稳定的排序证据。",
-            "单独的固定 Top-200 平台探针在单边模型成本 25 bp 下，89 个持有区间年化收益为 12.70%、Sharpe 为 0.57、最大回撤为 -25.75%。这是研究诊断，不是预注册十分组验证或生产组合。",
-            "2026-10 至 2027-09 的前瞻最终 OOS 协议已封存，但性能读取仍被门槛阻止；目前没有生成冻结留出指标。"
+            "另一次历史价格核查，在 3,894 只证券上标记了 10,825 个计划持仓价格检查点。70 条“因子 × 十分组”收益序列都至少有一个检查点缺少完整价格。这些标记不等于已确认的订单失败，也不算完成了组合验证。",
+            "修正后的筛查中，未来 20 日结果有 77 个可用的月度比较，220 日结果有 66 个。每个月符合条件的股票数中位数分别约为 4,454 和 4,230 只。",
+            "在这组探索性样本中，“研发 / 市值”和“五年衰减研发资本”对应的平均 Rank IC 为正。220 日观察窗口彼此重叠，相邻月份会共享部分未来收益日。",
+            "从“研发 / 市值”排序中扣除与规模、估值、杠杆、动量和行业相关的部分后，剩下的关系较弱。这不能证明研发本身造成了更高收益，也不能证明它能赚钱交易。",
+            "修正样本中的“研发 / 收入”“研发 / 资产”和“研发增长”没有显示稳定的正向排序关系。",
+            "单独的固定 Top-200 平台探针（历史交易模拟）报告了 89 个持有区间：年化收益 12.70%、Sharpe 0.57、最大回撤 −25.75%，并假设单边模型成本为 25 个基点。这不是预先登记的十分组验证，也不是正式运行的组合。",
+            "未来检验期定为 2026 年 10 月至 2027 年 9 月，目前仍封存；按登记原文，2026-10 至 2027-09 的前瞻最终 OOS 协议已封存，但性能读取仍被门槛阻止，结果尚未读取或发布。"
           ],
           "limits": [
-            "历史财报修订链不完整。修正后的历史重建并非修订安全，历史指数与行业生效时点也没有完全按点时核实。",
-            "220 日标签重叠。截面 Rank IC 和 Top-200 价格收益探针不能证明实际成交、市场冲击或可部署组合。",
-            "Top-200 成本探针与预注册十分组验证相互独立；冻结留出就绪审计仍阻止读取绩效。",
-            "较早的 2019 年扩展年度快照来自另一份回溯重建，不属于上方修正后当前运行结果。",
-            "2026-10-02 输入审计补齐了原始与调整后报表，并实现受实际采集时间约束的版本留存。这些后来采集的数据不能证明严格历史 PIT。R&D 冻结窗口持续至 2027 年 9 月，需等全部长期标签成熟后才能解封，约在 2028 年。本次未读取冻结表现。",
-            "新增历史质量诊断与同样本分子/分母对照来自更早的重建扩展，样本数与关联指标不拼入当前修正 PIT 结果。"
+            "留存的历史资料没有包含投资者当时看到的每一版财报。研究已按公告日期对齐，但还不能确认所有历史数据都只使用当时已公开的版本；历史指数与行业生效时点也没有完全按点时核实。",
+            "220 日观察窗口彼此重叠。Rank IC 只说明两种排序是否一起变化，不是收益。Top-200 模拟也不能证明订单能按假设价格成交，或已完整计入真实市场冲击。",
+            "Top-200 模拟与预先登记的十分组验证是两项不同检查。封存的未来检验尚未通过读取绩效的准备门槛。",
+            "延伸至 2019 年的早期年度档案来自单独的历史重建，不包含在上方修正后的当前结果中。",
+            "2026-10-02 的输入核查补充了原始和调整后财报，并开始按实际采集日期留存版本。由于采集开始较晚，这无法还原严格的历史点时记录。研发未来检验期到 2027 年 9 月结束；长期结果还要等标签成熟，预计最早约在 2028 年复核。本次没有读取前瞻检验表现。",
+            "较新的质量和相同样本对照使用的是早期重建数据。它们的样本数量和结果与修正后的当前研究分开呈现。"
           ]
         }
       },
@@ -447,45 +447,45 @@
         },
         {
           "date": "2026-09-29",
-          "stage": "预注册七个变体并进行 sealed PIT 回放",
-          "stage_en": "Seven variants preregistered and replayed on sealed PIT data",
-          "note": "固定七种研发定义、公告事件可用日、月度截面和 20/220 交易日前瞻标签；保留聚合诊断。",
-          "note_en": "Fixed seven R&D definitions, announcement-event availability, monthly cross-sections, and 20/220-trading-day forward labels; retained aggregate diagnostics."
+          "stage": "预先确定七种研发算法，并按财报公开日期检查",
+          "stage_en": "Set seven R&D measures in advance and aligned them to report dates",
+          "note": "先固定七种研发算法和 20／220 个后续交易日的收益观察期，再按财报公告日期确定每项信息从何时可用。每个月末比较一次，只展示汇总结果。",
+          "note_en": "The seven R&D measures and 20/220-trading-day outcome windows were fixed first. Each input was then aligned to when its financial report became public. The study compares stocks at each month-end and displays aggregate results."
         },
         {
           "date": "2026-09-29",
-          "stage": "记录回顾性保留窗口诊断",
-          "stage_en": "Retrospective reserved-window diagnostic recorded",
-          "note": "记录 2026-04 至 2026-07 的四个月 fwd20 Top-10% 毛收益观察，七个变体均为负。该记录晚于同日预注册日志；现有证据不能独立证明窗口事先封存，故不称为前瞻或最终样本外检验。",
-          "note_en": "Recorded the four-month fwd20 Top-10% gross-return observation for 2026-04 to 2026-07; all seven variants were negative. The record postdates the preregistration log on the same day, and available evidence does not independently establish prior sealing, so this is not called prospective or final out-of-sample evidence."
+          "stage": "补记一段历史观察，不当作前瞻检验",
+          "stage_en": "Recorded a past-period check, not a prospective test",
+          "note": "补记 2026-04 至 2026-07 四个月中，按信号选出的最高十分之一股票的未扣成本收益；七种算法均为负。记录时间晚于同日预注册日志，现有材料不能证明这段数据事先封存，因此不称为前瞻或最终样本外检验。",
+          "note_en": "A later note records the before-cost returns for the highest-ranked tenth of stocks from April through July 2026; all seven measures were negative. The note was written after the preregistration entry on the same day, and the available record cannot show that this period was sealed in advance. It is therefore not treated as a prospective or final out-of-sample test."
         },
         {
           "date": "2026-09-30",
-          "stage": "修正因子定义口径并重放",
-          "stage_en": "Factor definitions corrected and replayed",
-          "note": "修正 PIT 因子定义口径后重算月度 Rank IC 与分组聚合。旧版平台 Top-200 探针、交易成本、CPCV 和最终 OOS 未随本次重放更新，因此仍为初步研究。",
-          "note_en": "Recomputed monthly Rank IC and grouped aggregates after correcting PIT factor definitions. The older platform Top-200 probe, transaction costs, CPCV, and final OOS were not rerun with this replay, so the work remains preliminary."
+          "stage": "修正研发指标定义并重新计算",
+          "stage_en": "Corrected the R&D measures and recalculated the results",
+          "note": "修正按公告日期对齐的研发指标后，重新计算月度排序相关值和分组结果。旧版 Top-200 交易模拟、成本压力检查、CPCV 历史分割检验和未来留出没有随这次重算，因此结果仍属初步研究。",
+          "note_en": "After correcting the announcement-date-aligned R&D measures, the monthly rank correlations and group results were recalculated. The older Top-200 simulation, cost checks, CPCV historical split checks, and future holdout were not rerun as part of this calculation, so the study remains preliminary."
         },
         {
           "date": "2026-10-01",
           "stage": "将历史行情回补至 2015 并检查 PIT 覆盖",
           "stage_en": "Extended the historical replay to 2015 and audited PIT coverage",
-          "note": "修正 PIT 因子定义口径后重算月度 Rank IC 与分组聚合；当时尚未更新旧版平台 Top-200、交易成本、CPCV 和最终 OOS。本阶段后续补跑见 2026-10-01 记录。",
-          "note_en": "Recomputed monthly Rank IC and grouped aggregates after correcting PIT factor definitions. At that point, the older platform Top-200 probe, costs, CPCV, and final OOS had not yet been updated; subsequent checks are recorded on 2026-10-01."
+          "note": "把历史行情延伸到 2015 年后，重新计算各月的排序相关值和分组结果。当时旧版 Top-200 模拟、成本检查、CPCV 历史分割检验和未来留出还未更新；后续检查记录在 2026-10-01。",
+          "note_en": "After extending the historical prices back to 2015, the monthly rank correlations and group results were recalculated. The older Top-200 simulation, cost checks, CPCV split checks, and future holdout had not yet been updated; the later work is recorded on 2026-10-01."
         },
         {
           "date": "2026-10-01",
-          "stage": "补充成本、推断与分母归因；封存前瞻 OOS 协议",
-          "stage_en": "Added cost, inference, and denominator attribution; froze prospective OOS protocol",
-          "note": "基于同一修正版 PIT 回放补跑固定 Top-200 成本阶梯、Newey–West HAC 与 BH 多重检验、CPCV 和研发分子/市值分母拆解。倒数市值单变量信号明显强于研发费用分子；结果仍属探索。另封存 2026-10 至 2027-09 前瞻窗口协议，待 220 日标签成熟后解封。",
-          "note_en": "Reran fixed Top-200 cost tiers, Newey–West HAC with BH adjustment, CPCV, and R&D-numerator/market-cap-denominator attribution on the corrected PIT replay. The inverse-market-cap component is stronger than the R&D expense numerator; evidence remains exploratory. Froze a 2026-10 through 2027-09 prospective window protocol, to be unsealed only after 220-day labels mature."
+          "stage": "检查交易成本、统计不确定性和市值分母影响",
+          "stage_en": "Checked trading costs, statistical uncertainty, and the market-value denominator",
+          "note": "同一份修正后样本另做了固定 Top-200 的成本对照，用 Newey–West／HAC 调整相邻月份可能相关带来的不确定性，并用 BH 方法校正同时比较多种结果的影响；也拆开检查研发费用和市值分母各自的关系。单独看时，较小市值的对应关系强于研发费用金额；结论仍属探索。另将 2026-10 至 2027-09 的未来检验期封存，等 220 日观察期结束后再评估。",
+          "note_en": "The corrected sample was also used for a fixed Top-200 cost comparison. Newey–West/HAC adjusts uncertainty when neighboring months may be related; the BH method adjusts when many results are checked together. The analysis also separates the R&D amount from its market-value denominator. On its own, smaller company size has a stronger association than R&D expense. This remains exploratory. A future test period from October 2026 through September 2027 was also sealed until the 220-day outcomes mature."
         },
         {
           "date": "2026-10-02",
           "stage": "执行与输入质量诊断",
           "stage_en": "Execution and input-quality diagnostics",
-          "note": "补充年度端点质量、行业和控制变量覆盖、同样本分子/分母对照，以及十份人工选择的财报口径核查。全天停牌证据推进了回放，但尚无完整组合路径；历史扩展不拼入当前修正结果，冻结样本外仍封存。",
-          "note_en": "Added annual endpoint quality, industry/control coverage, matched numerator/denominator comparisons, and ten deliberately selected filing checks. Full-day suspension evidence advances replay, but no complete portfolio path exists. The historical extension remains separate from the corrected screen; frozen OOS stays sealed."
+          "note": "补查年度持仓价格是否齐全、行业和其他比较字段是否存在，并在同一批公司上对照研发金额与市值影响；还人工核对了 10 份财报。找到的全天停牌记录帮助解释部分价格缺口，但仍没有完整的组合持有价格。较早历史扩展与当前修正结果分开，未来留出继续封存。",
+          "note_en": "The review checked whether annual holding prices were present, whether industry and other comparison fields were available, and how R&D amount compared with company size on the same stocks. It also manually checked ten financial reports. Explicit full-day suspension records explain some missing prices, but the study still lacks complete prices throughout a portfolio holding period. The older historical extension remains separate, and the future holdout stays sealed."
         }
       ],
       "source_url": "research/rd-investment-method.html",
@@ -557,8 +557,8 @@
         "decision": "exploratory",
         "negative_result": true,
         "resume_when": {
-          "en-US": "Resolve held-price and terminal gaps and dated eligibility before portfolio promotion; keep the prospective holdout sealed.",
-          "zh-CN": "解决持仓价格、终止事件和定时资格缺口后再评估组合；前瞻留出继续封存。"
+          "en-US": "Before using this as a portfolio, fill missing stock prices and exit values and verify which stocks qualified on each past date. Keep the future test sealed until its checks are ready.",
+          "zh-CN": "用于组合之前，先补齐缺失股价和退出结算，并核实每个历史日期符合条件的股票。未来检验期在检查条件满足前继续封存。"
         },
         "tasks": [
           {
@@ -566,12 +566,12 @@
             "priority": "P0",
             "status": "blocked",
             "action": {
-              "en-US": "Resolve held-price and terminal gaps and dated eligibility before portfolio promotion; keep the prospective holdout sealed.",
-              "zh-CN": "解决持仓价格、终止事件和定时资格缺口后再评估组合；前瞻留出继续封存。"
+              "en-US": "Before using this as a portfolio, fill missing stock prices and exit values and verify which stocks qualified on each past date. Keep the future test sealed until its checks are ready.",
+              "zh-CN": "用于组合之前，先补齐缺失股价和退出结算，并核实每个历史日期符合条件的股票。未来检验期在检查条件满足前继续封存。"
             },
             "acceptance": {
-              "en-US": "Retain an immutable audit with the named evidence gap resolved; preserve the previous decision if the gate fails.",
-              "zh-CN": "保留不可变审计并解决上述证据缺口；门槛未通过则保留原判断。"
+              "en-US": "保留带日期且不可覆盖的审计记录，逐项证明缺失价格、退出结算和股票资格问题已解决；只要仍有缺口，研究结论就维持探索阶段。",
+              "zh-CN": "保留带日期且不可覆盖的审计记录，逐项证明缺失价格、退出结算和股票资格问题已解决；只要仍有缺口，研究结论就维持探索阶段。"
             }
           },
           {

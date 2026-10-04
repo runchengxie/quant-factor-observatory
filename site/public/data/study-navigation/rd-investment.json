@@ -10,8 +10,8 @@
       "dimension": "announcement_clock",
       "status": "partial",
       "detail": {
-        "en-US": "Announcement-event reconstruction delays eligibility; full historical revision visibility remains incomplete.",
-        "zh-CN": "公告事件重建延迟可用时点；完整历史修订可见性仍不完整。"
+        "en-US": "The study uses each report only after its announcement date, but the archived reports do not include every version investors saw at the time.",
+        "zh-CN": "研究只在财报公告后使用其中的信息；但留存的财报不包含投资者当年看到的每一个版本。"
       },
       "source_refs": [
         "doc:quant-research.research.rd-investment-relative-valuation"
@@ -21,8 +21,8 @@
       "dimension": "financial_versions",
       "status": "partial",
       "detail": {
-        "en-US": "Observed-version collection is prospective; current downloads cannot restore original historical versions.",
-        "zh-CN": "观测版本采集面向未来，当前下载无法还原历史原始版本。"
+        "en-US": "Version tracking began prospectively. Today’s downloads cannot recover the exact report versions available years ago.",
+        "zh-CN": "财报版本从近期才开始持续留档；现在重新下载，无法找回多年前当时可见的原始版本。"
       },
       "source_refs": [
         "doc:quant-research.research.rd-investment-relative-valuation"
@@ -32,8 +32,8 @@
       "dimension": "historical_universe",
       "status": "partial",
       "detail": {
-        "en-US": "Industry/control checks qualify the archived panel, not independently dated all-market eligibility.",
-        "zh-CN": "行业与控制检查覆盖归档面板，不等于独立定时的全市场资格。"
+        "en-US": "Checks cover the archived stock panel. They do not yet verify, for every past date, exactly which stocks were eligible across the whole market.",
+        "zh-CN": "现有检查覆盖已归档的股票样本，但还没有逐日核实过去全市场究竟哪些股票符合纳入条件。"
       },
       "source_refs": [
         "doc:quant-research.research.rd-investment-relative-valuation"
@@ -43,8 +43,8 @@
       "dimension": "delisting_and_terminal",
       "status": "unverified",
       "detail": {
-        "en-US": "Terminal settlement and unresolved held-price gaps remain open.",
-        "zh-CN": "终止事件结算与持仓价格缺口仍待解决。"
+        "en-US": "Some held-stock prices are still missing, and the final value after a company exits the market has not been verified.",
+        "zh-CN": "部分持仓股票仍缺价格；公司退出市场后的最终结算价值也尚未核实。"
       },
       "source_refs": [
         "doc:quant-research.research.rd-investment-relative-valuation"
@@ -54,8 +54,8 @@
       "dimension": "execution_timing",
       "status": "failed",
       "detail": {
-        "en-US": "After the BSE event-code join, one original monthly sequence completes; 59 retain price gaps and ten lack growth formations. Formal validation remains blocked.",
-        "zh-CN": "北交所停牌代码对齐后，1 条原月频序列完成，59 条仍有价格缺口，10 条缺少研发增长建仓月份。正式验证继续阻断。"
+        "en-US": "After matching Beijing Stock Exchange suspension records by stock and date, 1 of the original monthly sequences has complete prices; 59 still have price gaps and 10 lack a month when the R&D-growth strategy could start. The strategy still cannot be validated as executable.",
+        "zh-CN": "按股票和日期对齐北交所停牌记录后，原有月度序列中只有 1 条价格完整；59 条仍缺价格，另有 10 条缺少研发增长策略可开始建仓的月份。因此还不能确认策略能按设定执行。"
       },
       "source_refs": [
         "doc:quant-research.research.rd-execution-input-diagnostics-20261002"
@@ -65,8 +65,8 @@
       "dimension": "transaction_costs",
       "status": "partial",
       "detail": {
-        "en-US": "Fixed-fee stress is diagnostic; fills, impact and independent dividend cash flows are absent.",
-        "zh-CN": "固定费用压力测试仅作诊断，缺少成交、冲击与独立股息现金流证据。"
+        "en-US": "A fixed-fee calculation is only a sensitivity check. There is no evidence yet for actual fills, market impact or separately accounted dividend cash flows.",
+        "zh-CN": "固定费率计算只是敏感性检查；目前没有真实成交、市场冲击或单独核算股息现金流的证据。"
       },
       "source_refs": [
         "doc:quant-research.research.rd-investment-relative-valuation"
@@ -79,12 +79,12 @@
     "code_revision": null,
     "runner_sha256": null,
     "data_version": {
-      "en-US": "Separate historical execution follow-up, reviewed 2026-10-03; existing 90/80 and corrected 77/66 signal samples are retained unchanged.",
-      "zh-CN": "独立的历史执行后续核对，复核于 2026-10-03。原 90／80 和修正后的 77／66 信号样本保持不变。"
+      "en-US": "Separate historical execution follow-up reviewed 2026-10-03. It did not change the signal samples: 90/80 in the earlier run and 77/66 in the corrected run.",
+      "zh-CN": "这是 2026-10-03 复核的独立历史执行检查，没有改动信号样本：旧版为 90／80，修正版为 77／66。"
     },
     "missing": {
-      "en-US": "A source entry or artifact hash does not certify a complete rerun; original availability, dependencies and historical eligibility must match.",
-      "zh-CN": "来源入口或产物哈希不等于完整复跑认证；原始可得性、依赖和历史资格必须一致。"
+      "en-US": "The record does not identify the exact original code revision, runner or complete input snapshot. A source link or file hash alone cannot prove that the full calculation can be reproduced.",
+      "zh-CN": "记录没有标明当时完整的代码版本、运行环境和输入数据快照。只有来源链接或文件哈希，不能证明整套计算都能复现。"
     },
     "source_refs": [
       "doc:quant-research.research.rd-investment-relative-valuation"
@@ -93,8 +93,8 @@
   },
   "decision": "exploratory",
   "resume_when": {
-    "en-US": "Resolve held-price and terminal gaps and dated eligibility before portfolio promotion; keep the prospective holdout sealed.",
-    "zh-CN": "解决持仓价格、终止事件和定时资格缺口后再评估组合；前瞻留出继续封存。"
+    "en-US": "Before treating this as a tradable portfolio, recover the missing prices and exit values and verify which stocks were eligible on each historical date. Keep the future test period sealed until its registered checks are ready.",
+    "zh-CN": "要把结果用于真实组合之前，需要补齐缺失价格和退出结算，并核实每个历史日期哪些股票符合条件。未来检验期继续封存，等预先登记的检查条件满足后再看结果。"
   },
   "next_tasks": [
     {
@@ -102,12 +102,12 @@
       "priority": "P0",
       "status": "blocked",
       "action": {
-        "en-US": "Resolve held-price and terminal gaps and dated eligibility before portfolio promotion; keep the prospective holdout sealed.",
-        "zh-CN": "解决持仓价格、终止事件和定时资格缺口后再评估组合；前瞻留出继续封存。"
+        "en-US": "Before treating this as a tradable portfolio, recover the missing prices and exit values and verify which stocks were eligible on each historical date. Keep the future test period sealed until its registered checks are ready.",
+        "zh-CN": "要把结果用于真实组合之前，需要补齐缺失价格和退出结算，并核实每个历史日期哪些股票符合条件。未来检验期继续封存，等预先登记的检查条件满足后再看结果。"
       },
       "acceptance": {
-        "en-US": "Retain an immutable audit with the named evidence gap resolved; preserve the previous decision if the gate fails.",
-        "zh-CN": "保留不可变审计并解决上述证据缺口；门槛未通过则保留原判断。"
+        "en-US": "Keep a dated, uneditable audit showing the missing prices, exit values and stock eligibility were resolved. If any gap remains, keep the study exploratory.",
+        "zh-CN": "保留带日期且不可覆盖的审计记录，逐项证明缺失价格、退出结算和股票资格问题已解决；只要仍有缺口，研究结论就维持探索阶段。"
       }
     },
     {
@@ -115,12 +115,12 @@
       "priority": "P1",
       "status": "completed",
       "action": {
-        "en-US": "Paired uncertainty, annual / size slices and calibration retained under the fixed retrospective follow-up.",
-        "zh-CN": "已按固定回溯方案保留配对不确定性、年度／规模切片与校准记录。"
+        "en-US": "Compare matched stocks and years, estimate how uncertain the differences are, and check results by year and company size. These are retrospective diagnostics.",
+        "zh-CN": "在相同股票和年份上比较结果、估计差异的不确定性，并按年份和公司规模分组检查；这些都是回看历史数据的诊断。"
       },
       "acceptance": {
-        "en-US": "Hashes and original cohort/metric reproduction checks passed; no executable return claim.",
-        "zh-CN": "哈希与原始样本／指标复现检查通过，不声称可执行收益。"
+        "en-US": "The recorded calculations and sample counts match the source files. Passing these checks does not show that the strategy can earn executable returns.",
+        "zh-CN": "计算结果和样本数量与来源文件一致。通过这些检查仍不代表策略能产生实际可成交的收益。"
       }
     },
     {
@@ -226,8 +226,8 @@
     }
   ],
   "diagnostic_note": {
-    "en-US": "Retrospective paired diagnostics: monthly circular blocks of 12 for R&D; issuer resampling within one year for forecast errors. For an R&D-minus-value or R&D-minus-inverse-size interval that spans zero, the sample cannot establish which association is stronger; this does not prove equal effects. These intervals do not remove exploratory selection, incomplete financial revisions or market-time dependence. Positive forecast MAE differences mean worse errors.",
-    "zh-CN": "回溯配对诊断：研发使用 12 个月循环区块；预测误差按年度内公司重采样。若“研发减估值”或“研发减逆规模”的区间跨零，表示样本无法判断哪种关联更强，不代表已证明效果相同。区间不能消除探索选择、不完整财报版本或市场时间依赖；预测 MAE 差值为正表示误差更大。"
+    "en-US": "These are retrospective comparisons of matched observations. For R&D, uncertainty is estimated by resampling 12-month blocks so nearby months stay together. If an R&D-minus-value or R&D-minus-inverse-size range includes zero, this sample cannot tell which association is stronger; it does not prove the effects are equal. The ranges do not undo historical exploration, restore missing report versions or remove market-wide time effects.",
+    "zh-CN": "这些是对齐样本后的历史比较。研发结果的不确定范围通过重抽连续 12 个月的区块估计，让相邻月份保留在一起。如果“研发减估值”或“研发减逆规模”的区间包含零，说明这组样本无法判断哪种关联更强，不代表效果相同。这样的范围不能消除事后探索的影响、补回缺失的财报版本，也不能排除市场整体随时间变化造成的影响。"
   },
   "scale_slices": [],
   "calibration": []

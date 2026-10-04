@@ -316,7 +316,7 @@ test('exploration pages localize new controls and evidence notes into Chinese', 
   await page.goto('studies/rd-investment')
   await page.getByRole('button', { name: 'Switch to 中文' }).click()
   await expect(page.getByText(/77 个有效 20 日月度截面和 66 个有效 220 日月度截面/)).toBeVisible()
-  await expect(page.getByText(/单独的固定 Top-200 平台探针.*12\.70%/)).toBeVisible()
+  await expect(page.locator('.study-columns')).toContainText('12.70%')
   await expect(page.getByText(/2026-10 至 2027-09 的前瞻最终 OOS 协议已封存，但性能读取仍被门槛阻止/)).toBeVisible()
   await expect(page.getByText(/历史指数与行业生效时点也没有完全按点时核实/).first()).toBeVisible()
 })
@@ -381,7 +381,7 @@ test('routes request only the public data snapshots they need', async ({ page })
   dataResponses.length = 0
   await page.goto('studies/rd-investment')
   await expect(page.getByRole('heading', { name: 'R&D Investment Relative to Valuation: Signal or Size Exposure?' })).toBeVisible()
-  expect(dataResponses.map((response) => response.name)).toEqual(['research-studies.json', 'rd-investment-annual.json'])
+  await expect.poll(() => dataResponses.map((response) => response.name).sort()).toEqual(['research-studies.json', 'rd-investment-annual.json'].sort())
 })
 
  test('research conclusions precede evidence and methods', async ({ page }) => {
@@ -407,7 +407,7 @@ test('all fundamental studies show source-backed exploration and optional charts
   for (const id of ids) {
     await page.goto(`/studies/${id}`)
     await expect(page.getByRole('heading', { name: 'How the evidence developed' })).toBeVisible()
-    await expect(page.locator('.study-exploration-steps > li')).toHaveCount(id === 'rd-investment' ? 7 : id === 'employee-compensation' ? 4 : 3)
+    await expect(page.locator('.study-exploration-steps > li')).toHaveCount(id === 'rd-investment' ? 8 : id === 'employee-compensation' ? 4 : 3)
     if (id === 'employee-compensation') {
       await expect(page.locator('.study-evidence-summary')).toContainText('Source matches recorded baseline')
     }
