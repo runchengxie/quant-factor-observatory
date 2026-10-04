@@ -26,7 +26,7 @@ export const rdInvestmentCopy: Record<Locale, RdInvestmentCopy> = {
   'en-US': {
     eyebrow: 'PLAIN-LANGUAGE GUIDE',
     title: 'What was measured',
-    lead: 'The study asks whether companies that spend more on research and development (R&D), relative to their size, tend to have better future stock returns. The early results looked promising, but a high R&D-to-market-value ratio can also happen because a company is small or its share price has fallen. The current evidence does not yet separate these explanations or show that the pattern can be traded.',
+    lead: 'The study asks whether companies that spend more on research and development (R&D), relative to their size, tend to have better future stock returns. The main measure is R&D / market cap (TTM R&D expense divided by equity market capitalization): recent twelve-month R&D spending divided by stock-market value. A high ratio can mean more R&D, a smaller company, or a lower share price. The current evidence does not yet separate these explanations or show that the pattern can be traded.',
     variantsTitle: 'What each comparison means',
     variantNameLabel: 'Name shown in the chart',
     variantExplanationLabel: 'In plain language',
@@ -39,7 +39,7 @@ export const rdInvestmentCopy: Record<Locale, RdInvestmentCopy> = {
       ['R&D growth', 'Change in recent R&D expense compared with the same rolling period one year earlier.'],
     ],
     rankIcTitle: 'What does Rank IC mean here?',
-    rankIcNote: 'At each month-end, the study ranks eligible companies by an R&D measure and compares that order with their later stock-return order. Rank IC is the rank correlation between those two lists. The reported value is the average across monthly comparisons, shown as a percentage. For example, 12.81% means a correlation of 0.1281; it is not a 12.81% stock return. The 20- and 220-trading-day results use different samples: 77 and 66 valid monthly comparisons (valid monthly cross-sections in the source), with median sample sizes of about 4,454 and 4,230 stocks. The 220-day outcome windows overlap, so those monthly results are not independent.',
+    rankIcNote: 'At each month-end, the study ranks eligible companies by an R&D measure and compares that order with their later stock-return order. Rank IC is the rank correlation between those two lists. The reported value is the average across monthly comparisons, shown as a percentage. For example, 12.81% means a correlation of 0.1281; it is not a 12.81% stock return. The study contains 77 usable month-end comparisons for the 20-day outcome and 66 for the 220-day outcome, with median sample sizes of about 4,454 and 4,230 stocks. The 220-day outcome windows overlap, so those monthly results are not independent.',
     timingTitle: 'When information and returns enter the comparison',
     timingNotes: [
       'TTM means trailing twelve months. For cumulative financial statements, the study estimates a rolling twelve-month amount as: current year-to-date + prior full-year − prior-year same-period year-to-date. An annual filing supplies its full-year amount directly.',
@@ -71,7 +71,7 @@ export const rdInvestmentCopy: Record<Locale, RdInvestmentCopy> = {
       ['研发增长', '把最近 12 个月研发费用与一年前相同滚动期间比较，计算其变化。'],
     ],
     rankIcTitle: '这里的 Rank IC 是什么？',
-    rankIcNote: '每个月末，研究先按某个研发指标给符合条件的公司排序，再看这些公司的后续股票收益排序是否相似。两份名单排序的相关程度叫 Rank IC（月度秩相关）。图表报告的是各月相关值的平均数，并以百分比显示。比如 12.81% 实际对应相关系数 0.1281，不是股票涨了 12.81%。20 日和 220 日结果使用不同样本：分别有 77 个和 66 个有效月度比较（原记录称为 77 个有效 20 日月度截面和 66 个有效 220 日月度截面），每期股票数中位数约为 4,454 和 4,230 只。220 日结果的观察窗口彼此重叠，因此各月结果不是互相独立的样本。',
+    rankIcNote: '每个月末，研究先按某个研发指标给符合条件的公司排序，再看这些公司的后续股票收益排序是否相似。两份名单排序的相关程度叫 Rank IC（月度秩相关）。图表报告的是各月相关值的平均数，并以百分比显示。比如 12.81% 实际对应相关系数 0.1281，不是股票涨了 12.81%。20 日和 220 日结果使用不同样本：分别有 77 个和 66 个月度比较，每期股票数中位数约为 4,454 和 4,230 只。220 日结果的观察窗口彼此重叠，因此各月结果不是互相独立的样本。',
     timingTitle: '财报何时可用，收益又从哪天开始算？',
     timingNotes: [
       'TTM 是“最近连续 12 个月”。财报若按年内累计披露，研究用“本年年初至今累计 + 上一完整年度 − 上年同期累计”估算最近 12 个月；年报直接采用全年数值。',

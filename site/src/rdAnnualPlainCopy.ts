@@ -42,7 +42,7 @@ export const rdAnnualPlainCopy: Record<Locale, Partial<RdAnnualCopy>> = {
       observed: 'Reconstructed from available records',
       reconstructed_backfill: 'Retrospective backfill (older data added later)',
       partial_year: 'Partial year',
-      no_mature_labels: 'Return window has not finished',
+      no_mature_labels: 'Labels not mature (return window has not finished)',
     },
   },
   'zh-CN': {
@@ -50,7 +50,7 @@ export const rdAnnualPlainCopy: Record<Locale, Partial<RdAnnualCopy>> = {
     title: '逐年因子表现',
     description: '每根柱子汇总这一年里每月的比较：先按研发指标给股票排序，再看之后的收益排序是否相似。它显示两种排序是否同向变化，不代表组合赚了多少。',
     extensionTitle: '独立的历史扩展',
-    extensionDescription: '这项回溯扩展使用数据版本 {vintage}，行情请求从 {start} 起、更新到 {end}。它不属于上方修正后的当前 PIT 回放结果。',
+    extensionDescription: '这项回溯扩展使用数据版本 {vintage}，行情请求从 {start} 起、更新到 {end}。它不属于当前修正后的 PIT 回放结果。',
     publicNotice: '旧财报的每一个历史版本并未全部留存。不同月份和年份的观察可能互相重叠，因此这张图不能证明这种关系会在新数据里继续出现。',
     factorLabel: '因子变体',
     horizonLabel: '预测窗口',
