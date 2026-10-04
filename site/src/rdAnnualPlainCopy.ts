@@ -81,10 +81,9 @@ export const rdAnnualPlainCopy: Record<Locale, Partial<RdAnnualCopy>> = {
     },
     statuses: {
       missing_lookback: '缺少足够的历史数据',
-      below_minimum_cross_section: '可比较的股票太少',
+      below_minimum_cross_section: '截面样本不足（可比较股票太少）',
       no_eligible_cross_section: '该年没有符合条件的股票',
       observed: '回溯重建数据',
-      below_minimum_cross_section: '截面样本不足（可比较股票太少）',
       reconstructed_backfill: '回溯重建（事后补齐的较早数据）',
       partial_year: '只有部分月份',
       no_mature_labels: '收益观察期尚未结束',
