@@ -26,7 +26,7 @@ export const rdInvestmentCopy: Record<Locale, RdInvestmentCopy> = {
   'en-US': {
     eyebrow: 'PLAIN-LANGUAGE GUIDE',
     title: 'What was measured',
-    lead: 'The study asks whether companies that spend more on research and development (R&D), relative to their size, tend to have better future stock returns. The main measure is R&D / market cap (TTM R&D expense divided by equity market capitalization): recent twelve-month R&D spending divided by stock-market value. A high ratio can mean more R&D, a smaller company, or a lower share price. The current evidence does not yet separate these explanations or show that the pattern can be traded.',
+    lead: 'The main measure is R&D / market cap: recent twelve-month R&D expense divided by the company’s stock-market value. Because market value is in the denominator, the ratio can rise when R&D spending increases or when the share price and market value fall. The current evidence does not yet separate these explanations or show that the pattern can be traded.',
     variantsTitle: 'What each comparison means',
     variantNameLabel: 'Name shown in the chart',
     variantExplanationLabel: 'In plain language',
@@ -58,7 +58,7 @@ export const rdInvestmentCopy: Record<Locale, RdInvestmentCopy> = {
   'zh-CN': {
     eyebrow: '先用大白话读懂这项研究',
     title: '这项研究到底想知道什么？',
-    lead: '研究要回答的是：相对于公司规模，研发投入更多的公司，之后的股票收益是否也更好？早期结果看起来不错，但“研发费用 / 市值”较高，可能是研发费用多，也可能是公司市值小、股价跌了，或两者同时发生。现有证据还不能把这些原因分开，也没有证明这种关系能实际交易。',
+    lead: '先看指标怎么算：最近 12 个月研发费用 ÷ 公司股票总市值。市值是分母，所以研发费用不变时，股价下跌、市值变小也会让这个比例升高。现有结果同时反映研发支出和市值变化，还不能把两者的影响分开，也没有证明这种关系能实际交易。',
     variantsTitle: '表格里的几种研发指标分别是什么？',
     variantNameLabel: '图表原名',
     variantExplanationLabel: '简单解释',
