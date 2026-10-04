@@ -591,7 +591,7 @@
       "unit": "percent",
       "context": {
         "en-US": "This is a separate reconstructed historical extension through 2026-09-30, not the corrected current run. It has 90 usable monthly comparisons for 20 days and 80 for 220 days. All six measures use the same companies on each date, so changing sample membership does not explain their differences. The chart shows ranking correlations, not portfolio returns.",
-        "zh-CN": "这是截至 2026-09-30 的独立历史扩展，是另一份早期重建，不属于当前修正后的回放。20 日有 90 个可用月度比较，220 日有 80 个。每个日期的六项指标都使用完全相同的公司，因此差异不会只是股票样本变了造成的。图中是排序相关，不是组合收益。"
+        "zh-CN": "这是截至 2026-09-30 的独立的历史扩展，是另一份早期重建，不属于当前修正后的回放。20 日有 90 个可用月度比较，220 日有 80 个。每个日期的六项指标都使用完全相同的公司，因此差异不会只是股票样本变了造成的。图中是排序相关，不是组合收益。"
       },
       "interpretation": {
         "en-US": "“Inverse size” means negative log market value: the higher its score, the smaller the company. In this sample, smaller company size and valuation each have a stronger one-at-a-time association than the R&D amount. Earlier checks that considered these factors together gave a different result. Association alone does not show which factor caused the pattern.",
