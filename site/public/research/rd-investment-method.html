@@ -11,14 +11,16 @@
 <body><main class="page">
   <p><a href="../studies/rd-investment">← Back to the R&amp;D investment study / 返回研发投入研究页</a></p>
   <h1>R&amp;D investment relative to valuation</h1>
-  <p class="stamp">Public method note · aggregate evidence only · updated 2026-10-01<br>公开方法说明 · 仅聚合证据 · 更新于 2026-10-01</p>
+  <p class="stamp">Public method note · aggregate evidence only · updated 2026-10-04<br>公开方法说明 · 仅聚合证据 · 更新于 2026-10-04</p>
   <section class="panel"><h2>Research question / 研究问题</h2>
-    <p>This exploratory study asks whether R&amp;D expense scaled by market value contains cross-sectional information about future returns, and whether it remains after exposure controls. A high ratio can reflect more R&amp;D, a lower market value, or both.</p>
-    <p>本探索性研究考察研发费用相对市值是否包含未来收益的截面信息，以及控制常见暴露后是否仍有信息。比值升高既可能来自研发费用增加，也可能来自市值下降，或二者同时发生。</p>
+    <p>This study asks whether companies spending more on research and development (R&amp;D) for their size tend to have better later stock returns. It also checks whether that relationship remains after accounting for size, valuation, leverage, momentum and industry. A high R&amp;D-to-market-value ratio can come from more R&amp;D spending, a lower market value, or both. The evidence below is exploratory and does not show that the pattern can be traded.</p>
+    <p>这项研究想知道：相对于公司规模，研发投入更多的公司，之后的股票收益是否也更好？研究还会检查，在考虑公司大小、估值、杠杆、动量和行业后，这种关系是否还存在。“研发费用 / 市值”较高，可能因为研发费用高，也可能因为市值低，或两者同时发生。以下证据仍属探索性，尚未证明这种关系能实际交易。</p>
   </section>
   <section class="panel"><h2>Current corrected PIT result / 当前修正 PIT 结果</h2>
-    <p>The corrected announcement-event PIT replay uses horizon-specific samples with 77 valid monthly cross-sections for 20-day labels and 66 for 220-day labels. Median cross-sectional sizes are approximately 4,454 and 4,230 stocks.</p>
-    <p>修正后的公告事件 PIT 回放按期限使用不同样本：20 日标签有 77 个有效月度截面，220 日标签有 66 个；每期股票数中位数约为 4,454 和 4,230。</p>
+    <p>The corrected replay aligns each financial input to its announcement date. It contains 77 usable month-end comparisons for the next-20-trading-day outcome and 66 for the next-220-day outcome. Each month has a median of about 4,454 and 4,230 eligible stocks, respectively.</p>
+    <p>修正后的回放按财报公告日期对齐输入。未来 20 个交易日收益有 77 个月末可比较，未来 220 日有 66 个月末可比较。每个月符合条件的股票数中位数分别约为 4,454 和 4,230 只。</p>
+    <p>Rank IC compares two rankings: the order of companies by an R&amp;D measure and the order by their later stock returns. The table reports the average rank correlation across months as a percentage. For example, 12.81% is a correlation of 0.1281; it is not a 12.81% return. The 220-day windows overlap, so neighboring monthly comparisons share some return days.</p>
+    <p>Rank IC 比较两份排序：一份按研发指标排列公司，另一份按之后的股票收益排列。表中百分数是各月排序相关值的平均数。例如，12.81% 表示相关系数 0.1281，不是收益率 12.81%。220 日窗口彼此重叠，因此相邻月份会共用部分收益日期。</p>
     <table><thead><tr><th>Factor / 因子</th><th>20-day Rank IC</th><th>220-day Rank IC</th></tr></thead><tbody>
       <tr><td>R&amp;D / market capitalization · 研发 / 市值</td><td>4.85%</td><td>12.81%</td></tr>
       <tr><td>R&amp;D / EV proxy · 研发 / EV 代理</td><td>4.71%</td><td>12.62%</td></tr>
@@ -28,20 +30,21 @@
       <tr><td>R&amp;D / assets · 研发 / 资产</td><td>0.55%</td><td>1.89%</td></tr>
       <tr><td>R&amp;D growth · 研发增长</td><td>-0.07%</td><td>-2.57%</td></tr>
     </tbody></table>
-    <p>The result is an exploratory ranking diagnostic, not a return estimate. The 220-day labels overlap, and the historical statement-revision chain remains incomplete.</p>
-    <p>这些结果是探索性排序诊断，不是收益估计。220 日标签相互重叠，历史财报修订链仍不完整。</p>
+    <p>The result describes how two rankings moved together in this sample. It is not an estimate of investor return, does not establish that R&amp;D caused the relationship, and has not been shown to survive real trading costs.</p>
+    <p>这些数值说明在当前样本里两种排序如何一起变化，不是投资者收益估计；它不能证明研发造成了这种关系，也没有证明扣除真实交易成本后仍然成立。</p>
   </section>
   <section class="panel"><h2>Point-in-time and label rules / PIT 与标签口径</h2>
     <ul>
-      <li>Year-to-date income fields are converted to TTM using current YTD + prior full-year − prior-year same-period YTD; annual filings use the full-year value.<br>利润表年初至今累计值按“本年累计 + 上一完整年度 − 上年同期累计”还原为 TTM；年报直接使用全年值。</li>
-      <li>The corrected PIT replay retains announcement-event availability and forms signals at month-end. The 20- and 220-day outcomes use subsequent trading-session prices; they omit transaction costs and do not establish executable fills.<br>修正 PIT 回放保留公告事件可用日，并在月末形成信号。20 日和 220 日结果使用后续交易日价格，不含交易成本，也不能证明实际可成交。</li>
-      <li>The EV measure is a covered-fields proxy, not a complete enterprise-value reconstruction. The capitalized-R&amp;D factor accumulates reconstructed quarterly flows with a five-year decay schedule.<br>EV 为按可覆盖字段构造的代理，并非完整企业价值重建。资本化研发因子以还原的季度流量按五年衰减方案累计。</li>
+      <li>TTM means “trailing twelve months.” For year-to-date (YTD) income-statement totals, the estimate is current YTD + prior full-year − prior-year same-period YTD. An annual filing contributes its reported full-year value.<br>TTM 指“最近连续 12 个月”。利润表年初至今（YTD）累计值按“本年累计 + 上一完整年度 − 上年同期累计”估算；年报直接采用全年值。</li>
+      <li>PIT means “point in time”: use a filing only after it became public. This replay treats the next calendar day after announcement as the available date, carries the latest filing forward for at most 540 days, and forms the signal at month-end. The 20- and 220-day outcomes use later trading-session prices, before trading costs; the assumed prices are not confirmed fills.<br>PIT 指“点时”：财报公开后才能使用。本次回放把公告次日视为可用日，最近一期财报最多沿用 540 天，并在月末形成信号。20 日和 220 日结果按之后的交易日价格计算，未扣交易成本；这些假设价格不代表实际成交。</li>
+      <li>R&amp;D / market cap divides recent R&amp;D expense by stock-market value. The EV measure divides by a proxy built from the debt and cash fields available in the source; it is not a complete enterprise-value calculation. The capitalized-R&amp;D measure accumulates estimated quarterly spending over five years, reducing older spending by an assumed 20% each year.<br>“研发 / 市值”是最近 12 个月研发费用除以股票总市值。EV 指标的分母根据来源中可用的债务和现金字段估算，不是完整企业价值。资本化研发指标把估算的季度研发费用按五年累计，假设较早费用每年衰减 20%。</li>
+      <li>The archived financial statements do not preserve every version investors saw at the time. Announcement-date alignment helps avoid using a report before it was public, but does not repair the incomplete revision history. Historical index membership and industry dates also need review.<br>归档财报没有保存投资者当时看到的每一个版本。按公告日期对齐可避免提前使用尚未公开的报告，但无法补回不完整的历史修订版本；历史指数成分和行业日期也仍需核查。</li>
     </ul>
   </section>
   <section class="panel"><h2>Evidence limits and next gate / 证据边界与后续门槛</h2>
     <ul>
       <li>The corrected replay remains exploratory. Historical financial revisions, point-in-time universe and industry dates, market impact, and actual execution are not fully verified.<br>修正回放仍属探索性研究。历史财报修订、股票池和行业点时日期、市场冲击及实际成交均未完全核实。</li>
-      <li>A separate fixed Top-200 platform probe at 25 bp one-way modeled cost reports 12.70% annualized return, 0.57 Sharpe, and -25.75% max drawdown across 89 holding periods. This probe is not the registered decile validation or a production portfolio.<br>单独的固定 Top-200 平台探针在单边模型成本 25 bp 下，89 个持有区间年化收益为 12.70%、Sharpe 为 0.57、最大回撤为 -25.75%。该探针不是预注册十分组验证，也不是生产组合。</li>
+      <li>A separate fixed Top-200 trading simulation reports 12.70% annualized return, Sharpe 0.57 and maximum drawdown −25.75% across 89 holding periods, using a modeled one-way cost of 25 basis points (0.25%). Annualized return expresses a multi-period result on a yearly scale; maximum drawdown is the largest fall from a previous portfolio high. The source does not provide enough detail here to reproduce the Sharpe calculation. This simulation is separate from the ten-group validation and is not an actual account or production portfolio.<br>另一个固定 Top-200 交易模拟报告了 89 个持有区间：年化收益 12.70%、Sharpe 0.57、最大回撤 −25.75%，并假设单边模型成本为 25 个基点（0.25%）。年化收益是把多个区间的结果换算到一年尺度；最大回撤是组合净值从此前高点到之后低点的最大跌幅。来源没有给出足够细节供读者复算 Sharpe。这项模拟与十分组验证分开，不是实际账户或正式运行的组合。</li>
       <li>The frozen October 2026–September 2027 final-OOS protocol remains blocked from performance reading. No frozen holdout metrics have been produced.<br>2026 年 10 月至 2027 年 9 月冻结最终 OOS 协议仍不允许读取绩效，目前没有生成冻结留出指标。</li>
       <li>An earlier public annual snapshot contains a separate 2019 retrospective reconstruction extension. It is not part of the corrected current-run summary and is not revision-safe.<br>较早的公开年度快照含有独立的 2019 年回溯重建扩展；它不属于修正后的当前运行汇总，也不是修订安全证据。</li>
     </ul>

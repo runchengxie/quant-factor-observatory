@@ -1,5 +1,6 @@
 import { useState } from 'react'
 import { useLocale } from '../i18n'
+import { rdAnnualPlainCopy } from '../rdAnnualPlainCopy'
 import type { RdAnnualEvidence, RdAnnualSeries } from '../types'
 
 const FACTORS = ['rd_mv', 'rd_mv_resid', 'rd_ev', 'rd_capitalized', 'rd_sales', 'rd_assets', 'rd_growth']
@@ -14,7 +15,7 @@ function findSeries(data: RdAnnualEvidence, factor: string, horizon: string): Rd
 
 export function RdAnnualEvidencePanel({ data }: { data: RdAnnualEvidence }) {
   const { locale, copy } = useLocale()
-  const labels = copy.rdAnnual
+  const labels = { ...copy.rdAnnual, ...rdAnnualPlainCopy[locale] } as typeof copy.rdAnnual
   const [factor, setFactor] = useState('rd_mv')
   const [horizon, setHorizon] = useState<'fwd20' | 'fwd220'>('fwd20')
   const series = findSeries(data, factor, horizon)
