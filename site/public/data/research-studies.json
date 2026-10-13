@@ -1002,7 +1002,7 @@
       "source_ref": "doc:quant-research.research.cashflow-indices-map",
       "exploration_asset": "data/study-exploration/cashflow-indices.json",
       "exploration_counts": {
-        "steps": 3,
+        "steps": 4,
         "charts": 2
       },
       "evidence_summary": {

@@ -143,13 +143,13 @@
         }
       ],
       "study_id": "cashflow-indices",
-      "source_revision": "da977d8ab47857f9cf5b1c57c21291e30630e90f",
-      "catalog_sha256": "51a42d24f00d0006649f649efee8ddad40d09ebb3312097a3f9ebb42662e62d9",
-      "exploration_sha256": "fb20a5f5aa50ee3e545e2451a9db7f02a4a7d910ca49e61f123ca55a1deae45e",
+      "source_revision": "1ef2ef9f4718c17c27030f7044c517f68c8e4b26",
+      "catalog_sha256": "6bfbdaafc752da1dedb39119bb40198cf3aed93c38af6a6fe91cb42474dd6930",
+      "exploration_sha256": "cb186e89732cf8d6a92bf9711d0e84ab31d66ba957b0e7ccb02dda40e4f3b2f2",
       "sources": [
         {
           "source_ref": "doc:quant-research.research.cashflow-indices-map",
-          "sha256": "fe0a80ba7de2edd184d435c7ec930e2b153abfe228c8605641d3f76e92a44fed"
+          "sha256": "3942ca7ab9f7a506b451e226f7650e5dacbefe7f6e1c48dfd7082e7dcb945da5"
         },
         {
           "source_ref": "doc:quant-research.research.cashflow-indices.current-status",
@@ -157,7 +157,7 @@
         },
         {
           "source_ref": "doc:quant-research.decision.long-term-fundamental-v2-20260904",
-          "sha256": "6396f251c0ebd9f15827bf53255951d94635c2f76a50843610fb1f8f54de8e45"
+          "sha256": "2b944cd9718a00cb7db67d98e1d4f5ff4ce7b294a847ad49dc11a56ea37eaca4"
         }
       ]
     },
