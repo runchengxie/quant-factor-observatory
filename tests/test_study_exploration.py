@@ -54,6 +54,16 @@ class StudyExplorationTests(unittest.TestCase):
             for private_key in ('ticker', 'symbol', 'portfolio_weights', 'source_path', 'raw_path'):
                 self.assertNotIn(f'"{private_key}"', text)
 
+    def test_official_membership_does_not_claim_historical_weights(self):
+        data = self.asset('cashflow-indices')
+        step = next(s for s in data['steps'] if s['id'] == 'official-membership-boundary')
+        self.assertIn('nine', step['finding']['en-US'])
+        self.assertIn('2024-09-18', step['finding']['en-US'])
+        self.assertIn('no historical weights', step['finding']['en-US'])
+        self.assertIn('历史权重', step['finding']['zh-CN'])
+        self.assertIn('not', step['decision']['en-US'])
+        self.assertEqual(data['charts'][0]['series'][0]['values'][0], .1699)
+
     def test_protocol_and_hypothesis_publish_no_performance_chart(self):
         for study_id in ('fundamental-family-shadow', 'employee-compensation'):
             self.assertEqual(self.asset(study_id)['charts'], [])
