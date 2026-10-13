@@ -63,25 +63,29 @@
     },
     {
       "brief_sha256": "86125704199130929808587aedc1f7bcf0dd7d3efbf04192c34f21a1587f148a",
-      "navigation_sha256": "d93066667e823d4463e4c1c72caf73b7d34e3c27954542428ded778410d69f7c",
+      "navigation_sha256": "008cb936082b778323915ee97200c49b80de655f2a14da028da686187fda0bc9",
       "navigation_sources": [
         {
+          "source_ref": "doc:quant-research.experiment.forecast-followup-20261014",
+          "sha256": "92f74a5458f912e0f91fbf7954155fa9aefa0ea38ca4ea4927b7caa63f0eca6b"
+        },
+        {
           "source_ref": "doc:quant-research.research.fundamental-evidence-navigation",
-          "sha256": "b7298209163a134ea9b688c8686bdbd5047027ccfd4d2e9ef6d002a6b279fb4a"
+          "sha256": "568dbd69a885e19d317e830d882ccebc3f9c8bdce5bfdccca3fa1ec06b5b0c33"
         },
         {
           "source_ref": "doc:quant-research.research.long-term-fundamental-v2",
-          "sha256": "fc7b26ea22aec8d236aadb4170b59048da25f67179e4be4a35e9a797724fd32d"
+          "sha256": "230c8efdef63d6862ce12f233e380b5a80639b7054beb79150082df199f14f9e"
         }
       ],
       "study_id": "fundamental-state-forecasting",
-      "source_revision": "ca346b2e35748a9c16bd06d9721e393f75dc0bdd",
-      "catalog_sha256": "f29441fc6fd92c653e4c6cf8f03d55c374d0e08cd5e53b34b4ca144d922d3434",
-      "exploration_sha256": "b660701d17839ac463992e245c1366d5c8d5867f4425cd7c102e1d12997558fb",
+      "source_revision": "cff2c532bea215ca2d551452b99ddc1dfc08f9fb",
+      "catalog_sha256": "a718668815d3a9e4493084883f4d72aeabcff10ffe608d76c49670dfa397d121",
+      "exploration_sha256": "7660215f47525f90a6367ad4815fc90b6a9a587a76b02c87b737d3df92f8e421",
       "sources": [
         {
           "source_ref": "doc:quant-research.research.long-term-fundamental-v2",
-          "sha256": "fc7b26ea22aec8d236aadb4170b59048da25f67179e4be4a35e9a797724fd32d"
+          "sha256": "230c8efdef63d6862ce12f233e380b5a80639b7054beb79150082df199f14f9e"
         },
         {
           "source_ref": "doc:quant-research.experiment.fundamental-objective-comparison-20260904",
@@ -94,6 +98,10 @@
         {
           "source_ref": "doc:quant-research.experiment.growth-cash-objective-comparison-20260904",
           "sha256": "eb4423edff436e46b00cc09f90081453c187b63a11b76507fec42f63926dcd10"
+        },
+        {
+          "source_ref": "doc:quant-research.experiment.forecast-followup-20261014",
+          "sha256": "92f74a5458f912e0f91fbf7954155fa9aefa0ea38ca4ea4927b7caa63f0eca6b"
         }
       ]
     },

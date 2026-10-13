@@ -1,9 +1,10 @@
+import { isForecastGuide, type ForecastGuideData } from './forecastGuide'
 import type { Locale } from './i18n'
 
 export type BilingualText = Record<Locale, string>
 export type ExplorationStep = { id: string; period: BilingualText; status: string; title: BilingualText; question: BilingualText; finding: BilingualText; decision: BilingualText; source_ids: string[] }
 export type ExplorationChart = { id: string; title: BilingualText; metric: BilingualText; context: BilingualText; interpretation: BilingualText; unit: 'number' | 'percent'; categories: BilingualText[]; series: { id: string; label: BilingualText; values: (number | null)[] }[]; source_ids: string[] }
-export type StudyExplorationData = { conclusion_changes?: import("./researchHub").ConclusionChange[]; schema_version: string; study_id: string; source_ref: string; source_revision: string; reviewed_at: string; evidence_stage: string; summary: BilingualText; next_question: BilingualText; sources: { id: string; source_ref: string; label: BilingualText }[]; steps: ExplorationStep[]; charts: ExplorationChart[] }
+export type StudyExplorationData = { guide?: ForecastGuideData; conclusion_changes?: import("./researchHub").ConclusionChange[]; schema_version: string; study_id: string; source_ref: string; source_revision: string; reviewed_at: string; evidence_stage: string; summary: BilingualText; next_question: BilingualText; sources: { id: string; source_ref: string; label: BilingualText }[]; steps: ExplorationStep[]; charts: ExplorationChart[] }
 
 export function isStudyExploration(value: unknown, studyId: string, sourceRef?: string): value is StudyExplorationData {
   if (!value || typeof value !== 'object') return false
@@ -18,5 +19,6 @@ export function isStudyExploration(value: unknown, studyId: string, sourceRef?: 
   if (sourceIds.size !== data.sources.length) return false
   if (!data.steps.every((s) => s && typeof s.id === 'string' && ['diagnostic', 'protocol', 'pending', 'archive', 'hypothesis'].includes(s.status) && text(s.period) && text(s.title) && text(s.question) && text(s.finding) && text(s.decision) && sources(s.source_ids))) return false
   if (data.conclusion_changes && (!Array.isArray(data.conclusion_changes) || !data.conclusion_changes.every(c => c && typeof c.id === 'string' && typeof c.kind === 'string' && text(c.period) && text(c.before) && text(c.trigger) && text(c.after) && sources(c.source_ids)))) return false
+  if (data.guide && (studyId !== 'fundamental-state-forecasting' || !isForecastGuide(data.guide) || !sources(data.guide.source_ids))) return false
   return data.charts.every((c) => c && typeof c.id === 'string' && text(c.title) && text(c.metric) && text(c.context) && text(c.interpretation) && ['number', 'percent'].includes(c.unit) && sources(c.source_ids) && Array.isArray(c.categories) && c.categories.length > 0 && c.categories.every(text) && Array.isArray(c.series) && c.series.length > 0 && c.series.every((s) => s && typeof s.id === 'string' && text(s.label) && Array.isArray(s.values) && s.values.length === c.categories.length && s.values.every((v) => v === null || (typeof v === 'number' && Number.isFinite(v)))))
 }

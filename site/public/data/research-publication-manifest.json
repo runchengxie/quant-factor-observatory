@@ -1,6 +1,6 @@
 {
   "schema_version": "observatory.research_publication.v1",
-  "generated_at": "2026-10-04",
+  "generated_at": "2026-10-14",
   "source_repository": "quant-research",
   "source_manifest": "docs/research/knowledge-pilot.yml",
   "projections": [
@@ -198,7 +198,8 @@
         "next_tasks",
         "diagnostic_intervals",
         "scale_slices",
-        "calibration"
+        "calibration",
+        "forecast_guide"
       ],
       "excluded_fields": [
         "private_data_paths",
@@ -208,7 +209,7 @@
         "private_code"
       ],
       "exploration_asset": "data/study-exploration/fundamental-state-forecasting.json",
-      "exploration_reviewed_at": "2026-10-02",
+      "exploration_reviewed_at": "2026-10-14",
       "navigation_asset": "data/study-navigation/fundamental-state-forecasting.json"
     },
     {

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-02",
+  "updated_at": "2026-10-13T23:52:37+00:00",
   "studies": [
     {
       "id": "pb-roe",
@@ -611,49 +611,49 @@
       "status": "preliminary",
       "translations": {
         "zh-CN": {
-          "title": "基本面状态预测：从财务预测到截面选股",
+          "title": "预测未来财务表现，能帮助选股吗",
           "family": "基本面预测与经营质量",
           "status_label": "回溯诊断",
-          "summary": "研究预测未来 ROA、毛利率、营收增速、净利润增速及现金转化，再检验预测能否改善截面排序和组合。盈利状态有较强持续性，但复杂模型没有稳定超过 persistence；一次净利润增速的正向比较没有在后续同折复核中稳定复现。",
-          "period": "2026-09-02 至 2026-09-04；一年与 1–4 季度预测目标",
-          "source_note": "来源：基本面状态预测与长期基本面 v2 研究记录。预测准确度不等同于股票收益证据。",
+          "summary": "我们想知道，提前预测公司的盈利能力、营收增长和现金流，能否帮助选股。已有实验中，沿用最新财报数值是很强的对照，复杂模型没有稳定超过它。10 月 14 日补跑的变化预测也没有显示一致优势，历史组合仍未证明预测信息能持续改善收益。",
+          "period": "历史预测测试的财报所属期覆盖 2012 至 2025 年，各目标与期限范围不同。原实验运行于 2026 年 9 月 2 至 4 日，复核与变化实验运行于 10 月 14 日。",
+          "source_note": "来源包括原始预测实验、10 月 14 日重新核算的历史输出和另行登记的变化预测实验。财务预测能力和股票收益分别检验。",
           "columns": [],
           "rows": [],
           "findings": [
-            "ROA 和毛利率水平具有较强持续性，XGBoost 未稳定超过 persistence。",
-            "营收增速预测能力随期限衰减；净利润增速结果依样本面板变化。",
-            "预测转组合的历史桥接表现不稳定，尚未建立稳定投资增量。"
+            "ROA 和毛利率的高低顺序较有持续性，沿用最新财报数值很难被超过。",
+            "现金流的一季度两两排序有局部改善，41 个测试期赢了 22 个，其他期限没有保持。",
+            "直接预测变化没有显示一致优势。历史净收益已经核对，期末回撤补入初始资金后更深。"
           ],
           "limits": [
-            "公告时点重建不等于供应商完整修订历史；长周期标签重叠且组合样本偏短。",
-            "当前来源没有单独验证未来营收或净利润绝对值预测作为截面选股因子的研究；该方向仍需找到原始实验记录。",
-            "结果属于回溯诊断，不是成熟前瞻样本外或生产审批。"
+            "公告日期重建仍缺少供应商完整历史版本，长周期标签存在重叠。新实验还保留会计极值与数值警告。",
+            "营收、净利润绝对值预测已有独立专题，使用另一套目标与样本，需分别阅读。",
+            "历史组合缺少同条件的当前基本面对照，资格、退市处理与实际成交仍待核实。结果属于历史诊断。"
           ]
         },
         "en-US": {
           "title": "Fundamental-state forecasting: from financial predictions to cross-sectional selection",
           "family": "Fundamental forecasting and operating quality",
           "status_label": "Retrospective diagnostic",
-          "summary": "The study forecasts future ROA, gross margin, revenue growth, net-profit growth, and cash conversion, then tests whether forecasts improve cross-sectional ranking and portfolios. Profitability states are persistent, but complex models did not consistently beat persistence. A positive net-profit-growth comparison did not remain stable in the later common-fold review.",
-          "period": "September 2–4, 2026; annual and one-to-four-quarter forecast targets",
-          "source_note": "Source: the fundamental-state forecasting and long-term fundamental v2 research records. Forecast accuracy is not treated as stock-return evidence.",
+          "summary": "We test whether forecasts of operating quality, growth and cash flow help stock selection. Carrying the latest reported value forward remains a strong control. Complex models show no stable advantage; the October 14 change-target pilot also shows no uniform improvement. Archived portfolio outputs do not establish a qualified return increment.",
+          "period": "Tested source report periods span 2012 through 2025, with different coverage by target and horizon. Original runs were September 2–4, 2026; retained-output review and the change pilot ran October 14.",
+          "source_note": "Original experiments plus the October 14 retained-output review and separately registered change-target pilot. Financial forecast skill and stock returns are evaluated separately.",
           "columns": [],
           "rows": [],
           "findings": [
-            "ROA and gross-margin levels are persistent; XGBoost did not consistently beat persistence.",
-            "Revenue-growth prediction weakens with horizon; net-profit-growth results vary by panel.",
-            "Historical forecast-to-portfolio bridges are unstable and do not establish a durable investment increment."
+            "ROA and gross-margin ordering is persistent; carrying the latest reported value forward is hard to beat.",
+            "Pairwise cash-flow ranking improves at 1Q, winning in 22 of 41 test formations; the other horizons do not retain the advantage.",
+            "Direct change forecasts show no uniform advantage. Saved cumulative returns reconcile; boundary drawdown is deeper after including initial capital."
           ],
           "limits": [
-            "Announcement-time reconstruction is not a complete vendor revision history; long-horizon labels overlap and portfolio samples are short.",
-            "The current source set does not document a separately validated factor that selects stocks using predicted absolute revenue or net-profit levels; that direction needs its original experiment note.",
-            "These are retrospective diagnostics, not mature prospective evidence or production approval."
+            "Announcement-date reconstruction lacks a full provider vintage history; long-horizon labels overlap. The new pilot retains accounting extremes and numerical warnings.",
+            "Absolute revenue and net-income forecasts have a separate study with different targets and samples; read its evidence independently.",
+            "Archived portfolios lack a matched current-fundamental control; eligibility, terminal treatment and executable fills remain unqualified. This is retrospective evidence."
           ]
         }
       },
       "exploration_asset": "data/study-exploration/fundamental-state-forecasting.json",
       "exploration_counts": {
-        "steps": 3,
+        "steps": 4,
         "charts": 4
       },
       "evidence_summary": {
@@ -663,16 +663,16 @@
           "zh-CN": "先预测财务目标，再检验组合选股"
         },
         "baseline": {
-          "en-US": "Current-state persistence on common folds",
-          "zh-CN": "共同折上的当期状态持续性基线"
+          "en-US": "Latest released state on matched test periods",
+          "zh-CN": "相同测试期内沿用最新已公布数值"
         },
         "input_basis": {
           "en-US": "Sealed current vintage; reconstructed announcement-time history",
           "zh-CN": "封存当期快照，按公告时点重建历史"
         },
         "sample": {
-          "en-US": "Annual diagnostic plus 1/2/4-quarter common folds",
-          "zh-CN": "年度诊断与 1/2/4 季度共同折"
+          "en-US": "Separate annual, quarterly and October 14 change-target diagnostics",
+          "zh-CN": "年频、季频与 10 月 14 日变化预测分别检验"
         }
       },
       "related_studies": [
@@ -719,7 +719,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-03T15:03:04+00:00"
+        "checked_at": "2026-10-13T23:52:37+00:00"
       },
       "navigation_asset": "data/study-navigation/fundamental-state-forecasting.json",
       "navigation_summary": {
@@ -733,16 +733,55 @@
         },
         "tasks": [
           {
+            "id": "fundamental-state-forecasting-retained-review",
+            "priority": "P1",
+            "status": "completed",
+            "action": {
+              "en-US": "Recompute corrected forecasts and audit archived return paths.",
+              "zh-CN": "重新核算修正后的预测，检查历史收益路径。"
+            },
+            "acceptance": {
+              "en-US": "All 12 full-precision summaries reconcile; paired formation intervals and corrected initial-capital boundary drawdown are retained.",
+              "zh-CN": "12 组完整精度汇总核对一致，保留按测试期配对的区间和补入初始资金的期末回撤。"
+            }
+          },
+          {
+            "id": "fundamental-state-forecasting-change-pilot",
+            "priority": "P1",
+            "status": "completed",
+            "action": {
+              "en-US": "Compare numeric levels and changes with no-change and seasonal controls.",
+              "zh-CN": "把水平预测和变化预测与零变化、去年同期对照比较。"
+            },
+            "acceptance": {
+              "en-US": "Four matched historical groups complete; accounting extremes, numerical warnings, undefined ranks and negative-change prevalence stay visible.",
+              "zh-CN": "四组同样本历史实验完成，会计极值、数值警告和无法计算的排序相关保留，实际下降比例可查。"
+            }
+          },
+          {
+            "id": "fundamental-state-forecasting-robustness",
+            "priority": "P1",
+            "status": "ready",
+            "action": {
+              "en-US": "Register robust accounting transforms and material deterioration thresholds before a new experiment.",
+              "zh-CN": "下一轮先登记会计极值处理方法和有经营意义的恶化幅度。"
+            },
+            "acceptance": {
+              "en-US": "Compare on matched dates and rows with no-change and seasonal controls; report prevalence, paired intervals and block-length sensitivity without selecting on test outcomes.",
+              "zh-CN": "固定日期和记录，与零变化和同期对照比较，报告实际下降比例及配对区间，不按测试结果挑规则。"
+            }
+          },
+          {
             "id": "fundamental-state-forecasting-qualification",
             "priority": "P1",
             "status": "blocked",
             "action": {
-              "en-US": "Demonstrate stable same-fold improvement over persistence and current fundamentals on separately qualified stock-return labels.",
-              "zh-CN": "在同折、独立核实的股票收益标签上证明超过 persistence 与当前基本面的稳定增量。"
+              "en-US": "Qualify historical eligibility, vintages, terminal events and execution before matched current-state, valuation and forecast return arms.",
+              "zh-CN": "先核实历史资格、财报版本和退市处理，明确成交规则，再比较当前基本面、估值和预测的收益。"
             },
             "acceptance": {
-              "en-US": "Retain an immutable audit with the named evidence gap resolved; preserve the previous decision if the gate fails.",
-              "zh-CN": "保留不可变审计并解决上述证据缺口；门槛未通过则保留原判断。"
+              "en-US": "Retain dated input qualification and identical candidates, dates and costs in all arms; preserve the current decision if unresolved.",
+              "zh-CN": "保留有日期的数据核查记录，各组日期、股票和成本相同。缺口未解决则保留当前判断。"
             }
           }
         ]
