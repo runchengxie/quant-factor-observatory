@@ -63,7 +63,7 @@
     },
     {
       "brief_sha256": "86125704199130929808587aedc1f7bcf0dd7d3efbf04192c34f21a1587f148a",
-      "navigation_sha256": "008cb936082b778323915ee97200c49b80de655f2a14da028da686187fda0bc9",
+      "navigation_sha256": "041797667a0292aa3a1fbd81f5457d7940189e4aa56b322fb4d972561e9f23c9",
       "navigation_sources": [
         {
           "source_ref": "doc:quant-research.experiment.forecast-followup-20261014",
@@ -71,7 +71,7 @@
         },
         {
           "source_ref": "doc:quant-research.research.fundamental-evidence-navigation",
-          "sha256": "568dbd69a885e19d317e830d882ccebc3f9c8bdce5bfdccca3fa1ec06b5b0c33"
+          "sha256": "6a24751cd64806d2e02e23b5eeab36232123319c62237e29d8785222a523061e"
         },
         {
           "source_ref": "doc:quant-research.research.long-term-fundamental-v2",
@@ -79,9 +79,9 @@
         }
       ],
       "study_id": "fundamental-state-forecasting",
-      "source_revision": "cff2c532bea215ca2d551452b99ddc1dfc08f9fb",
+      "source_revision": "e1984591be37073d9e1b3b1dee8a7e7813652cb3",
       "catalog_sha256": "a718668815d3a9e4493084883f4d72aeabcff10ffe608d76c49670dfa397d121",
-      "exploration_sha256": "7660215f47525f90a6367ad4815fc90b6a9a587a76b02c87b737d3df92f8e421",
+      "exploration_sha256": "dc01d4acd73a2edf346eedf7303a62341dcbcf7ab4a20b7be02eef35f6ce3bcc",
       "sources": [
         {
           "source_ref": "doc:quant-research.research.long-term-fundamental-v2",
