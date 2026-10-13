@@ -42,7 +42,9 @@ python scripts/audit_public_release.py
 python -m unittest discover -s tests -v
 ```
 
-Alpha 810 快照由 [`money-trees`](https://github.com/runchengxie/money-trees) 生成。当前 schema 1.1 快照覆盖 2016–2025，在聚合 IC、RankIC、覆盖率和分组收益之外，增加年度与沪深 300 市场状态摘要、不确定性估计和全因子多重检验诊断。快照不包含逐证券值、组合权重或原始数据路径；历史输入的 point-in-time 可得性和真实成交价尚未证实。公开契约见 [英文契约](docs/alpha810-public-contract.md) 和[中文参考](docs/alpha810-public-contract.zh-CN.md)；研究专题发布边界见[英文契约](docs/research-publication-contract.md)和[中文说明](docs/research-publication-contract.zh-CN.md)。
+Alpha 810 快照由 [`money-trees`](https://github.com/runchengxie/money-trees) 生成。当前 schema 1.2 快照覆盖 2016–2025。除聚合 IC、RankIC、覆盖率、分组收益、年度与沪深 300 市场状态摘要、不确定性估计和全因子多重检验诊断外，还包含 HAC 滞后敏感性和移动区块 bootstrap 区间。快照不包含逐证券值、组合权重或原始数据路径。历史输入的时点可得性和真实成交价尚未证实。公开契约见[英文契约](docs/alpha810-public-contract.md)和[中文参考](docs/alpha810-public-contract.zh-CN.md)，研究专题发布边界见[英文契约](docs/research-publication-contract.md)和[中文说明](docs/research-publication-contract.zh-CN.md)。
+
+网站默认使用 `en-US`，支持 `zh-CN`，在本地存储可用时保留语言选择。未知的已保存 locale 回退到英文。快照校验错误按所选语言呈现，HTTP 状态和 schema 字段名保持原文。切换语言不改变快照数据或校验规则。
 
 ## 与完整公开研究的关系
 
