@@ -29,10 +29,9 @@
 站点直接消费 `site/public/data/` 中已提交的公开快照：
 
 ```bash
-cd site
-npm ci
-npm run dev
-npm run build
+npm ci --prefix site
+npm run dev --prefix site
+npm run build --prefix site
 ```
 
 更新公开快照时，应在私有研究环境中生成脱敏结果。提交前运行：
@@ -41,6 +40,15 @@ npm run build
 python scripts/audit_public_release.py
 python -m unittest discover -s tests -v
 ```
+
+以上命令从仓库根目录执行。浏览器检查使用 Chromium：
+
+```bash
+(cd site && npx playwright install chromium)
+npm run test:e2e --prefix site
+```
+
+浏览器功能测试使用备用字体和外部字体样式表的本地 fixture，验证数据、控件、本地化和布局，不依赖字体 CDN 是否可用，也不验证线上字体服务。语言操作、主题和快照来源标签使用 locale catalog。
 
 Alpha 810 快照由 [`money-trees`](https://github.com/runchengxie/money-trees) 生成。当前 schema 1.2 快照覆盖 2016–2025。除聚合 IC、RankIC、覆盖率、分组收益、年度与沪深 300 市场状态摘要、不确定性估计和全因子多重检验诊断外，还包含 HAC 滞后敏感性和移动区块 bootstrap 区间。快照不包含逐证券值、组合权重或原始数据路径。历史输入的时点可得性和真实成交价尚未证实。公开契约见[英文契约](docs/alpha810-public-contract.md)和[中文参考](docs/alpha810-public-contract.zh-CN.md)，研究专题发布边界见[英文契约](docs/research-publication-contract.md)和[中文说明](docs/research-publication-contract.zh-CN.md)。
 

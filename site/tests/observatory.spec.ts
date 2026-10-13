@@ -3,6 +3,8 @@ import { expect, test } from '@playwright/test'
 const chinese = /[\u4e00-\u9fff]/
 
 test.beforeEach(async ({ page }) => {
+  // Functional regressions use the site's fallback fonts, without a live font CDN.
+  await page.context().route('https://fonts.googleapis.com/**', route => route.fulfill({ contentType: 'text/css', body: '' }))
   await page.addInitScript(() => {
     window.localStorage.setItem('quant-factor-locale', 'en-US')
   })
@@ -24,6 +26,24 @@ test('unknown stored locales fall back to English for schema errors', async ({ p
   await page.goto('/')
   await expect(page.locator('main')).toContainText('schema_version')
   expect(await page.locator('main').innerText()).not.toMatch(chinese)
+})
+
+test('Chinese shell labels preserve snapshot requests and numerical facts', async ({ page }) => {
+  const requests: string[] = []
+  page.on('request', request => {
+    if (request.url().endsWith('.json')) requests.push(request.url())
+  })
+  await page.goto('/', { waitUntil: 'domcontentloaded' })
+  await expect(page.locator('.metrics .metric-card').first()).toBeVisible()
+  const values = await page.locator('.metrics .metric-card strong').allTextContents()
+  const sourceRequests = [...requests]
+  await page.getByRole('button', { name: 'Switch to 中文' }).click()
+  await expect.soft(page.locator('.site-footer')).toContainText('演示快照')
+  await expect.soft(page.getByRole('button', { name: '切换为 English' })).toBeVisible()
+  expect(await page.locator('.metrics .metric-card strong').allTextContents()).toEqual(values)
+  expect(requests).toEqual(sourceRequests)
+  await page.getByRole('button', { name: '深色模式' }).click()
+  await expect(page.getByRole('button', { name: '浅色模式' })).toBeVisible()
 })
 
 test('English public pages do not render Chinese catalog content', async ({ page }) => {
@@ -68,7 +88,7 @@ test('Alpha 810 schema 1.1 shows annual and uncertainty evidence', async ({ page
   await page.getByRole('button', { name: 'Switch to 中文' }).click()
   await expect(page.getByRole('heading', { name: '因子随时间的表现如何？' })).toBeVisible()
   await expect(page.getByRole('columnheader', { name: 'RankIC 均值' })).toBeVisible()
-  await page.getByRole('button', { name: 'Switch to English' }).click()
+  await page.getByRole('button', { name: '切换为 English' }).click()
   await page.setViewportSize({ width: 360, height: 780 })
   await page.reload()
   await expect(page.locator('main')).toBeVisible()
@@ -107,7 +127,7 @@ test('language switch changes the rendered study catalog', async ({ page }) => {
   await page.getByRole('button', { name: 'Switch to 中文' }).click()
   await expect(page.getByRole('heading', { name: '因子研究专题' })).toBeVisible()
   await expect(page.getByRole('heading', { name: '研发投入相对估值：信号还是规模暴露？', exact: true })).toBeVisible()
-  await page.getByRole('button', { name: 'Switch to English' }).click()
+  await page.getByRole('button', { name: '切换为 English' }).click()
   await expect(page.getByRole('heading', { name: 'Research studies' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'R&D Investment Relative to Valuation: Signal or Size Exposure?', exact: true })).toBeVisible()
 })
