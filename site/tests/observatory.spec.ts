@@ -8,6 +8,24 @@ test.beforeEach(async ({ page }) => {
   })
 })
 
+test('data load failures follow the selected locale and retain HTTP details', async ({ page }) => {
+  await page.route('**/data/factor-snapshot.json', route => route.fulfill({ status: 503, body: '{}' }))
+  await page.goto('/')
+  await expect(page.locator('main')).toContainText('HTTP 503')
+  expect(await page.locator('main').innerText()).not.toMatch(chinese)
+  await page.getByRole('button', { name: 'Switch to 中文' }).click()
+  await expect(page.locator('main')).toContainText('HTTP 503')
+  await expect(page.locator('main')).toContainText('无法加载研究快照')
+})
+
+test('unknown stored locales fall back to English for schema errors', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('quant-factor-locale', 'fr-FR'))
+  await page.route('**/data/factor-snapshot.json', route => route.fulfill({ json: {} }))
+  await page.goto('/')
+  await expect(page.locator('main')).toContainText('schema_version')
+  expect(await page.locator('main').innerText()).not.toMatch(chinese)
+})
+
 test('English public pages do not render Chinese catalog content', async ({ page }) => {
   for (const route of ['/', '/studies', '/factors', '/fundamentals', '/jumps', '/hermite', '/alpha810']) {
     const routePage = await page.context().newPage()
