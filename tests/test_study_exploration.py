@@ -90,8 +90,18 @@ class StudyExplorationTests(unittest.TestCase):
         self.assertEqual(data['charts'][0]['series'][0]['values'][0], .1699)
 
     def test_protocol_and_hypothesis_publish_no_performance_chart(self):
-        for study_id in ('fundamental-family-shadow', 'employee-compensation'):
-            self.assertEqual(self.asset(study_id)['charts'], [])
+        self.assertEqual(self.asset('fundamental-family-shadow')['charts'], [])
+        employee = self.asset('employee-compensation')
+        self.assertEqual(employee['evidence_stage'], 'hypothesis')
+        self.assertEqual({c['id'] for c in employee['charts']}, {'disclosure-population', 'annual-candidates', 'cash-intensity'})
+        for chart in employee['charts']:
+            self.assertIn('not', chart['context']['en-US'])
+            self.assertIn('input-audit', chart['source_ids'])
+        counts = next(c for c in employee['charts'] if c['id'] == 'annual-candidates')
+        self.assertEqual(sum(counts['series'][0]['values']), 59167)
+        self.assertEqual(sum(counts['series'][1]['values']), 52203)
+        self.assertEqual(counts['series'][1]['values'][0], 0)
+        self.assertIn('No returns', employee['summary']['en-US'])
 
     def test_pb_and_rd_charts_match_existing_reviewed_tables(self):
         pb = self.studies['pb-roe']['translations']['en-US']['rows']

@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-14T03:37:47Z",
+  "updated_at": "2026-10-14T10:07:04+00:00",
   "studies": [
     {
       "id": "pb-roe",
@@ -205,7 +205,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T03:40:48+00:00"
+        "checked_at": "2026-10-14T10:05:57+00:00"
       },
       "navigation_asset": "data/study-navigation/pb-roe.json",
       "navigation_summary": {
@@ -548,7 +548,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T03:40:48+00:00"
+        "checked_at": "2026-10-14T10:05:57+00:00"
       },
       "navigation_asset": "data/study-navigation/rd-investment.json",
       "navigation_summary": {
@@ -723,7 +723,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T03:40:48+00:00"
+        "checked_at": "2026-10-14T10:05:57+00:00"
       },
       "navigation_asset": "data/study-navigation/fundamental-state-forecasting.json",
       "navigation_summary": {
@@ -893,7 +893,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T03:40:48+00:00"
+        "checked_at": "2026-10-14T10:05:57+00:00"
       },
       "navigation_asset": "data/study-navigation/fundamental-family-shadow.json",
       "navigation_summary": {
@@ -1056,7 +1056,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T03:40:48+00:00"
+        "checked_at": "2026-10-14T10:05:57+00:00"
       },
       "navigation_asset": "data/study-navigation/cashflow-indices.json",
       "navigation_summary": {
@@ -1188,7 +1188,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T03:40:48+00:00"
+        "checked_at": "2026-10-14T10:05:57+00:00"
       },
       "navigation_asset": "data/study-navigation/hk-fundamental-archive.json",
       "navigation_summary": {
@@ -1219,40 +1219,44 @@
     },
     {
       "id": "employee-compensation",
-      "title": "职工薪酬与人力资本：待检验的基本面线索",
+      "title": "员工现金支出：数据已核验，收益预测待检验",
       "family": "人力资本与劳动",
       "status": "hypothesis",
       "status_label": "研究假设",
-      "summary": "早期基本面脚本使用过职工薪酬相关报表字段，但尚无可核对的预测性回测，不能据此认定劳动成本因子有效。",
-      "period": "尚无可发布的历史评估区间",
-      "source_note": "仅依据已保留的历史字段与因子脚本建立研究入口；没有公开收益统计。",
+      "summary": "员工现金支出披露支持构建 59,167 条年度候选记录，其中 52,203 条可计算连续年度增长。历史财报版本与员工人数序列仍未核实。本次没有读取收益，图表仅展示输入核验。",
+      "period": "输入报告期：2015 年一季度至 2026 年二季度；年度候选：2015—2025 年",
+      "source_note": "覆盖图与年度分布来自已核验输入审计，不是选股绩效；没有读取收益。",
       "columns": [],
       "rows": [],
       "findings": [
-        "应付职工薪酬是期末负债余额，不能直接当作当期工资或研发人员投入。",
-        "后续需分别核对劳动成本流量、人员规模和报表披露覆盖。"
+        "员工现金支出和应付余额的已存记录有限值占比分别为 99.82% 和 99.19%。",
+        "已构建 59,167 条年度候选记录，其中 52,203 条可计算连续年度增长。",
+        "应付余额是负债，现金支出不等于应计工资；当前人数不能回填历史。"
       ],
       "limits": [
-        "尚未完成数据口径、历史版本和公告时点核验。",
-        "没有 Rank IC、分组收益或交易回测结果。"
+        "历史修订链不完整，现有 PIT 基本面未暴露薪酬字段。",
+        "存储记录覆盖不能证明历史股票池完整，公司构成会随年份变化。",
+        "尚无 Rank IC、分组收益或含成本交易回测。"
       ],
       "translations": {
         "en-US": {
-          "title": "Employee Compensation and Human Capital: A Fundamental Clue to Test",
+          "title": "Employee cash expenditure: inputs audited, return hypothesis untested",
           "family": "Human capital and labor",
           "status_label": "Research hypothesis",
-          "summary": "Early fundamental scripts used employee compensation fields from financial statements, but there is no auditable predictive backtest yet. The labor cost factor cannot be considered effective on this basis.",
-          "period": "No publishable historical evaluation period yet",
-          "source_note": "This research entry is based only on retained historical fields and factor scripts; no public return statistics are available.",
+          "summary": "Employee cash disclosures support 59,167 annual candidate records, including 52,203 adjacent-year growth observations. Historical revisions and workforce counts remain unqualified. No returns were read; these are input diagnostics.",
+          "period": "Input reports: 2015Q1–2026Q2; annual candidates: 2015–2025",
+          "source_note": "Coverage and annual distributions are audited input diagnostics, not investment performance; no returns were read.",
           "columns": [],
           "rows": [],
           "findings": [
-            "Employee benefits payable is an end-of-period liability balance and cannot be used directly as current-period wages or R&D staff investment.",
-            "Future work must separately verify labor cost flows, workforce size, and financial statement disclosure coverage."
+            "Employee cash and payable values are finite in 99.82% and 99.19% of stored rows, respectively.",
+            "59,167 annual candidates have been constructed, including 52,203 adjacent-year growth records.",
+            "Payables are liabilities, cash expenditure is not accrued wages, and current employees cannot be backfilled."
           ],
           "limits": [
-            "Data definitions, historical versions, and announcement timing have not been verified.",
-            "There are no Rank IC, grouped return, or trading backtest results."
+            "Historical revisions are incomplete; current PIT fundamentals expose no compensation fields.",
+            "Stored-row coverage does not establish historical universe completeness; company composition changes.",
+            "No Rank IC, grouped return or costed trading backtest is available."
           ]
         }
       },
@@ -1262,15 +1266,15 @@
         "direct_factor_test"
       ],
       "frequency": [
-        "not_applicable"
+        "annual"
       ],
       "evidence_stage": "hypothesis",
       "publication_id": "employee-compensation",
       "source_ref": "doc:quant-research.research.fundamental-research-series",
       "exploration_asset": "data/study-exploration/employee-compensation.json",
       "exploration_counts": {
-        "steps": 4,
-        "charts": 0
+        "steps": 6,
+        "charts": 3
       },
       "evidence_summary": {
         "decision": "hypothesis",
@@ -1283,12 +1287,12 @@
           "zh-CN": "拟用行业、规模控制；预测基线尚未运行"
         },
         "input_basis": {
-          "en-US": "Expense-flow and disclosure coverage still need audit",
-          "zh-CN": "费用流量与披露覆盖待审计"
+          "en-US": "Completed stored-disclosure and annual-construction audit; original versions and historical workforce remain unqualified.",
+          "zh-CN": "已完成存储披露与年度指标构建审计；原始版本及历史人数序列仍未核实。"
         },
         "sample": {
-          "en-US": "No candidate-level predictive sample published",
-          "zh-CN": "尚无已发布逐因子预测样本"
+          "en-US": "59,167 annual snapshot records, 2015–2025; no predictive sample.",
+          "zh-CN": "2015—2025 年共有 59,167 条年度快照记录，尚无预测检验样本。"
         }
       },
       "related_studies": [
@@ -1311,30 +1315,69 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T03:40:48+00:00"
+        "checked_at": "2026-10-14T10:05:57+00:00"
       },
       "navigation_asset": "data/study-navigation/employee-compensation.json",
       "navigation_summary": {
-        "run_id": "labor-cost-definition",
-        "reproduction_status": "not_run",
+        "run_id": "employee-cash-coverage-20261014-v2",
+        "reproduction_status": "artifact_verified",
         "decision": "hypothesis",
         "negative_result": false,
         "resume_when": {
-          "en-US": "Distinguish payable balances from labor-cost flows and audit coverage before the first predictive test.",
-          "zh-CN": "先区分应付余额与劳动成本流量，核实覆盖后再做首个预测检验。"
+          "en-US": "After original-version and historical-universe qualification, do cash-expenditure candidates add predictive information beyond industry, size, valuation and profitability on a common sample?",
+          "zh-CN": "原始版本与历史股票池通过核验后，现金支出指标能否在共同样本上提供超出行业、规模、估值和盈利能力的预测信息？"
         },
         "tasks": [
           {
             "id": "employee-compensation-qualification",
             "priority": "P0",
-            "status": "ready",
+            "status": "completed",
             "action": {
-              "en-US": "Distinguish payable balances from labor-cost flows and audit coverage before the first predictive test.",
-              "zh-CN": "先区分应付余额与劳动成本流量，核实覆盖后再做首个预测检验。"
+              "en-US": "Audit stored flow and payable population; build annual candidates without current-headcount backfill.",
+              "zh-CN": "审计已存现金流量和应付余额覆盖，构建年度候选指标，不回填当前员工人数。"
             },
             "acceptance": {
-              "en-US": "Retain an immutable audit with the named evidence gap resolved; preserve the previous decision if the gate fails.",
-              "zh-CN": "保留不可变审计并解决上述证据缺口；门槛未通过则保留原判断。"
+              "en-US": "Retained hashed input audit, duplicate/conflict accounting, annual common samples and disclosure limitations; no returns read.",
+              "zh-CN": "已保留输入哈希、重复及冲突统计、年度共同样本与披露限制，没有读取收益。"
+            }
+          },
+          {
+            "id": "employee-original-availability",
+            "priority": "P0",
+            "status": "blocked",
+            "action": {
+              "en-US": "Qualify original financial versions, historical eligibility and dated industry/size/valuation/profitability controls.",
+              "zh-CN": "核验原始财报版本、历史资格及带时点的行业、规模、估值和盈利能力控制变量。"
+            },
+            "acceptance": {
+              "en-US": "An immutable formation panel respects actual observed availability and historical eligibility; unresolved vintage history keeps the return gate closed.",
+              "zh-CN": "不可变形成样本须满足真实观测可见时间和历史资格，版本链未解决则不开放收益检验。"
+            }
+          },
+          {
+            "id": "employee-predictive-test",
+            "priority": "P1",
+            "status": "blocked",
+            "action": {
+              "en-US": "Run the registered four-candidate common-sample return diagnostic after input qualification.",
+              "zh-CN": "输入核验通过后，运行已登记的四项候选指标共同样本收益诊断。"
+            },
+            "acceptance": {
+              "en-US": "Report every candidate against matched controls, annual stability and serial-dependence-aware uncertainty. Portfolio evidence needs separate cost and execution qualification.",
+              "zh-CN": "每项指标均须对照共同控制变量，报告年度稳定性及考虑序列相关性的区间；组合证据另需成本与执行核验。"
+            }
+          },
+          {
+            "id": "employee-source-review",
+            "priority": "P1",
+            "status": "completed",
+            "action": {
+              "en-US": "Review the series overview and new employee cash input audit while retaining the untested return hypothesis.",
+              "zh-CN": "复核系列总览及新增员工现金支出输入审计，收益假设保持未检验。"
+            },
+            "acceptance": {
+              "en-US": "Reviewed input coverage, annual construction and aggregate distributions; original financial versions and historical workforce remain unqualified. No predictive results were added.",
+              "zh-CN": "已复核输入覆盖、年度指标构建和汇总分布；原始财报版本与历史人数仍未核验，没有新增预测结果。"
             }
           }
         ]
@@ -1625,7 +1668,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T03:40:48+00:00"
+        "checked_at": "2026-10-14T10:05:57+00:00"
       },
       "navigation_asset": "data/study-navigation/absolute-level-forecast.json",
       "navigation_summary": {
