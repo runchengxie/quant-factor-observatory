@@ -27,6 +27,12 @@ class StudyNavigationTests(unittest.TestCase):
             for key in ['source_path','private_reproduction','artifact_root','runner','config','symbol','ticker','weights']:
                 self.assertNotIn('"'+key+'"',json.dumps(data))
             self.assertNotIn('/home/',json.dumps(data))
+    def test_forecast_catalog_task_states_match_detailed_navigation(self):
+        study = next(s for s in self.catalog['studies'] if s['id'] == 'fundamental-state-forecasting')
+        data = next(a for a in self.assets if a['study_id'] == study['id'])
+        self.assertEqual({t['id']: t['status'] for t in study['navigation_summary']['tasks']},
+                         {t['id']: t['status'] for t in data['next_tasks']})
+
     def test_unrun_or_protocol_studies_are_not_negative_performance(self):
         for study in self.catalog['studies']:
             if study['id'] in ['fundamental-family-shadow','employee-compensation']:
