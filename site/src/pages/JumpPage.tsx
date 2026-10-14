@@ -1,13 +1,15 @@
-import { useState } from 'react'
+import { useRef, useState } from 'react'
 import BarChart from '../components/BarChart'
 import ContextStrip from '../components/ContextStrip'
+import JumpComparison from '../components/JumpComparison'
+import { jumpStatus, ratio } from '../shapeExploration'
+import { shapeExplorationCopy } from '../shapeExplorationCopy'
 import type { JumpRow, Snapshot } from '../types'
 import { useLocale } from '../i18n'
 import { explorationCopy } from '../explorationCopy'
 
 const colors = ['#477a76', '#b64d33']
-const closeEnough = (a: number | null, b: number | null) => a !== null && b !== null && Number.isFinite(a) && Number.isFinite(b) && Math.abs(a - b) <= Math.max(Math.abs(b) * 1e-6, 1e-12)
-const share = (part: number | null, whole: number | null) => part !== null && whole !== null && whole > 0 ? part / whole : null
+const share = ratio
 const fixed = (value: number | null) => value === null || !Number.isFinite(value) ? '—' : value.toFixed(6)
 
 function JumpBreakdown({ row, labels }: { row: JumpRow; labels: { component: string; value: string; share: string; jumpComposition: string; jumpShare: string; observedValues: string } }) {
@@ -43,29 +45,33 @@ export default function JumpPage({ snapshot }: { snapshot: Snapshot }) {
   const optionKey = (row: JumpRow) => `${row.ticker}|${row.date}`
   const [observation, setObservation] = useState(rows[0] ? optionKey(rows[0]) : '')
   const row = rows.find((item) => optionKey(item) === observation) ?? rows[0]
-  const hasIdentityValues = row !== undefined && [row.rv, row.ivhat, row.rjv, row.rljv, row.rsjv].every((value) => value !== null && Number.isFinite(value))
-  const identitiesPass = hasIdentityValues && row ? closeEnough(row.ivhat! + row.rjv!, row.rv) && closeEnough(row.rljv! + row.rsjv!, row.rjv) : null
+  const status = row ? jumpStatus(row) : 'unavailable'
+  const identitiesPass = status === 'unavailable' ? null : status === 'valid'
+  const labels = shapeExplorationCopy[locale]
   const dataset = snapshot.datasets[0]
+  const detail = useRef<HTMLElement>(null)
 
-  return <main className="page">
+  return <main className="page shape-page">
     <a className="back" href={import.meta.env.BASE_URL}>{copy.back}</a>
     <section className="detail-head"><p className="eyebrow">{copy.eyebrow}</p><h1>{copy.title}</h1><p className="lede">{copy.lede}</p><span className="badge">{snapshot.source === 'demo' ? copy.demo : `${snapshot.source} · ${dataset?.name ?? ''}`}</span></section>
     <section className="panel research-verdict"><h2>{copy.conclusionLabel}</h2><p className="lede">{copy.conclusion}</p><p className="panel-note">{copy.boundary}</p></section>
     <ContextStrip items={[
       { label: copy.observation, value: `${rows.length} ${english ? 'rows' : '条观测'}` },
-      { label: copy.snapshotDate, value: dataset?.date_end ?? row?.date ?? '—' },
-      { label: copy.illustrativeUniverse, value: `${dataset?.tickers ?? new Set(rows.map((item) => item.ticker)).size}` },
+      { label: copy.snapshotDate, value: [...new Set(rows.map(item => item.date))].sort().join(' · ') || '—' },
+      { label: copy.illustrativeUniverse, value: `${new Set(rows.map((item) => item.ticker)).size}` },
     ]} />
+    <JumpComparison rows={rows} onInspect={item => { setObservation(optionKey(item)); requestAnimationFrame(() => { detail.current?.focus({ preventScroll: true }); detail.current?.scrollIntoView({ block: 'start' }) }) }} />
+    {snapshot.source === 'demo' && <p className="panel-note">{labels.comparisonNote}</p>}
     <div className="jump-flow"><div><b>RV</b><span>{english ? 'Realized variance' : '实现方差'}</span></div><i>−</i><div><b>IVhat</b><span>{english ? 'Continuous variance estimate' : '连续方差估计'}</span></div><i>=</i><div className="accent"><b>RJV</b><span>{english ? 'Jump variance' : '跳跃方差'}</span></div><i>→</i><div><b>RLJV + RSJV</b><span>{english ? 'Large + small jumps' : '大跳跃 + 小跳跃'}</span></div></div>
-    <section className="panel chart-panel exploration-panel">
+    <section ref={detail} tabIndex={-1} className="panel chart-panel exploration-panel">
       <div className="panel-head"><div><p className="eyebrow">{copy.observation}</p><h2>{row?.date ?? '—'} · {row?.ticker ?? '—'}</h2></div><label className="series-select">{copy.observation}<select aria-label={copy.observation} value={row ? optionKey(row) : ''} onChange={(event) => setObservation(event.target.value)}>{rows.map((item) => <option key={optionKey(item)} value={optionKey(item)}>{item.ticker} · {item.date}</option>)}</select></label></div>
       {row ? <>
         <p className={`decomposition-status ${identitiesPass === null ? 'is-unavailable' : identitiesPass ? 'is-valid' : 'is-invalid'}`} role="status">{identitiesPass === null ? copy.checkUnavailable : identitiesPass ? copy.checkPassed : copy.checkFailed}</p>
         <div className="section-heading"><h2>{copy.rvShare}</h2></div>
-        <JumpBreakdown row={row} labels={{ component: copy.component, value: copy.value, share: copy.share, jumpComposition: copy.jumpComposition, jumpShare: copy.jumpShare, observedValues: copy.observedValues }} />
+        {status === 'valid' ? <JumpBreakdown row={row} labels={{ component: copy.component, value: copy.value, share: copy.share, jumpComposition: copy.jumpComposition, jumpShare: copy.jumpShare, observedValues: copy.observedValues }} /> : <p className="panel-note">{copy.observedValues}: RV = {fixed(row.rv)} · IVhat = {fixed(row.ivhat)} · RJV = {fixed(row.rjv)} · RLJV = {fixed(row.rljv)} · RSJV = {fixed(row.rsjv)}</p>}
         <p className="panel-note">{copy.identity}</p>
       </> : <div className="chart-empty">{copy.noData}</div>}
     </section>
-    <section className="research-boundary"><strong>{copy.demo}</strong> {copy.boundary}</section>
+    <section className="panel shape-next"><h2>{labels.nextTitle}</h2><p>{labels.jumpNext}</p><p className="panel-note">{labels.source}: {snapshot.source} · {labels.generated}: {new Intl.DateTimeFormat(locale, { dateStyle: 'medium', timeStyle: 'short', timeZone: 'Asia/Shanghai' }).format(new Date(snapshot.generated_at))} (Asia/Shanghai)</p></section>
   </main>
 }

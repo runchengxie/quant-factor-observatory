@@ -96,3 +96,9 @@ quant-factor-observatory
 Historical commits may contain removed internal implementations. If historical visibility must change, create a clean public repository or perform an explicitly authorized history rewrite after preserving backups; an ordinary deletion does not remove Git history, forks, or existing clones.
 
 Research navigation keeps `/studies` focused on searchable topic cards. Each topic carries its evidence basis, experiments, interpretation changes and expandable source review record. `/studies/evidence` provides the cross-topic matrix, while `/studies/compare` retains the registered quantitative comparisons. Human-facing review times use the selected locale and Asia/Shanghai time; original timestamps remain in source details.
+
+## Distribution and jump exploration
+
+The jump page compares all published observations as IVhat + RLJV + RSJV stacks, with absolute variance and RV-share scales. Its sortable table retains invalid and missing observations; charts exclude negative, unreconciled, or zero-denominator rows. Inspection opens the selected observation’s breakdown.
+
+The Hermite page compares one indicator across example tickers over a selected date range. It aligns observations by calendar date, preserves gaps, and derives valid counts, missing counts, median, minimum, and maximum from the displayed series. An expandable table exposes the same daily values. These statistics describe indicator values, not the underlying return distribution. Separate published cross-sectional quantiles are not used in these summaries. The demo’s 42 dates include non-trading days.

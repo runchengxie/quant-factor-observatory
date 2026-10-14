@@ -480,3 +480,20 @@
 
 .forecast-question { scroll-margin-top: 2rem; }
 .forecast-question-title { margin: 2.5rem 0 1rem; font-size: clamp(1.3rem, 3vw, 1.8rem); }
+
+/* Distribution and jump explorers share controls and inspectable numeric tables. */
+.shape-page .exploration-controls label{min-width:0;flex:1 1 170px}
+.shape-page .exploration-controls input[type="date"]{min-height:40px;padding:8px 10px;border:1px solid var(--rule);background:var(--surface);color:var(--ink);font:inherit;box-sizing:border-box;width:100%;min-width:0}
+.shape-page .exploration-controls .shape-checkbox{display:flex;align-items:center;gap:8px;min-height:40px}
+.shape-comparison,.shape-next{margin:24px 0}
+.shape-page .shape-table{min-width:620px}
+.shape-page .shape-table td:first-child{width:auto}
+.shape-page .shape-table th{white-space:nowrap}
+.shape-page .shape-table th[scope="row"]{font-size:13px;text-transform:none;letter-spacing:normal;color:var(--ink)}
+.shape-details{margin-top:20px;border-top:1px solid var(--rule);padding-top:14px}
+.shape-details summary{cursor:pointer;color:var(--ink);font-weight:600}
+.shape-values{max-height:360px;margin-top:12px}
+.jump-comparison-svg{display:block;width:100%;min-width:640px;margin:14px 0}
+.shape-page .panel-note{line-height:1.7}
+@media(max-width:700px){.shape-page .exploration-controls label{flex-basis:100%}.shape-page .exploration-controls input,.shape-page .exploration-controls select{max-width:100%;width:100%}.shape-page .shape-checkbox input{width:auto}.shape-page .panel{min-width:0}}
+:root[data-theme="dark"] .shape-page{--ink:#e9edf4;--ink-soft:#d0d7e2;--muted:#a8b0bf;--surface:#131a27;--paper:#0f151f;--rule:#303a4d;--rule-soft:#263043}

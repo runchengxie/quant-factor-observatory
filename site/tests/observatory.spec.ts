@@ -271,8 +271,8 @@ test('chart routes render without React runtime errors', async ({ page }) => {
 test('Hermite explorer separates indicator scales and explains the demo window', async ({ page }) => {
   await page.goto('hermite')
   await expect(page.getByLabel('Hermite indicator')).toBeVisible()
-  await expect(page.getByLabel('Ticker')).toBeVisible()
-  await expect(page.getByText('42 daily observations')).toBeVisible()
+  await expect(page.getByLabel('Ticker', { exact: true })).toBeVisible()
+  await expect(page.getByText('42 sample dates')).toBeVisible()
   await page.getByLabel('Hermite indicator').selectOption('h_daily_close60_ts_h3_60')
   await expect(page.getByRole('heading', { name: /Are price changes lopsided/ })).toBeVisible()
   await expect(page.getByText(/its sign is not the same as a standardized skewness measure/i)).toBeVisible()
