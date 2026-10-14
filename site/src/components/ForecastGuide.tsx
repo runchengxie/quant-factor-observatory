@@ -1,4 +1,6 @@
 import ForecastReader from './ForecastReader'
+import ForecastRobustness from './ForecastRobustness'
+import type { ReactNode } from 'react'
 import { forecastReaderCopy } from '../forecastReaderCopy'
 import { useState } from 'react'
 import { useLocale } from '../i18n'
@@ -35,12 +37,12 @@ function IntervalPlot({ title, intervals, mean, label, number }: { title: string
   </svg></div>
 }
 
-export default function ForecastGuide({ guide, exploration }: { guide: ForecastGuideData; exploration: StudyExplorationData }) {
+export default function ForecastGuide({ guide, exploration, comparison }: { guide: ForecastGuideData; exploration: StudyExplorationData; comparison?: ReactNode }) {
   const { locale } = useLocale(), c = forecastGuideCopy[locale]
-  const [target, setTarget] = useState('roa'), [horizon, setHorizon] = useState(1), [model, setModel] = useState('pairwise'), [width, setWidth] = useState(20)
+  const [target, setTarget] = useState('roa'), [annualTarget, setAnnualTarget] = useState('roa'), [horizon, setHorizon] = useState(1), [model, setModel] = useState('pairwise'), [width, setWidth] = useState(20)
   const number = (v: number | null) => v === null ? c.unknown : new Intl.NumberFormat(locale, { minimumFractionDigits: 3, maximumFractionDigits: 3 }).format(v)
   const pct = (v: number | null) => v === null ? c.unknown : new Intl.NumberFormat(locale, { style: 'percent', maximumFractionDigits: 1 }).format(v)
-  const group = guide.groups.find(g => g.target === target && g.horizon === horizon)!
+  const group = guide.groups.find(g => g.target === annualTarget && g.horizon === horizon)!
   const activeModel = group.models.find(m => m.id === model)!
   const horizonGroups = guide.groups.filter(g => g.target === target).sort((a, b) => a.horizon - b.horizon)
   const models = ['ridge', 'pointwise', 'pairwise', 'listwise']
@@ -49,12 +51,13 @@ export default function ForecastGuide({ guide, exploration }: { guide: ForecastG
   const years = Array.from({ length: annual[annual.length - 1].year - annual[0].year + 1 }, (_, i) => annual[0].year + i)
   const returnGroup = guide.returns.find(g => g.width === width)!
   const sources = guide.source_ids.map(id => exploration.sources.find(s => s.id === id)!)
-  return <section className="forecast-guide" aria-labelledby="forecast-guide-title">
+  return <section className="forecast-guide" aria-labelledby="forecast-reader-title">
     <ForecastReader guide={guide} />
-    <details className="forecast-full-details"><summary>{forecastReaderCopy[locale].details}</summary>
-    <section className="panel forecast-intro"><p className="eyebrow">{c.stage} · {c.date}</p><h2 id="forecast-guide-title">{c.title}</h2>{guide.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}</section>
-    <nav className="study-exploration-nav" aria-label={c.title}><a href="#forecast-gain">{c.gainTitle}</a><a href="#forecast-stability">{c.stabilityTitle}</a><a href="#forecast-return">{c.returnTitle}</a><a href="#forecast-glossary">{c.glossaryTitle}</a></nav>
-    <section className="panel"><h2>{c.workflowTitle}</h2><ol className="forecast-workflow">{c.workflow.map(([title, text], i) => <li key={title}><span>{i + 1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol></section>
+    <details className="panel forecast-intro"><summary>{c.workflowTitle}</summary><section><p className="eyebrow">{c.stage} · {c.date}</p><h2 id="forecast-guide-title">{c.title}</h2>{guide.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}</section><ol className="forecast-workflow">{c.workflow.map(([title, text], i) => <li key={title}><span>{i + 1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol></details>
+    <nav className="study-exploration-nav" aria-label={c.title}>{[['forecast-order', forecastReaderCopy[locale].orderQuestion], ['forecast-consistency', forecastReaderCopy[locale].stableQuestion], ['forecast-change', forecastReaderCopy[locale].changeQuestion], ['forecast-investment', forecastReaderCopy[locale].returnQuestion]].map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>
+    <section className="forecast-question" id="forecast-order"><h2 className="forecast-question-title">{forecastReaderCopy[locale].orderQuestion}</h2>
+    <ForecastReader guide={guide} part="comparisons" />
+    {comparison}
     <section className="panel" id="forecast-gain"><h2>{c.gainTitle}</h2><p>{c.gainNote}</p><p className="study-chart-mobile-note">{c.scrollNote}</p><div className="table-scroll"><table className="factor-table forecast-heatmap"><caption>{c.gainTitle}</caption><thead><tr><th>{c.target}</th><th>{c.horizon}</th>{models.map(m => <th key={m}>{c.models[m]}</th>)}</tr></thead><tbody>{guide.groups.map(g => {
       const baseline = g.models.find(m => m.id === 'persistence')!.mean_rank_ic
       return <tr key={`${g.target}-${g.horizon}`}><th scope="row">{c.targets[g.target]}</th><td>{g.horizon} {c.quarters}</td>{models.map(m => { const estimate = g.models.find(v => v.id === m)!.mean_rank_ic
@@ -66,20 +69,33 @@ export default function ForecastGuide({ guide, exploration }: { guide: ForecastG
       <Plot title={c.horizonTitle} x={horizonGroups.map(g => g.horizon)} labels={horizonGroups.map(g => `${g.horizon} ${c.quarters}`)} curves={['persistence', ...models].map(m => ({ label: c.models[m], values: horizonGroups.map(g => g.models.find(v => v.id === m)!.mean_rank_ic) }))} number={number} />
       <details><summary>{c.values}</summary><div className="table-scroll"><table className="factor-table"><caption>{c.horizonTitle}</caption><thead><tr><th>{c.horizon}</th><th>{c.rows}</th><th>{c.sample}</th>{['persistence', ...models].map(m => <th key={m}>{c.models[m]}</th>)}</tr></thead><tbody>{horizonGroups.map(g => <tr key={g.horizon}><th>{g.horizon}</th><td>{g.rows.toLocaleString(locale)}</td><td>{g.report_start} / {g.report_end}</td>{g.models.map(m => <td key={m.id}>{number(m.mean_rank_ic)}</td>)}</tr>)}</tbody></table></div></details>
     </section>
-    <section className="panel" id="forecast-stability"><h2>{c.stabilityTitle}</h2><div className="exploration-controls"><label>{c.horizon}<select value={horizon} onChange={e => setHorizon(Number(e.target.value))}>{[1, 2, 4].map(v => <option key={v} value={v}>{v} {c.quarters}</option>)}</select></label><label>{c.model}<select value={model} onChange={e => setModel(e.target.value)}>{models.map(m => <option key={m} value={m}>{c.models[m]}</option>)}</select></label></div><p>{c.stabilityNote}</p><p><strong>{c.targets[target]} · {horizon} {c.quarters} · {c.models[model]}</strong></p>
+    </section>
+    <section className="forecast-question" id="forecast-consistency"><h2 className="forecast-question-title">{forecastReaderCopy[locale].stableQuestion}</h2>
+    <ForecastReader guide={guide} part="consistency" />
+    <section className="panel" id="forecast-stability"><h2>{c.stabilityTitle}</h2><div className="exploration-controls"><label>{c.stabilityTarget}<select value={annualTarget} onChange={e => setAnnualTarget(e.target.value)}>{Object.entries(c.targets).map(([id, label]) => <option value={id} key={id}>{label}</option>)}</select></label><label>{c.horizon}<select value={horizon} onChange={e => setHorizon(Number(e.target.value))}>{[1, 2, 4].map(v => <option key={v} value={v}>{v} {c.quarters}</option>)}</select></label><label>{c.model}<select value={model} onChange={e => setModel(e.target.value)}>{models.map(m => <option key={m} value={m}>{c.models[m]}</option>)}</select></label></div><p>{c.stabilityNote}</p><p className="panel-note">{c.coverageNote}</p><p className="panel-note">{c.sample} {group.report_start} / {group.report_end} · {c.rows} {group.rows.toLocaleString(locale)}</p><p><strong>{c.targets[annualTarget]} · {horizon} {c.quarters} · {c.models[model]}</strong></p>
       <Plot title={c.annualTitle} x={years} labels={years.map(String)} curves={[{ label: c.gain, values: years.map(y => annualMap.get(y)?.mean_gain ?? null) }]} number={number} />
       <p>{c.gain} {number(activeModel.mean_gain)} · {c.win} {pct(activeModel.win_fraction)} · {c.formations} {activeModel.paired_formations}</p>
       <details><summary>{c.values}</summary><div className="table-scroll"><table className="factor-table"><caption>{c.annualTitle}</caption><thead><tr><th>{c.year}</th><th>{c.formations}</th><th>{c.gain}</th></tr></thead><tbody>{years.map(y => <tr key={y}><th>{y}</th><td>{annualMap.get(y)?.formations ?? c.unknown}</td><td>{number(annualMap.get(y)?.mean_gain ?? null)}</td></tr>)}</tbody></table></div></details>
       <h3>{c.intervalsTitle}</h3><p>{c.intervalNote}</p><IntervalPlot title={c.intervalsTitle} intervals={activeModel.intervals} mean={activeModel.mean_gain} label={c.quarters} number={number} /><div className="table-scroll"><table className="factor-table"><caption>{c.intervalsTitle}</caption><thead><tr><th>{c.block}</th><th>{c.gain}</th><th>{c.range}</th></tr></thead><tbody>{activeModel.intervals.map(i => <tr key={i.block_quarters}><th>{i.block_quarters} {c.quarters}</th><td>{number(activeModel.mean_gain)}</td><td>{number(i.lower)} / {number(i.upper)}</td></tr>)}</tbody></table></div>
     </section>
+    {guide.robustness && <ForecastRobustness data={guide.robustness} part="cash" />}
+    </section>
+    <section className="forecast-question" id="forecast-change"><h2 className="forecast-question-title">{forecastReaderCopy[locale].changeQuestion}</h2>
+    <ForecastReader guide={guide} part="business" />
+    {guide.robustness && <ForecastRobustness data={guide.robustness} part="decline" />}
+    {guide.robustness && <ForecastRobustness data={guide.robustness} part="details" />}
     <section className="panel"><h2>{c.changeTitle}</h2><p>{c.changeNote}</p><p className="panel-note">{c.changeUnit}</p>{guide.change_groups.map(g => <details key={`${g.target}-${g.horizon}`} open={g.target === 'roa' && g.horizon === 1}><summary>{c.targets[g.target]} · {g.horizon} {c.quarters} · {g.formations} {c.formations} · {g.rows.toLocaleString(locale)} {c.rows}</summary><p>{c.prevalence} {pct(g.models[0].negative_share)}{g.horizon === 4 ? ` · ${c.seasonalIdentity}` : null}</p><div className="table-scroll"><table className="factor-table"><caption>{c.targets[g.target]} · {g.horizon} {c.quarters}</caption><thead><tr><th>{c.model}</th><th>{c.mae}</th><th>{c.zeroGain}</th><th>{c.seasonalGain}</th><th>{c.precision}</th><th>{c.recall}</th></tr></thead><tbody>{g.models.map(m => <tr key={m.id}><th scope="row">{c.models[m.id]}</th><td>{number(m.mae)}</td><td>{number(m.gain_vs_zero)}</td><td>{number(m.gain_vs_seasonal)}</td><td>{pct(m.deterioration_precision)}</td><td>{pct(m.deterioration_recall)}</td></tr>)}</tbody></table></div></details>)}<p className="forecast-caveat">{c.changeLimit}</p></section>
+    </section>
+    <section className="forecast-question" id="forecast-investment"><h2 className="forecast-question-title">{forecastReaderCopy[locale].returnQuestion}</h2>
+    <ForecastReader guide={guide} part="investment" />
+    {guide.robustness && <ForecastRobustness data={guide.robustness} part="qualification" />}
     <section className="panel" id="forecast-return"><h2>{c.returnTitle}</h2><p className="forecast-caveat"><strong>{c.returnStatus}</strong></p><p>{c.returnNote}</p><p>{c.returnCorrection}</p><div className="exploration-controls"><label>{c.width}<select value={width} onChange={e => setWidth(Number(e.target.value))}>{guide.returns.map(g => <option key={g.width} value={g.width}>{g.width}</option>)}</select></label></div>
       <Plot title={c.wealth} x={returnGroup.dates.map(d => new Date(`${d}T00:00:00Z`).getTime())} labels={returnGroup.dates} curves={[{ label: c.wealth, values: returnGroup.wealth }]} number={number} />
       <Plot title={c.drawdown} x={returnGroup.dates.map(d => new Date(`${d}T00:00:00Z`).getTime())} labels={returnGroup.dates} curves={[{ label: c.drawdown, values: returnGroup.drawdown }]} number={pct} />
       <div className="table-scroll"><table className="factor-table"><caption>{c.returnTitle}</caption><thead><tr><th>{c.width}</th><th>{c.totalReturn}</th><th>{c.correctedDrawdown}</th><th>{c.archivedDrawdown}</th><th>{c.turnover}</th><th>{c.cost}</th></tr></thead><tbody>{guide.returns.map(g => <tr key={g.width}><th>{g.width}</th><td>{pct(g.total_return)}</td><td>{pct(g.max_drawdown)}</td><td>{pct(g.archived_max_drawdown)}</td><td>{pct(g.average_turnover)}</td><td>{pct(g.average_cost_drag)}</td></tr>)}</tbody></table></div>
       <details><summary>{c.values}</summary><div className="table-scroll"><table className="factor-table"><caption>{c.wealth}</caption><thead><tr><th>{c.dateLabel}</th><th>{c.wealth}</th><th>{c.drawdown}</th></tr></thead><tbody>{returnGroup.dates.map((d, i) => <tr key={d}><th>{d}</th><td>{number(returnGroup.wealth[i])}</td><td>{pct(returnGroup.drawdown[i])}</td></tr>)}</tbody></table></div></details>
     </section>
-    <section className="panel" id="forecast-glossary"><h2>{c.glossaryTitle}</h2><dl className="forecast-glossary">{c.glossary.map(([term, meaning]) => <div key={term}><dt>{term}</dt><dd>{meaning}</dd></div>)}</dl><h3>{c.nextTitle}</h3><ul>{c.next.map(p => <li key={p}>{p}</li>)}</ul><details><summary>{c.source}</summary><ul>{sources.map(s => <li key={s.id}>{s.label[locale]} <code>{s.source_ref}</code></li>)}</ul></details></section>
-    </details>
+    </section>
+    <details className="panel" id="forecast-glossary"><summary>{c.glossaryTitle}</summary><h2>{c.glossaryTitle}</h2><dl className="forecast-glossary">{c.glossary.map(([term, meaning]) => <div key={term}><dt>{term}</dt><dd>{meaning}</dd></div>)}</dl><h3>{c.nextTitle}</h3><ul>{c.next.map(p => <li key={p}>{p}</li>)}</ul><details><summary>{c.source}</summary><ul>{sources.map(s => <li key={s.id}>{s.label[locale]} <code>{s.source_ref}</code></li>)}</ul></details></details>
   </section>
 }

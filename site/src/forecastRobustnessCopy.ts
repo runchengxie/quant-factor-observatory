@@ -1,11 +1,11 @@
 export const forecastRobustnessCopy = {
   'en-US': {
-    title: 'What did the new checks change?',
+    title: 'Cash-flow rankings across the four fiscal quarters',
     scope: 'The new retrospective test includes all four fiscal quarters, adds single-quarter profitability information and evaluates a different historical window. It also changes the accounting target and treatment of extreme values. The results cover rows with complete matching financial data. The cleaned shared financial fields match the old panel. Announcement dates still reconstruct availability; it does not recover complete original financial revisions. Any difference from the old figures cannot be attributed only to fixing the missing quarters.',
     targets: { reported_roa: 'Reported asset profitability', quarterly_net_profit: 'Single-quarter net profit relative to assets', quarterly_cash_flow: 'Single-quarter operating cash flow relative to revenue' } as Record<string, string>,
     variants: { primary: 'Main registered treatment', milder_clipping: 'Milder extreme-value treatment', unclipped: 'Keep original extreme values' } as Record<string, string>,
     models: { current: 'Use the current value', seasonal: 'Use last year’s comparable quarter', level_ridge: 'Linear model predicts the level', delta_ridge: 'Linear model predicts the change', level_xgb: 'Tree model predicts the level', delta_xgb: 'Tree model predicts the change' } as Record<string, string>,
-    cashTitle: 'Does the cash-flow lead survive the new test?', cashNote: 'The model fell behind in the first two fiscal quarters and improved in the last two. These are matched periods from the new test. A positive difference means the pairwise ranking model beats the current-value ranking. The test remains historical and does not measure stock returns.',
+    cashTitle: 'Where does the cash-flow ranking advantage come from?', cashNote: 'The model fell behind in the first two fiscal quarters and improved in the last two. These are matched periods from the new test. A positive difference means the pairwise ranking model beats the current-value ranking. The test remains historical and does not measure stock returns.',
     cashChartNote: 'Right of the middle line means the model ranks better on average; left means the current-value ranking is better. All four bars use the same scale. Fiscal quarters refer to the source report used for prediction, rather than trading dates.', difference: 'Average ranking-score difference', wins: 'Periods with a better ranking', quarter: 'Fiscal quarter', periods: 'Test periods',
     declineTitle: 'When the model flags a decline, what actually happens?', target: 'Choose a financial measure', horizon: 'How far ahead', quarters: 'quarters', threshold: 'Count a decline of at least', points: 'percentage points',
     methodLabel: 'Forecast method', method: 'This illustration uses the registered tree model that predicts the future level. All methods are retained in the full comparison below.',
@@ -20,12 +20,12 @@ export const forecastRobustnessCopy = {
     qualifiedNote: 'The bounded one-month input audit checks August 3–31, 2026. Missing rows cannot automatically be treated as suspensions. Historical eligibility, suspension coverage, tradable fills, terminal events and industry freshness still need verification. No return comparison has been calculated from these inputs.',
   },
   'zh-CN': {
-    title: '补充检查以后，我们多知道了什么',
+    title: '把现金流表现拆成四个财季看',
     scope: '新检验包含全部四个财季，加入了单季盈利信息，检验的历史年份也不同。财务指标和特别大数值的处理方法同样有调整。结果只覆盖有完整对照资料的记录。清理后的共同财务数值与旧面板一致，日期仍按公告记录还原，仍缺少财报历次修改的完整记录。新旧数字的差别不能全部归因于补齐季度。',
     targets: { reported_roa: '财报里的累计资产盈利指标', quarterly_net_profit: '单季净利润占资产的比例', quarterly_cash_flow: '单季经营现金流占营收的比例' } as Record<string, string>,
     variants: { primary: '事先固定的主要处理方法', milder_clipping: '少处理一些特别大的数值', unclipped: '保留原始特别大的数值' } as Record<string, string>,
     models: { current: '沿用当前数值', seasonal: '沿用去年相同季度', level_ridge: '线性模型预测未来数值', delta_ridge: '线性模型直接预测变化', level_xgb: '树模型预测未来数值', delta_xgb: '树模型直接预测变化' } as Record<string, string>,
-    cashTitle: '新检验里，现金流模型还更好吗', cashNote: '新检验里，第一、第二财季落后，第三、第四财季更好。这里比较相同测试期。平均差值为正，表示两两比较模型比沿用当前数值排得更好。检验仍使用历史数据，分数与股票收益分开。',
+    cashTitle: '现金流模型的优势主要来自哪些季度', cashNote: '新检验里，第一、第二财季落后，第三、第四财季更好。这里比较相同测试期。平均差值为正，表示两两比较模型比沿用当前数值排得更好。检验仍使用历史数据，分数与股票收益分开。',
     cashChartNote: '条形向中线右边伸出，表示模型平均排得更好；向左边伸出，表示沿用当前数值更好。四个财季用相同刻度，按用来预测的财报所属期分组，与交易日期分开。', difference: '平均排序分数差值', wins: '排序更好的测试期', quarter: '财季', periods: '测试期数',
     declineTitle: '模型提醒要下降，后来真的下降了吗', target: '看哪个财务指标', horizon: '预测多久以后', quarters: '个季度', threshold: '下降多少才计入', points: '个百分点',
     methodLabel: '预测方法', method: '这张图用事先固定的树模型预测未来数值。其他方法的结果都保留在下面的完整对照里。',

@@ -14,11 +14,7 @@ function ExplorationContent({ data }: { data: StudyExplorationData }) {
   const Archive = data.guide ? 'details' : Fragment
   const sourceLink = (id: string) => `#study-source-${data.study_id}-${id}`
   const sourceNames = (ids: string[]) => <span className="study-evidence-sources">{labels.source}: {ids.map((id) => <a key={id} href={sourceLink(id)}>{data.sources.find((s) => s.id === id)?.label[locale]}</a>)}</span>
-  return <section className="study-exploration" aria-labelledby="study-exploration-title">
-    {data.guide && <ForecastGuide guide={data.guide} exploration={data} />}
-    <Archive {...(data.guide ? { className: 'forecast-archive' } : {})}>{data.guide && <summary>{forecastReaderCopy[locale].archive}</summary>}
-    <section className="panel study-exploration-head"><p className="eyebrow">{labels.eyebrow}</p><h2 id="study-exploration-title">{labels.title}</h2><p>{data.summary[locale]}</p><nav className="study-exploration-nav" aria-label={labels.navigation}><a href="#study-exploration-comparison">{labels.comparison}</a><a href="#study-exploration-path">{labels.path}</a><a href="#study-exploration-sources">{labels.sources}</a></nav></section>
-    <section className="panel study-exploration-comparison" id="study-exploration-comparison" aria-labelledby="study-comparison-title">
+  const comparison = (<section className="panel study-exploration-comparison" id="study-exploration-comparison" aria-labelledby="study-comparison-title">
       <h2 id="study-comparison-title">{labels.comparison}</h2>
       {chart ? <>
         <label className="study-exploration-select">{labels.chooseChart}<select aria-label={labels.chooseChart} value={chart.id} onChange={(e) => setChartId(e.target.value)}>{data.charts.map((c) => <option key={c.id} value={c.id}>{c.title[locale]}</option>)}</select></label>
@@ -27,7 +23,12 @@ function ExplorationContent({ data }: { data: StudyExplorationData }) {
         <p className="study-intermediate-conclusion"><strong>{labels.readChart}</strong> {chart.interpretation[locale]}</p>{sourceNames(chart.source_ids)}
         <details className="study-values"><summary>{labels.values}</summary><div className="table-scroll"><table className="factor-table"><caption>{chart.title[locale]} · {chart.metric[locale]}</caption><thead><tr><th>{labels.category}</th>{chart.series.map((s) => <th key={s.id}>{s.label[locale]}</th>)}</tr></thead><tbody>{chart.categories.map((category, i) => <tr key={i}><th scope="row">{category[locale]}</th>{chart.series.map((s) => <td key={s.id}>{formatStudyValue(s.values[i], chart, locale)}</td>)}</tr>)}</tbody></table></div></details>
       </> : <p className="study-no-performance">{labels.noPerformance}</p>}
-    </section>
+    </section>)
+  return <section className="study-exploration" aria-labelledby="study-exploration-title">
+    {data.guide && <ForecastGuide guide={data.guide} exploration={data} comparison={comparison} />}
+    <Archive {...(data.guide ? { className: 'forecast-archive' } : {})}>{data.guide && <summary>{forecastReaderCopy[locale].archive}</summary>}
+    <section className="panel study-exploration-head"><p className="eyebrow">{labels.eyebrow}</p><h2 id="study-exploration-title">{labels.title}</h2><p>{data.summary[locale]}</p><nav className="study-exploration-nav" aria-label={labels.navigation}><a href="#study-exploration-comparison">{labels.comparison}</a><a href="#study-exploration-path">{labels.path}</a><a href="#study-exploration-sources">{labels.sources}</a></nav></section>
+    {!data.guide && comparison}
     <section className="panel" id="study-exploration-path" aria-labelledby="study-path-title"><h2 id="study-path-title">{labels.path}</h2><p className="panel-note">{labels.pathNote}</p><ol className="study-exploration-steps">{data.steps.map((step, index) => <li key={step.id}>
       <div className="study-step-marker"><span>{String(index + 1).padStart(2, '0')}</span><small>{step.period[locale]}</small><span className="study-step-status">{labels[step.status] ?? labels.diagnostic}</span></div>
       <article><h3>{step.title[locale]}</h3><dl><div><dt>{labels.question}</dt><dd>{step.question[locale]}</dd></div><div><dt>{labels.finding}</dt><dd>{step.finding[locale]}</dd></div><div><dt>{labels.decision}</dt><dd>{step.decision[locale]}</dd></div></dl>{sourceNames(step.source_ids)}</article>
