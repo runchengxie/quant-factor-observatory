@@ -477,3 +477,6 @@
 .forecast-cash-quarters svg { width: 100%; }
 .forecast-cash-quarters strong { text-align: right; }
 .forecast-cash-quarters small { grid-column: 2 / -1; color: var(--muted); }
+
+.forecast-question { scroll-margin-top: 2rem; }
+.forecast-question-title { margin: 2.5rem 0 1rem; font-size: clamp(1.3rem, 3vw, 1.8rem); }
