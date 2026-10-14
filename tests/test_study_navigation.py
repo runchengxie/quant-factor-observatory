@@ -30,7 +30,10 @@ class StudyNavigationTests(unittest.TestCase):
     def test_employee_input_audit_hashes_follow_browser_navigation_contract(self):
         data = next(a for a in self.assets if a['study_id'] == 'employee-compensation')
         self.assertIsInstance(data['reproduction']['artifact_sha256'], dict)
-        self.assertEqual(set(data['reproduction']['artifact_sha256']), {'input_audit'})
+        self.assertEqual(set(data['reproduction']['artifact_sha256']), {
+            'input_audit', 'candidates', 'industry_history', 'cashflow',
+            'pit_manifests_and_partition_schema_samples',
+        })
         self.assertEqual(data['reproduction']['status'], 'artifact_verified')
         self.assertEqual(data['next_tasks'][0]['status'], 'completed')
         self.assertEqual(data['next_tasks'][1]['status'], 'blocked')

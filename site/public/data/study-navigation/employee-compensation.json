@@ -92,6 +92,7 @@
       "doc:quant-research.research.employee-cash-followup"
     ],
     "artifact_sha256": {
+      "input_audit": "3c29ca2fafab976cf44f9d927e99d6d1435a5bbfcf3adccee12ae0f9dabd132b",
       "candidates": "b6a7f22756547771f6864205d6f5baa09a6c3061899696345a3e734b1d75e5ad",
       "industry_history": "0501478ed7f2fffb63f149f71b58949f7a9a9659f7a47dff5a9d6d74087e3434",
       "cashflow": "5c821333ee3dacbcdb2aa42b8fc12a5e4c067917c36c90b197a573f734ce01af",

@@ -93,10 +93,18 @@ class StudyExplorationTests(unittest.TestCase):
         self.assertEqual(self.asset('fundamental-family-shadow')['charts'], [])
         employee = self.asset('employee-compensation')
         self.assertEqual(employee['evidence_stage'], 'hypothesis')
-        self.assertEqual({c['id'] for c in employee['charts']}, {'disclosure-population', 'annual-candidates', 'cash-intensity'})
+        self.assertEqual({c['id'] for c in employee['charts']}, {'disclosure-population', 'annual-candidates', 'cash-intensity', 'annual-cohort-medians'})
         for chart in employee['charts']:
             self.assertIn('not', chart['context']['en-US'])
-            self.assertIn('input-audit', chart['source_ids'])
+            if chart['id'] == 'annual-cohort-medians':
+                self.assertIn('followup', chart['source_ids'])
+                self.assertEqual(len(chart['series']), 4)
+                self.assertIn('not a wage or return conclusion', chart['context']['en-US'])
+                cohort = next(s for s in chart['series'] if s['id'] == 'fixed-cohort')
+                self.assertAlmostEqual(cohort['values'][0], .12544018560595135)
+                self.assertAlmostEqual(cohort['values'][-1], .15328388730575634)
+            else:
+                self.assertIn('input-audit', chart['source_ids'])
         counts = next(c for c in employee['charts'] if c['id'] == 'annual-candidates')
         self.assertEqual(sum(counts['series'][0]['values']), 59167)
         self.assertEqual(sum(counts['series'][1]['values']), 52203)
