@@ -202,9 +202,13 @@
       ]
     },
     {
-      "brief_sha256": "f4f18fecf70834c2d5dd88fb412de5b758f3c4d850c4e058ec8c85080198abd9",
-      "navigation_sha256": "db24a30f1487424f76bf628047ae408ce588f0f06be2177b1a1a6709cce63ff5",
+      "brief_sha256": "d698ffbef43e665f1d13f95b38a2ad445fd32997104b268e4203e5d53cc6878a",
+      "navigation_sha256": "c3834ede2cc5295233382c12af5a6f5407e11d9630d563056e28cccc5f0eef03",
       "navigation_sources": [
+        {
+          "source_ref": "doc:quant-research.research.employee-cash-followup",
+          "sha256": "2002ea2d48580449a221f71df97fdaa70fcab087a4fcf31e07791820a97e0193"
+        },
         {
           "source_ref": "doc:quant-research.research.employee-cash-input-audit",
           "sha256": "cde68dfe9011fe68b2a9af6c5d39c036bb8a17a7ac08f52668931cf3ab4854e8"
@@ -215,21 +219,25 @@
         },
         {
           "source_ref": "doc:quant-research.research.fundamental-research-series",
-          "sha256": "cb62f90737536b403727ebcde53adef70612fa80d84662d07da3203a5329921d"
+          "sha256": "023e5eea27517b2bd47f6f877868f217136fae3f7a6dc4991cf496b700c69475"
         }
       ],
       "study_id": "employee-compensation",
-      "source_revision": "e83f2d10a5c45aa4b4bc4b28a288887f86500aa8",
-      "catalog_sha256": "7b84a4952b4033bb1765d66c5e73f7a41ece7d90e4415da4d9b9d1ad9e3d4b9b",
-      "exploration_sha256": "d79ae62ea4857008871dff805dedf7ded0168b6c56cff86d85dbf86317582a16",
+      "source_revision": "f97005df21107c451dfe755e142a305bfb07b6b6",
+      "catalog_sha256": "b2b0677fdb9bde37913f44674d4f4884cbbced718ea658f2f4c0edf27be4c55d",
+      "exploration_sha256": "acccf42723e498d31e9e9d1b88c754aec7522df35606b975507fa73d8bedda89",
       "sources": [
         {
           "source_ref": "doc:quant-research.research.fundamental-research-series",
-          "sha256": "cb62f90737536b403727ebcde53adef70612fa80d84662d07da3203a5329921d"
+          "sha256": "023e5eea27517b2bd47f6f877868f217136fae3f7a6dc4991cf496b700c69475"
         },
         {
           "source_ref": "doc:quant-research.research.employee-cash-input-audit",
           "sha256": "cde68dfe9011fe68b2a9af6c5d39c036bb8a17a7ac08f52668931cf3ab4854e8"
+        },
+        {
+          "source_ref": "doc:quant-research.research.employee-cash-followup",
+          "sha256": "2002ea2d48580449a221f71df97fdaa70fcab087a4fcf31e07791820a97e0193"
         }
       ]
     },

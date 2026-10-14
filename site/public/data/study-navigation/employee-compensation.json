@@ -2,7 +2,7 @@
   "schema_version": "observatory.study_navigation.v1",
   "study_id": "employee-compensation",
   "source_ref": "doc:quant-research.research.fundamental-research-series",
-  "source_revision": "e83f2d10a5c45aa4b4bc4b28a288887f86500aa8",
+  "source_revision": "f97005df21107c451dfe755e142a305bfb07b6b6",
   "reviewed_at": "2026-10-14",
   "authority_ref": "doc:quant-research.research.fundamental-evidence-navigation",
   "trust": [
@@ -21,22 +21,23 @@
       "dimension": "financial_versions",
       "status": "partial",
       "detail": {
-        "en-US": "The ledger explicitly declares incomplete historical revisions. Conflicting annual values are excluded; coverage does not establish a complete original-vintage chain.",
-        "zh-CN": "账本明确声明历史修订不完整，年度金额冲突已排除；覆盖率不能证明完整原始版本链。"
+        "en-US": "The ledger declares incomplete historical revisions; all 21 retained PIT snapshots lack mapped compensation fields. Earlier history is reconstructed PIT.",
+        "zh-CN": "账本声明历史修订不完整；21 期已留存 PIT 快照均未映射薪酬字段，早期历史属于重建 PIT。"
       },
       "source_refs": [
-        "doc:quant-research.research.employee-cash-input-audit"
+        "doc:quant-research.research.employee-cash-input-audit",
+        "doc:quant-research.research.employee-cash-followup"
       ]
     },
     {
       "dimension": "historical_universe",
       "status": "unverified",
       "detail": {
-        "en-US": "Not independently qualified in the cited record.",
-        "zh-CN": "引用记录尚未独立完成这一项核查。"
+        "en-US": "Industry history is dated and non-overlapping, but match coverage rises from 62.4% to 90.0%; historical eligibility remains unverified.",
+        "zh-CN": "行业历史带有日期且区间不重叠，但匹配覆盖率从 62.4% 升至 90.0%；历史资格仍未核实。"
       },
       "source_refs": [
-        "doc:quant-research.research.fundamental-research-series"
+        "doc:quant-research.research.employee-cash-followup"
       ]
     },
     {
@@ -74,23 +75,27 @@
     }
   ],
   "reproduction": {
-    "run_id": "employee-cash-coverage-20261014-v2",
+    "run_id": "employee-cash-followup-20261014-v5",
     "status": "artifact_verified",
     "code_revision": null,
     "runner_sha256": "792e0adfe0e2fef957b50351c91fd883de041a5e6d163f85b6c8be7f73be9fd7",
     "data_version": {
-      "en-US": "Stored statement snapshot audited on 2026-10-14; 59,167 annual candidates. This verifies the input diagnostic, not a predictive experiment.",
-      "zh-CN": "2026-10-14 已存财报快照审计，构建 59,167 条年度候选记录。这里只核验输入诊断，不是预测实验。"
+      "en-US": "Follow-up aggregate receipt v5; four descriptive median series, six subtotal exceptions, and PIT inventory. No returns read.",
+      "zh-CN": "补充汇总回执 v5：四条描述性中位数、6 个小计异常及 PIT 字段清点；没有读取收益。"
     },
     "missing": {
-      "en-US": "Exact reruns require the same immutable input hashes. Original revisions, historical eligibility, controls and all return/execution evidence remain unqualified.",
-      "zh-CN": "精确复跑需要输入哈希一致的不可变快照。原始版本、历史资格、控制变量以及收益和执行证据仍未核验。"
+      "en-US": "Reconcile six source keys and qualify original vintages and historical eligibility before any registered return diagnostic.",
+      "zh-CN": "任何已登记收益诊断之前，须核对 6 个来源键并核验原始版本与历史资格。"
     },
     "source_refs": [
-      "doc:quant-research.research.employee-cash-input-audit"
+      "doc:quant-research.research.employee-cash-input-audit",
+      "doc:quant-research.research.employee-cash-followup"
     ],
     "artifact_sha256": {
-      "input_audit": "3c29ca2fafab976cf44f9d927e99d6d1435a5bbfcf3adccee12ae0f9dabd132b"
+      "candidates": "b6a7f22756547771f6864205d6f5baa09a6c3061899696345a3e734b1d75e5ad",
+      "industry_history": "0501478ed7f2fffb63f149f71b58949f7a9a9659f7a47dff5a9d6d74087e3434",
+      "cashflow": "5c821333ee3dacbcdb2aa42b8fc12a5e4c067917c36c90b197a573f734ce01af",
+      "pit_manifests_and_partition_schema_samples": "1d480cdaa36a6fad7f07e78a8b6dd61307560973627cc450ecec20df3aed6235"
     }
   },
   "decision": "hypothesis",
