@@ -102,3 +102,7 @@ Research navigation keeps `/studies` focused on searchable topic cards. Each top
 The jump page compares all published observations as IVhat + RLJV + RSJV stacks, with absolute variance and RV-share scales. Its sortable table retains invalid and missing observations; charts exclude negative, unreconciled, or zero-denominator rows. Inspection opens the selected observation’s breakdown.
 
 The Hermite page compares one indicator across example tickers over a selected date range. It aligns observations by calendar date, preserves gaps, and derives valid counts, missing counts, median, minimum, and maximum from the displayed series. An expandable table exposes the same daily values. These statistics describe indicator values, not the underlying return distribution. Separate published cross-sectional quantiles are not used in these summaries. The demo’s 42 dates include non-trading days.
+
+### Evidence review dates
+
+The study index and evidence summaries show the review date of the published evidence record, separately from data snapshot dates and automated source checks. `site/src/evidenceReviewRecords.json` is a small projection of the existing navigation records and historical-risk source metadata; missing review dates stay null. After updating these sources, run `python scripts/build_evidence_review_records.py`. The public-contract test checks the dates and source revisions against the cited assets.

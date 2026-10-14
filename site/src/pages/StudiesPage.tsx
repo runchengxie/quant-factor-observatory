@@ -1,3 +1,5 @@
+import EvidenceReviewDate from '../components/EvidenceReviewDate'
+import { siteNavigationCopy } from '../siteNavigationCopy'
 import ResearchExplorationEntries from '../components/ResearchExplorationEntries'
 import { lazy, Suspense, useState } from 'react'
 import { StudyConnections, SourceReviewWarning, StudyEvidenceSummary, StudyFilters, filterStudies } from '../components/ResearchEvidenceHub'
@@ -31,6 +33,7 @@ export function StudiesPage({ catalog }: { catalog: StudyCatalog }) {
     <section className="detail-head"><p className="eyebrow">FACTOR RESEARCH / STUDIES</p><h1>{english ? 'Research studies' : '因子研究专题'}</h1><p className="lede">{english ? 'Review research hypotheses and historical evidence with explicit data definitions, validation status, and open questions.' : '从研究假设到历史证据，逐项标明数据口径、检验状态和仍待解决的问题。'}</p><span className="badge">{english ? 'Updated' : '更新于'} {catalog.updated_at}</span></section>
     <p>{copy.researchHub.indexNote}</p>
     <p className="panel-note">{english ? 'Reading the tags: “cross-sectional” compares stocks on the same date; a “portfolio replay” rebuilds holdings from historical rules; a “prospective holdout” is a future period kept aside until the method is fixed. These labels describe how a study was checked, not how strong its conclusion is.' : '标签这样理解：“截面排序”是在同一天比较不同股票；“组合回放”是按历史规则重建持仓；“前瞻留出期”是先封存、等方法固定后再检验的未来区间。这些标签说明研究怎样检查，不代表结论有多可靠。'}</p>
+    <p className="panel-note">{siteNavigationCopy[locale].reviewNote}</p>
     <ResearchExplorationEntries />
     <StudyFilters studies={catalog.studies} query={query} market={market} stage={stage} setQuery={setQuery} setMarket={setMarket} setStage={setStage} />
     <p className="study-navigation-links"><a href={href('evidence')}>{copy.researchHub.evidenceLink}</a><a href={href('compare')}>{copy.researchHub.compare}</a></p>
@@ -51,7 +54,7 @@ export function StudiesPage({ catalog }: { catalog: StudyCatalog }) {
           const study = localizedStudy(rawStudy, locale)
           return <a className="study-card" href={href(study.id)} key={study.id}>
             <span className={`study-status study-status-${study.status}`}>{study.status_label}</span>
-            <small>{study.family}</small><h2>{study.title}</h2><p>{copy.studyBriefs[study.id] ?? study.summary}</p><SourceReviewWarning study={study} />
+            <EvidenceReviewDate recordKey={study.id} /><small>{study.family}</small><h2>{study.title}</h2><p>{copy.studyBriefs[study.id] ?? study.summary}</p><SourceReviewWarning study={study} />
             <p className="study-card-scope">{study.evidence_summary?.sample[locale] ?? study.period}</p>
             <p className="study-card-gap">{copy.researchHub.gap}{english ? ': ' : '：'}{study.limits[0]}</p>
             <div className="study-taxonomy" aria-label={copy.studies.studyClassifications}>{taxonomyLabels(study, copy.studyTaxonomy).map((label) => <span className="tag" key={label}>{label}</span>)}</div>
@@ -65,7 +68,7 @@ export function StudiesPage({ catalog }: { catalog: StudyCatalog }) {
       {catalog.series?.length ? <div className="section-heading"><h2>{copy.studies.otherStudies}</h2></div> : null}
       <div className="study-grid">{ungroupedStudies.map((rawStudy) => { const study = localizedStudy(rawStudy, locale); return <a className="study-card" href={href(study.id)} key={study.id}>
         <span className={`study-status study-status-${study.status}`}>{study.status_label}</span>
-        <small>{study.family}</small><h2>{study.title}</h2><p>{copy.studyBriefs[study.id] ?? study.summary}</p><SourceReviewWarning study={study} />
+        <EvidenceReviewDate recordKey={study.id} /><small>{study.family}</small><h2>{study.title}</h2><p>{copy.studyBriefs[study.id] ?? study.summary}</p><SourceReviewWarning study={study} />
         <p className="study-card-scope">{study.evidence_summary?.sample[locale] ?? study.period}</p>
         <p className="study-card-gap">{copy.researchHub.gap}{english ? ': ' : '：'}{study.limits[0]}</p>
         {study.method || study.market || study.evidence_stage ? <div className="study-taxonomy" aria-label={copy.studies.studyClassifications}>{taxonomyLabels(study, copy.studyTaxonomy).map((label) => <span className="tag" key={label}>{label}</span>)}</div> : null}
