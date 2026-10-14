@@ -1,3 +1,4 @@
+import SiteNavigation from './components/SiteNavigation'
 import { lazy, Suspense, useEffect, useState } from 'react'
 import { loadAlpha810Snapshot, loadFundamentalData, loadRdAnnualEvidence, loadRiskHistory, loadSnapshot, loadStudies } from './data'
 import { formatDataLoadError } from './dataErrors'
@@ -122,8 +123,6 @@ function AppContent({ theme, setTheme }: { theme: Theme; setTheme: (theme: Theme
     return () => { active = false }
   }, [path])
 
-  const pathname = window.location.pathname
-  const active = (segment: string) => pathname.includes(segment) ? 'active' : undefined
   const switchLocale = () => {
     const next = locale === 'en-US' ? 'zh-CN' : 'en-US'
     try { window.localStorage.setItem('quant-factor-locale', next) } catch { /* storage is optional */ }
@@ -131,7 +130,7 @@ function AppContent({ theme, setTheme }: { theme: Theme; setTheme: (theme: Theme
   }
   const switchTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
   const sourceLabel = data?.kind === 'studies' || path.startsWith('studies/') ? copy.nav.studies : data?.kind === 'quality' ? copy.nav.quality : data && data.kind !== 'alpha810' && data.kind !== 'fundamentals' && data.kind !== 'not-found' && data.snapshot.source === 'demo' ? copy.sourceDemo : copy.sourcePublic
-  return <><header className="site-header"><div className="site-masthead"><a className="brand" href={import.meta.env.BASE_URL}><span className="brand-kicker">QUANT FACTOR</span><strong>OBSERVATORY</strong></a><div className="site-meta"><strong>{copy.brandMeta}</strong><span>{copy.brandMetaSub}</span></div></div><nav className="site-nav"><a className={pathname.endsWith('/') || pathname.endsWith('index.html') ? 'active' : undefined} href={import.meta.env.BASE_URL}>{copy.nav.overview}</a><a className={active('alpha810')} href={`${import.meta.env.BASE_URL}alpha810`}>{copy.nav.alpha810}</a><a className={active('factors')} href={`${import.meta.env.BASE_URL}factors`}>{copy.nav.factors}</a><a className={active('studies')} href={`${import.meta.env.BASE_URL}studies`}>{copy.nav.studies}</a><a className={active('fundamentals')} href={`${import.meta.env.BASE_URL}fundamentals`}>{copy.nav.fundamentals}</a><a className={active('jumps')} href={`${import.meta.env.BASE_URL}jumps`}>{copy.nav.jumps}</a><a className={active('hermite')} href={`${import.meta.env.BASE_URL}hermite`}>{copy.nav.hermite}</a><a className={active('quality')} href={`${import.meta.env.BASE_URL}quality`}>{copy.nav.quality}</a><button type="button" className="locale-toggle" onClick={switchLocale} aria-label={copy.switchLanguage.replace('{language}', copy.switchTo)}>{copy.switchTo}</button><button type="button" className="theme-toggle" onClick={switchTheme} aria-pressed={theme === 'dark'}>{theme === 'dark' ? '☼' : '☾'} <span>{theme === 'dark' ? copy.themeLight : copy.themeToggle}</span></button></nav></header>
+  return <><header className="site-header"><div className="site-masthead"><a className="brand" href={import.meta.env.BASE_URL}><span className="brand-kicker">QUANT FACTOR</span><strong>OBSERVATORY</strong></a><div className="site-meta"><strong>{copy.brandMeta}</strong><span>{copy.brandMetaSub}</span></div></div><SiteNavigation path={path}><button type="button" className="locale-toggle" onClick={switchLocale} aria-label={copy.switchLanguage.replace('{language}', copy.switchTo)}>{copy.switchTo}</button><button type="button" className="theme-toggle" onClick={switchTheme} aria-pressed={theme === 'dark'}>{theme === 'dark' ? '☼' : '☾'} <span>{theme === 'dark' ? copy.themeLight : copy.themeToggle}</span></button></SiteNavigation></header>
     {error ? <main className="empty"><h1>{copy.loadError}</h1><p>{formatDataLoadError(error, locale)}</p><button onClick={() => window.location.reload()}>{copy.retry}</button></main> : !data ? <main className="empty"><p>{copy.loading}</p></main> : <Suspense fallback={<main className="empty"><p>{copy.loading}</p></main>}>{pathView(path, data, copy)}</Suspense>}
     <footer className="site-footer"><span>quant-factor-observatory · {sourceLabel}</span><span>{copy.footerNote}</span></footer></>
 }

@@ -1,3 +1,4 @@
+import EvidenceReviewDate from './EvidenceReviewDate'
 import { useState } from 'react'
 import type { Study, StudyCatalog } from '../types'
 import { useLocale } from '../i18n'
@@ -33,7 +34,7 @@ export function StudyEvidenceSummary({ study }: { study: Study }) {
   const { locale, copy } = useLocale(), c = copy.researchHub
   const content = { ...study, ...study.translations?.[locale] }
   return <section className="panel study-evidence-summary">
-    <h2>{c.detailEvidence}</h2>
+    <h2>{c.detailEvidence}</h2><EvidenceReviewDate recordKey={study.id} />
     <dl className="study-evidence-fields">{study.evidence_summary && <>
       <div><dt>{c.sample}</dt><dd>{study.evidence_summary.sample[locale]}</dd><dd>{study.evidence_summary.input_basis[locale]}</dd></div>
       <div><dt>{c.scope}</dt><dd>{study.evidence_summary.scope[locale]}</dd></div>

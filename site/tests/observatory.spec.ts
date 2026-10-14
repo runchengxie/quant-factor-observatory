@@ -753,3 +753,45 @@ test('research exploration and Alpha 810 entries preserve routes and localized s
   await page.setViewportSize({ width: 390, height: 844 })
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy()
 })
+
+test('grouped navigation works by keyboard and distinguishes evidence review from source checks', async ({ page }) => {
+  await page.goto('/studies')
+  await expect(page.locator('.study-card .evidence-review-date')).toHaveCount(8)
+  await expect(page.locator('.study-card .evidence-review-date').first()).toContainText('Evidence record reviewed')
+  await expect(page.locator('.exploration-entry').last()).toContainText('Review date not recorded')
+  const nav = page.locator('.site-nav')
+  const research = nav.locator('summary').filter({ hasText: /^Research$/ })
+  await research.focus()
+  await page.keyboard.press('Enter')
+  await expect(nav.getByRole('link', { name: 'Jump decomposition', exact: true })).toBeVisible()
+  await page.keyboard.press('Escape')
+  await expect(nav.getByRole('link', { name: 'Jump decomposition', exact: true })).not.toBeVisible()
+  await nav.locator('summary').filter({ hasText: /^Factors$/ }).click()
+  await expect(nav.getByRole('link', { name: 'Alpha 810', exact: true })).toBeVisible()
+  await page.locator('h1').click()
+  await expect(nav.getByRole('link', { name: 'Alpha 810', exact: true })).not.toBeVisible()
+  await page.getByRole('button', { name: 'Switch to 中文', exact: true }).click()
+  await expect(page.locator('.study-card .evidence-review-date').first()).toContainText('证据记录复核于')
+  await page.setViewportSize({ width: 390, height: 844 })
+  await nav.locator('summary').filter({ hasText: /^研究$/ }).click()
+  await expect(nav.getByRole('link', { name: 'Hermite 体制', exact: true })).toBeVisible()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy()
+})
+
+test('grouped navigation keeps readable menu contrast in dark mode', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('quant-factor-theme', 'dark'))
+  await page.goto('/studies')
+  await page.locator('.site-nav summary').filter({ hasText: /^Research$/ }).click()
+  const contrasts = await page.evaluate(() => {
+    const luminance = (color: string) => color.match(/[\d.]+/g)!.slice(0, 3).map(Number).map(v => {
+      const s = v / 255; return s <= .04045 ? s / 12.92 : ((s + .055) / 1.055) ** 2.4
+    }).reduce((sum, v, i) => sum + v * [.2126, .7152, .0722][i], 0)
+    return ['.site-nav-group[open] summary', '.site-nav-group[open] a'].map(selector => {
+      const element = document.querySelector(selector)!
+      const background = getComputedStyle(element.closest(selector.endsWith('a') ? '.site-nav-submenu' : '.site-header')!).backgroundColor
+      const fg = luminance(getComputedStyle(element).color), bg = luminance(background)
+      return (Math.max(fg, bg) + .05) / (Math.min(fg, bg) + .05)
+    })
+  })
+  for (const contrast of contrasts) expect(contrast).toBeGreaterThanOrEqual(4.5)
+})

@@ -1,0 +1,62 @@
+{
+  "pb-roe": {
+    "reviewed_at": "2026-10-14",
+    "source_asset": "data/study-navigation/pb-roe.json",
+    "source_revision": "e83f2d10a5c45aa4b4bc4b28a288887f86500aa8"
+  },
+  "rd-investment": {
+    "reviewed_at": "2026-10-14",
+    "source_asset": "data/study-navigation/rd-investment.json",
+    "source_revision": "e83f2d10a5c45aa4b4bc4b28a288887f86500aa8"
+  },
+  "fundamental-state-forecasting": {
+    "reviewed_at": "2026-10-14",
+    "source_asset": "data/study-navigation/fundamental-state-forecasting.json",
+    "source_revision": "e83f2d10a5c45aa4b4bc4b28a288887f86500aa8"
+  },
+  "fundamental-family-shadow": {
+    "reviewed_at": "2026-10-14",
+    "source_asset": "data/study-navigation/fundamental-family-shadow.json",
+    "source_revision": "e83f2d10a5c45aa4b4bc4b28a288887f86500aa8"
+  },
+  "cashflow-indices": {
+    "reviewed_at": "2026-10-14",
+    "source_asset": "data/study-navigation/cashflow-indices.json",
+    "source_revision": "e83f2d10a5c45aa4b4bc4b28a288887f86500aa8"
+  },
+  "hk-fundamental-archive": {
+    "reviewed_at": "2026-10-14",
+    "source_asset": "data/study-navigation/hk-fundamental-archive.json",
+    "source_revision": "e83f2d10a5c45aa4b4bc4b28a288887f86500aa8"
+  },
+  "employee-compensation": {
+    "reviewed_at": "2026-10-14",
+    "source_asset": "data/study-navigation/employee-compensation.json",
+    "source_revision": "f97005df21107c451dfe755e142a305bfb07b6b6"
+  },
+  "absolute-level-forecast": {
+    "reviewed_at": "2026-10-14",
+    "source_asset": "data/study-navigation/absolute-level-forecast.json",
+    "source_revision": "e83f2d10a5c45aa4b4bc4b28a288887f86500aa8"
+  },
+  "jumps": {
+    "reviewed_at": "2026-10-14",
+    "source_asset": "data/risk-history.json",
+    "source_revision": "5e556c25737e46dd10b590ed7735d42f034f5438"
+  },
+  "hermite": {
+    "reviewed_at": "2026-10-14",
+    "source_asset": "data/risk-history.json",
+    "source_revision": "5e556c25737e46dd10b590ed7735d42f034f5438"
+  },
+  "fundamentals": {
+    "reviewed_at": null,
+    "source_asset": "data/fundamental-snapshot.json",
+    "source_revision": null
+  },
+  "alpha810": {
+    "reviewed_at": null,
+    "source_asset": "data/alpha810-snapshot.json",
+    "source_revision": null
+  }
+}
