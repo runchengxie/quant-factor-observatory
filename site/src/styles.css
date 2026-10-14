@@ -428,6 +428,19 @@
 .forecast-workflow h3 { font-size: 1rem; }
 .forecast-workflow p { font-size: .9rem; line-height: 1.6; }
 .forecast-heatmap { min-width: 760px; }
+.quarterly-calendar-results h2 { margin-top: 0; }
+.quarterly-calendar-table { min-width: 820px; }
+.quarterly-calendar-table th, .quarterly-calendar-table td { min-width: 145px; vertical-align: top; }
+.quarterly-calendar-table th:first-child { min-width: 175px; }
+.quarterly-calendar-scores { display: block; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.quarterly-calendar-track { position: relative; display: block; height: 12px; margin: 10px 0 6px; background: #eee8dd; border-radius: 2px; }
+.quarterly-calendar-zero { position: absolute; left: 50%; top: -3px; height: 18px; border-left: 1px solid #716c63; }
+.quarterly-calendar-delta { position: absolute; top: 4px; height: 4px; border-radius: 2px; }
+.quarterly-calendar-delta.negative { background: #b64d33; }
+.quarterly-calendar-delta.positive { background: #33796c; }
+.quarterly-calendar-negative { color: #9c3f2b; }
+.quarterly-calendar-positive { color: #276b5a; }
+.quarterly-calendar-table td strong { display: block; font-size: 12px; font-variant-numeric: tabular-nums; }
 .forecast-gain-positive { background: rgba(51, 121, 108, .14); font-weight: 700; }
 .forecast-gain-negative { background: rgba(182, 77, 51, .10); }
 .forecast-plot { margin: 1rem 0; overflow-x: auto; }

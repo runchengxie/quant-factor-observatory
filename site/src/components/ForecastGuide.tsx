@@ -1,5 +1,6 @@
 import ForecastReader from './ForecastReader'
 import ForecastRobustness from './ForecastRobustness'
+import QuarterlyCalendarResults from './QuarterlyCalendarResults'
 import type { ReactNode } from 'react'
 import { forecastReaderCopy } from '../forecastReaderCopy'
 import { useState } from 'react'
@@ -56,6 +57,7 @@ export default function ForecastGuide({ guide, exploration, comparison }: { guid
     <details className="panel forecast-intro"><summary>{c.workflowTitle}</summary><section><p className="eyebrow">{c.stage} · {c.date}</p><h2 id="forecast-guide-title">{c.title}</h2>{guide.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}</section><ol className="forecast-workflow">{c.workflow.map(([title, text], i) => <li key={title}><span>{i + 1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol></details>
     <nav className="study-exploration-nav" aria-label={c.title}>{[['forecast-order', forecastReaderCopy[locale].orderQuestion], ['forecast-consistency', forecastReaderCopy[locale].stableQuestion], ['forecast-change', forecastReaderCopy[locale].changeQuestion], ['forecast-investment', forecastReaderCopy[locale].returnQuestion]].map(([id, label]) => <a key={id} href={`#${id}`}>{label}</a>)}</nav>
     <section className="forecast-question" id="forecast-order"><h2 className="forecast-question-title">{forecastReaderCopy[locale].orderQuestion}</h2>
+    <QuarterlyCalendarResults />
     <ForecastReader guide={guide} part="comparisons" />
     {comparison}
     <section className="panel" id="forecast-gain"><h2>{c.gainTitle}</h2><p>{c.gainNote}</p><p className="study-chart-mobile-note">{c.scrollNote}</p><div className="table-scroll"><table className="factor-table forecast-heatmap"><caption>{c.gainTitle}</caption><thead><tr><th>{c.target}</th><th>{c.horizon}</th>{models.map(m => <th key={m}>{c.models[m]}</th>)}</tr></thead><tbody>{guide.groups.map(g => {
