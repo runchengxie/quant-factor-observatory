@@ -4,6 +4,7 @@ import MetricCard from '../components/MetricCard'
 import { localizeFactorRecord, localizedStatus } from '../researchLocale'
 import type { FactorRecord, FundamentalSnapshot, ResearchContext } from '../types'
 import { useLocale } from '../i18n'
+import { riskHistoryCopy } from '../riskHistoryCopy'
 
 function value(value: number | null | undefined) {
   return value === null || value === undefined || !Number.isFinite(value) ? 'Unavailable' : value.toFixed(3)
@@ -12,6 +13,7 @@ function value(value: number | null | undefined) {
 export default function FactorPage({ factor, context, fundamental }: { factor?: FactorRecord; context: ResearchContext; fundamental: FundamentalSnapshot }) {
   const { locale, copy } = useLocale()
   const english = locale === 'en-US'
+  const riskLinks = riskHistoryCopy[locale]
   const [seriesKey, setSeriesKey] = useState('')
   const selectedSeries = useMemo(() => {
     if (!factor?.series?.length) return undefined
@@ -40,5 +42,6 @@ export default function FactorPage({ factor, context, fundamental }: { factor?: 
     <section className="panel research-evidence"><p className="eyebrow">RESEARCH EVIDENCE</p><h2>{english ? 'Attribution research' : '归因研究结果'}</h2>{evidence?.summary ? <p>{evidence.summary}</p> : <p>{english ? 'No public IC, grouped-return, or attribution statistics are available; this is not interpreted as validated alpha.' : '当前没有公开的 IC、分层收益或归因统计；这不会被解释为已验证 alpha。'}</p>}{evidence?.metrics?.length ? <div className="evidence-metrics">{evidence.metrics.map((item) => <div key={item.label}><span>{item.label}</span><strong>{item.value}</strong></div>)}</div> : null}{evidence?.attribution?.length ? <ul>{evidence.attribution.map((item) => <li key={item.label}>{item.label}{english ? `: ${item.value}` : `：${item.value}`}</li>)}</ul> : null}{evidence?.caveats?.length ? <small>{evidence.caveats.join(' · ')}</small> : <small>{english ? 'The public layer keeps sanitized research results only; exact operators and per-security signals are not published.' : '公开层只保留经过脱敏的研究结果；精确算子和逐股票信号不公开。'}</small>}</section>
     <section className="panel chart-panel"><div className="panel-head"><div><p className="eyebrow">EXAMPLE SERIES</p><h2>{selectedSeries ? `${selectedSeries.ticker} · ${selectedSeries.metric}` : english ? 'No series available' : '没有可用的序列'}</h2></div>{metricOptions.length ? <label className="series-select"><span>{english ? 'Select series' : '选择序列'}</span><select value={seriesKey || (selectedSeries ? `${selectedSeries.ticker}:${selectedSeries.metric}` : '')} onChange={(event) => setSeriesKey(event.target.value)}>{metricOptions.map((item) => <option key={`${item.ticker}:${item.metric}`} value={`${item.ticker}:${item.metric}`}>{item.ticker} · {item.metric}</option>)}</select></label> : <span className="tag">{english ? 'Series unavailable' : '序列不可用'}</span>}</div>{selectedSeries ? <><p className="chart-caption">{english ? 'This is an example series from the current snapshot and is not representative of the full market.' : '这是当前快照中的示例序列，不代表全市场代表性股票。'}</p><LineChart dates={selectedSeries.dates} series={[{ name: selectedSeries.metric, values: selectedSeries.values, color: '#ef8d5e' }]} /></> : <div className="chart-empty">{english ? 'This factor has no ticker series to display in the current snapshot.' : '该因子当前没有可展示的 ticker 序列。'}</div>}</section>
     <section className="research-boundary"><p><strong>{english ? 'Evidence boundary: ' : '研究边界：'}</strong>{view.status === 'validated' ? (english ? 'This factor has a validation status, but this page still shows snapshot diagnostics only.' : '该因子已有验证状态，但本页面仍只展示快照诊断。') : (english ? 'This page shows a descriptive or experimental snapshot; it does not establish IC, grouped returns, or a trading strategy.' : '当前页面展示的是描述性/实验性快照，不代表 IC、分层收益或交易策略已经验证。')}</p></section>
+    <section className="panel factor-risk-links"><p className="eyebrow">{riskLinks.factorLinksEyebrow}</p><h2>{riskLinks.factorLinkTitle}</h2><p><a href={import.meta.env.BASE_URL + 'jumps?mode=historical&granularity=annual'}>{riskLinks.jumpLink}</a></p><p><a href={import.meta.env.BASE_URL + 'hermite?mode=historical&granularity=annual&metric=rv_shape_h3'}>{riskLinks.hermiteLink}</a></p><p><a href={import.meta.env.BASE_URL + 'quality'}>{riskLinks.qualityLink}</a></p></section>
   </main>
 }

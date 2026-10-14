@@ -5,6 +5,53 @@
   "source_manifest": "docs/research/knowledge-pilot.yml",
   "projections": [
     {
+      "public_id": "absolute-level-forecast",
+      "source_ref": "doc:quant-research.research.fundamental-state-forecasting",
+      "source_status": "pilot",
+      "publication_status": "preliminary_aggregate",
+      "locales": [
+        "en-US",
+        "zh-CN"
+      ],
+      "allowed_fields": [
+        "title",
+        "family",
+        "status",
+        "summary",
+        "period",
+        "findings",
+        "limits",
+        "aggregate_rows",
+        "exploration_steps",
+        "aggregate_charts",
+        "source_references",
+        "next_question",
+        "evidence_summary",
+        "conclusion_changes",
+        "related_studies",
+        "source_review_status",
+        "navigation_asset",
+        "navigation_summary",
+        "trust",
+        "reproduction",
+        "next_tasks",
+        "diagnostic_intervals",
+        "scale_slices",
+        "calibration"
+      ],
+      "excluded_fields": [
+        "private_data_paths",
+        "credentials",
+        "per_security_signals",
+        "portfolio_weights",
+        "execution_details",
+        "private_code"
+      ],
+      "exploration_asset": "data/study-exploration/absolute-level-forecast.json",
+      "exploration_reviewed_at": "2026-10-02",
+      "navigation_asset": "data/study-navigation/absolute-level-forecast.json"
+    },
+    {
       "public_id": "cashflow-indices",
       "source_ref": "doc:quant-research.research.cashflow-indices-map",
       "source_status": "active",
@@ -216,53 +263,6 @@
       "navigation_asset": "data/study-navigation/fundamental-state-forecasting.json"
     },
     {
-      "public_id": "absolute-level-forecast",
-      "source_ref": "doc:quant-research.research.fundamental-state-forecasting",
-      "source_status": "pilot",
-      "publication_status": "preliminary_aggregate",
-      "locales": [
-        "en-US",
-        "zh-CN"
-      ],
-      "allowed_fields": [
-        "title",
-        "family",
-        "status",
-        "summary",
-        "period",
-        "findings",
-        "limits",
-        "aggregate_rows",
-        "exploration_steps",
-        "aggregate_charts",
-        "source_references",
-        "next_question",
-        "evidence_summary",
-        "conclusion_changes",
-        "related_studies",
-        "source_review_status",
-        "navigation_asset",
-        "navigation_summary",
-        "trust",
-        "reproduction",
-        "next_tasks",
-        "diagnostic_intervals",
-        "scale_slices",
-        "calibration"
-      ],
-      "excluded_fields": [
-        "private_data_paths",
-        "credentials",
-        "per_security_signals",
-        "portfolio_weights",
-        "execution_details",
-        "private_code"
-      ],
-      "exploration_asset": "data/study-exploration/absolute-level-forecast.json",
-      "exploration_reviewed_at": "2026-10-02",
-      "navigation_asset": "data/study-navigation/absolute-level-forecast.json"
-    },
-    {
       "public_id": "hk-fundamental-archive",
       "source_ref": "doc:quant-research.archive.hk-experiment-recovery-20260928",
       "source_status": "historical",
@@ -400,6 +400,39 @@
       "exploration_asset": "data/study-exploration/rd-investment.json",
       "exploration_reviewed_at": "2026-10-04",
       "navigation_asset": "data/study-navigation/rd-investment.json"
+    },
+    {
+      "public_id": "risk-history",
+      "source_ref": "doc:quant-research.research.historical-risk-retained-panel-20261014",
+      "source_status": "archived",
+      "publication_status": "historical_archive",
+      "locales": [
+        "en-US",
+        "zh-CN"
+      ],
+      "allowed_fields": [
+        "source_hashes",
+        "coverage",
+        "quality",
+        "jump_history",
+        "shape_history",
+        "definitions",
+        "limitations"
+      ],
+      "excluded_fields": [
+        "private_data_paths",
+        "credentials",
+        "per_security_signals",
+        "portfolio_weights",
+        "private_code",
+        "raw_rows",
+        "reproduction_recipe"
+      ],
+      "asset": "data/risk-history.json",
+      "asset_sha256": "37c88df1b8ea38e38ee2d9f1951951fa78b81af800ad1952337984c3a0a2991c",
+      "producer_revision": "5e556c25737e46dd10b590ed7735d42f034f5438",
+      "reviewed_at": "2026-10-14",
+      "source_note_revision": "7b7d2de3f6e714fef7003a269e429c3c97a73e05"
     }
   ],
   "hub_schema": "observatory.research_hub.v1"
