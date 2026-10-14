@@ -137,6 +137,7 @@ for (const locale of ['en-US', 'zh-CN']) {
     await expect(guide.locator('.forecast-confusion article')).toHaveCount(4)
     await guide.locator('#forecast-stability select').nth(0).selectOption('cash_conversion')
     await guide.locator('#forecast-stability select').nth(1).selectOption('4')
+    await expect(guide.locator('#forecast-order select').last()).toHaveValue('roa')
     await expect(guide.locator('#forecast-stability')).toContainText('2012-09-30')
     const portfolio = guide.locator('#forecast-return select')
     await expect(portfolio.locator('option')).toHaveCount(5)
