@@ -765,14 +765,14 @@
           {
             "id": "fundamental-state-forecasting-robustness",
             "priority": "P1",
-            "status": "ready",
+            "status": "completed",
             "action": {
-              "en-US": "Register robust accounting transforms and material deterioration thresholds before a new experiment.",
-              "zh-CN": "下一轮先登记会计极值处理方法和有经营意义的恶化幅度。"
+              "en-US": "Complete quarter-aware accounting and fixed decline-threshold diagnostics.",
+              "zh-CN": "补齐财季，检查财报口径和事先固定的下降幅度。"
             },
             "acceptance": {
-              "en-US": "Compare on matched dates and rows with no-change and seasonal controls; report prevalence, paired intervals and block-length sensitivity without selecting on test outcomes.",
-              "zh-CN": "固定日期和记录，与零变化和同期对照比较，报告实际下降比例及配对区间，不按测试结果挑规则。"
+              "en-US": "Eighteen registered groups retain raw and bounded errors, decline counts and prevalence. Cash ranking gains depend on fiscal quarter; no prospective or return promotion.",
+              "zh-CN": "18 组检查保留原始误差、统一边界下的误差和下降记录。现金流优势随财季变化，仍待未来财报和收益对照检验。"
             }
           },
           {
@@ -784,8 +784,8 @@
               "zh-CN": "先核实历史资格、财报版本和退市处理，明确成交规则，再比较当前基本面、估值和预测的收益。"
             },
             "acceptance": {
-              "en-US": "Retain dated input qualification and identical candidates, dates and costs in all arms; preserve the current decision if unresolved.",
-              "zh-CN": "保留有日期的数据核查记录，各组日期、股票和成本相同。缺口未解决则保留当前判断。"
+              "en-US": "A dated one-month audit checks 5,514 candidates, with six missing entry rows, six missing exit rows and twelve missing industry memberships. Suspension, eligibility, execution and terminal gates remain unresolved; retain the forward observed-vintage protocol.",
+              "zh-CN": "一段有日期的检查覆盖 5,514 只股票，买入日和卖出日各缺 6 条行情，12 只缺行业记录。停牌、资格、成交和退市缺口仍待解决，未来观察方案已保留。"
             }
           }
         ]
