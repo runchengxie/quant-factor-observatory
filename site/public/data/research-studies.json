@@ -1223,40 +1223,40 @@
       "family": "人力资本与劳动",
       "status": "hypothesis",
       "status_label": "研究假设",
-      "summary": "员工现金支出披露支持构建 59,167 条年度候选记录，其中 52,203 条可计算连续年度增长。历史财报版本与员工人数序列仍未核实。本次没有读取收益，图表仅展示输入核验。",
+      "summary": "2015—2025 年员工现金支出占营收中位数在全样本、行业匹配样本和固定队列中均上升；行业匹配覆盖扩大，6 个年度键违反现金流小计关系，现有 21 期 PIT 快照均不含薪酬字段。收益预测未检验。",
       "period": "输入报告期：2015 年一季度至 2026 年二季度；年度候选：2015—2025 年",
-      "source_note": "覆盖图与年度分布来自已核验输入审计，不是选股绩效；没有读取收益。",
+      "source_note": "新增四线年度对照为描述性会计比率；不代表工资或收益结论。尚未读取收益。",
       "columns": [],
       "rows": [],
       "findings": [
-        "员工现金支出和应付余额的已存记录有限值占比分别为 99.82% 和 99.19%。",
-        "已构建 59,167 条年度候选记录，其中 52,203 条可计算连续年度增长。",
-        "应付余额是负债，现金支出不等于应计工资；当前人数不能回填历史。"
+        "59,167 条年度候选记录；行业匹配覆盖从 62.4% 增至 90.0%，构成会变化。",
+        "全样本、行业匹配样本、L3 行业等权中位数及 3,749 家固定队列的现金支出/营收中位数均上升。",
+        "6 个年度键的员工现金支出超过经营现金流出小计，需回查来源报表与映射。"
       ],
       "limits": [
-        "历史修订链不完整，现有 PIT 基本面未暴露薪酬字段。",
-        "存储记录覆盖不能证明历史股票池完整，公司构成会随年份变化。",
-        "尚无 Rank IC、分组收益或含成本交易回测。"
+        "21 期已留存 PIT 快照均未映射员工现金支出或应付职工薪酬；早期历史属于重建 PIT。",
+        "存储覆盖不代表历史股票池完整；固定队列也有幸存者和可得性偏差。",
+        "现金支出不是工资或人均薪酬；尚无 Rank IC、分组收益或含成本回测。"
       ],
       "translations": {
         "en-US": {
           "title": "Employee cash expenditure: inputs audited, return hypothesis untested",
           "family": "Human capital and labor",
           "status_label": "Research hypothesis",
-          "summary": "Employee cash disclosures support 59,167 annual candidate records, including 52,203 adjacent-year growth observations. Historical revisions and workforce counts remain unqualified. No returns were read; these are input diagnostics.",
+          "summary": "From 2015–2025, median employee cash/revenue rose in the all-company, dated-industry and fixed-cohort samples. Industry coverage expanded; six annual keys violate a cash-flow subtotal check, and all 21 retained PIT snapshots lack compensation fields. Returns remain untested.",
           "period": "Input reports: 2015Q1–2026Q2; annual candidates: 2015–2025",
-          "source_note": "Coverage and annual distributions are audited input diagnostics, not investment performance; no returns were read.",
+          "source_note": "The four-line annual comparison shows descriptive accounting ratios, not wage or return conclusions. No returns were read.",
           "columns": [],
           "rows": [],
           "findings": [
-            "Employee cash and payable values are finite in 99.82% and 99.19% of stored rows, respectively.",
-            "59,167 annual candidates have been constructed, including 52,203 adjacent-year growth records.",
-            "Payables are liabilities, cash expenditure is not accrued wages, and current employees cannot be backfilled."
+            "59,167 annual candidates; dated-industry coverage rises from 62.4% to 90.0%, so composition changes.",
+            "Cash/revenue medians rise in the all-company, dated-industry, equal-weight L3-industry and 3,749-company fixed-cohort samples.",
+            "Six annual keys have employee cash exceeding operating cash outflows and need source-statement reconciliation."
           ],
           "limits": [
-            "Historical revisions are incomplete; current PIT fundamentals expose no compensation fields.",
-            "Stored-row coverage does not establish historical universe completeness; company composition changes.",
-            "No Rank IC, grouped return or costed trading backtest is available."
+            "All 21 retained PIT snapshots lack mapped employee cash and payroll-payable fields; earlier history is reconstructed PIT.",
+            "Stored coverage does not establish historical universe completeness; even the fixed cohort has survivorship and availability bias.",
+            "Cash expenditure is not wages or per-worker pay; no Rank IC, grouped returns or costed backtest is available."
           ]
         }
       },
@@ -1273,8 +1273,8 @@
       "source_ref": "doc:quant-research.research.fundamental-research-series",
       "exploration_asset": "data/study-exploration/employee-compensation.json",
       "exploration_counts": {
-        "steps": 6,
-        "charts": 3
+        "steps": 7,
+        "charts": 4
       },
       "evidence_summary": {
         "decision": "hypothesis",
@@ -1315,17 +1315,17 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T10:05:57+00:00"
+        "checked_at": "2026-10-14T13:08:13+00:00"
       },
       "navigation_asset": "data/study-navigation/employee-compensation.json",
       "navigation_summary": {
-        "run_id": "employee-cash-coverage-20261014-v2",
+        "run_id": "employee-cash-followup-20261014-v5",
         "reproduction_status": "artifact_verified",
         "decision": "hypothesis",
         "negative_result": false,
         "resume_when": {
-          "en-US": "After original-version and historical-universe qualification, do cash-expenditure candidates add predictive information beyond industry, size, valuation and profitability on a common sample?",
-          "zh-CN": "原始版本与历史股票池通过核验后，现金支出指标能否在共同样本上提供超出行业、规模、估值和盈利能力的预测信息？"
+          "en-US": "After reconciling the six subtotal exceptions and qualifying original versions and historical eligibility, do the candidates add predictive information beyond matched controls?",
+          "zh-CN": "核对 6 个小计异常并核验原始版本和历史资格后，这些指标能否在匹配控制变量之外提供预测信息？"
         },
         "tasks": [
           {
@@ -1372,12 +1372,12 @@
             "priority": "P1",
             "status": "completed",
             "action": {
-              "en-US": "Review the series overview and new employee cash input audit while retaining the untested return hypothesis.",
-              "zh-CN": "复核系列总览及新增员工现金支出输入审计，收益假设保持未检验。"
+              "en-US": "Review the input audit and industry/cohort/accounting/PIT follow-up while retaining the untested return hypothesis.",
+              "zh-CN": "复核输入审计及行业、队列、会计口径和 PIT 补充审计，收益假设保持未检验。"
             },
             "acceptance": {
-              "en-US": "Reviewed input coverage, annual construction and aggregate distributions; original financial versions and historical workforce remain unqualified. No predictive results were added.",
-              "zh-CN": "已复核输入覆盖、年度指标构建和汇总分布；原始财报版本与历史人数仍未核验，没有新增预测结果。"
+              "en-US": "Reviewed four annual medians, changing industry coverage, six subtotal exceptions and PIT field availability. No predictive results were added.",
+              "zh-CN": "已复核四条年度中位数、行业覆盖变化、6 个现金流小计异常和 PIT 字段覆盖；没有新增预测结果。"
             }
           }
         ]
