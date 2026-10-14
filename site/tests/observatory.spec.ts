@@ -628,6 +628,14 @@ test('alternative research views distinguish negative tests from missing experim
  await page.getByLabel('Show negative or inconclusive tests').check()
  await expect(page.locator('.research-evidence-hub tbody tr')).toHaveCount(5)
  await expect(page.locator('.research-evidence-hub tbody')).not.toContainText('labor-cost-definition')
+ await page.getByLabel('Show negative or inconclusive tests').uncheck()
+ await page.getByLabel('Show only studies with unfinished tasks').check()
+ await expect(page.locator('.research-evidence-hub tbody tr')).toHaveCount(8)
+ const rd = page.locator('.research-evidence-hub tbody tr').filter({ hasText: 'R&D Investment' })
+ await expect(rd).toContainText('Keep the prospective October 2026–September 2027 holdout sealed.')
+ await expect(rd).not.toContainText('Paired uncertainty, annual / size slices and calibration retained')
+ await page.getByRole('button', { name: 'Switch to 中文' }).click()
+ await expect(page.getByLabel('只看仍有未完成事项的专题')).toBeChecked()
 })
 
 test('navigation failures preserve findings and retry on mobile in Chinese', async ({ page }) => {
