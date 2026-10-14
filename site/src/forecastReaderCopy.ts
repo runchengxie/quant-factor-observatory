@@ -1,7 +1,7 @@
 export const forecastReaderCopy = {
   'en-US': {
     summary: 'Compare the latest financial report with trained models to see what helps predict later financial performance.', title: 'Can today’s financial reports help us predict the next ones?',
-    latestLead: 'The new checks find closer numerical forecasts for single-quarter profitability, but many declines still go unflagged. The cash-flow ranking lead is concentrated in third- and fourth-fiscal-quarter samples. A matched stock-return comparison remains unfinished.', lead: 'Often, companies keep roughly the same financial ranking. Carrying today’s reported value forward is already a strong forecast. In the retained historical tests, most models did not improve that ranking.',
+    latestLead: 'Adding last year’s financial history improved net-profit forecasts in the newest historical comparison. For cash flow, using last year’s comparable quarter is already a strong baseline; the augmented numeric model adds a smaller ranking gain. Free cash flow and dividend inputs have been checked, while their new model and stock-return tests remain pending.', newStudy: 'Read the new seasonal comparison and financial-data candidates', lead: 'Often, companies keep roughly the same financial ranking. Carrying today’s reported value forward is already a strong forecast. In the retained historical tests, most models did not improve that ranking.',
     question: 'What did we compare?', setup: 'For the same companies and test dates, one method carries the latest report forward. The other learns from earlier reports. We then compare each predicted company ordering with the ordering in the later financial reports.',
     orderQuestion: '1. Does the model beat carrying the current report forward?', stableQuestion: '2. Is that advantage consistent?', changeQuestion: '3. Can it flag a financial decline ahead of time?', returnQuestion: '4. Can these forecasts improve stock returns?', retained: 'Start with three concrete comparisons', scores: 'How closely did the predicted company order match the later order?', scale: 'Higher is better. These are averages across test periods. A score of 1 means perfect ordering in every period; near zero, the average does not show a consistent same-direction ordering. These scores are correlations, not percentages of correct predictions.',
     latest: 'Use the latest report', learned: 'Model trained on earlier reports',
@@ -18,7 +18,7 @@ export const forecastReaderCopy = {
   },
   'zh-CN': {
     summary: '比较沿用最新财报和机器学习，看看谁更能预测后来的财务表现。', title: '用今天的财报，能猜到公司下一份财报怎么样吗',
-    latestLead: '新增检查里，单季盈利的预测数值更接近实际，下降提醒仍漏掉不少记录。现金流的排序改善集中在第三、第四财季的样本。它们能否改善选股收益，还缺少同条件检验。', lead: '很多公司的财务表现会延续一段时间。直接拿最新财报的数值来猜未来，已经能把公司排得相当准。现有历史实验里，多数模型没有排得更好。',
+    latestLead: '最新一轮历史比较里，加入去年相应季度的财务数字后，净利润预测更接近实际。经营现金流直接沿用去年相应季度，已经能把公司排得比较好，新增信息的数值模型平均只再好一点。自由现金流和股息完成了资料核查，这两类指标的新模型与股票收益检验还没做。', newStudy: '查看这轮比较，以及净利润、现金流和股息的研究进展', lead: '很多公司的财务表现会延续一段时间。直接拿最新财报的数值来猜未来，已经能把公司排得相当准。现有历史实验里，多数模型没有排得更好。',
     question: '我们怎么比的', setup: '拿同一批公司，在相同日期做两种预测。一个方法直接沿用最新财报数值，另一个方法从过去的财报里学习。等后来的财报出来，再检查两种方法排出的公司高低顺序有多接近真实顺序。',
     orderQuestion: '1. 模型比沿用这期财报强多少', stableQuestion: '2. 这个优势稳不稳', changeQuestion: '3. 能提前发现财务表现下降吗', returnQuestion: '4. 能据此选股赚钱吗', retained: '先看三个具体对照', scores: '两种方法，谁把公司的高低顺序排得更准', scale: '分数越高，排序越接近。这些是各测试期的平均分。1 表示每期的顺序都完全一致，接近 0 时，平均看不出同向排序。这里的 0.84 不能读成 84% 的公司预测正确，也不能读成股票收益。',
     latest: '直接沿用最新财报', learned: '用历史财报训练模型',
