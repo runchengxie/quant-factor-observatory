@@ -26,7 +26,7 @@
 - Misaligned or duplicate date/security keys must stop production before any join; pin with `test_rejects_misaligned_and_duplicate_panel_keys` in Task 1.
 - Missing values, zero RV denominators and raw IVhat greater than RV must remain separately counted without silent repair; pin with `test_quality_and_decomposition_diagnostics_preserve_raw_values` in Task 1.
 - Short history and unpaired sensitivity observations must remain missing and be excluded from paired correlation counts; pin with `test_warmup_and_pairwise_cohorts_are_explicit` in Task 1.
-- A public asset containing a ticker, raw series, private path or unknown field must fail allowlist validation; pin with `test_risk_history_public_projection_rejects_private_fields` in Task 3 and the public projection audit in Task 4.
+- A private receipt may contain reproduction locators, but the exported projection must omit tickers, raw rows, local paths, credentials, recipes and unknown fields; pin with `test_public_projection_drops_private_fields_and_ticker_rows` in Task 3. A public asset containing any such field must fail its strict public contract audit in Task 4.
 - Missing historical assets and invalid URL state must leave the demo usable and restore only supported parameters; pin with Task 5 and Task 7 browser cases.
 
 ---
@@ -77,7 +77,7 @@
 - Consumes: the private receipt from Task 2.
 - Produces: `export_risk_history(receipt: Mapping[str, object]) -> dict[str, object]` with schema identity `observatory.risk_history.v1`; only the field allowlist in the approved spec can cross the repository boundary.
 
-- [ ] **Step 1: Write failing projection tests** for required IDs, periods, counts, bounded rates, unit/metric identity, source hash references, and rejection of ticker columns, raw series, private paths, credentials, unknown keys and recipe parameters.
+- [ ] **Step 1: Write failing projection tests** for required IDs, periods, counts, bounded rates, unit/metric identity and source hash references; inject ticker rows, raw series, private paths, credentials, unknown keys and recipe parameters into the private receipt and assert none reach the exported projection.
 - [ ] **Step 2: Run the focused tests** and confirm the exporter is missing.
 - [ ] **Step 3: Implement the explicit allowlist exporter** and deterministic JSON serialization; calculate and return the published asset content hash without copying the private receipt.
 - [ ] **Step 4: Run focused tests and the private public-boundary audit**; compare projection keys against the allowlist and verify no private identifier or source locator is present.
