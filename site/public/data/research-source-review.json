@@ -266,5 +266,18 @@
       ]
     }
   ],
-  "hub_sha256": "810e790a834d06b9162e0f68fbe5d7b39781fea5cc6c60b1941ad204fc14d63a"
+  "hub_sha256": "810e790a834d06b9162e0f68fbe5d7b39781fea5cc6c60b1941ad204fc14d63a",
+  "public_assets": [
+    {
+      "public_id": "risk-history",
+      "asset": "data/risk-history.json",
+      "asset_sha256": "37c88df1b8ea38e38ee2d9f1951951fa78b81af800ad1952337984c3a0a2991c",
+      "source_ref": "doc:quant-research.research.historical-risk-retained-panel-20261014",
+      "source_revision": "5e556c25737e46dd10b590ed7735d42f034f5438",
+      "reviewed_at": "2026-10-14",
+      "evidence_stage": "archived_descriptive_panel",
+      "point_in_time_qualified": false,
+      "source_note_revision": "7b7d2de3f6e714fef7003a269e429c3c97a73e05"
+    }
+  ]
 }

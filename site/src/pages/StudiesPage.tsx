@@ -5,6 +5,7 @@ import { useLocale } from '../i18n'
 import { RdAnnualEvidencePanel } from './RdAnnualEvidence'
 import { forecastReaderCopy } from '../forecastReaderCopy'
 import { rdInvestmentCopy } from '../rdInvestmentCopy'
+import { riskHistoryCopy } from '../riskHistoryCopy'
 const StudyNavigation = lazy(() => import('../components/StudyNavigation'))
 const StudyExploration = lazy(() => import('../components/StudyExploration'))
 const href = (id: string) => `${import.meta.env.BASE_URL}studies/${id}`
@@ -20,6 +21,7 @@ const taxonomyLabels = (study: Study, labels: Record<string, string>) => [
 export function StudiesPage({ catalog }: { catalog: StudyCatalog }) {
   const { locale, copy } = useLocale()
   const english = locale === 'en-US'
+  const riskText = riskHistoryCopy[locale]
   const [query, setQuery] = useState(''), [market, setMarket] = useState(''), [stage, setStage] = useState('')
   const visible = filterStudies(catalog.studies, locale, query, market, stage, copy.studyBriefs)
   const groupedIds = new Set((catalog.series ?? []).flatMap((series) => series.study_ids))
@@ -30,6 +32,7 @@ export function StudiesPage({ catalog }: { catalog: StudyCatalog }) {
     <p className="panel-note">{english ? 'Reading the tags: “cross-sectional” compares stocks on the same date; a “portfolio replay” rebuilds holdings from historical rules; a “prospective holdout” is a future period kept aside until the method is fixed. These labels describe how a study was checked, not how strong its conclusion is.' : '标签这样理解：“截面排序”是在同一天比较不同股票；“组合回放”是按历史规则重建持仓；“前瞻留出期”是先封存、等方法固定后再检验的未来区间。这些标签说明研究怎样检查，不代表结论有多可靠。'}</p>
     <StudyFilters studies={catalog.studies} query={query} market={market} stage={stage} setQuery={setQuery} setMarket={setMarket} setStage={setStage} />
     <p className="study-navigation-links"><a href={href('evidence')}>{copy.researchHub.evidenceLink}</a><a href={href('compare')}>{copy.researchHub.compare}</a></p>
+    <p className="panel-note"><a href={import.meta.env.BASE_URL + 'quality'}>{riskText.studyQualityLink}</a></p>
     {!visible.length && <p role="status">{copy.researchHub.empty}</p>}
     {(catalog.series ?? []).map((rawSeries) => {
       const series = localizedSeries(rawSeries, locale)

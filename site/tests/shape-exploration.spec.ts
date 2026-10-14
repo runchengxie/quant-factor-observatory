@@ -1,7 +1,9 @@
 import { expect, test } from '@playwright/test'
 import { alignSeries, summarize, jumpStatus, ratio } from '../src/shapeExploration'
+import { parseRiskHistory } from '../src/riskHistory'
 import { readFileSync } from 'node:fs'
 const snapshot = JSON.parse(readFileSync(new URL('../public/data/factor-snapshot.json', import.meta.url), 'utf8'))
+const riskHistory = JSON.parse(readFileSync(new URL('../public/data/risk-history.json', import.meta.url), 'utf8'))
 
 test.beforeEach(async ({ page }) => {
   await page.route('https://fonts.googleapis.com/**', route => route.fulfill({ contentType: 'text/css', body: '' }))
@@ -122,4 +124,96 @@ test('dark shape explorers retain readable chart labels, row labels and date inp
   await page.goto('hermite')
   await expect(page.locator('input[type="date"]').first()).toBeVisible()
   expect(await contrast('input[type="date"]', 'input[type="date"]')).toBeGreaterThanOrEqual(4.5)
+})
+
+test('historical jump mode restores supported URL state and links to source quality', async ({ page }) => {
+  await page.goto('jumps?mode=historical&granularity=annual&period=2025&component=pooled&private_path=%2Ftmp%2Fsecret')
+  await expect(page.getByLabel('Data view')).toHaveValue('historical')
+  await expect(page.getByLabel('Aggregation')).toHaveValue('annual')
+  await expect(page.getByLabel('Period')).toHaveValue('2025')
+  await expect(page.getByRole('table', { name: 'Reviewed historical aggregates' })).toContainText('2025')
+  await expect(page.getByText('Continuous remainder (RV − RJV)')).toBeVisible()
+  await expect(page.getByRole('link', { name: 'Source and quality' })).toHaveAttribute('href', /quality/)
+  expect(new URL(page.url()).searchParams.has('private_path')).toBe(false)
+  await page.getByLabel('Data view').selectOption('demo')
+  await expect(page.getByRole('table', { name: 'Compare observations' })).toBeVisible()
+})
+
+test('factor and study navigation connect to historical source diagnostics', async ({ page }) => {
+  await page.goto('factors/volume_volatility')
+  await expect(page.getByRole('link', { name: 'Jump variance history →' })).toHaveAttribute('href', /jumps\?mode=historical/)
+  await expect(page.getByRole('link', { name: 'RV-shape history →' })).toHaveAttribute('href', /hermite\?mode=historical/)
+  await page.goto('studies')
+  await expect(page.getByRole('link', { name: 'Review historical risk source and data quality →' })).toHaveAttribute('href', /quality/)
+})
+
+test('browser parser rejects invalid public identity and preserves the reviewed contract', () => {
+  expect(parseRiskHistory(riskHistory)?.coverage.sampled_securities).toBe(5394)
+  expect(parseRiskHistory({ ...riskHistory, schema_version: '2.0' })).toBeNull()
+  expect(parseRiskHistory({ ...riskHistory, private_path: '/secret' })).toBeNull()
+  expect(parseRiskHistory({ ...riskHistory, coverage: { ...riskHistory.coverage, point_in_time_qualified: true } })).toBeNull()
+})
+
+test('historical Hermite mode shows RV-shape identity and paired sensitivity diagnostics', async ({ page }) => {
+  await page.goto('hermite?mode=historical&granularity=annual&period=2025&metric=rv_shape_h4&unsupported=x')
+  await expect(page.getByLabel('Data view')).toHaveValue('historical')
+  await expect(page.locator('select[aria-label="RV-shape measure"]')).toHaveValue('rv_shape_h4')
+  await expect(page.getByLabel('Period')).toHaveValue('2025')
+  await expect(page.getByRole('heading', { name: 'RV-shape H4' })).toBeVisible()
+  await expect(page.getByText('Window sensitivity')).toBeVisible()
+  await expect(page.getByText('Same-date rank correlation')).toBeVisible()
+  expect(new URL(page.url()).searchParams.has('unsupported')).toBe(false)
+})
+
+test('demo URL restores its metric, ticker and date while dropping unsupported state', async ({ page }) => {
+  await page.goto('hermite?mode=demo&metric=h_daily_close60_ts_h4_60&ticker=000001&date=2026-07-03&private_id=secret')
+  await expect(page.getByLabel('Hermite indicator')).toHaveValue('h_daily_close60_ts_h4_60')
+  await expect(page.getByLabel('Ticker', { exact: true })).toHaveValue('000001')
+  await expect(page.getByLabel('End date', { exact: true })).toHaveValue('2026-07-03')
+  expect(new URL(page.url()).searchParams.has('private_id')).toBe(false)
+})
+
+test('quality page presents coverage provenance in both locales and on mobile', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('quality')
+  await expect(page.getByRole('heading', { level: 1, name: 'Source and quality' })).toBeVisible()
+  await expect(page.getByText('20210104 – 20260424')).toBeVisible()
+  await expect(page.getByText('No', { exact: true })).toBeVisible()
+  await expect(page.getByRole('link', { name: /doc:quant-research\.research\.historical-risk/ })).toHaveAttribute('href', /blob\/7b7d2de3f6e714fef7003a269e429c3c97a73e05/)
+  await page.getByRole('button', { name: 'Switch to 中文' }).click()
+  await expect(page.getByRole('heading', { level: 1, name: '来源与质量' })).toBeVisible()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBe(true)
+})
+
+test('missing optional historical asset keeps demo mode usable and supports retry', async ({ page }) => {
+  let requests = 0
+  await page.route('**/data/risk-history.json', async (route) => {
+    requests += 1
+    if (requests < 3) return route.fulfill({ status: 404 })
+    return route.fulfill({ json: riskHistory })
+  })
+  await page.goto('jumps')
+  await page.getByLabel('Data view').selectOption('historical')
+  await expect(page.getByText('Historical aggregates are unavailable. Demo data remains available.')).toBeVisible()
+  await page.getByRole('button', { name: 'Retry historical data' }).click()
+  await expect(page.getByRole('table', { name: 'Reviewed historical aggregates' })).toBeVisible()
+  await page.getByLabel('Data view').selectOption('demo')
+  await expect(page.getByRole('table', { name: 'Compare observations' })).toBeVisible()
+})
+
+test('copy-link reports clipboard success and failure', async ({ page }) => {
+  await page.addInitScript(() => Object.defineProperty(navigator, 'clipboard', {
+    configurable: true,
+    value: { writeText: async () => undefined },
+  }))
+  await page.goto('hermite?mode=historical&metric=rv_shape_h3')
+  await page.getByRole('button', { name: 'Copy link' }).click()
+  await expect(page.getByRole('status').filter({ hasText: 'Link copied.' })).toBeVisible()
+  await page.addInitScript(() => Object.defineProperty(navigator, 'clipboard', {
+    configurable: true,
+    value: { writeText: async () => { throw new Error('denied') } },
+  }))
+  await page.reload()
+  await page.getByRole('button', { name: 'Copy link' }).click()
+  await expect(page.getByRole('status').filter({ hasText: 'Clipboard unavailable' })).toBeVisible()
 })

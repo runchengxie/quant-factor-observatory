@@ -6,7 +6,16 @@ from __future__ import annotations
 import re
 import subprocess
 import sys
+import hashlib
+import json
 from pathlib import Path
+
+try:
+    from .check_factor_demo_quantiles import check_demo_quantiles
+    from .risk_history_contract import validate_risk_history
+except ImportError:
+    from check_factor_demo_quantiles import check_demo_quantiles
+    from risk_history_contract import validate_risk_history
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -55,6 +64,41 @@ def audit() -> list[str]:
         for pattern, description in FORBIDDEN_PATTERNS.items():
             if re.search(pattern, text, re.IGNORECASE):
                 errors.append(f"{description} in {relative}: {pattern}")
+
+    try:
+        asset_path = ROOT / "site/public/data/risk-history.json"
+        asset = json.loads(asset_path.read_text(encoding="utf-8"))
+        validate_risk_history(asset)
+        asset_hash = hashlib.sha256(asset_path.read_bytes()).hexdigest()
+        manifest = json.loads(
+            (ROOT / "site/public/data/research-publication-manifest.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        publication = next(
+            item for item in manifest["projections"] if item.get("public_id") == "risk-history"
+        )
+        if publication.get("asset_sha256") != asset_hash:
+            errors.append("risk-history asset hash does not match the publication manifest")
+        review = json.loads(
+            (ROOT / "site/public/data/research-source-review.json").read_text(
+                encoding="utf-8"
+            )
+        )
+        review_entry = next(
+            item for item in review.get("public_assets", [])
+            if item.get("public_id") == "risk-history"
+        )
+        if review_entry.get("asset_sha256") != asset_hash:
+            errors.append("risk-history asset hash does not match the source review")
+        if review_entry.get("source_ref") != asset["source"]["source_note_id"]:
+            errors.append("risk-history source review points to a different source note")
+        if review_entry.get("source_note_revision") != publication.get("source_note_revision"):
+            errors.append("risk-history source note revision differs between publication records")
+        snapshot = json.loads((ROOT / "site/public/data/factor-snapshot.json").read_text())
+        check_demo_quantiles(snapshot)
+    except (OSError, ValueError, KeyError, StopIteration, TypeError) as error:
+        errors.append(f"risk-history publication contract failed: {error}")
     return errors
 
 

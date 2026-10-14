@@ -1,5 +1,6 @@
 import { DataLoadError } from './dataErrors'
 import type { Alpha810Snapshot, FundamentalCatalog, FundamentalSnapshot, RdAnnualEvidence, Snapshot, StudyCatalog } from './types'
+import { parseRiskHistory, type RiskHistory } from './riskHistory'
 
 const required = ['schema_version', 'generated_at', 'source', 'datasets', 'factor_groups', 'factors', 'series', 'cross_section', 'jump_decomposition'] as const
 const fundamentalRequired = ['schema_version', 'source', 'vintage', 'coverage', 'latest_cross_section', 'validation', 'series', 'notes'] as const
@@ -12,6 +13,16 @@ export async function loadSnapshot(): Promise<Snapshot> {
   if (!value || typeof value !== 'object') throw new DataLoadError('snapshotFormat')
   for (const key of required) if (!(key in value)) throw new DataLoadError('snapshotField', { field: key })
   return value as Snapshot
+}
+
+export async function loadRiskHistory(): Promise<RiskHistory | null> {
+  try {
+    const response = await fetch(`${import.meta.env.BASE_URL}data/risk-history.json`)
+    if (!response.ok) return null
+    return parseRiskHistory(await response.json())
+  } catch {
+    return null
+  }
 }
 
 export function findSeries(snapshot: Snapshot, ticker: string, metric: string) {
