@@ -54,6 +54,31 @@ class StudyExplorationTests(unittest.TestCase):
             for private_key in ('ticker', 'symbol', 'portfolio_weights', 'source_path', 'raw_path'):
                 self.assertNotIn(f'"{private_key}"', text)
 
+    def test_forecast_followup_preserves_old_evidence_and_reconciles_decline_counts(self):
+        guide = self.asset('fundamental-state-forecasting')['guide']
+        self.assertEqual((len(guide['groups']), len(guide['change_groups']), len(guide['returns'])), (12, 4, 5))
+        robustness = guide['robustness']
+        self.assertEqual(len(robustness['groups']), 18)
+        self.assertFalse(robustness['qualification']['return_qualified'])
+        by_cohort = {}
+        for group in robustness['groups']:
+            key = (group['target'], group['horizon'])
+            totals = by_cohort.setdefault(key, {})
+            self.assertEqual(len(group['models']), 6)
+            for model in group['models']:
+                for counts in model['thresholds']:
+                    self.assertEqual(sum(counts[k] for k in ('true_positive', 'false_positive', 'false_negative', 'true_negative')), group['rows'])
+                    actual = counts['true_positive'] + counts['false_negative']
+                    self.assertEqual(totals.setdefault(counts['threshold'], actual), actual)
+                    self.assertAlmostEqual(counts['prevalence'], actual / group['rows'])
+            if group['target'] == 'quarterly_cash_flow' and group['horizon'] == 1:
+                cash = group['cash_ranking']
+                self.assertEqual([p['period'] for p in cash['fiscal_quarter']], [1, 2, 3, 4])
+                self.assertEqual(sum(p['formations'] for p in cash['fiscal_quarter']), cash['paired_formations'])
+                self.assertEqual(sum(p['wins'] for p in cash['fiscal_quarter']), cash['wins'])
+        self.assertIn('omitted Q3', guide['paragraphs'][-1]['en-US'])
+        self.assertTrue({'forecast-robustness', 'return-input-qualification'} <= set(guide['source_ids']))
+
     def test_official_membership_does_not_claim_historical_weights(self):
         data = self.asset('cashflow-indices')
         step = next(s for s in data['steps'] if s['id'] == 'official-membership-boundary')

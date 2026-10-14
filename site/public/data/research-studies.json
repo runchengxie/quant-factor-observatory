@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-13T23:52:37+00:00",
+  "updated_at": "2026-10-14T03:37:47Z",
   "studies": [
     {
       "id": "pb-roe",
@@ -205,7 +205,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T02:03:18+00:00"
+        "checked_at": "2026-10-14T03:40:48+00:00"
       },
       "navigation_asset": "data/study-navigation/pb-roe.json",
       "navigation_summary": {
@@ -548,7 +548,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T02:03:18+00:00"
+        "checked_at": "2026-10-14T03:40:48+00:00"
       },
       "navigation_asset": "data/study-navigation/rd-investment.json",
       "navigation_summary": {
@@ -622,12 +622,14 @@
           "findings": [
             "ROA 和毛利率的高低顺序较有持续性，沿用最新财报数值很难被超过。",
             "现金流的一季度两两排序有局部改善，41 个测试期赢了 22 个，其他期限没有保持。",
-            "直接预测变化没有显示一致优势。历史净收益已经核对，期末回撤补入初始资金后更深。"
+            "直接预测变化没有显示一致优势。历史净收益已经核对，期末回撤补入初始资金后更深。",
+            "补齐财季后，现金流排序在第一、第二财季落后，第三、第四财季更好。单季盈利下降提醒中约 60.85% 猜对，实际下降只提醒到约 24.09%。"
           ],
           "limits": [
             "公告日期重建仍缺少供应商完整历史版本，长周期标签存在重叠。新实验还保留会计极值与数值警告。",
             "营收、净利润绝对值预测已有独立专题，使用另一套目标与样本，需分别阅读。",
-            "历史组合缺少同条件的当前基本面对照，资格、退市处理与实际成交仍待核实。结果属于历史诊断。"
+            "历史组合缺少同条件的当前基本面对照，资格、退市处理与实际成交仍待核实。结果属于历史诊断。",
+            "旧的一季度预测漏掉第三财季，两季度预测只包含第一和第四财季，原因是月末日期匹配错误。旧数字保留，同时注明季度遗漏。"
           ]
         },
         "en-US": {
@@ -642,12 +644,14 @@
           "findings": [
             "ROA and gross-margin ordering is persistent; carrying the latest reported value forward is hard to beat.",
             "Pairwise cash-flow ranking improves at 1Q, winning in 22 of 41 test formations; the other horizons do not retain the advantage.",
-            "Direct change forecasts show no uniform advantage. Saved cumulative returns reconcile; boundary drawdown is deeper after including initial capital."
+            "Direct change forecasts show no uniform advantage. Saved cumulative returns reconcile; boundary drawdown is deeper after including initial capital.",
+            "A quarter-aware follow-up preserves all four fiscal quarters. The cash-flow lead is negative in Q1/Q2 and positive in Q3/Q4; one-point quarterly-profit decline flags have 60.85% precision but 24.09% recall."
           ],
           "limits": [
             "Announcement-date reconstruction lacks a full provider vintage history; long-horizon labels overlap. The new pilot retains accounting extremes and numerical warnings.",
             "Absolute revenue and net-income forecasts have a separate study with different targets and samples; read its evidence independently.",
-            "Archived portfolios lack a matched current-fundamental control; eligibility, terminal treatment and executable fills remain unqualified. This is retrospective evidence."
+            "Archived portfolios lack a matched current-fundamental control; eligibility, terminal treatment and executable fills remain unqualified. This is retrospective evidence.",
+            "The retained old 1Q panels omit Q3 and the old 2Q panels contain only Q1/Q4 because month-end matching failed. All original numbers remain as restricted-coverage diagnostics."
           ]
         }
       },
@@ -659,8 +663,8 @@
       "evidence_summary": {
         "decision": "no_stable_increment",
         "scope": {
-          "en-US": "Financial target forecasts before portfolio selection",
-          "zh-CN": "先预测财务目标，再检验组合选股"
+          "en-US": "Retained multi-target comparison; new target-specific improvements remain separate exploratory evidence",
+          "zh-CN": "原有多指标历史对照，新指标的局部改善另列"
         },
         "baseline": {
           "en-US": "Latest released state on matched test periods",
@@ -671,8 +675,8 @@
           "zh-CN": "封存当期快照，按公告时点重建历史"
         },
         "sample": {
-          "en-US": "Separate annual, quarterly and October 14 change-target diagnostics",
-          "zh-CN": "年频、季频与 10 月 14 日变化预测分别检验"
+          "en-US": "Separate retained annual/quarterly runs and eighteen new quarter-aware diagnostics",
+          "zh-CN": "原有年频与季频实验，以及另行登记的 18 组完整财季检查"
         }
       },
       "related_studies": [
@@ -719,7 +723,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T02:03:18+00:00"
+        "checked_at": "2026-10-14T03:40:48+00:00"
       },
       "navigation_asset": "data/study-navigation/fundamental-state-forecasting.json",
       "navigation_summary": {
@@ -889,7 +893,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T02:03:18+00:00"
+        "checked_at": "2026-10-14T03:40:48+00:00"
       },
       "navigation_asset": "data/study-navigation/fundamental-family-shadow.json",
       "navigation_summary": {
@@ -1052,7 +1056,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T02:03:18+00:00"
+        "checked_at": "2026-10-14T03:40:48+00:00"
       },
       "navigation_asset": "data/study-navigation/cashflow-indices.json",
       "navigation_summary": {
@@ -1184,7 +1188,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T02:03:18+00:00"
+        "checked_at": "2026-10-14T03:40:48+00:00"
       },
       "navigation_asset": "data/study-navigation/hk-fundamental-archive.json",
       "navigation_summary": {
@@ -1307,7 +1311,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T02:03:18+00:00"
+        "checked_at": "2026-10-14T03:40:48+00:00"
       },
       "navigation_asset": "data/study-navigation/employee-compensation.json",
       "navigation_summary": {
@@ -1621,7 +1625,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T02:03:18+00:00"
+        "checked_at": "2026-10-14T03:40:48+00:00"
       },
       "navigation_asset": "data/study-navigation/absolute-level-forecast.json",
       "navigation_summary": {

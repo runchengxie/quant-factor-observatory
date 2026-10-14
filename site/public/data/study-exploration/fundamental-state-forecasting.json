@@ -2,7 +2,7 @@
   "schema_version": "observatory.study_exploration.v1",
   "study_id": "fundamental-state-forecasting",
   "source_ref": "doc:quant-research.research.long-term-fundamental-v2",
-  "source_revision": "e1984591be37073d9e1b3b1dee8a7e7813652cb3",
+  "source_revision": "d2e96919074fc15084d623622c2cdf59dc5ee94c",
   "reviewed_at": "2026-10-14",
   "evidence_stage": "retrospective_diagnostic",
   "summary": {
@@ -48,6 +48,22 @@
       "label": {
         "en-US": "October 14 retained forecast review, change pilot and return correction",
         "zh-CN": "10 月 14 日预测复核、变化实验与回撤修正"
+      }
+    },
+    {
+      "id": "forecast-robustness",
+      "source_ref": "doc:quant-research.experiment.forecast-robustness-20261014",
+      "label": {
+        "en-US": "Registered accounting and decline follow-up",
+        "zh-CN": "新一轮财报口径和下降预测检查"
+      }
+    },
+    {
+      "id": "return-input-qualification",
+      "source_ref": "doc:quant-research.experiment.forecast-input-qualification-20261014",
+      "label": {
+        "en-US": "Bounded return-input qualification",
+        "zh-CN": "一段收益输入的核查记录"
       }
     }
   ],
@@ -615,7 +631,9 @@
     "schema_version": "observatory.forecast_guide.v1",
     "reviewed_at": "2026-10-14",
     "source_ids": [
-      "followup"
+      "followup",
+      "forecast-robustness",
+      "return-input-qualification"
     ],
     "paragraphs": [
       {
@@ -629,6 +647,10 @@
       {
         "en-US": "A new change-target pilot found that directly forecasting changes did not consistently beat forecasting levels. Seasonal controls mattered for ROA. Archived portfolio returns can be reconstructed, but neither this pilot nor those paths establish an investment gain from added forecasts.",
         "zh-CN": "新跑的变化预测实验中，直接预测变化没有稳定胜过先预测水平再计算变化。ROA 的比较还受到财报季节性影响。历史组合的收益路径已经重新核算，预测信息能否持续改善选股收益，仍需要同条件的对照实验。"
+      },
+      {
+        "en-US": "A later calendar audit found restricted coverage in these preserved historical groups: 1Q omitted Q3, and 2Q included only Q1/Q4. The separately registered new test includes all fiscal quarters. It uses a different window and additional inputs, so new-versus-old differences do not isolate the calendar repair.",
+        "zh-CN": "后续日期核查发现，这些保留的旧结果里，一季度预测漏掉第三财季，两季度预测只包含第一和第四财季。新登记的检验覆盖四个财季，使用的年份和部分输入也不同，新旧数字的差别不能全部归因于日期修正。"
       }
     ],
     "groups": [
@@ -6930,6 +6952,4876 @@
         "average_turnover": 0.3146472284016558,
         "average_cost_drag": 0.0014790053727775
       }
-    ]
+    ],
+    "robustness": {
+      "schema_version": "observatory.forecast_robustness.v1",
+      "groups": [
+        {
+          "target": "reported_roa",
+          "horizon": 1,
+          "rows": 92594,
+          "formations": 28,
+          "report_start": "2019-03-31",
+          "report_end": "2025-12-31",
+          "variant": "primary",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 13.557417294920839,
+              "robust_mae": 2.7738603292633752,
+              "rank_ic": 0.8588129049893692,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 25692,
+                  "false_positive": 21249,
+                  "false_negative": 5178,
+                  "true_negative": 40475,
+                  "precision": 0.5473253658848342,
+                  "recall": 0.8322643343051507,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 33011,
+                  "false_positive": 21911,
+                  "false_negative": 6402,
+                  "true_negative": 31270,
+                  "precision": 0.6010524015877062,
+                  "recall": 0.8375662852358359,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 16383,
+                  "false_positive": 15654,
+                  "false_negative": 4060,
+                  "true_negative": 56497,
+                  "precision": 0.5113774698005431,
+                  "recall": 0.8013990118867094,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 2.8163331677618286,
+              "robust_mae": 2.239189667435625,
+              "rank_ic": 0.7121199792714952,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 30870,
+                  "true_negative": 61724,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 39413,
+                  "true_negative": 53181,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 20443,
+                  "true_negative": 72151,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 2.7071499559751975,
+              "robust_mae": 2.3659390162481277,
+              "rank_ic": 0.8385707073832689,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 21164,
+                  "false_positive": 13133,
+                  "false_negative": 9706,
+                  "true_negative": 48591,
+                  "precision": 0.6170802110971805,
+                  "recall": 0.6855847100745059,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 26797,
+                  "false_positive": 13110,
+                  "false_negative": 12616,
+                  "true_negative": 40071,
+                  "precision": 0.6714862054276192,
+                  "recall": 0.6799025702179484,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 13965,
+                  "false_positive": 11125,
+                  "false_negative": 6478,
+                  "true_negative": 61026,
+                  "precision": 0.5565962534874452,
+                  "recall": 0.6831189160103703,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 1.8285956686137828,
+              "robust_mae": 1.4873801397422681,
+              "rank_ic": 0.8309485253433894,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 22771,
+                  "false_positive": 7876,
+                  "false_negative": 8099,
+                  "true_negative": 53848,
+                  "precision": 0.7430091036643065,
+                  "recall": 0.7376417233560091,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 29603,
+                  "false_positive": 8640,
+                  "false_negative": 9810,
+                  "true_negative": 44541,
+                  "precision": 0.7740763015453809,
+                  "recall": 0.7510973536650344,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 14416,
+                  "false_positive": 5637,
+                  "false_negative": 6027,
+                  "true_negative": 66514,
+                  "precision": 0.718894928439635,
+                  "recall": 0.7051802573007876,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 13.159282064131492,
+              "robust_mae": 2.375680984041833,
+              "rank_ic": 0.8394949966137782,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 21669,
+                  "false_positive": 13523,
+                  "false_negative": 9201,
+                  "true_negative": 48201,
+                  "precision": 0.6157365310297795,
+                  "recall": 0.7019436345966958,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 27330,
+                  "false_positive": 13516,
+                  "false_negative": 12083,
+                  "true_negative": 39665,
+                  "precision": 0.6690985653429956,
+                  "recall": 0.6934260269454241,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 14358,
+                  "false_positive": 11409,
+                  "false_negative": 6085,
+                  "true_negative": 60742,
+                  "precision": 0.5572243567353592,
+                  "recall": 0.7023431003277405,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 12.121830848433975,
+              "robust_mae": 1.3933806513456173,
+              "rank_ic": 0.8603867667460062,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 23563,
+                  "false_positive": 8316,
+                  "false_negative": 7307,
+                  "true_negative": 53408,
+                  "precision": 0.7391386178989303,
+                  "recall": 0.7632977000323939,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 30603,
+                  "false_positive": 9883,
+                  "false_negative": 8810,
+                  "true_negative": 43298,
+                  "precision": 0.755890925258114,
+                  "recall": 0.7764696927409738,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 15015,
+                  "false_positive": 5397,
+                  "false_negative": 5428,
+                  "true_negative": 66754,
+                  "precision": 0.73559670781893,
+                  "recall": 0.7344812405224282,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "target": "reported_roa",
+          "horizon": 1,
+          "rows": 92594,
+          "formations": 28,
+          "report_start": "2019-03-31",
+          "report_end": "2025-12-31",
+          "variant": "milder_clipping",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 13.557417294920839,
+              "robust_mae": 2.7738603292633752,
+              "rank_ic": 0.8588129049893692,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 25692,
+                  "false_positive": 21249,
+                  "false_negative": 5178,
+                  "true_negative": 40475,
+                  "precision": 0.5473253658848342,
+                  "recall": 0.8322643343051507,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 33011,
+                  "false_positive": 21911,
+                  "false_negative": 6402,
+                  "true_negative": 31270,
+                  "precision": 0.6010524015877062,
+                  "recall": 0.8375662852358359,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 16383,
+                  "false_positive": 15654,
+                  "false_negative": 4060,
+                  "true_negative": 56497,
+                  "precision": 0.5113774698005431,
+                  "recall": 0.8013990118867094,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 2.8163331677618286,
+              "robust_mae": 2.239189667435625,
+              "rank_ic": 0.7121199792714952,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 30870,
+                  "true_negative": 61724,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 39413,
+                  "true_negative": 53181,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 20443,
+                  "true_negative": 72151,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 2.753802809138996,
+              "robust_mae": 2.4080971004501186,
+              "rank_ic": 0.837483311400732,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 21039,
+                  "false_positive": 13477,
+                  "false_negative": 9831,
+                  "true_negative": 48247,
+                  "precision": 0.6095434001622436,
+                  "recall": 0.6815354713313897,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 26660,
+                  "false_positive": 13548,
+                  "false_negative": 12753,
+                  "true_negative": 39633,
+                  "precision": 0.6630521289295662,
+                  "recall": 0.6764265597645447,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 13885,
+                  "false_positive": 11443,
+                  "false_negative": 6558,
+                  "true_negative": 60708,
+                  "precision": 0.5482075173720783,
+                  "recall": 0.6792055960475468,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 1.8190945351549135,
+              "robust_mae": 1.4778790062833989,
+              "rank_ic": 0.8282795554139685,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 23116,
+                  "false_positive": 8276,
+                  "false_negative": 7754,
+                  "true_negative": 53448,
+                  "precision": 0.7363659531090724,
+                  "recall": 0.74881762228701,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 29969,
+                  "false_positive": 8963,
+                  "false_negative": 9444,
+                  "true_negative": 44218,
+                  "precision": 0.7697780745915956,
+                  "recall": 0.7603836297668282,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 14710,
+                  "false_positive": 5941,
+                  "false_negative": 5733,
+                  "true_negative": 66210,
+                  "precision": 0.7123141736477653,
+                  "recall": 0.7195617081641638,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 13.185295796954879,
+              "robust_mae": 2.4085805451859508,
+              "rank_ic": 0.8376900065735982,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 21230,
+                  "false_positive": 13691,
+                  "false_negative": 9640,
+                  "true_negative": 48033,
+                  "precision": 0.6079436442255376,
+                  "recall": 0.6877227081308714,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 26888,
+                  "false_positive": 13757,
+                  "false_negative": 12525,
+                  "true_negative": 39424,
+                  "precision": 0.6615327838602534,
+                  "recall": 0.6822114530738589,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 14027,
+                  "false_positive": 11598,
+                  "false_negative": 6416,
+                  "true_negative": 60553,
+                  "precision": 0.5473951219512195,
+                  "recall": 0.6861517389815585,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 12.108787612919247,
+              "robust_mae": 1.3877997895063896,
+              "rank_ic": 0.8605192865210327,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 23562,
+                  "false_positive": 8630,
+                  "false_negative": 7308,
+                  "true_negative": 53094,
+                  "precision": 0.7319209741550696,
+                  "recall": 0.763265306122449,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 30600,
+                  "false_positive": 10136,
+                  "false_negative": 8813,
+                  "true_negative": 43045,
+                  "precision": 0.7511783189316575,
+                  "recall": 0.776393575723746,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 14994,
+                  "false_positive": 5638,
+                  "false_negative": 5449,
+                  "true_negative": 66513,
+                  "precision": 0.7267351686700272,
+                  "recall": 0.733453994032187,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "target": "reported_roa",
+          "horizon": 1,
+          "rows": 92594,
+          "formations": 28,
+          "report_start": "2019-03-31",
+          "report_end": "2025-12-31",
+          "variant": "unclipped",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 13.557417294920839,
+              "robust_mae": 2.7738603292633752,
+              "rank_ic": 0.8588129049893692,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 25692,
+                  "false_positive": 21249,
+                  "false_negative": 5178,
+                  "true_negative": 40475,
+                  "precision": 0.5473253658848342,
+                  "recall": 0.8322643343051507,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 33011,
+                  "false_positive": 21911,
+                  "false_negative": 6402,
+                  "true_negative": 31270,
+                  "precision": 0.6010524015877062,
+                  "recall": 0.8375662852358359,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 16383,
+                  "false_positive": 15654,
+                  "false_negative": 4060,
+                  "true_negative": 56497,
+                  "precision": 0.5113774698005431,
+                  "recall": 0.8013990118867094,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 2.8163331677618286,
+              "robust_mae": 2.239189667435625,
+              "rank_ic": 0.7121199792714952,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 30870,
+                  "true_negative": 61724,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 39413,
+                  "true_negative": 53181,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 20443,
+                  "true_negative": 72151,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 10.152782571108173,
+              "robust_mae": 2.5848277665414687,
+              "rank_ic": 0.8017175432124393,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 20536,
+                  "false_positive": 14021,
+                  "false_negative": 10334,
+                  "true_negative": 47703,
+                  "precision": 0.5942645484272362,
+                  "recall": 0.6652413346290897,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 25909,
+                  "false_positive": 14101,
+                  "false_negative": 13504,
+                  "true_negative": 39080,
+                  "precision": 0.6475631092226943,
+                  "recall": 0.6573719331185142,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 13608,
+                  "false_positive": 12004,
+                  "false_negative": 6835,
+                  "true_negative": 60147,
+                  "precision": 0.5313134468218023,
+                  "recall": 0.6656557256762706,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 1.8776953334832176,
+              "robust_mae": 1.5433133183329388,
+              "rank_ic": 0.8271131882897648,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 22813,
+                  "false_positive": 8689,
+                  "false_negative": 8057,
+                  "true_negative": 53035,
+                  "precision": 0.7241762427782363,
+                  "recall": 0.7390022675736961,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 29491,
+                  "false_positive": 9420,
+                  "false_negative": 9922,
+                  "true_negative": 43761,
+                  "precision": 0.7579090745547532,
+                  "recall": 0.7482556516885291,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 14554,
+                  "false_positive": 6372,
+                  "false_negative": 5889,
+                  "true_negative": 65779,
+                  "precision": 0.6954984230144318,
+                  "recall": 0.711930734236658,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 10.154344279319007,
+              "robust_mae": 2.5848326675045366,
+              "rank_ic": 0.8017175741636348,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 20537,
+                  "false_positive": 14026,
+                  "false_negative": 10333,
+                  "true_negative": 47698,
+                  "precision": 0.5941903191273905,
+                  "recall": 0.6652737285390347,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 25910,
+                  "false_positive": 14105,
+                  "false_negative": 13503,
+                  "true_negative": 39076,
+                  "precision": 0.6475071848056979,
+                  "recall": 0.6573973054575901,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 13608,
+                  "false_positive": 12005,
+                  "false_negative": 6835,
+                  "true_negative": 60146,
+                  "precision": 0.5312927029242962,
+                  "recall": 0.6656557256762706,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 12.679201484159552,
+              "robust_mae": 1.6275421864853754,
+              "rank_ic": 0.8483514408111598,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92594,
+                  "true_positive": 23557,
+                  "false_positive": 10423,
+                  "false_negative": 7313,
+                  "true_negative": 51301,
+                  "precision": 0.6932607416127133,
+                  "recall": 0.7631033365727243,
+                  "prevalence": 0.33339093245782664
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92594,
+                  "true_positive": 30504,
+                  "false_positive": 11531,
+                  "false_negative": 8909,
+                  "true_negative": 41650,
+                  "precision": 0.7256809801356013,
+                  "recall": 0.7739578311724558,
+                  "prevalence": 0.4256539300602631
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92594,
+                  "true_positive": 15024,
+                  "false_positive": 7366,
+                  "false_negative": 5419,
+                  "true_negative": 64785,
+                  "precision": 0.6710138454667263,
+                  "recall": 0.7349214890182458,
+                  "prevalence": 0.22078104412812924
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "target": "reported_roa",
+          "horizon": 4,
+          "rows": 94678,
+          "formations": 25,
+          "report_start": "2019-03-31",
+          "report_end": "2025-03-31",
+          "variant": "primary",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 26.20486079862686,
+              "robust_mae": 2.192473549616111,
+              "rank_ic": 0.7076402702551124,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 29477,
+                  "true_negative": 65201,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 38602,
+                  "true_negative": 56076,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 18905,
+                  "true_negative": 75773,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 26.20486079862686,
+              "robust_mae": 2.192473549616111,
+              "rank_ic": 0.7076402702551124,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 29477,
+                  "true_negative": 65201,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 38602,
+                  "true_negative": 56076,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 18905,
+                  "true_negative": 75773,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 14.209089198050812,
+              "robust_mae": 2.128301867018153,
+              "rank_ic": 0.6853020092386416,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 11257,
+                  "false_positive": 7958,
+                  "false_negative": 18220,
+                  "true_negative": 57243,
+                  "precision": 0.5858443924017694,
+                  "recall": 0.3818909658377718,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 17956,
+                  "false_positive": 12089,
+                  "false_negative": 20646,
+                  "true_negative": 43987,
+                  "precision": 0.5976368780163088,
+                  "recall": 0.46515724573856276,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 5302,
+                  "false_positive": 3790,
+                  "false_negative": 13603,
+                  "true_negative": 71983,
+                  "precision": 0.5831500219973603,
+                  "recall": 0.28045490610949486,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 14.197433052990162,
+              "robust_mae": 2.116645721957509,
+              "rank_ic": 0.7099825905945378,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 10489,
+                  "false_positive": 6851,
+                  "false_negative": 18988,
+                  "true_negative": 58350,
+                  "precision": 0.6049019607843137,
+                  "recall": 0.35583675407945176,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 17921,
+                  "false_positive": 11558,
+                  "false_negative": 20681,
+                  "true_negative": 44518,
+                  "precision": 0.6079242850842973,
+                  "recall": 0.4642505569659603,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 4729,
+                  "false_positive": 2931,
+                  "false_negative": 14176,
+                  "true_negative": 72842,
+                  "precision": 0.6173629242819844,
+                  "recall": 0.2501454641629199,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 26.07620080602284,
+              "robust_mae": 2.129705679021482,
+              "rank_ic": 0.6867776359060717,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 11405,
+                  "false_positive": 8107,
+                  "false_negative": 18072,
+                  "true_negative": 57094,
+                  "precision": 0.5845120951209513,
+                  "recall": 0.3869118295620314,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 18184,
+                  "false_positive": 12280,
+                  "false_negative": 20418,
+                  "true_negative": 43796,
+                  "precision": 0.5969012605042017,
+                  "recall": 0.4710636754572302,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 5319,
+                  "false_positive": 3799,
+                  "false_negative": 13586,
+                  "true_negative": 71974,
+                  "precision": 0.5833516121956569,
+                  "recall": 0.2813541391166358,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 25.992001291955802,
+              "robust_mae": 2.060348401351111,
+              "rank_ic": 0.7087499818584981,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 8527,
+                  "false_positive": 5066,
+                  "false_negative": 20950,
+                  "true_negative": 60135,
+                  "precision": 0.6273081733245053,
+                  "recall": 0.28927638497811853,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 16684,
+                  "false_positive": 10626,
+                  "false_negative": 21918,
+                  "true_negative": 45450,
+                  "precision": 0.610911753936287,
+                  "recall": 0.43220558520283925,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 3121,
+                  "false_positive": 1534,
+                  "false_negative": 15784,
+                  "true_negative": 74239,
+                  "precision": 0.6704618689581096,
+                  "recall": 0.165088600899233,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "target": "reported_roa",
+          "horizon": 4,
+          "rows": 94678,
+          "formations": 25,
+          "report_start": "2019-03-31",
+          "report_end": "2025-03-31",
+          "variant": "milder_clipping",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 26.20486079862686,
+              "robust_mae": 2.192473549616111,
+              "rank_ic": 0.7076402702551124,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 29477,
+                  "true_negative": 65201,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 38602,
+                  "true_negative": 56076,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 18905,
+                  "true_negative": 75773,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 26.20486079862686,
+              "robust_mae": 2.192473549616111,
+              "rank_ic": 0.7076402702551124,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 29477,
+                  "true_negative": 65201,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 38602,
+                  "true_negative": 56076,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 18905,
+                  "true_negative": 75773,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 14.217555374429269,
+              "robust_mae": 2.1367566667062246,
+              "rank_ic": 0.6809271593884242,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 11637,
+                  "false_positive": 8536,
+                  "false_negative": 17840,
+                  "true_negative": 56665,
+                  "precision": 0.5768601596192932,
+                  "recall": 0.3947823726973573,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 18248,
+                  "false_positive": 12407,
+                  "false_negative": 20354,
+                  "true_negative": 43669,
+                  "precision": 0.5952699396509542,
+                  "recall": 0.47272162064141754,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 5609,
+                  "false_positive": 4206,
+                  "false_negative": 13296,
+                  "true_negative": 71567,
+                  "precision": 0.5714722363728987,
+                  "recall": 0.29669399629727583,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 14.185311126378027,
+              "robust_mae": 2.104523795345374,
+              "rank_ic": 0.7092970512683917,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 10909,
+                  "false_positive": 7385,
+                  "false_negative": 18568,
+                  "true_negative": 57816,
+                  "precision": 0.5963157319339675,
+                  "recall": 0.3700851511347831,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 18530,
+                  "false_positive": 12377,
+                  "false_negative": 20072,
+                  "true_negative": 43699,
+                  "precision": 0.5995405571553369,
+                  "recall": 0.48002694160924303,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 4834,
+                  "false_positive": 3068,
+                  "false_negative": 14071,
+                  "true_negative": 72705,
+                  "precision": 0.6117438623133384,
+                  "recall": 0.25569955038349645,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 26.07536554145434,
+              "robust_mae": 2.14681760978917,
+              "rank_ic": 0.6802172699842483,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 11774,
+                  "false_positive": 8666,
+                  "false_negative": 17703,
+                  "true_negative": 56535,
+                  "precision": 0.576027397260274,
+                  "recall": 0.39943006411778675,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 18371,
+                  "false_positive": 12512,
+                  "false_negative": 20231,
+                  "true_negative": 43564,
+                  "precision": 0.5948580124987858,
+                  "recall": 0.4759079840422776,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 5689,
+                  "false_positive": 4333,
+                  "false_negative": 13216,
+                  "true_negative": 71440,
+                  "precision": 0.5676511674316503,
+                  "recall": 0.30092568103676276,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 25.966381003632055,
+              "robust_mae": 2.056710324774963,
+              "rank_ic": 0.708245427634995,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 8547,
+                  "false_positive": 5158,
+                  "false_negative": 20930,
+                  "true_negative": 60043,
+                  "precision": 0.6236410069317767,
+                  "recall": 0.28995488007599146,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 17605,
+                  "false_positive": 11668,
+                  "false_negative": 20997,
+                  "true_negative": 44408,
+                  "precision": 0.6014074403033512,
+                  "recall": 0.4560644526190353,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 3032,
+                  "false_positive": 1488,
+                  "false_negative": 15873,
+                  "true_negative": 74285,
+                  "precision": 0.6707964601769911,
+                  "recall": 0.16038085162655383,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "target": "reported_roa",
+          "horizon": 4,
+          "rows": 94678,
+          "formations": 25,
+          "report_start": "2019-03-31",
+          "report_end": "2025-03-31",
+          "variant": "unclipped",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 26.20486079862686,
+              "robust_mae": 2.192473549616111,
+              "rank_ic": 0.7076402702551124,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 29477,
+                  "true_negative": 65201,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 38602,
+                  "true_negative": 56076,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 18905,
+                  "true_negative": 75773,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 26.20486079862686,
+              "robust_mae": 2.192473549616111,
+              "rank_ic": 0.7076402702551124,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 29477,
+                  "true_negative": 65201,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 38602,
+                  "true_negative": 56076,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 18905,
+                  "true_negative": 75773,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 17.259695897539412,
+              "robust_mae": 2.81083319537281,
+              "rank_ic": 0.40414519761486467,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 14269,
+                  "false_positive": 14533,
+                  "false_negative": 15208,
+                  "true_negative": 50668,
+                  "precision": 0.49541698493160197,
+                  "recall": 0.48407232757743324,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 19658,
+                  "false_positive": 16117,
+                  "false_negative": 18944,
+                  "true_negative": 39959,
+                  "precision": 0.5494898672257162,
+                  "recall": 0.509248225480545,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 8371,
+                  "false_positive": 10262,
+                  "false_negative": 10534,
+                  "true_negative": 65511,
+                  "precision": 0.4492566951108249,
+                  "recall": 0.44279291192806136,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 14.26945911798696,
+              "robust_mae": 2.182290450658972,
+              "rank_ic": 0.6879314549606795,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 11764,
+                  "false_positive": 8901,
+                  "false_negative": 17713,
+                  "true_negative": 56300,
+                  "precision": 0.5692717154609243,
+                  "recall": 0.3990908165688503,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 19786,
+                  "false_positive": 14290,
+                  "false_negative": 18816,
+                  "true_negative": 41786,
+                  "precision": 0.5806432679892006,
+                  "recall": 0.5125641158489197,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 5212,
+                  "false_positive": 3628,
+                  "false_negative": 13693,
+                  "true_negative": 72145,
+                  "precision": 0.5895927601809955,
+                  "recall": 0.2756942607775721,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 17.26118949218594,
+              "robust_mae": 2.8106213713360724,
+              "rank_ic": 0.40420831402940316,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 14270,
+                  "false_positive": 14533,
+                  "false_negative": 15207,
+                  "true_negative": 50668,
+                  "precision": 0.49543450335034545,
+                  "recall": 0.4841062523323269,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 19658,
+                  "false_positive": 16118,
+                  "false_negative": 18944,
+                  "true_negative": 39958,
+                  "precision": 0.5494745080500895,
+                  "recall": 0.509248225480545,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 8369,
+                  "false_positive": 10264,
+                  "false_negative": 10536,
+                  "true_negative": 65509,
+                  "precision": 0.4491493586647346,
+                  "recall": 0.4426871198095742,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 26.028938966342654,
+              "robust_mae": 2.14058164828733,
+              "rank_ic": 0.686164756476962,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94678,
+                  "true_positive": 7032,
+                  "false_positive": 4140,
+                  "false_negative": 22445,
+                  "true_negative": 61061,
+                  "precision": 0.6294307196562836,
+                  "recall": 0.23855887641211793,
+                  "prevalence": 0.3113394875261412
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94678,
+                  "true_positive": 17134,
+                  "false_positive": 11554,
+                  "false_negative": 21468,
+                  "true_negative": 44522,
+                  "precision": 0.5972532069157837,
+                  "recall": 0.44386301227915653,
+                  "prevalence": 0.4077187942288599
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94678,
+                  "true_positive": 2507,
+                  "false_positive": 1413,
+                  "false_negative": 16398,
+                  "true_negative": 74360,
+                  "precision": 0.6395408163265306,
+                  "recall": 0.13261042052367097,
+                  "prevalence": 0.19967679925642703
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "target": "quarterly_net_profit",
+          "horizon": 1,
+          "rows": 92501,
+          "formations": 28,
+          "report_start": "2019-03-31",
+          "report_end": "2025-12-31",
+          "variant": "primary",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 1.6582643844045963,
+              "robust_mae": 1.2836902526082667,
+              "rank_ic": 0.6305475863804052,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 18071,
+                  "true_negative": 74430,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 28722,
+                  "true_negative": 63779,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 9208,
+                  "true_negative": 83293,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 1.6272178645927589,
+              "robust_mae": 1.1973100012477464,
+              "rank_ic": 0.6593948881919115,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 9651,
+                  "false_positive": 7847,
+                  "false_negative": 8420,
+                  "true_negative": 66583,
+                  "precision": 0.5515487484283919,
+                  "recall": 0.5340600962868685,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 16371,
+                  "false_positive": 10422,
+                  "false_negative": 12351,
+                  "true_negative": 53357,
+                  "precision": 0.6110178031575412,
+                  "recall": 0.569981199080844,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 4583,
+                  "false_positive": 4677,
+                  "false_negative": 4625,
+                  "true_negative": 78616,
+                  "precision": 0.4949244060475162,
+                  "recall": 0.49771937445699393,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 1.3944535012460524,
+              "robust_mae": 1.140632873578999,
+              "rank_ic": 0.6547119697767442,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 5325,
+                  "false_positive": 4051,
+                  "false_negative": 12746,
+                  "true_negative": 70379,
+                  "precision": 0.5679394197952219,
+                  "recall": 0.2946710198660838,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 12432,
+                  "false_positive": 10779,
+                  "false_negative": 16290,
+                  "true_negative": 53000,
+                  "precision": 0.535608116841153,
+                  "recall": 0.4328389387925632,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 1668,
+                  "false_positive": 838,
+                  "false_negative": 7540,
+                  "true_negative": 82455,
+                  "precision": 0.6656025538707103,
+                  "recall": 0.18114682884448305,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 1.3521443509815556,
+              "robust_mae": 1.0983260460767592,
+              "rank_ic": 0.6591532081610062,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 4354,
+                  "false_positive": 2801,
+                  "false_negative": 13717,
+                  "true_negative": 71629,
+                  "precision": 0.6085255066387142,
+                  "recall": 0.2409385202811134,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 10371,
+                  "false_positive": 6841,
+                  "false_negative": 18351,
+                  "true_negative": 56938,
+                  "precision": 0.6025447362305368,
+                  "recall": 0.36108209734698143,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 1567,
+                  "false_positive": 1068,
+                  "false_negative": 7641,
+                  "true_negative": 82225,
+                  "precision": 0.5946869070208729,
+                  "recall": 0.17017810599478714,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 1.5428421046928376,
+              "robust_mae": 1.193390118441591,
+              "rank_ic": 0.6482766287524149,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 5681,
+                  "false_positive": 4770,
+                  "false_negative": 12390,
+                  "true_negative": 69660,
+                  "precision": 0.5435843459955985,
+                  "recall": 0.3143710918045487,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 12848,
+                  "false_positive": 11626,
+                  "false_negative": 15874,
+                  "true_negative": 52153,
+                  "precision": 0.5249652692653428,
+                  "recall": 0.447322609846111,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 1757,
+                  "false_positive": 1063,
+                  "false_negative": 7451,
+                  "true_negative": 82230,
+                  "precision": 0.6230496453900709,
+                  "recall": 0.1908123370981755,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 1.5068867858648363,
+              "robust_mae": 1.169607178759549,
+              "rank_ic": 0.6326891188875131,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 2921,
+                  "false_positive": 1632,
+                  "false_negative": 15150,
+                  "true_negative": 72798,
+                  "precision": 0.6415550186690094,
+                  "recall": 0.16164019700071938,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 6458,
+                  "false_positive": 3387,
+                  "false_negative": 22264,
+                  "true_negative": 60392,
+                  "precision": 0.6559674961909598,
+                  "recall": 0.22484506649954739,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 1037,
+                  "false_positive": 444,
+                  "false_negative": 8171,
+                  "true_negative": 82849,
+                  "precision": 0.7002025658338961,
+                  "recall": 0.11261946133796699,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "target": "quarterly_net_profit",
+          "horizon": 1,
+          "rows": 92501,
+          "formations": 28,
+          "report_start": "2019-03-31",
+          "report_end": "2025-12-31",
+          "variant": "milder_clipping",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 1.6582643844045963,
+              "robust_mae": 1.2836902526082667,
+              "rank_ic": 0.6305475863804052,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 18071,
+                  "true_negative": 74430,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 28722,
+                  "true_negative": 63779,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 9208,
+                  "true_negative": 83293,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 1.6272178645927589,
+              "robust_mae": 1.1973100012477464,
+              "rank_ic": 0.6593948881919115,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 9651,
+                  "false_positive": 7847,
+                  "false_negative": 8420,
+                  "true_negative": 66583,
+                  "precision": 0.5515487484283919,
+                  "recall": 0.5340600962868685,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 16371,
+                  "false_positive": 10422,
+                  "false_negative": 12351,
+                  "true_negative": 53357,
+                  "precision": 0.6110178031575412,
+                  "recall": 0.569981199080844,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 4583,
+                  "false_positive": 4677,
+                  "false_negative": 4625,
+                  "true_negative": 78616,
+                  "precision": 0.4949244060475162,
+                  "recall": 0.49771937445699393,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 1.4150574199736219,
+              "robust_mae": 1.1611966295782248,
+              "rank_ic": 0.651676611684234,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 5698,
+                  "false_positive": 4901,
+                  "false_negative": 12373,
+                  "true_negative": 69529,
+                  "precision": 0.5375978865930748,
+                  "recall": 0.31531182557689114,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 13269,
+                  "false_positive": 12666,
+                  "false_negative": 15453,
+                  "true_negative": 51113,
+                  "precision": 0.5116252168883748,
+                  "recall": 0.461980363484437,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 1762,
+                  "false_positive": 961,
+                  "false_negative": 7446,
+                  "true_negative": 82332,
+                  "precision": 0.6470804260007345,
+                  "recall": 0.19135534317984362,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 1.3536378803883313,
+              "robust_mae": 1.0998195754835354,
+              "rank_ic": 0.6583243420858691,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 4804,
+                  "false_positive": 3213,
+                  "false_negative": 13267,
+                  "true_negative": 71217,
+                  "precision": 0.5992266433828115,
+                  "recall": 0.2658402966078247,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 11453,
+                  "false_positive": 7755,
+                  "false_negative": 17269,
+                  "true_negative": 56024,
+                  "precision": 0.5962619741774261,
+                  "recall": 0.39875356869298795,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 1616,
+                  "false_positive": 1077,
+                  "false_negative": 7592,
+                  "true_negative": 82216,
+                  "precision": 0.6000742666171556,
+                  "recall": 0.17549956559513466,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 1.5316208659816197,
+              "robust_mae": 1.1941777312623683,
+              "rank_ic": 0.6421519973924202,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 6144,
+                  "false_positive": 5872,
+                  "false_negative": 11927,
+                  "true_negative": 68558,
+                  "precision": 0.511318242343542,
+                  "recall": 0.33999225278069833,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 13673,
+                  "false_positive": 13503,
+                  "false_negative": 15049,
+                  "true_negative": 50276,
+                  "precision": 0.5031277597880482,
+                  "recall": 0.4760462363345171,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 1958,
+                  "false_positive": 1310,
+                  "false_negative": 7250,
+                  "true_negative": 81983,
+                  "precision": 0.5991432068543452,
+                  "recall": 0.2126411815812337,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 1.4891870417136615,
+              "robust_mae": 1.1658261264283831,
+              "rank_ic": 0.6305535708936746,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 3046,
+                  "false_positive": 1703,
+                  "false_negative": 15025,
+                  "true_negative": 72727,
+                  "precision": 0.6413981890924405,
+                  "recall": 0.16855735709147251,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 6729,
+                  "false_positive": 3670,
+                  "false_negative": 21993,
+                  "true_negative": 60109,
+                  "precision": 0.6470814501394365,
+                  "recall": 0.23428034259452685,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 975,
+                  "false_positive": 425,
+                  "false_negative": 8233,
+                  "true_negative": 82868,
+                  "precision": 0.6964285714285714,
+                  "recall": 0.10588618592528236,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "target": "quarterly_net_profit",
+          "horizon": 1,
+          "rows": 92501,
+          "formations": 28,
+          "report_start": "2019-03-31",
+          "report_end": "2025-12-31",
+          "variant": "unclipped",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 1.6582643844045963,
+              "robust_mae": 1.2836902526082667,
+              "rank_ic": 0.6305475863804052,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 18071,
+                  "true_negative": 74430,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 28722,
+                  "true_negative": 63779,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 9208,
+                  "true_negative": 83293,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 1.6272178645927589,
+              "robust_mae": 1.1973100012477464,
+              "rank_ic": 0.6593948881919115,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 9651,
+                  "false_positive": 7847,
+                  "false_negative": 8420,
+                  "true_negative": 66583,
+                  "precision": 0.5515487484283919,
+                  "recall": 0.5340600962868685,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 16371,
+                  "false_positive": 10422,
+                  "false_negative": 12351,
+                  "true_negative": 53357,
+                  "precision": 0.6110178031575412,
+                  "recall": 0.569981199080844,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 4583,
+                  "false_positive": 4677,
+                  "false_negative": 4625,
+                  "true_negative": 78616,
+                  "precision": 0.4949244060475162,
+                  "recall": 0.49771937445699393,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 2.9048305111447474,
+              "robust_mae": 1.636509963562675,
+              "rank_ic": 0.20132820531841183,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 7979,
+                  "false_positive": 16317,
+                  "false_negative": 10092,
+                  "true_negative": 58113,
+                  "precision": 0.3284079683898584,
+                  "recall": 0.44153616291295444,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 14845,
+                  "false_positive": 19849,
+                  "false_negative": 13877,
+                  "true_negative": 43930,
+                  "precision": 0.4278837839395861,
+                  "recall": 0.5168511942065316,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 2876,
+                  "false_positive": 8181,
+                  "false_negative": 6332,
+                  "true_negative": 75112,
+                  "precision": 0.26010671972506105,
+                  "recall": 0.31233709817549954,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 1.4215501842104248,
+              "robust_mae": 1.1423914927686991,
+              "rank_ic": 0.6429557624644984,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 4986,
+                  "false_positive": 4090,
+                  "false_negative": 13085,
+                  "true_negative": 70340,
+                  "precision": 0.5493609519612164,
+                  "recall": 0.2759116816999613,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 11419,
+                  "false_positive": 8664,
+                  "false_negative": 17303,
+                  "true_negative": 55115,
+                  "precision": 0.5685903500473037,
+                  "recall": 0.3975698071164961,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 1913,
+                  "false_positive": 1749,
+                  "false_negative": 7295,
+                  "true_negative": 81544,
+                  "precision": 0.522392135445112,
+                  "recall": 0.2077541268462207,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 2.9042039735246488,
+              "robust_mae": 1.6365006107577023,
+              "rank_ic": 0.20132963644208823,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 7979,
+                  "false_positive": 16317,
+                  "false_negative": 10092,
+                  "true_negative": 58113,
+                  "precision": 0.3284079683898584,
+                  "recall": 0.44153616291295444,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 14844,
+                  "false_positive": 19848,
+                  "false_negative": 13878,
+                  "true_negative": 43931,
+                  "precision": 0.4278796264268419,
+                  "recall": 0.5168163776895759,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 2876,
+                  "false_positive": 8178,
+                  "false_negative": 6332,
+                  "true_negative": 75115,
+                  "precision": 0.26017731138049577,
+                  "recall": 0.31233709817549954,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 1.5807024950046302,
+              "robust_mae": 1.2541069998073555,
+              "rank_ic": 0.6047090497536879,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92501,
+                  "true_positive": 2046,
+                  "false_positive": 1268,
+                  "false_negative": 16025,
+                  "true_negative": 73162,
+                  "precision": 0.6173808086904043,
+                  "recall": 0.1132200763654474,
+                  "prevalence": 0.19536005016161986
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92501,
+                  "true_positive": 5437,
+                  "false_positive": 3466,
+                  "false_negative": 23285,
+                  "true_negative": 60313,
+                  "precision": 0.6106930248230933,
+                  "recall": 0.1892974026878351,
+                  "prevalence": 0.31050475129998595
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92501,
+                  "true_positive": 785,
+                  "false_positive": 456,
+                  "false_negative": 8423,
+                  "true_negative": 82837,
+                  "precision": 0.6325543916196615,
+                  "recall": 0.085251954821894,
+                  "prevalence": 0.09954486978519152
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "target": "quarterly_net_profit",
+          "horizon": 4,
+          "rows": 94411,
+          "formations": 25,
+          "report_start": "2019-03-31",
+          "report_end": "2025-03-31",
+          "variant": "primary",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 1.574425875902962,
+              "robust_mae": 1.1789864248058317,
+              "rank_ic": 0.6574734648691636,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 19102,
+                  "true_negative": 75309,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 30407,
+                  "true_negative": 64004,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 9395,
+                  "true_negative": 85016,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 1.574425875902962,
+              "robust_mae": 1.1789864248058317,
+              "rank_ic": 0.6574734648691636,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 19102,
+                  "true_negative": 75309,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 30407,
+                  "true_negative": 64004,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 9395,
+                  "true_negative": 85016,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 1.3299358396674206,
+              "robust_mae": 1.1050467364682617,
+              "rank_ic": 0.6462670786285102,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 6016,
+                  "false_positive": 4655,
+                  "false_negative": 13086,
+                  "true_negative": 70654,
+                  "precision": 0.563770968044232,
+                  "recall": 0.3149408438906921,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 13275,
+                  "false_positive": 10522,
+                  "false_negative": 17132,
+                  "true_negative": 53482,
+                  "precision": 0.5578434256418876,
+                  "recall": 0.4365771039563259,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 1983,
+                  "false_positive": 1026,
+                  "false_negative": 7412,
+                  "true_negative": 83990,
+                  "precision": 0.6590229312063809,
+                  "recall": 0.21106971793507184,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 1.3019066364082008,
+              "robust_mae": 1.0770175332090417,
+              "rank_ic": 0.6670409200593119,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 4768,
+                  "false_positive": 2859,
+                  "false_negative": 14334,
+                  "true_negative": 72450,
+                  "precision": 0.6251475022944801,
+                  "recall": 0.24960737095592084,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 10841,
+                  "false_positive": 7025,
+                  "false_negative": 19566,
+                  "true_negative": 56979,
+                  "precision": 0.606795029665286,
+                  "recall": 0.3565297464399645,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 1704,
+                  "false_positive": 795,
+                  "false_negative": 7691,
+                  "true_negative": 84221,
+                  "precision": 0.6818727490996399,
+                  "recall": 0.18137307078233103,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 1.4805264818532444,
+              "robust_mae": 1.1300185032420016,
+              "rank_ic": 0.6431118560278452,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 6272,
+                  "false_positive": 5042,
+                  "false_negative": 12830,
+                  "true_negative": 70267,
+                  "precision": 0.5543574332685168,
+                  "recall": 0.3283425819285939,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 13572,
+                  "false_positive": 11047,
+                  "false_negative": 16835,
+                  "true_negative": 52957,
+                  "precision": 0.5512815305252041,
+                  "recall": 0.4463445917058572,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 2095,
+                  "false_positive": 1142,
+                  "false_negative": 7300,
+                  "true_negative": 83874,
+                  "precision": 0.6472042014210689,
+                  "recall": 0.22299095263437999,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 1.4310027736509645,
+              "robust_mae": 1.0938989844060263,
+              "rank_ic": 0.6565955124206809,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 3238,
+                  "false_positive": 1442,
+                  "false_negative": 15864,
+                  "true_negative": 73867,
+                  "precision": 0.6918803418803419,
+                  "recall": 0.16951104596377342,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 8408,
+                  "false_positive": 4627,
+                  "false_negative": 21999,
+                  "true_negative": 59377,
+                  "precision": 0.6450326045262754,
+                  "recall": 0.27651527608774296,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 1265,
+                  "false_positive": 434,
+                  "false_negative": 8130,
+                  "true_negative": 84582,
+                  "precision": 0.744555620953502,
+                  "recall": 0.1346460883448643,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "target": "quarterly_net_profit",
+          "horizon": 4,
+          "rows": 94411,
+          "formations": 25,
+          "report_start": "2019-03-31",
+          "report_end": "2025-03-31",
+          "variant": "milder_clipping",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 1.574425875902962,
+              "robust_mae": 1.1789864248058317,
+              "rank_ic": 0.6574734648691636,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 19102,
+                  "true_negative": 75309,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 30407,
+                  "true_negative": 64004,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 9395,
+                  "true_negative": 85016,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 1.574425875902962,
+              "robust_mae": 1.1789864248058317,
+              "rank_ic": 0.6574734648691636,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 19102,
+                  "true_negative": 75309,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 30407,
+                  "true_negative": 64004,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 9395,
+                  "true_negative": 85016,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 1.346214692541333,
+              "robust_mae": 1.121325589342174,
+              "rank_ic": 0.6389973911347737,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 6575,
+                  "false_positive": 5583,
+                  "false_negative": 12527,
+                  "true_negative": 69726,
+                  "precision": 0.5407961835828261,
+                  "recall": 0.3442047953093917,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 14107,
+                  "false_positive": 12090,
+                  "false_negative": 16300,
+                  "true_negative": 51914,
+                  "precision": 0.5384967744398214,
+                  "recall": 0.4639392245206696,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 2220,
+                  "false_positive": 1298,
+                  "false_negative": 7175,
+                  "true_negative": 83718,
+                  "precision": 0.6310403638430927,
+                  "recall": 0.2362959020755721,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 1.3005442053656355,
+              "robust_mae": 1.0756551021664766,
+              "rank_ic": 0.6659945673959669,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 4965,
+                  "false_positive": 3080,
+                  "false_negative": 14137,
+                  "true_negative": 72229,
+                  "precision": 0.6171535114978247,
+                  "recall": 0.2599204271804,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 11601,
+                  "false_positive": 8374,
+                  "false_negative": 18806,
+                  "true_negative": 55630,
+                  "precision": 0.5807759699624531,
+                  "recall": 0.38152399118624003,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 1670,
+                  "false_positive": 798,
+                  "false_negative": 7725,
+                  "true_negative": 84218,
+                  "precision": 0.6766612641815235,
+                  "recall": 0.17775412453432676,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 1.473496555046565,
+              "robust_mae": 1.1420487067397544,
+              "rank_ic": 0.6317058055798592,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 6870,
+                  "false_positive": 6115,
+                  "false_negative": 12232,
+                  "true_negative": 69194,
+                  "precision": 0.529072006160955,
+                  "recall": 0.3596482043765051,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 14331,
+                  "false_positive": 12552,
+                  "false_negative": 16076,
+                  "true_negative": 51452,
+                  "precision": 0.5330878250195291,
+                  "recall": 0.4713059492879929,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 2368,
+                  "false_positive": 1537,
+                  "false_negative": 7027,
+                  "true_negative": 83479,
+                  "precision": 0.6064020486555698,
+                  "recall": 0.2520489622139436,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 1.4100665711914997,
+              "robust_mae": 1.0931899266529121,
+              "rank_ic": 0.6550226435526213,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 3199,
+                  "false_positive": 1451,
+                  "false_negative": 15903,
+                  "true_negative": 73858,
+                  "precision": 0.6879569892473119,
+                  "recall": 0.16746937493456182,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 8935,
+                  "false_positive": 5515,
+                  "false_negative": 21472,
+                  "true_negative": 58489,
+                  "precision": 0.6183391003460208,
+                  "recall": 0.29384681158943665,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 1218,
+                  "false_positive": 370,
+                  "false_negative": 8177,
+                  "true_negative": 84646,
+                  "precision": 0.7670025188916877,
+                  "recall": 0.12964342735497605,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "target": "quarterly_net_profit",
+          "horizon": 4,
+          "rows": 94411,
+          "formations": 25,
+          "report_start": "2019-03-31",
+          "report_end": "2025-03-31",
+          "variant": "unclipped",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 1.574425875902962,
+              "robust_mae": 1.1789864248058317,
+              "rank_ic": 0.6574734648691636,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 19102,
+                  "true_negative": 75309,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 30407,
+                  "true_negative": 64004,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 9395,
+                  "true_negative": 85016,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 1.574425875902962,
+              "robust_mae": 1.1789864248058317,
+              "rank_ic": 0.6574734648691636,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 19102,
+                  "true_negative": 75309,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 30407,
+                  "true_negative": 64004,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 9395,
+                  "true_negative": 85016,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 2.3071387214004506,
+              "robust_mae": 1.5026927445808014,
+              "rank_ic": 0.0914738582463234,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 9412,
+                  "false_positive": 15038,
+                  "false_negative": 9690,
+                  "true_negative": 60271,
+                  "precision": 0.3849488752556237,
+                  "recall": 0.492723275049733,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 16724,
+                  "false_positive": 17971,
+                  "false_negative": 13683,
+                  "true_negative": 46033,
+                  "precision": 0.48202911082288513,
+                  "recall": 0.550004933074621,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 3791,
+                  "false_positive": 7386,
+                  "false_negative": 5604,
+                  "true_negative": 77630,
+                  "precision": 0.3391786704840297,
+                  "recall": 0.40351250665247473,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 1.386582512067921,
+              "robust_mae": 1.1173792718102595,
+              "rank_ic": 0.6412946730570002,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 5415,
+                  "false_positive": 4011,
+                  "false_negative": 13687,
+                  "true_negative": 71298,
+                  "precision": 0.5744748567791216,
+                  "recall": 0.2834781698251492,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 13185,
+                  "false_positive": 10427,
+                  "false_negative": 17222,
+                  "true_negative": 53577,
+                  "precision": 0.558402507199729,
+                  "recall": 0.4336172591837406,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 1984,
+                  "false_positive": 1295,
+                  "false_negative": 7411,
+                  "true_negative": 83721,
+                  "precision": 0.6050625190606892,
+                  "recall": 0.21117615753060137,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 2.3064381300637877,
+              "robust_mae": 1.50269609788649,
+              "rank_ic": 0.09146563218294337,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 9414,
+                  "false_positive": 15033,
+                  "false_negative": 9688,
+                  "true_negative": 60276,
+                  "precision": 0.38507792367161614,
+                  "recall": 0.4928279761281541,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 16721,
+                  "false_positive": 17972,
+                  "false_negative": 13686,
+                  "true_negative": 46032,
+                  "precision": 0.48197042631078313,
+                  "recall": 0.5499062715822015,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 3791,
+                  "false_positive": 7389,
+                  "false_negative": 5604,
+                  "true_negative": 77627,
+                  "precision": 0.339087656529517,
+                  "recall": 0.40351250665247473,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 1.544944201379501,
+              "robust_mae": 1.1952840438839276,
+              "rank_ic": 0.620662183412417,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94411,
+                  "true_positive": 1542,
+                  "false_positive": 697,
+                  "false_negative": 17560,
+                  "true_negative": 74612,
+                  "precision": 0.6887003126395712,
+                  "recall": 0.08072453146267407,
+                  "prevalence": 0.20232811854550847
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94411,
+                  "true_positive": 5903,
+                  "false_positive": 2947,
+                  "false_negative": 24504,
+                  "true_negative": 61057,
+                  "precision": 0.6670056497175141,
+                  "recall": 0.1941329299174532,
+                  "prevalence": 0.32207052144347587
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94411,
+                  "true_positive": 850,
+                  "false_positive": 438,
+                  "false_negative": 8545,
+                  "true_negative": 84578,
+                  "precision": 0.6599378881987578,
+                  "recall": 0.09047365620010644,
+                  "prevalence": 0.09951170944063721
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "target": "quarterly_cash_flow",
+          "horizon": 1,
+          "rows": 92162,
+          "formations": 28,
+          "report_start": "2019-03-31",
+          "report_end": "2025-12-31",
+          "variant": "primary",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 142.8503902531808,
+              "robust_mae": 34.19171729486605,
+              "rank_ic": 0.13603134124484142,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 39309,
+                  "true_negative": 52853,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 40068,
+                  "true_negative": 52094,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 37776,
+                  "true_negative": 54386,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 2520.771492012464,
+              "robust_mae": 25.68315872054064,
+              "rank_ic": 0.418909721130806,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 27850,
+                  "false_positive": 11503,
+                  "false_negative": 11459,
+                  "true_negative": 41350,
+                  "precision": 0.7076969989581481,
+                  "recall": 0.7084891500674146,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 28549,
+                  "false_positive": 11529,
+                  "false_negative": 11519,
+                  "true_negative": 40565,
+                  "precision": 0.7123359449074305,
+                  "recall": 0.71251372666467,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 26507,
+                  "false_positive": 11369,
+                  "false_negative": 11269,
+                  "true_negative": 43017,
+                  "precision": 0.6998363079522653,
+                  "recall": 0.7016889030072003,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 135.64073183342936,
+              "robust_mae": 24.53574707163343,
+              "rank_ic": 0.25706009569994254,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 30456,
+                  "false_positive": 16605,
+                  "false_negative": 8853,
+                  "true_negative": 36248,
+                  "precision": 0.6471600688468159,
+                  "recall": 0.7747844005189651,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 31238,
+                  "false_positive": 16826,
+                  "false_negative": 8830,
+                  "true_negative": 35268,
+                  "precision": 0.6499250998668442,
+                  "recall": 0.7796246381152041,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 28844,
+                  "false_positive": 16212,
+                  "false_negative": 8932,
+                  "true_negative": 38174,
+                  "precision": 0.6401811079545454,
+                  "recall": 0.7635535789919525,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 134.67507162937304,
+              "robust_mae": 23.570086867577107,
+              "rank_ic": 0.2991119437842644,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 29026,
+                  "false_positive": 12123,
+                  "false_negative": 10283,
+                  "true_negative": 40730,
+                  "precision": 0.7053877372475638,
+                  "recall": 0.7384059630110152,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 29763,
+                  "false_positive": 12269,
+                  "false_negative": 10305,
+                  "true_negative": 39825,
+                  "precision": 0.7081033498287019,
+                  "recall": 0.7428122192273136,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 27548,
+                  "false_positive": 11861,
+                  "false_negative": 10228,
+                  "true_negative": 42525,
+                  "precision": 0.6990281407800248,
+                  "recall": 0.7292460821685727,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 132.21367568677357,
+              "robust_mae": 25.187282210987853,
+              "rank_ic": 0.25829670603869437,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 30571,
+                  "false_positive": 16744,
+                  "false_negative": 8738,
+                  "true_negative": 36109,
+                  "precision": 0.6461164535559548,
+                  "recall": 0.7777099391996743,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 31350,
+                  "false_positive": 16924,
+                  "false_negative": 8718,
+                  "true_negative": 35170,
+                  "precision": 0.649417906119236,
+                  "recall": 0.7824198861934711,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 28952,
+                  "false_positive": 16336,
+                  "false_negative": 8824,
+                  "true_negative": 38050,
+                  "precision": 0.6392863451686981,
+                  "recall": 0.7664125370605676,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 131.61878864079736,
+              "robust_mae": 24.58574922625436,
+              "rank_ic": 0.18114519607990526,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 26116,
+                  "false_positive": 9907,
+                  "false_negative": 13193,
+                  "true_negative": 42946,
+                  "precision": 0.7249812619715182,
+                  "recall": 0.6643771146556768,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 27028,
+                  "false_positive": 10237,
+                  "false_negative": 13040,
+                  "true_negative": 41857,
+                  "precision": 0.7252918287937743,
+                  "recall": 0.6745532594589199,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 24512,
+                  "false_positive": 9531,
+                  "false_negative": 13264,
+                  "true_negative": 44855,
+                  "precision": 0.7200305495990366,
+                  "recall": 0.6488775942397289,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            }
+          ],
+          "cash_ranking": {
+            "rank_ic": 0.18877938893381252,
+            "gain_vs_current": 0.05274804768897106,
+            "wins": 16,
+            "formations": 28,
+            "paired_formations": 28,
+            "annual": [
+              {
+                "period": 2019,
+                "formations": 4,
+                "mean_gain": 0.06587396595393036,
+                "wins": 3
+              },
+              {
+                "period": 2020,
+                "formations": 4,
+                "mean_gain": 0.07217858065608942,
+                "wins": 3
+              },
+              {
+                "period": 2021,
+                "formations": 4,
+                "mean_gain": 0.06935731651549176,
+                "wins": 2
+              },
+              {
+                "period": 2022,
+                "formations": 4,
+                "mean_gain": 0.037438427870631744,
+                "wins": 2
+              },
+              {
+                "period": 2023,
+                "formations": 4,
+                "mean_gain": 0.038304253234695856,
+                "wins": 2
+              },
+              {
+                "period": 2024,
+                "formations": 4,
+                "mean_gain": 0.02491700093908089,
+                "wins": 2
+              },
+              {
+                "period": 2025,
+                "formations": 4,
+                "mean_gain": 0.061166788652877335,
+                "wins": 2
+              }
+            ],
+            "fiscal_quarter": [
+              {
+                "period": 1,
+                "formations": 7,
+                "mean_gain": -0.0293133449496014,
+                "wins": 0
+              },
+              {
+                "period": 2,
+                "formations": 7,
+                "mean_gain": -0.020560475188408606,
+                "wins": 2
+              },
+              {
+                "period": 3,
+                "formations": 7,
+                "mean_gain": 0.07919606029321957,
+                "wins": 7
+              },
+              {
+                "period": 4,
+                "formations": 7,
+                "mean_gain": 0.18166995060067465,
+                "wins": 7
+              }
+            ]
+          }
+        },
+        {
+          "target": "quarterly_cash_flow",
+          "horizon": 1,
+          "rows": 92162,
+          "formations": 28,
+          "report_start": "2019-03-31",
+          "report_end": "2025-12-31",
+          "variant": "milder_clipping",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 142.8503902531808,
+              "robust_mae": 34.19171729486605,
+              "rank_ic": 0.13603134124484142,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 39309,
+                  "true_negative": 52853,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 40068,
+                  "true_negative": 52094,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 37776,
+                  "true_negative": 54386,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 2520.771492012464,
+              "robust_mae": 25.68315872054064,
+              "rank_ic": 0.418909721130806,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 27850,
+                  "false_positive": 11503,
+                  "false_negative": 11459,
+                  "true_negative": 41350,
+                  "precision": 0.7076969989581481,
+                  "recall": 0.7084891500674146,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 28549,
+                  "false_positive": 11529,
+                  "false_negative": 11519,
+                  "true_negative": 40565,
+                  "precision": 0.7123359449074305,
+                  "recall": 0.71251372666467,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 26507,
+                  "false_positive": 11369,
+                  "false_negative": 11269,
+                  "true_negative": 43017,
+                  "precision": 0.6998363079522653,
+                  "recall": 0.7016889030072003,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 135.84826784591291,
+              "robust_mae": 24.743283084117007,
+              "rank_ic": 0.24744320109879597,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 30619,
+                  "false_positive": 17227,
+                  "false_negative": 8690,
+                  "true_negative": 35626,
+                  "precision": 0.6399490030514567,
+                  "recall": 0.7789310336055356,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 31377,
+                  "false_positive": 17458,
+                  "false_negative": 8691,
+                  "true_negative": 34636,
+                  "precision": 0.6425104945223713,
+                  "recall": 0.7830937406409104,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 28990,
+                  "false_positive": 16829,
+                  "false_negative": 8786,
+                  "true_negative": 37557,
+                  "precision": 0.6327069556297605,
+                  "recall": 0.7674184667513765,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 134.9343809612691,
+              "robust_mae": 23.829396199473184,
+              "rank_ic": 0.2856415335929009,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 29058,
+                  "false_positive": 12395,
+                  "false_negative": 10251,
+                  "true_negative": 40458,
+                  "precision": 0.7009866595903794,
+                  "recall": 0.7392200259482561,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 29797,
+                  "false_positive": 12516,
+                  "false_negative": 10271,
+                  "true_negative": 39578,
+                  "precision": 0.7042043816321225,
+                  "recall": 0.7436607766796446,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 27611,
+                  "false_positive": 12203,
+                  "false_negative": 10165,
+                  "true_negative": 42183,
+                  "precision": 0.6934997739488622,
+                  "recall": 0.730913807708598,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 131.3047165381955,
+              "robust_mae": 25.106552471110614,
+              "rank_ic": 0.25148943652244865,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 30850,
+                  "false_positive": 17417,
+                  "false_negative": 8459,
+                  "true_negative": 35436,
+                  "precision": 0.6391530445231732,
+                  "recall": 0.784807550433743,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 31608,
+                  "false_positive": 17651,
+                  "false_negative": 8460,
+                  "true_negative": 34443,
+                  "precision": 0.6416695426216529,
+                  "recall": 0.788858939802336,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 29229,
+                  "false_positive": 17055,
+                  "false_negative": 8547,
+                  "true_negative": 37331,
+                  "precision": 0.6315141301529686,
+                  "recall": 0.7737452350698857,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 130.83413998869972,
+              "robust_mae": 24.65970300429084,
+              "rank_ic": 0.1566268541719205,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 25673,
+                  "false_positive": 9770,
+                  "false_negative": 13636,
+                  "true_negative": 43083,
+                  "precision": 0.7243461332279999,
+                  "recall": 0.653107430868249,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 26472,
+                  "false_positive": 9955,
+                  "false_negative": 13596,
+                  "true_negative": 42139,
+                  "precision": 0.7267137013753534,
+                  "recall": 0.6606768493560946,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 24144,
+                  "false_positive": 9434,
+                  "false_negative": 13632,
+                  "true_negative": 44952,
+                  "precision": 0.7190422300315683,
+                  "recall": 0.639135959339263,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            }
+          ],
+          "cash_ranking": {
+            "rank_ic": 0.18676024317614534,
+            "gain_vs_current": 0.050728901931303895,
+            "wins": 17,
+            "formations": 28,
+            "paired_formations": 28,
+            "annual": [
+              {
+                "period": 2019,
+                "formations": 4,
+                "mean_gain": 0.07136802247705012,
+                "wins": 3
+              },
+              {
+                "period": 2020,
+                "formations": 4,
+                "mean_gain": 0.05760069516595965,
+                "wins": 3
+              },
+              {
+                "period": 2021,
+                "formations": 4,
+                "mean_gain": 0.06920169206806971,
+                "wins": 3
+              },
+              {
+                "period": 2022,
+                "formations": 4,
+                "mean_gain": 0.034364474458022765,
+                "wins": 2
+              },
+              {
+                "period": 2023,
+                "formations": 4,
+                "mean_gain": 0.030543085406163507,
+                "wins": 2
+              },
+              {
+                "period": 2024,
+                "formations": 4,
+                "mean_gain": 0.022653429871960673,
+                "wins": 2
+              },
+              {
+                "period": 2025,
+                "formations": 4,
+                "mean_gain": 0.0693709140719008,
+                "wins": 2
+              }
+            ],
+            "fiscal_quarter": [
+              {
+                "period": 1,
+                "formations": 7,
+                "mean_gain": -0.03567420088542183,
+                "wins": 0
+              },
+              {
+                "period": 2,
+                "formations": 7,
+                "mean_gain": -0.022664949203471323,
+                "wins": 3
+              },
+              {
+                "period": 3,
+                "formations": 7,
+                "mean_gain": 0.08003134710056925,
+                "wins": 7
+              },
+              {
+                "period": 4,
+                "formations": 7,
+                "mean_gain": 0.18122341071353945,
+                "wins": 7
+              }
+            ]
+          }
+        },
+        {
+          "target": "quarterly_cash_flow",
+          "horizon": 1,
+          "rows": 92162,
+          "formations": 28,
+          "report_start": "2019-03-31",
+          "report_end": "2025-12-31",
+          "variant": "unclipped",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 142.8503902531808,
+              "robust_mae": 34.19171729486605,
+              "rank_ic": 0.13603134124484142,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 39309,
+                  "true_negative": 52853,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 40068,
+                  "true_negative": 52094,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 37776,
+                  "true_negative": 54386,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 2520.771492012464,
+              "robust_mae": 25.68315872054064,
+              "rank_ic": 0.418909721130806,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 27850,
+                  "false_positive": 11503,
+                  "false_negative": 11459,
+                  "true_negative": 41350,
+                  "precision": 0.7076969989581481,
+                  "recall": 0.7084891500674146,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 28549,
+                  "false_positive": 11529,
+                  "false_negative": 11519,
+                  "true_negative": 40565,
+                  "precision": 0.7123359449074305,
+                  "recall": 0.71251372666467,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 26507,
+                  "false_positive": 11369,
+                  "false_negative": 11269,
+                  "true_negative": 43017,
+                  "precision": 0.6998363079522653,
+                  "recall": 0.7016889030072003,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 1498743.2331951172,
+              "robust_mae": 215.4168741974626,
+              "rank_ic": 0.07210431258995889,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 33414,
+                  "false_positive": 44449,
+                  "false_negative": 5895,
+                  "true_negative": 8404,
+                  "precision": 0.429138358398726,
+                  "recall": 0.8500343432801648,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 34002,
+                  "false_positive": 43861,
+                  "false_negative": 6066,
+                  "true_negative": 8233,
+                  "precision": 0.4366900838652505,
+                  "recall": 0.848607367475292,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 32214,
+                  "false_positive": 45649,
+                  "false_negative": 5562,
+                  "true_negative": 8737,
+                  "precision": 0.4137266737731657,
+                  "recall": 0.8527636594663278,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 2276904.4201811175,
+              "robust_mae": 156.96838510971222,
+              "rank_ic": -0.06697339223370956,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 5500,
+                  "false_positive": 7599,
+                  "false_negative": 33809,
+                  "true_negative": 45254,
+                  "precision": 0.41987938010535153,
+                  "recall": 0.13991706733826859,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 5618,
+                  "false_positive": 7481,
+                  "false_negative": 34450,
+                  "true_negative": 44613,
+                  "precision": 0.4288877013512482,
+                  "recall": 0.1402116402116402,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 5255,
+                  "false_positive": 7844,
+                  "false_negative": 32521,
+                  "true_negative": 46542,
+                  "precision": 0.40117566226429496,
+                  "recall": 0.13910948750529437,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 1498743.26789042,
+              "robust_mae": 215.4168746425462,
+              "rank_ic": 0.07210430408409044,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 33414,
+                  "false_positive": 44449,
+                  "false_negative": 5895,
+                  "true_negative": 8404,
+                  "precision": 0.429138358398726,
+                  "recall": 0.8500343432801648,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 34002,
+                  "false_positive": 43861,
+                  "false_negative": 6066,
+                  "true_negative": 8233,
+                  "precision": 0.4366900838652505,
+                  "recall": 0.848607367475292,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 32214,
+                  "false_positive": 45649,
+                  "false_negative": 5562,
+                  "true_negative": 8737,
+                  "precision": 0.4137266737731657,
+                  "recall": 0.8527636594663278,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 2276895.475801258,
+              "robust_mae": 156.961962550047,
+              "rank_ic": 0.0418666707545899,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 92162,
+                  "true_positive": 5500,
+                  "false_positive": 7600,
+                  "false_negative": 33809,
+                  "true_negative": 45253,
+                  "precision": 0.4198473282442748,
+                  "recall": 0.13991706733826859,
+                  "prevalence": 0.4265206918252642
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 92162,
+                  "true_positive": 5618,
+                  "false_positive": 7482,
+                  "false_negative": 34450,
+                  "true_negative": 44612,
+                  "precision": 0.42885496183206107,
+                  "recall": 0.1402116402116402,
+                  "prevalence": 0.4347561901868449
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 92162,
+                  "true_positive": 5255,
+                  "false_positive": 7845,
+                  "false_negative": 32521,
+                  "true_negative": 46541,
+                  "precision": 0.40114503816793895,
+                  "recall": 0.13910948750529437,
+                  "prevalence": 0.4098869382174866
+                }
+              ]
+            }
+          ],
+          "cash_ranking": {
+            "rank_ic": 0.1882949627407586,
+            "gain_vs_current": 0.05226362149591717,
+            "wins": 16,
+            "formations": 28,
+            "paired_formations": 28,
+            "annual": [
+              {
+                "period": 2019,
+                "formations": 4,
+                "mean_gain": 0.0652107306783438,
+                "wins": 2
+              },
+              {
+                "period": 2020,
+                "formations": 4,
+                "mean_gain": 0.06407317337963556,
+                "wins": 3
+              },
+              {
+                "period": 2021,
+                "formations": 4,
+                "mean_gain": 0.07164024942724712,
+                "wins": 3
+              },
+              {
+                "period": 2022,
+                "formations": 4,
+                "mean_gain": 0.039527338191234496,
+                "wins": 2
+              },
+              {
+                "period": 2023,
+                "formations": 4,
+                "mean_gain": 0.037418264009544275,
+                "wins": 2
+              },
+              {
+                "period": 2024,
+                "formations": 4,
+                "mean_gain": 0.022903887136774145,
+                "wins": 2
+              },
+              {
+                "period": 2025,
+                "formations": 4,
+                "mean_gain": 0.0650717076486408,
+                "wins": 2
+              }
+            ],
+            "fiscal_quarter": [
+              {
+                "period": 1,
+                "formations": 7,
+                "mean_gain": -0.032341619783723984,
+                "wins": 0
+              },
+              {
+                "period": 2,
+                "formations": 7,
+                "mean_gain": -0.023735481578568002,
+                "wins": 2
+              },
+              {
+                "period": 3,
+                "formations": 7,
+                "mean_gain": 0.08141817422186962,
+                "wins": 7
+              },
+              {
+                "period": 4,
+                "formations": 7,
+                "mean_gain": 0.183713413124091,
+                "wins": 7
+              }
+            ]
+          }
+        },
+        {
+          "target": "quarterly_cash_flow",
+          "horizon": 4,
+          "rows": 94275,
+          "formations": 25,
+          "report_start": "2019-03-31",
+          "report_end": "2025-03-31",
+          "variant": "primary",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 2954.3651174781185,
+              "robust_mae": 26.58576107373683,
+              "rank_ic": 0.4183111551422251,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 45389,
+                  "true_negative": 48886,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 46475,
+                  "true_negative": 47800,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 43230,
+                  "true_negative": 51045,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 2954.3651174781185,
+              "robust_mae": 26.58576107373683,
+              "rank_ic": 0.4183111551422251,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 45389,
+                  "true_negative": 48886,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 46475,
+                  "true_negative": 47800,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 43230,
+                  "true_negative": 51045,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 2934.145133164042,
+              "robust_mae": 22.908979008451,
+              "rank_ic": 0.4266069583408499,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 32784,
+                  "false_positive": 19515,
+                  "false_negative": 12605,
+                  "true_negative": 29371,
+                  "precision": 0.6268571100785866,
+                  "recall": 0.7222895415188703,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 34039,
+                  "false_positive": 19601,
+                  "false_negative": 12436,
+                  "true_negative": 28199,
+                  "precision": 0.6345824011931395,
+                  "recall": 0.7324152770306617,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 30341,
+                  "false_positive": 19325,
+                  "false_negative": 12889,
+                  "true_negative": 31720,
+                  "precision": 0.6109008174606371,
+                  "recall": 0.7018505667360629,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 2933.6352387963702,
+              "robust_mae": 22.399084640779684,
+              "rank_ic": 0.43392215576054805,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 32345,
+                  "false_positive": 18100,
+                  "false_negative": 13044,
+                  "true_negative": 30786,
+                  "precision": 0.6411933789275448,
+                  "recall": 0.712617594571372,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 33686,
+                  "false_positive": 18276,
+                  "false_negative": 12789,
+                  "true_negative": 29524,
+                  "precision": 0.6482814364343173,
+                  "recall": 0.7248197955890263,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 29678,
+                  "false_positive": 17472,
+                  "false_negative": 13552,
+                  "true_negative": 33573,
+                  "precision": 0.6294379639448568,
+                  "recall": 0.6865139949109414,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 2950.063366483773,
+              "robust_mae": 23.500744073680895,
+              "rank_ic": 0.4228685123493112,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 32922,
+                  "false_positive": 19690,
+                  "false_negative": 12467,
+                  "true_negative": 29196,
+                  "precision": 0.6257507792898959,
+                  "recall": 0.7253299257529358,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 34146,
+                  "false_positive": 19723,
+                  "false_negative": 12329,
+                  "true_negative": 28077,
+                  "precision": 0.6338710575655757,
+                  "recall": 0.7347175901022055,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 30533,
+                  "false_positive": 19515,
+                  "false_negative": 12697,
+                  "true_negative": 31530,
+                  "precision": 0.6100743286445013,
+                  "recall": 0.7062919269026139,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 2949.3634464975657,
+              "robust_mae": 22.94669985802891,
+              "rank_ic": 0.42140236872154446,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 30406,
+                  "false_positive": 16209,
+                  "false_negative": 14983,
+                  "true_negative": 32677,
+                  "precision": 0.6522793092352247,
+                  "recall": 0.6698979929057701,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 32621,
+                  "false_positive": 17523,
+                  "false_negative": 13854,
+                  "true_negative": 30277,
+                  "precision": 0.6505464262922782,
+                  "recall": 0.7019042495965573,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 27187,
+                  "false_positive": 14824,
+                  "false_negative": 16043,
+                  "true_negative": 36221,
+                  "precision": 0.6471400347528028,
+                  "recall": 0.6288919731667824,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "target": "quarterly_cash_flow",
+          "horizon": 4,
+          "rows": 94275,
+          "formations": 25,
+          "report_start": "2019-03-31",
+          "report_end": "2025-03-31",
+          "variant": "milder_clipping",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 2954.3651174781185,
+              "robust_mae": 26.58576107373683,
+              "rank_ic": 0.4183111551422251,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 45389,
+                  "true_negative": 48886,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 46475,
+                  "true_negative": 47800,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 43230,
+                  "true_negative": 51045,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 2954.3651174781185,
+              "robust_mae": 26.58576107373683,
+              "rank_ic": 0.4183111551422251,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 45389,
+                  "true_negative": 48886,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 46475,
+                  "true_negative": 47800,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 43230,
+                  "true_negative": 51045,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 2934.52935896923,
+              "robust_mae": 23.293204813639008,
+              "rank_ic": 0.4208924096884024,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 33198,
+                  "false_positive": 20312,
+                  "false_negative": 12191,
+                  "true_negative": 28574,
+                  "precision": 0.6204074004858905,
+                  "recall": 0.7314106942210667,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 34434,
+                  "false_positive": 20338,
+                  "false_negative": 12041,
+                  "true_negative": 27462,
+                  "precision": 0.6286788870225662,
+                  "recall": 0.7409144701452394,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 30834,
+                  "false_positive": 20231,
+                  "false_negative": 12396,
+                  "true_negative": 30814,
+                  "precision": 0.6038186624889846,
+                  "recall": 0.7132546842470506,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 2933.8445103433983,
+              "robust_mae": 22.608356187807722,
+              "rank_ic": 0.42716137343683885,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 32389,
+                  "false_positive": 18175,
+                  "false_negative": 13000,
+                  "true_negative": 30711,
+                  "precision": 0.6405545447353849,
+                  "recall": 0.713586992443103,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 33717,
+                  "false_positive": 18447,
+                  "false_negative": 12758,
+                  "true_negative": 29353,
+                  "precision": 0.6463653094087877,
+                  "recall": 0.7254868208714362,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 29775,
+                  "false_positive": 17677,
+                  "false_negative": 13455,
+                  "true_negative": 33368,
+                  "precision": 0.6274761864621091,
+                  "recall": 0.6887578070784177,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 2949.6966001514866,
+              "robust_mae": 23.954828780455045,
+              "rank_ic": 0.4021940336011161,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 33509,
+                  "false_positive": 20732,
+                  "false_negative": 11880,
+                  "true_negative": 28154,
+                  "precision": 0.6177799081875334,
+                  "recall": 0.7382625746326202,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 34660,
+                  "false_positive": 20638,
+                  "false_negative": 11815,
+                  "true_negative": 27162,
+                  "precision": 0.6267857788708452,
+                  "recall": 0.7457772996234535,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 31255,
+                  "false_positive": 20821,
+                  "false_negative": 11975,
+                  "true_negative": 30224,
+                  "precision": 0.6001805054151624,
+                  "recall": 0.7229932916955818,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 2948.6113224708824,
+              "robust_mae": 23.109764578681176,
+              "rank_ic": 0.4198574388463752,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 30764,
+                  "false_positive": 16809,
+                  "false_negative": 14625,
+                  "true_negative": 32077,
+                  "precision": 0.6466693292413764,
+                  "recall": 0.6777853664984909,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 32325,
+                  "false_positive": 17328,
+                  "false_negative": 14150,
+                  "true_negative": 30472,
+                  "precision": 0.6510180653736934,
+                  "recall": 0.6955352339967724,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 26354,
+                  "false_positive": 14225,
+                  "false_negative": 16876,
+                  "true_negative": 36820,
+                  "precision": 0.649449222504251,
+                  "recall": 0.6096229470275272,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "target": "quarterly_cash_flow",
+          "horizon": 4,
+          "rows": 94275,
+          "formations": 25,
+          "report_start": "2019-03-31",
+          "report_end": "2025-03-31",
+          "variant": "unclipped",
+          "models": [
+            {
+              "id": "current",
+              "raw_mae": 2954.3651174781185,
+              "robust_mae": 26.58576107373683,
+              "rank_ic": 0.4183111551422251,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 45389,
+                  "true_negative": 48886,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 46475,
+                  "true_negative": 47800,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 43230,
+                  "true_negative": 51045,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            },
+            {
+              "id": "seasonal",
+              "raw_mae": 2954.3651174781185,
+              "robust_mae": 26.58576107373683,
+              "rank_ic": 0.4183111551422251,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 45389,
+                  "true_negative": 48886,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 46475,
+                  "true_negative": 47800,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 0,
+                  "false_positive": 0,
+                  "false_negative": 43230,
+                  "true_negative": 51045,
+                  "precision": null,
+                  "recall": 0.0,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            },
+            {
+              "id": "level_ridge",
+              "raw_mae": 2381562.4727040473,
+              "robust_mae": 225.97971390120722,
+              "rank_ic": -0.10537654677233096,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 29058,
+                  "false_positive": 30912,
+                  "false_negative": 16331,
+                  "true_negative": 17974,
+                  "precision": 0.4845422711355678,
+                  "recall": 0.6401991671991011,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 29680,
+                  "false_positive": 30290,
+                  "false_negative": 16795,
+                  "true_negative": 17510,
+                  "precision": 0.49491412372853094,
+                  "recall": 0.6386229155459925,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 27765,
+                  "false_positive": 32205,
+                  "false_negative": 15465,
+                  "true_negative": 18840,
+                  "precision": 0.4629814907453727,
+                  "recall": 0.6422623178348369,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            },
+            {
+              "id": "level_xgb",
+              "raw_mae": 1621307.4710291007,
+              "robust_mae": 155.6215981135725,
+              "rank_ic": -0.08611760650497717,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 1022,
+                  "false_positive": 1280,
+                  "false_negative": 44367,
+                  "true_negative": 47606,
+                  "precision": 0.4439617723718506,
+                  "recall": 0.02251646874793452,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 1046,
+                  "false_positive": 1256,
+                  "false_negative": 45429,
+                  "true_negative": 46544,
+                  "precision": 0.45438748913987836,
+                  "recall": 0.022506724045185583,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 987,
+                  "false_positive": 1315,
+                  "false_negative": 42243,
+                  "true_negative": 49730,
+                  "precision": 0.42875760208514335,
+                  "recall": 0.022831367106176267,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            },
+            {
+              "id": "delta_ridge",
+              "raw_mae": 2381435.3526366744,
+              "robust_mae": 225.97942122517557,
+              "rank_ic": -0.105427652143421,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 29058,
+                  "false_positive": 30911,
+                  "false_negative": 16331,
+                  "true_negative": 17975,
+                  "precision": 0.4845503510146909,
+                  "recall": 0.6401991671991011,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 29680,
+                  "false_positive": 30289,
+                  "false_negative": 16795,
+                  "true_negative": 17511,
+                  "precision": 0.4949223765612233,
+                  "recall": 0.6386229155459925,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 27765,
+                  "false_positive": 32204,
+                  "false_negative": 15465,
+                  "true_negative": 18841,
+                  "precision": 0.4629892110923977,
+                  "recall": 0.6422623178348369,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            },
+            {
+              "id": "delta_xgb",
+              "raw_mae": 4737805.608238531,
+              "robust_mae": 224.09122829073672,
+              "rank_ic": 0.30996280339491716,
+              "thresholds": [
+                {
+                  "threshold": 1.0,
+                  "rows": 94275,
+                  "true_positive": 33039,
+                  "false_positive": 35644,
+                  "false_negative": 12350,
+                  "true_negative": 13242,
+                  "precision": 0.48103606423714745,
+                  "recall": 0.7279076428209478,
+                  "prevalence": 0.4814531954388756
+                },
+                {
+                  "threshold": 0.5,
+                  "rows": 94275,
+                  "true_positive": 33797,
+                  "false_positive": 34886,
+                  "false_negative": 12678,
+                  "true_negative": 12914,
+                  "precision": 0.49207227407073073,
+                  "recall": 0.7272081764389456,
+                  "prevalence": 0.4929726862901087
+                },
+                {
+                  "threshold": 2.0,
+                  "rows": 94275,
+                  "true_positive": 31478,
+                  "false_positive": 37205,
+                  "false_negative": 11752,
+                  "true_negative": 13840,
+                  "precision": 0.4583084606088843,
+                  "recall": 0.7281517464723571,
+                  "prevalence": 0.45855210819411296
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "qualification": {
+        "candidate_count": 5514,
+        "entry_missing": 6,
+        "exit_missing": 6,
+        "industry_missing": 12,
+        "interval_observations": 115700,
+        "return_qualified": false
+      }
+    }
   }
 }

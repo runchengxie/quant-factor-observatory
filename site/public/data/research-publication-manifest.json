@@ -199,7 +199,10 @@
         "diagnostic_intervals",
         "scale_slices",
         "calibration",
-        "forecast_guide"
+        "forecast_guide",
+        "robust_forecast_diagnostics",
+        "material_decline_counts",
+        "return_input_qualification"
       ],
       "excluded_fields": [
         "private_data_paths",
