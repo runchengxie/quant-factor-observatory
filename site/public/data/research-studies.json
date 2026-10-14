@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-13T23:52:37+00:00",
+  "updated_at": "2026-10-14T03:37:47Z",
   "studies": [
     {
       "id": "pb-roe",
@@ -205,7 +205,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T02:03:18+00:00"
+        "checked_at": "2026-10-14T03:40:48+00:00"
       },
       "navigation_asset": "data/study-navigation/pb-roe.json",
       "navigation_summary": {
@@ -548,7 +548,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T02:03:18+00:00"
+        "checked_at": "2026-10-14T03:40:48+00:00"
       },
       "navigation_asset": "data/study-navigation/rd-investment.json",
       "navigation_summary": {
@@ -663,8 +663,8 @@
       "evidence_summary": {
         "decision": "no_stable_increment",
         "scope": {
-          "en-US": "Financial target forecasts before portfolio selection",
-          "zh-CN": "先预测财务目标，再检验组合选股"
+          "en-US": "Retained multi-target comparison; new target-specific improvements remain separate exploratory evidence",
+          "zh-CN": "原有多指标历史对照，新指标的局部改善另列"
         },
         "baseline": {
           "en-US": "Latest released state on matched test periods",
@@ -675,8 +675,8 @@
           "zh-CN": "封存当期快照，按公告时点重建历史"
         },
         "sample": {
-          "en-US": "Separate annual, quarterly and October 14 change-target diagnostics",
-          "zh-CN": "年频、季频与 10 月 14 日变化预测分别检验"
+          "en-US": "Separate retained annual/quarterly runs and eighteen new quarter-aware diagnostics",
+          "zh-CN": "原有年频与季频实验，以及另行登记的 18 组完整财季检查"
         }
       },
       "related_studies": [
@@ -723,7 +723,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T02:03:18+00:00"
+        "checked_at": "2026-10-14T03:40:48+00:00"
       },
       "navigation_asset": "data/study-navigation/fundamental-state-forecasting.json",
       "navigation_summary": {
@@ -893,7 +893,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T02:03:18+00:00"
+        "checked_at": "2026-10-14T03:40:48+00:00"
       },
       "navigation_asset": "data/study-navigation/fundamental-family-shadow.json",
       "navigation_summary": {
@@ -1056,7 +1056,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T02:03:18+00:00"
+        "checked_at": "2026-10-14T03:40:48+00:00"
       },
       "navigation_asset": "data/study-navigation/cashflow-indices.json",
       "navigation_summary": {
@@ -1188,7 +1188,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T02:03:18+00:00"
+        "checked_at": "2026-10-14T03:40:48+00:00"
       },
       "navigation_asset": "data/study-navigation/hk-fundamental-archive.json",
       "navigation_summary": {
@@ -1311,7 +1311,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T02:03:18+00:00"
+        "checked_at": "2026-10-14T03:40:48+00:00"
       },
       "navigation_asset": "data/study-navigation/employee-compensation.json",
       "navigation_summary": {
@@ -1625,7 +1625,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T02:03:18+00:00"
+        "checked_at": "2026-10-14T03:40:48+00:00"
       },
       "navigation_asset": "data/study-navigation/absolute-level-forecast.json",
       "navigation_summary": {
