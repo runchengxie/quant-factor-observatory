@@ -566,11 +566,11 @@
             "priority": "P0",
             "status": "blocked",
             "action": {
-              "en-US": "Before using this as a portfolio, fill missing stock prices and exit values and verify which stocks qualified on each past date. Keep the future test sealed until its checks are ready.",
-              "zh-CN": "用于组合之前，先补齐缺失股价和退出结算，并核实每个历史日期符合条件的股票。未来检验期在检查条件满足前继续封存。"
+              "en-US": "Before treating this as a tradable portfolio, recover the missing prices and exit values and verify which stocks were eligible on each historical date. Keep the future test period sealed until its registered checks are ready.",
+              "zh-CN": "要把结果用于真实组合之前，需要补齐缺失价格和退出结算，并核实每个历史日期哪些股票符合条件。未来检验期继续封存，等预先登记的检查条件满足后再看结果。"
             },
             "acceptance": {
-              "en-US": "保留带日期且不可覆盖的审计记录，逐项证明缺失价格、退出结算和股票资格问题已解决；只要仍有缺口，研究结论就维持探索阶段。",
+              "en-US": "Keep a dated, uneditable audit showing the missing prices, exit values and stock eligibility were resolved. If any gap remains, keep the study exploratory.",
               "zh-CN": "保留带日期且不可覆盖的审计记录，逐项证明缺失价格、退出结算和股票资格问题已解决；只要仍有缺口，研究结论就维持探索阶段。"
             }
           },
@@ -579,12 +579,51 @@
             "priority": "P1",
             "status": "completed",
             "action": {
-              "en-US": "Paired uncertainty, annual / size slices and calibration retained under the fixed retrospective follow-up.",
-              "zh-CN": "已按固定回溯方案保留配对不确定性、年度／规模切片与校准记录。"
+              "en-US": "Compare matched stocks and years, estimate how uncertain the differences are, and check results by year and company size. These are retrospective diagnostics.",
+              "zh-CN": "在相同股票和年份上比较结果、估计差异的不确定性，并按年份和公司规模分组检查；这些都是回看历史数据的诊断。"
             },
             "acceptance": {
-              "en-US": "Hashes and original cohort/metric reproduction checks passed; no executable return claim.",
-              "zh-CN": "哈希与原始样本／指标复现检查通过，不声称可执行收益。"
+              "en-US": "The recorded calculations and sample counts match the source files. Passing these checks does not show that the strategy can earn executable returns.",
+              "zh-CN": "计算结果和样本数量与来源文件一致。通过这些检查仍不代表策略能产生实际可成交的收益。"
+            }
+          },
+          {
+            "id": "rd-event-code-join",
+            "priority": "P0",
+            "status": "completed",
+            "action": {
+              "en-US": "Align explicit BSE suspension identities and preserve the original replay comparison.",
+              "zh-CN": "对齐北交所明确停牌的代码，保留与原回放的对照。"
+            },
+            "acceptance": {
+              "en-US": "Same-date events only; one diagnostic completes and nine advance. No quote imputation or assumed settlement.",
+              "zh-CN": "仅连接同日事件，1 条诊断完成，9 条推进。缺价与未知结算均保留。"
+            }
+          },
+          {
+            "id": "rd-common-growth-calendar",
+            "priority": "P1",
+            "status": "completed",
+            "action": {
+              "en-US": "Run a separate common-start diagnostic from the first sufficiently covered growth month.",
+              "zh-CN": "按研发增长首次覆盖充分的月份运行独立共同起点诊断。"
+            },
+            "acceptance": {
+              "en-US": "77 formations for all seven arms; growth has no missing formations but all ten growth sequences retain price gaps. Original twelve missing months remain missing.",
+              "zh-CN": "七个变体均使用 77 个建仓月份。增长建仓完整，十条增长序列仍有价格缺口。原始缺失的十二个月继续保留。"
+            }
+          },
+          {
+            "id": "rd-prospective-labels",
+            "priority": "P1",
+            "status": "waiting_labels",
+            "action": {
+              "en-US": "Keep the prospective October 2026–September 2027 holdout sealed.",
+              "zh-CN": "继续封存 2026 年 10 月至 2027 年 9 月的前瞻留出。"
+            },
+            "acceptance": {
+              "en-US": "All registered labels must mature and independent evidence gates must pass before performance is read.",
+              "zh-CN": "全部登记标签成熟、独立证据门槛通过后，才具备读取表现的资格。"
             }
           }
         ]
@@ -1372,12 +1411,12 @@
             "priority": "P1",
             "status": "completed",
             "action": {
-              "en-US": "Review the input audit and industry/cohort/accounting/PIT follow-up while retaining the untested return hypothesis.",
-              "zh-CN": "复核输入审计及行业、队列、会计口径和 PIT 补充审计，收益假设保持未检验。"
+              "en-US": "Review the series overview and new employee cash input audit while retaining the untested return hypothesis.",
+              "zh-CN": "复核系列总览及新增员工现金支出输入审计，收益假设保持未检验。"
             },
             "acceptance": {
-              "en-US": "Reviewed four annual medians, changing industry coverage, six subtotal exceptions and PIT field availability. No predictive results were added.",
-              "zh-CN": "已复核四条年度中位数、行业覆盖变化、6 个现金流小计异常和 PIT 字段覆盖；没有新增预测结果。"
+              "en-US": "Reviewed input coverage, annual construction and aggregate distributions; original financial versions and historical workforce remain unqualified. No predictive results were added.",
+              "zh-CN": "已复核输入覆盖、年度指标构建和汇总分布；原始财报版本与历史人数仍未核验，没有新增预测结果。"
             }
           }
         ]

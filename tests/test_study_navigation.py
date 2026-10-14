@@ -38,11 +38,10 @@ class StudyNavigationTests(unittest.TestCase):
         self.assertEqual(data['next_tasks'][0]['status'], 'completed')
         self.assertEqual(data['next_tasks'][1]['status'], 'blocked')
 
-    def test_forecast_catalog_task_states_match_detailed_navigation(self):
-        study = next(s for s in self.catalog['studies'] if s['id'] == 'fundamental-state-forecasting')
-        data = next(a for a in self.assets if a['study_id'] == study['id'])
-        self.assertEqual({t['id']: t['status'] for t in study['navigation_summary']['tasks']},
-                         {t['id']: t['status'] for t in data['next_tasks']})
+    def test_catalog_decision_queue_matches_every_detailed_navigation_task(self):
+        assets = {asset['study_id']: asset for asset in self.assets}
+        for study in self.catalog['studies']:
+            self.assertEqual(study['navigation_summary']['tasks'], assets[study['id']]['next_tasks'])
 
     def test_unrun_or_protocol_studies_are_not_negative_performance(self):
         for study in self.catalog['studies']:

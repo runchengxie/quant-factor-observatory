@@ -44,7 +44,7 @@
       ],
       "study_id": "rd-investment",
       "source_revision": "e83f2d10a5c45aa4b4bc4b28a288887f86500aa8",
-      "catalog_sha256": "e92512bbd450674882bef082b095e9918a0e343ff8ad056d8c180c9aa695184b",
+      "catalog_sha256": "7f362e0ac1522f77eb8377b3c1223990a4b0a182718462dbbc87238a0a58cef5",
       "exploration_sha256": "40f575c485de7eebd33b615c7fc53e908cf86a1bcfd60e3c4a46145e9ea67566",
       "sources": [
         {
@@ -224,7 +224,7 @@
       ],
       "study_id": "employee-compensation",
       "source_revision": "f97005df21107c451dfe755e142a305bfb07b6b6",
-      "catalog_sha256": "b2b0677fdb9bde37913f44674d4f4884cbbced718ea658f2f4c0edf27be4c55d",
+      "catalog_sha256": "d36558ca6ba8bf8474f56f469c85955356f5d6dd451d54f481df37430ad9ed33",
       "exploration_sha256": "acccf42723e498d31e9e9d1b88c754aec7522df35606b975507fa73d8bedda89",
       "sources": [
         {

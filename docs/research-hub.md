@@ -6,7 +6,7 @@ The studies index provides an evidence matrix, market, evidence-stage and text f
 
 `studies/compare` reads the registered groups in `research-studies.json`. A group selects one reviewed chart, a baseline, direction, and optionally a series subset. Model comparisons select one sample slice or horizon at a time. Variant comparisons select one metric. R&D 20-session and 220-session groups remain separate because their monthly cohorts differ. Revenue and income transformed errors remain separate because their units differ. Differences are arithmetic differences in the displayed metric, not significance tests or return attribution. Missing values remain missing.
 
-Related studies use explicit symmetric edges with a bilingual rationale. Shared questions or methods do not imply transferable performance. Hypothesis and protocol studies have no performance chart.
+Related studies use explicit symmetric edges with a bilingual rationale. Shared questions or methods do not imply transferable performance. Hypothesis and protocol studies have no performance chart. The decision view reads task details from each reviewed navigation asset, can show all registered tasks or focus on tasks whose status is not `completed`; blocked and label-waiting work stays visible as pending, not as a negative result.
 
 ## Source review
 
