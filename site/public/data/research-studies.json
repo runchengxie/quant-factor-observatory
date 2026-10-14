@@ -205,7 +205,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-03T15:03:04+00:00"
+        "checked_at": "2026-10-14T02:03:18+00:00"
       },
       "navigation_asset": "data/study-navigation/pb-roe.json",
       "navigation_summary": {
@@ -548,7 +548,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-04T16:24:31+00:00"
+        "checked_at": "2026-10-14T02:03:18+00:00"
       },
       "navigation_asset": "data/study-navigation/rd-investment.json",
       "navigation_summary": {
@@ -723,7 +723,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-13T23:52:37+00:00"
+        "checked_at": "2026-10-14T02:03:18+00:00"
       },
       "navigation_asset": "data/study-navigation/fundamental-state-forecasting.json",
       "navigation_summary": {
@@ -893,7 +893,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-03T15:03:04+00:00"
+        "checked_at": "2026-10-14T02:03:18+00:00"
       },
       "navigation_asset": "data/study-navigation/fundamental-family-shadow.json",
       "navigation_summary": {
@@ -1056,7 +1056,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-03T15:03:04+00:00"
+        "checked_at": "2026-10-14T02:03:18+00:00"
       },
       "navigation_asset": "data/study-navigation/cashflow-indices.json",
       "navigation_summary": {
@@ -1188,7 +1188,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-03T15:03:04+00:00"
+        "checked_at": "2026-10-14T02:03:18+00:00"
       },
       "navigation_asset": "data/study-navigation/hk-fundamental-archive.json",
       "navigation_summary": {
@@ -1311,7 +1311,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-03T15:03:04+00:00"
+        "checked_at": "2026-10-14T02:03:18+00:00"
       },
       "navigation_asset": "data/study-navigation/employee-compensation.json",
       "navigation_summary": {
@@ -1625,7 +1625,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-03T15:03:04+00:00"
+        "checked_at": "2026-10-14T02:03:18+00:00"
       },
       "navigation_asset": "data/study-navigation/absolute-level-forecast.json",
       "navigation_summary": {

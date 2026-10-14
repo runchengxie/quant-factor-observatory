@@ -2,8 +2,8 @@
   "schema_version": "observatory.study_exploration.v1",
   "study_id": "rd-investment",
   "source_ref": "doc:quant-research.research.rd-investment-relative-valuation",
-  "source_revision": "4aec1fa1e95a8f3c4f322d1d87dc90de1368ee3d",
-  "reviewed_at": "2026-10-04",
+  "source_revision": "e1984591be37073d9e1b3b1dee8a7e7813652cb3",
+  "reviewed_at": "2026-10-14",
   "evidence_stage": "exploratory",
   "summary": {
     "en-US": "The study asks whether R&D spending relative to company size is linked to later stock returns. The current screen finds a positive ranking relationship for some R&D measures, but size and valuation may explain part of it. Historical price checks and financial-report versions remain incomplete, so the result is a research lead rather than a tested trading rule.",

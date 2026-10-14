@@ -201,7 +201,8 @@ test('R&D yearly evidence is loaded only on its detail route', async ({ page }) 
   await page.goto('studies/rd-investment')
   await expect(page.getByRole('heading', { name: 'R&D Investment Relative to Valuation: Signal or Size Exposure?' })).toBeVisible()
   await expect(page.getByRole('heading', { name: 'Annual replay by year' })).toBeVisible()
-  expect(requests.sort()).toEqual(['research-studies.json', 'rd-investment-annual.json', 'rd-investment.json', 'rd-investment.json'].sort())
+  // The annual panel can render before the two lazy study sections start fetching.
+  await expect.poll(() => [...requests].sort()).toEqual(['research-studies.json', 'rd-investment-annual.json', 'rd-investment.json', 'rd-investment.json'].sort())
 })
 
 test('R&D annual evidence controls and boundary notes are localized in Chinese', async ({ page }) => {
