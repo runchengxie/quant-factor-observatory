@@ -453,9 +453,26 @@
 .forecast-reader-periods { display: grid; grid-template-columns: repeat(14, 1fr); gap: 5px; max-width: 540px; margin-top: 1rem; }
 .forecast-reader-periods i { height: 18px; background: var(--rule); }
 .forecast-reader-periods .won { background: var(--study-series-1, #315b74); }
+.forecast-improvement-chart { margin: 1.25rem 0; }
+.forecast-improvement-legend { display: flex; flex-wrap: wrap; gap: .65rem 1.25rem; margin: 0 0 1rem; color: var(--muted); font-size: 12px; }
+.forecast-improvement-legend span { display: inline-flex; align-items: center; gap: .45rem; }
+.forecast-improvement-legend i { width: 10px; height: 10px; flex: 0 0 10px; }
+.forecast-improvement-groups { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.25rem; }
+.forecast-improvement-groups article { border-top: 1px solid var(--rule); padding-top: .6rem; min-width: 0; }
+.forecast-improvement-groups h3 { font-size: 1rem; }
+.forecast-improvement-row { display: grid; grid-template-columns: minmax(0, 1fr) 3.5rem; gap: .35rem .65rem; margin: .9rem 0; align-items: center; }
+.forecast-improvement-row span { font-size: 12px; line-height: 1.5; }
+.forecast-improvement-row strong { grid-column: 2; grid-row: 1; text-align: right; font-size: 13px; }
+.forecast-improvement-track { grid-column: 1 / -1; height: 12px; background: var(--rule-soft); }
+.forecast-improvement-track i { display: block; height: 100%; }
+.forecast-improvement-chart .series-0 { background: var(--study-series-1, #315b74); }
+.forecast-improvement-chart .series-1 { background: var(--study-series-2, #b64d33); }
+.forecast-improvement-chart .series-2 { background: var(--study-series-3, #33796c); }
+.forecast-improvement-chart .series-3 { background: var(--study-series-4, #967326); }
 .forecast-full-details > summary, .forecast-archive > summary, .forecast-study-records > summary { cursor: pointer; padding: 1rem; border: 1px solid var(--rule); font-weight: 600; line-height: 1.6; }
 .forecast-full-details[open], .forecast-archive[open] { display: grid; gap: 1.25rem; }
 @media (max-width: 800px) { .forecast-reader-comparisons { grid-template-columns: 1fr; } }
+@media (max-width: 800px) { .forecast-improvement-groups { grid-template-columns: 1fr; } }
 .forecast-study-records, .forecast-archive, .forecast-full-details { min-width: 0; }
 .forecast-guide, .forecast-reader, .forecast-full-details[open], .forecast-archive[open] { grid-template-columns: minmax(0, 1fr); }
 .forecast-robustness { display: grid; gap: 1.25rem; grid-template-columns: minmax(0, 1fr); }
