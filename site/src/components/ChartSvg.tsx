@@ -56,7 +56,7 @@ export default function ChartSvg({ kind, points = [], labels = [], values = [], 
       let current: Point[] = []
       ;(series.values ?? []).forEach((value, index) => { if (value === null || !Number.isFinite(value)) { if (current.length) runs.push(current); current = [] } else current.push({ x: x(index), y: y(value), label: `${series.name ?? 'series'} · ${labels[index]}: ${tickLabel(value, false)}`, color: series.color }) })
       if (current.length) runs.push(current)
-      return <g key={series.name ?? 'series'}>{runs.map((run, ri) => <polyline key={ri} points={run.map((point) => `${point.x ?? 0},${point.y ?? 0}`).join(' ')} fill="none" stroke={series.color} strokeWidth="2" />)}<title>{series.name ?? 'series'}</title></g>
+      return <g key={series.name ?? 'series'}>{runs.map((run, ri) => run.length === 1 ? <circle key={ri} cx={run[0].x} cy={run[0].y} r="3" fill={series.color}><title>{run[0].label}</title></circle> : <polyline key={ri} points={run.map((point) => `${point.x ?? 0},${point.y ?? 0}`).join(' ')} fill="none" stroke={series.color} strokeWidth="2" />)}<title>{series.name ?? 'series'}</title></g>
     })}
     {kind === 'scatter' && points.map((point, index) => <circle key={index} cx={left + ((point.x ?? 0) - Math.min(...points.map((p) => p.x ?? 0), 0)) / (Math.max(...points.map((p) => p.x ?? 0), 1) - Math.min(...points.map((p) => p.x ?? 0), 0) || 1) * plotW} cy={y(point.y ?? 0)} r="3" fill="#b64d33" opacity=".55"><title>{point.label}: {(point.x ?? 0).toFixed(3)}, {(point.y ?? 0).toFixed(3)}</title></circle>)}
   </svg>
