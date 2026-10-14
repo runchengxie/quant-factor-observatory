@@ -36,6 +36,22 @@ python scripts/audit_research_updates.py --capture-baseline --owner-root "$RESEA
 
 Do not recapture a baseline merely to silence a changed-source warning. A document-wide change flag is deliberately conservative; it does not establish that the study's interpretation changed.
 
+## Content review, 2026-10-14
+
+Seven previously changed topics were reviewed against merged owner revision `e1984591be37073d9e1b3b1dee8a7e7813652cb3`. The forecasting follow-up already used that revision. Exploration and navigation pins now identify the reviewed source content; the original experiment dates, numerical chart arrays, evidence stages and decisions remain unchanged. This review compared documents and public projections, not original data or executable portfolios.
+
+| Topic | Source changes reviewed | Public conclusion and remaining boundary |
+| --- | --- | --- |
+| `pb-roe` | Shared navigation adds R&D closure and priority follow-ups. The PB source is unchanged. | Retain the PB baseline. External versioned inputs and a same-pool replay are still missing. |
+| `rd-investment` | Navigation distinguishes separate replay denominators and corrects 18 filing checks to six report years. Existing detail steps already retain these aggregates. | Keep exploratory evidence, unresolved prices, terminal handling and dated eligibility explicit. The registered portfolio matrix is incomplete and the prospective holdout stays sealed. |
+| `fundamental-family-shadow` | Shared navigation changes concern other families. The family protocol is unchanged. | Protocol only. No reviewed family-level performance result is added. |
+| `cashflow-indices` | The source map and shared navigation add official membership coverage and methodology boundaries. | Nine 100-name intervals start on 2024-09-18; one weight snapshot is dated 2026-09-30. The current method starts on 2024-08-15, leaving the first membership window and historical weights unresolved. Snapshot and shadow results remain separate. |
+| `hk-fundamental-archive` | Shared navigation adds A-share follow-ups. The cited HK archive records are unchanged. | Keep full-test and walk-forward failures alongside favorable recent slices. Restored records are not a new training run or replay. |
+| `employee-compensation` | The series overview adds R&D closure. Human-capital definitions and its source-review section are unchanged. | A payable balance remains a liability, not a labor-cost flow. This is a definition hypothesis with no published predictive result. |
+| `absolute-level-forecast` | The source overview adds links to historical PIT, completion, coverage, replay and publication-contract audits. | The 32,339-row, three-fold retrospective pilot and persistence comparison remain unchanged. Links do not certify original versions, executable returns or new predictive evidence. |
+
+The refreshed source hashes record this content review. They do not close the research gaps above or certify an independent rerun. Later source changes must still trigger review.
+
 ## Daily local operation
 
 The service and timer templates in `scripts/systemd/` perform a read-only daily audit. Install them as user units and adapt the EnvironmentFile location to the existing personal configuration grouping. Set `OBSERVATORY_ROOT` to the stable production `current` release, `RESEARCH_OWNER_ROOT` to the authoritative owner checkout, and `RESEARCH_REVIEW_ROOT` to external retained reports. Personal paths belong in the configured environment file under the user's project configuration grouping, never in versioned templates. The schedule explicitly uses Asia/Shanghai. No network, credentials, or automatic publication is required.

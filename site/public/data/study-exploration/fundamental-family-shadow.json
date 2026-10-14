@@ -2,8 +2,8 @@
   "schema_version": "observatory.study_exploration.v1",
   "study_id": "fundamental-family-shadow",
   "source_ref": "doc:quant-research.research.fundamental-family-shadow",
-  "source_revision": "da977d8ab47857f9cf5b1c57c21291e30630e90f",
-  "reviewed_at": "2026-10-02",
+  "source_revision": "e1984591be37073d9e1b3b1dee8a7e7813652cb3",
+  "reviewed_at": "2026-10-14",
   "evidence_stage": "retrospective_diagnostic",
   "summary": {
     "en-US": "This is a common-sample ablation design, with no reviewed family-level performance to chart.",

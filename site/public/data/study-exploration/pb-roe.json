@@ -2,8 +2,8 @@
   "schema_version": "observatory.study_exploration.v1",
   "study_id": "pb-roe",
   "source_ref": "doc:quant-research.strategy.pb-roe-value-quality",
-  "source_revision": "ca346b2e35748a9c16bd06d9721e393f75dc0bdd",
-  "reviewed_at": "2026-10-03",
+  "source_revision": "e1984591be37073d9e1b3b1dee8a7e7813652cb3",
+  "reviewed_at": "2026-10-14",
   "evidence_stage": "retrospective_diagnostic",
   "summary": {
     "en-US": "A common-pool comparison separates changes in ranking from changes in eligibility.",

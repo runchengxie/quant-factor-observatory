@@ -2,8 +2,8 @@
   "schema_version": "observatory.study_navigation.v1",
   "study_id": "absolute-level-forecast",
   "source_ref": "doc:quant-research.research.fundamental-state-forecasting",
-  "source_revision": "e1ddc637be13f6f62693f91c9b98b8e98bbfb5b4",
-  "reviewed_at": "2026-10-03",
+  "source_revision": "e1984591be37073d9e1b3b1dee8a7e7813652cb3",
+  "reviewed_at": "2026-10-14",
   "authority_ref": "doc:quant-research.research.fundamental-evidence-navigation",
   "trust": [
     {
