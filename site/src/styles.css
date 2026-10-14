@@ -529,3 +529,8 @@
 .factor-risk-links p:not(.eyebrow){margin:8px 0}
 .factor-risk-links a,.quality-page a,.historical-risk-panel a{color:var(--accent);text-decoration:underline;text-underline-offset:3px}
 @media(max-width:700px){.historical-risk-panel .exploration-controls{display:grid;grid-template-columns:1fr}.historical-risk-panel .exploration-controls label{min-width:0}.source-hash-list li{grid-template-columns:1fr}.risk-chart svg{min-width:680px}}
+
+.research-exploration-entries { margin: 28px 0; }
+.exploration-entry h3 { margin: 16px 0 10px; }
+.exploration-entry > p { line-height: 1.7; }
+.alpha810-catalog-entry { margin: 20px 0; }

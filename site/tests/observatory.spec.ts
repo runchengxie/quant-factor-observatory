@@ -729,3 +729,27 @@ test('employee cash study compares four annual medians with cohort caveats', asy
   await expect(page.locator('.study-values')).toContainText('15.33%')
   await expect(page.locator('.study-chart-context')).toContainText('3,749')
 })
+
+test('research exploration and Alpha 810 entries preserve routes and localized scope', async ({ page }) => {
+  await page.goto('/studies')
+  const entries = page.getByRole('region', { name: 'Explore research topics' })
+  await expect(entries.locator('article')).toHaveCount(3)
+  for (const route of ['jumps', 'hermite', 'fundamentals']) {
+    await expect(entries.locator(`h3 a[href$="${route}"]`)).toBeVisible()
+  }
+  await expect(entries).toContainText('Descriptive archive and separate demo')
+  await expect(entries.locator('a[href$="quality"]')).toHaveCount(2)
+  await page.getByRole('button', { name: 'Switch to 中文', exact: true }).click()
+  await expect(page.getByRole('region', { name: '探索专题' })).toContainText('历史描述性证据与独立演示')
+  for (const route of ['jumps', 'hermite', 'fundamentals']) {
+    await page.goto(`/${route}`)
+    await expect(page.getByRole('link', { name: 'Back to research studies', exact: true })).toBeVisible()
+  }
+  await page.goto('/factors')
+  await expect(page.locator('.alpha810-catalog-entry')).toContainText('Separate published factor collection')
+  await expect(page.locator('.alpha810-catalog-entry a')).toHaveAttribute('href', '/alpha810')
+  await page.getByRole('button', { name: 'Switch to 中文', exact: true }).click()
+  await expect(page.locator('.alpha810-catalog-entry')).toContainText('独立发布的因子集合')
+  await page.setViewportSize({ width: 390, height: 844 })
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= innerWidth)).toBeTruthy()
+})
