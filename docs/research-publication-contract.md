@@ -64,3 +64,28 @@ Optional evidence loading or schema failure must preserve the main study and pro
 Optional `evidence_summary`, `related_studies`, `source_review_status`, and exploration `conclusion_changes` follow the same reviewed aggregate boundary. The catalog's `research_hub` registers permitted comparison groups and source-backed interpretation changes. Source-content hashes are public metadata; private paths and raw observations remain excluded. See [Research evidence hub](research-hub.md) for baseline review and scheduled audit operation.
 
 Optional study navigation assets and compact `navigation_summary` metadata follow the same aggregate privacy boundary. Trust dimensions, reproduction receipts, decision tasks and retrospective uncertainty/calibration must pass source identity, unit, cohort, null-value and bilingual checks. See [Study evidence navigation](research-evidence-navigation.md).
+
+## Fundamental forecast reader guide
+
+The optional `guide` in `observatory.study_exploration.v1` is a reviewed
+`observatory.forecast_guide.v1` aggregate for fundamental-state forecasting.
+It contains bilingual explanations, matched financial forecast summaries,
+source-report-year stability, descriptive calendar-block intervals, separate
+change-target metrics and archived period-end wealth/drawdown paths. Its
+source IDs must resolve within the exploration sources and its containing
+asset participates in the source-review content hash.
+
+Historical rounded baseline differences and full-precision recomputed gains
+are labeled separately. Financial ranking, numeric change errors and stock
+returns retain distinct units. Archived return paths are explicitly retained
+output diagnostics with incomplete input/execution qualification and no
+matched current-state return control. Corrected boundary drawdown includes
+initial capital; it is not daily drawdown. Raw financial extremes, numerical
+warnings, decline prevalence and the identical 4Q seasonal/no-change controls
+remain visible.
+
+Guide validation requires complete, unique target/horizon/model groups,
+unique portfolio widths, ordered bounded report years and dated return paths.
+Malformed optional data preserves the main study and offers a localized
+retry. Public guides exclude all security-level cases, raw observations,
+private parameters, portfolio weights and reproduction locators.

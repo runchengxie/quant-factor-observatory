@@ -1,3 +1,4 @@
+import ForecastGuide from './ForecastGuide'
 import { useEffect, useState } from 'react'
 import { useLocale } from '../i18n'
 import type { Study } from '../types'
@@ -13,6 +14,7 @@ function ExplorationContent({ data }: { data: StudyExplorationData }) {
   const sourceNames = (ids: string[]) => <span className="study-evidence-sources">{labels.source}: {ids.map((id) => <a key={id} href={sourceLink(id)}>{data.sources.find((s) => s.id === id)?.label[locale]}</a>)}</span>
   return <section className="study-exploration" aria-labelledby="study-exploration-title">
     <section className="panel study-exploration-head"><p className="eyebrow">{labels.eyebrow}</p><h2 id="study-exploration-title">{labels.title}</h2><p>{data.summary[locale]}</p><nav className="study-exploration-nav" aria-label={labels.navigation}><a href="#study-exploration-comparison">{labels.comparison}</a><a href="#study-exploration-path">{labels.path}</a><a href="#study-exploration-sources">{labels.sources}</a></nav></section>
+    {data.guide && <ForecastGuide guide={data.guide} exploration={data} />}
     <section className="panel study-exploration-comparison" id="study-exploration-comparison" aria-labelledby="study-comparison-title">
       <h2 id="study-comparison-title">{labels.comparison}</h2>
       {chart ? <>

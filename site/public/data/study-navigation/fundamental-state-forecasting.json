@@ -2,8 +2,8 @@
   "schema_version": "observatory.study_navigation.v1",
   "study_id": "fundamental-state-forecasting",
   "source_ref": "doc:quant-research.research.long-term-fundamental-v2",
-  "source_revision": "ca346b2e35748a9c16bd06d9721e393f75dc0bdd",
-  "reviewed_at": "2026-10-03",
+  "source_revision": "e1984591be37073d9e1b3b1dee8a7e7813652cb3",
+  "reviewed_at": "2026-10-14",
   "authority_ref": "doc:quant-research.research.fundamental-evidence-navigation",
   "trust": [
     {
@@ -87,7 +87,8 @@
       "zh-CN": "来源入口或产物哈希不等于完整复跑认证；原始可得性、依赖和历史资格必须一致。"
     },
     "source_refs": [
-      "doc:quant-research.research.long-term-fundamental-v2"
+      "doc:quant-research.research.long-term-fundamental-v2",
+      "doc:quant-research.experiment.forecast-followup-20261014"
     ],
     "artifact_sha256": null
   },
@@ -98,16 +99,55 @@
   },
   "next_tasks": [
     {
+      "id": "fundamental-state-forecasting-retained-review",
+      "priority": "P1",
+      "status": "completed",
+      "action": {
+        "en-US": "Recompute corrected forecasts and audit archived return paths.",
+        "zh-CN": "重新核算修正后的预测，检查历史收益路径。"
+      },
+      "acceptance": {
+        "en-US": "All 12 full-precision summaries reconcile; paired formation intervals and corrected initial-capital boundary drawdown are retained.",
+        "zh-CN": "12 组完整精度汇总核对一致，保留按测试期配对的区间和补入初始资金的期末回撤。"
+      }
+    },
+    {
+      "id": "fundamental-state-forecasting-change-pilot",
+      "priority": "P1",
+      "status": "completed",
+      "action": {
+        "en-US": "Compare numeric levels and changes with no-change and seasonal controls.",
+        "zh-CN": "把水平预测和变化预测与零变化、去年同期对照比较。"
+      },
+      "acceptance": {
+        "en-US": "Four matched historical groups complete; accounting extremes, numerical warnings, undefined ranks and negative-change prevalence stay visible.",
+        "zh-CN": "四组同样本历史实验完成，会计极值、数值警告和无法计算的排序相关保留，实际下降比例可查。"
+      }
+    },
+    {
+      "id": "fundamental-state-forecasting-robustness",
+      "priority": "P1",
+      "status": "ready",
+      "action": {
+        "en-US": "Register robust accounting transforms and material deterioration thresholds before a new experiment.",
+        "zh-CN": "下一轮先登记会计极值处理方法和有经营意义的恶化幅度。"
+      },
+      "acceptance": {
+        "en-US": "Compare on matched dates and rows with no-change and seasonal controls; report prevalence, paired intervals and block-length sensitivity without selecting on test outcomes.",
+        "zh-CN": "固定日期和记录，与零变化和同期对照比较，报告实际下降比例及配对区间，不按测试结果挑规则。"
+      }
+    },
+    {
       "id": "fundamental-state-forecasting-qualification",
       "priority": "P1",
       "status": "blocked",
       "action": {
-        "en-US": "Demonstrate stable same-fold improvement over persistence and current fundamentals on separately qualified stock-return labels.",
-        "zh-CN": "在同折、独立核实的股票收益标签上证明超过 persistence 与当前基本面的稳定增量。"
+        "en-US": "Qualify historical eligibility, vintages, terminal events and execution before matched current-state, valuation and forecast return arms.",
+        "zh-CN": "先核实历史资格、财报版本和退市处理，明确成交规则，再比较当前基本面、估值和预测的收益。"
       },
       "acceptance": {
-        "en-US": "Retain an immutable audit with the named evidence gap resolved; preserve the previous decision if the gate fails.",
-        "zh-CN": "保留不可变审计并解决上述证据缺口；门槛未通过则保留原判断。"
+        "en-US": "Retain dated input qualification and identical candidates, dates and costs in all arms; preserve the current decision if unresolved.",
+        "zh-CN": "保留有日期的数据核查记录，各组日期、股票和成本相同。缺口未解决则保留当前判断。"
       }
     }
   ],

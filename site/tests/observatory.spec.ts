@@ -445,7 +445,7 @@ test('all fundamental studies show source-backed exploration and optional charts
   for (const id of ids) {
     await page.goto(`/studies/${id}`)
     await expect(page.getByRole('heading', { name: 'How the evidence developed' })).toBeVisible()
-    await expect(page.locator('.study-exploration-steps > li')).toHaveCount(id === 'rd-investment' ? 8 : ['employee-compensation', 'cashflow-indices'].includes(id) ? 4 : 3)
+    await expect(page.locator('.study-exploration-steps > li')).toHaveCount(id === 'rd-investment' ? 8 : ['employee-compensation', 'cashflow-indices', 'fundamental-state-forecasting'].includes(id) ? 4 : 3)
     if (id === 'cashflow-indices') {
       await expect(page.locator('.study-exploration-steps')).toContainText('2024-09-18')
       await expect(page.locator('.study-exploration-steps')).toContainText('no historical weights')

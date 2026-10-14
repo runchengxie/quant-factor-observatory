@@ -2,8 +2,8 @@
   "schema_version": "observatory.study_exploration.v1",
   "study_id": "fundamental-state-forecasting",
   "source_ref": "doc:quant-research.research.long-term-fundamental-v2",
-  "source_revision": "ca346b2e35748a9c16bd06d9721e393f75dc0bdd",
-  "reviewed_at": "2026-10-03",
+  "source_revision": "e1984591be37073d9e1b3b1dee8a7e7813652cb3",
+  "reviewed_at": "2026-10-14",
   "evidence_stage": "retrospective_diagnostic",
   "summary": {
     "en-US": "A promising early target comparison did not become a stable same-fold model advantage.",
@@ -40,6 +40,14 @@
       "label": {
         "en-US": "Same-fold growth and cash-conversion extension, 2026-09-04",
         "zh-CN": "2026-09-04 同折增长与现金转化扩展"
+      }
+    },
+    {
+      "id": "followup",
+      "source_ref": "doc:quant-research.experiment.forecast-followup-20261014",
+      "label": {
+        "en-US": "October 14 retained forecast review, change pilot and return correction",
+        "zh-CN": "10 月 14 日预测复核、变化实验与回撤修正"
       }
     }
   ],
@@ -124,6 +132,33 @@
       "source_ids": [
         "overview"
       ]
+    },
+    {
+      "id": "followup",
+      "period": {
+        "en-US": "2026-10-14",
+        "zh-CN": "2026-10-14"
+      },
+      "status": "diagnostic",
+      "title": {
+        "en-US": "Recompute stability and test changes separately",
+        "zh-CN": "重新核算稳定性，单独检验财务变化"
+      },
+      "question": {
+        "en-US": "Are average gains stable, and do changes add useful forecast information?",
+        "zh-CN": "平均改善能保持多久，预测变化能增加多少信息？"
+      },
+      "finding": {
+        "en-US": "All 12 corrected summary groups reconcile. The cash-flow 1Q ranking gain wins in 22/41 formations. Four matched change-target groups show no uniform direct-change advantage. Archived boundary drawdown omitted initial capital.",
+        "zh-CN": "12 组修正后汇总全部核对一致。现金流一季度排序在 41 期赢了 22 期。四组变化预测没有显示直接预测变化的一致优势。原记录的期末回撤漏掉了初始资金。"
+      },
+      "decision": {
+        "en-US": "Retain the negative overall decision and the local lead; display corrected boundary drawdown, with no claim of qualified return increment.",
+        "zh-CN": "保留整体未见稳定增量的判断和局部线索。展示修正后的期末回撤，收益增量仍待核实。"
+      },
+      "source_ids": [
+        "followup"
+      ]
     }
   ],
   "charts": [
@@ -135,15 +170,15 @@
       },
       "metric": {
         "en-US": "Within-formation Rank IC",
-        "zh-CN": "形成日内截面 Rank IC"
+        "zh-CN": "公司未来财务表现的排序相关"
       },
       "context": {
         "en-US": "Corrected same-fold comparison, 1/2/4 quarters; reconstructed announcement-time inputs, not stock-return IC.",
-        "zh-CN": "修正后的共同折对照，1/2/4 季度；输入为公告时点重建，不是股票收益 IC。"
+        "zh-CN": "修正后的相同训练期和测试期对照，1/2/4 季度。输入为公告时点重建，不是股票收益 IC。"
       },
       "interpretation": {
         "en-US": "Persistence remains strongest; more complex objectives have no consistent increment.",
-        "zh-CN": "Persistence 始终最强，更复杂目标无一致增量。"
+        "zh-CN": "沿用最新财报数值 始终最强，更复杂目标无一致增量。"
       },
       "categories": [
         {
@@ -164,7 +199,7 @@
           "id": "persistence",
           "label": {
             "en-US": "Persistence",
-            "zh-CN": "持续性"
+            "zh-CN": "沿用最新财报数值"
           },
           "values": [
             0.84,
@@ -176,7 +211,7 @@
           "id": "ridge",
           "label": {
             "en-US": "Ridge",
-            "zh-CN": "Ridge"
+            "zh-CN": "Ridge 线性回归"
           },
           "values": [
             0.713,
@@ -188,7 +223,7 @@
           "id": "xgb",
           "label": {
             "en-US": "Pointwise XGB",
-            "zh-CN": "数值 XGB"
+            "zh-CN": "XGB 预测具体数值"
           },
           "values": [
             0.799,
@@ -200,7 +235,7 @@
           "id": "pairwise",
           "label": {
             "en-US": "Pairwise XGB",
-            "zh-CN": "成对 XGB"
+            "zh-CN": "XGB 比较公司两两高低"
           },
           "values": [
             0.819,
@@ -212,7 +247,7 @@
           "id": "listwise",
           "label": {
             "en-US": "Listwise XGB",
-            "zh-CN": "列表 XGB"
+            "zh-CN": "XGB 学习整组排序"
           },
           "values": [
             0.597,
@@ -234,11 +269,11 @@
       },
       "metric": {
         "en-US": "Within-formation Rank IC",
-        "zh-CN": "形成日内截面 Rank IC"
+        "zh-CN": "公司未来财务表现的排序相关"
       },
       "context": {
         "en-US": "Same corrected 30-cell objective comparison; target-level persistence can be high without selection alpha.",
-        "zh-CN": "同一修正后的 30 单元目标对照；财务状态持续性高不代表选股 Alpha。"
+        "zh-CN": "同一修正后的 30 单元目标对照。财务状态持续性高不代表选股 Alpha。"
       },
       "interpretation": {
         "en-US": "The marginal forecast improvement is absent even where levels are very persistent.",
@@ -263,7 +298,7 @@
           "id": "persistence",
           "label": {
             "en-US": "Persistence",
-            "zh-CN": "持续性"
+            "zh-CN": "沿用最新财报数值"
           },
           "values": [
             0.957,
@@ -275,7 +310,7 @@
           "id": "ridge",
           "label": {
             "en-US": "Ridge",
-            "zh-CN": "Ridge"
+            "zh-CN": "Ridge 线性回归"
           },
           "values": [
             0.954,
@@ -287,7 +322,7 @@
           "id": "xgb",
           "label": {
             "en-US": "Pointwise XGB",
-            "zh-CN": "数值 XGB"
+            "zh-CN": "XGB 预测具体数值"
           },
           "values": [
             0.946,
@@ -299,7 +334,7 @@
           "id": "pairwise",
           "label": {
             "en-US": "Pairwise XGB",
-            "zh-CN": "成对 XGB"
+            "zh-CN": "XGB 比较公司两两高低"
           },
           "values": [
             0.917,
@@ -311,7 +346,7 @@
           "id": "listwise",
           "label": {
             "en-US": "Listwise XGB",
-            "zh-CN": "列表 XGB"
+            "zh-CN": "XGB 学习整组排序"
           },
           "values": [
             0.717,
@@ -333,11 +368,11 @@
       },
       "metric": {
         "en-US": "Within-formation Rank IC",
-        "zh-CN": "形成日内截面 Rank IC"
+        "zh-CN": "公司未来财务表现的排序相关"
       },
       "context": {
         "en-US": "Separate same-fold corrected extension; 41/26/51 completed folds for 1/2/4 quarters. Target forecasts, not stock-return predictions.",
-        "zh-CN": "单独的修正同折扩展；1/2/4 季度完成 41/26/51 个折。预测财务目标，不是股票收益。"
+        "zh-CN": "单独的修正相同训练期和测试期扩展。1/2/4 季度完成 41/26/51 个折。预测财务目标，不是股票收益。"
       },
       "interpretation": {
         "en-US": "Growth persistence weakens by four quarters; no learned objective consistently beats it.",
@@ -362,7 +397,7 @@
           "id": "persistence",
           "label": {
             "en-US": "Persistence",
-            "zh-CN": "持续性"
+            "zh-CN": "沿用最新财报数值"
           },
           "values": [
             0.705,
@@ -374,7 +409,7 @@
           "id": "ridge",
           "label": {
             "en-US": "Ridge",
-            "zh-CN": "Ridge"
+            "zh-CN": "Ridge 线性回归"
           },
           "values": [
             0.301,
@@ -386,7 +421,7 @@
           "id": "xgb",
           "label": {
             "en-US": "Pointwise XGB",
-            "zh-CN": "数值 XGB"
+            "zh-CN": "XGB 预测具体数值"
           },
           "values": [
             0.197,
@@ -398,7 +433,7 @@
           "id": "pairwise",
           "label": {
             "en-US": "Pairwise XGB",
-            "zh-CN": "成对 XGB"
+            "zh-CN": "XGB 比较公司两两高低"
           },
           "values": [
             0.671,
@@ -410,7 +445,7 @@
           "id": "listwise",
           "label": {
             "en-US": "Listwise XGB",
-            "zh-CN": "列表 XGB"
+            "zh-CN": "XGB 学习整组排序"
           },
           "values": [
             0.423,
@@ -432,11 +467,11 @@
       },
       "metric": {
         "en-US": "Within-formation Rank IC",
-        "zh-CN": "形成日内截面 Rank IC"
+        "zh-CN": "公司未来财务表现的排序相关"
       },
       "context": {
         "en-US": "Separate same-fold corrected extension; 41/26/51 completed folds for 1/2/4 quarters. Target forecasts, not stock-return predictions.",
-        "zh-CN": "单独的修正同折扩展；1/2/4 季度完成 41/26/51 个折。预测财务目标，不是股票收益。"
+        "zh-CN": "单独的修正相同训练期和测试期扩展。1/2/4 季度完成 41/26/51 个折。预测财务目标，不是股票收益。"
       },
       "interpretation": {
         "en-US": "Pairwise leads at one quarter only; accounting extremes and varying horizons prevent a stable model conclusion.",
@@ -461,7 +496,7 @@
           "id": "persistence",
           "label": {
             "en-US": "Persistence",
-            "zh-CN": "持续性"
+            "zh-CN": "沿用最新财报数值"
           },
           "values": [
             0.144,
@@ -473,7 +508,7 @@
           "id": "ridge",
           "label": {
             "en-US": "Ridge",
-            "zh-CN": "Ridge"
+            "zh-CN": "Ridge 线性回归"
           },
           "values": [
             -0.061,
@@ -485,7 +520,7 @@
           "id": "xgb",
           "label": {
             "en-US": "Pointwise XGB",
-            "zh-CN": "数值 XGB"
+            "zh-CN": "XGB 预测具体数值"
           },
           "values": [
             0.018,
@@ -497,7 +532,7 @@
           "id": "pairwise",
           "label": {
             "en-US": "Pairwise XGB",
-            "zh-CN": "成对 XGB"
+            "zh-CN": "XGB 比较公司两两高低"
           },
           "values": [
             0.194,
@@ -509,7 +544,7 @@
           "id": "listwise",
           "label": {
             "en-US": "Listwise XGB",
-            "zh-CN": "列表 XGB"
+            "zh-CN": "XGB 学习整组排序"
           },
           "values": [
             0.076,
@@ -575,5 +610,6326 @@
         "overview"
       ]
     }
-  ]
+  ],
+  "guide": {
+    "schema_version": "observatory.forecast_guide.v1",
+    "reviewed_at": "2026-10-14",
+    "source_ids": [
+      "followup"
+    ],
+    "paragraphs": [
+      {
+        "en-US": "We reread the corrected saved forecasts and their run receipts. Most models added little beyond carrying the latest financial value forward. ROA and gross margin were persistent; revenue-growth ordering weakened at longer horizons.",
+        "zh-CN": "这次重新核对了修正后的预测输出和运行记录。多数模型没有比沿用最新财报数值多提供多少信息。ROA 和毛利率较容易保持原来的高低顺序，营收增速预测到更远的期限时，排序能力明显变弱。"
+      },
+      {
+        "en-US": "The one-quarter cash-flow ranking is worth retaining as a narrow lead. Pairwise XGB improved average financial Rank IC by 0.050, but won in only 22 of 41 test formations and lost at the other two horizons. A positive average does not establish consistent performance in each period.",
+        "zh-CN": "经营现金流的一季度排序有一个值得保留的结果。两两比较模型的平均排序相关高出 0.050，但 41 个测试期只赢了 22 个，在另外两个期限也落后。平均分的改善与每期都能保持优势，是两件不同的事。"
+      },
+      {
+        "en-US": "A new change-target pilot found that directly forecasting changes did not consistently beat forecasting levels. Seasonal controls mattered for ROA. Archived portfolio returns can be reconstructed, but neither this pilot nor those paths establish an investment gain from added forecasts.",
+        "zh-CN": "新跑的变化预测实验中，直接预测变化没有稳定胜过先预测水平再计算变化。ROA 的比较还受到财报季节性影响。历史组合的收益路径已经重新核算，预测信息能否持续改善选股收益，仍需要同条件的对照实验。"
+      }
+    ],
+    "groups": [
+      {
+        "target": "roa",
+        "horizon": 1,
+        "rows": 117672,
+        "report_start": "2012-06-30",
+        "report_end": "2025-12-31",
+        "models": [
+          {
+            "id": "persistence",
+            "mean_rank_ic": 0.8402842852495259,
+            "mean_gain": 0.0,
+            "paired_formations": 42,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": 0.0
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": 0.0,
+                "upper": 0.0
+              },
+              {
+                "block_quarters": 8,
+                "lower": 0.0,
+                "upper": 0.0
+              }
+            ]
+          },
+          {
+            "id": "ridge",
+            "mean_rank_ic": 0.7130661482878832,
+            "mean_gain": -0.12721813696164275,
+            "paired_formations": 42,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": -0.15870552024152942
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": -0.13124595719848198
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": -0.2633939090108611
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": -0.2117539015529328
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": -0.21253236435615233
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": -0.21030503031002076
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": -0.1795744149337932
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": -0.15542563346567925
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": -0.13887810927334795
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": -0.0304249626090826
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": -0.026568515752223926
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": -0.025330995916538868
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": -0.02018639870201655
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": -0.01672820414033786
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.16921756891049972,
+                "upper": -0.08550090646543029
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.18125661320572845,
+                "upper": -0.06976675749724351
+              }
+            ]
+          },
+          {
+            "id": "pointwise",
+            "mean_rank_ic": 0.7992083404527387,
+            "mean_gain": -0.04107594479678706,
+            "paired_formations": 42,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": -0.09765870761635127
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": -0.053471894797762265
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": -0.05114267937291406
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": -0.042807307498172596
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": -0.046196970796451575
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": -0.0672423755057882
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": -0.04777782238118622
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": -0.03388789789568155
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": -0.02969032510146774
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": -0.030416371356360734
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": -0.021052360941721915
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": -0.021449410763061505
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": -0.017979207841164618
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": -0.014289895286934695
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.05087133717971919,
+                "upper": -0.031861325777517414
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.05211128308528889,
+                "upper": -0.029672726912205526
+              }
+            ]
+          },
+          {
+            "id": "pairwise",
+            "mean_rank_ic": 0.8187398274053944,
+            "mean_gain": -0.02154445784413151,
+            "paired_formations": 42,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": -0.01732559639952695
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": -0.0215017009158394
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": -0.015317919213213793
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": -0.015760960141409375
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": -0.02100453932694905
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": -0.022179888626386163
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": -0.01891837462888409
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": -0.021057440081013918
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": -0.01856907615268888
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": -0.017960275569762207
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": -0.02013448219015923
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": -0.027594720912707354
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": -0.031047279270744094
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": -0.03325015638855666
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.0244643111965154,
+                "upper": -0.0190503635095613
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.025208379945146592,
+                "upper": -0.01869548540582073
+              }
+            ]
+          },
+          {
+            "id": "listwise",
+            "mean_rank_ic": 0.5974453238769579,
+            "mean_gain": -0.24283896137256794,
+            "paired_formations": 42,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": -0.22144289750373203
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": -0.24482408202714656
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": -0.26995347588861446
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": -0.27542976345663756
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": -0.2222201782322438
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": -0.20061283658686865
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": -0.22452986688587265
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": -0.22505438977584236
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": -0.2335465931188221
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": -0.21210417300794127
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": -0.1895929853776146
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": -0.2961211013459739
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": -0.2636513846848605
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": -0.3206617313237809
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.2640043779965237,
+                "upper": -0.22313933783717885
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.2650480829774066,
+                "upper": -0.2217733127318761
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "target": "roa",
+        "horizon": 2,
+        "rows": 85661,
+        "report_start": "2013-06-30",
+        "report_end": "2025-09-30",
+        "models": [
+          {
+            "id": "persistence",
+            "mean_rank_ic": 0.7667451036221345,
+            "mean_gain": 0.0,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2025,
+                "formations": 2,
+                "mean_gain": 0.0
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": 0.0,
+                "upper": 0.0
+              },
+              {
+                "block_quarters": 8,
+                "lower": 0.0,
+                "upper": 0.0
+              }
+            ]
+          },
+          {
+            "id": "ridge",
+            "mean_rank_ic": 0.4501985113711538,
+            "mean_gain": -0.31654659225098075,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": -0.15410047726187714
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": -0.3399067234143732
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": -0.5074670746647076
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": -0.47375643253880123
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": -0.46374311232786414
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": -0.3964528686425304
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": -0.327706559900874
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": -0.2861405911936872
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": -0.10474986986937046
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": -0.013908009807554689
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": -0.026945331409479856
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": -0.029595492627153053
+              },
+              {
+                "year": 2025,
+                "formations": 2,
+                "mean_gain": -0.9906331556044771
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.4376347276431248,
+                "upper": -0.19388758926424657
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.430498123505012,
+                "upper": -0.17096818104089398
+              }
+            ]
+          },
+          {
+            "id": "pointwise",
+            "mean_rank_ic": 0.6850964157950572,
+            "mean_gain": -0.08164868782707746,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": -0.105328397586826
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": -0.0938544345692297
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": -0.07485795199996292
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": -0.08646941982257006
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": -0.10901406891579424
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": -0.0675075978602061
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": -0.04838921657101947
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": -0.044459252872786126
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": -0.045540254198624674
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": -0.022973788186331723
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": -0.025715466933672493
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": -0.02055811339045155
+              },
+              {
+                "year": 2025,
+                "formations": 2,
+                "mean_gain": -0.31676497884453203
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.12330376110479606,
+                "upper": -0.048893129428893775
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.12350966945435081,
+                "upper": -0.04503165989259973
+              }
+            ]
+          },
+          {
+            "id": "pairwise",
+            "mean_rank_ic": 0.7119942409961091,
+            "mean_gain": -0.054750862626025354,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": -0.05001993979133956
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": -0.052099444970568565
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": -0.04804771608419817
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": -0.04614132083453776
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": -0.04570108017865615
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": -0.036427004889773074
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": -0.057383021555727
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": -0.0672817401589429
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": -0.039400473996986485
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": -0.04995092625402747
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": -0.060071109006527235
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": -0.08303325547363571
+              },
+              {
+                "year": 2025,
+                "formations": 2,
+                "mean_gain": -0.07620418094340958
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.06196535185839546,
+                "upper": -0.048082539231569243
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.06313862407561581,
+                "upper": -0.047062933491413904
+              }
+            ]
+          },
+          {
+            "id": "listwise",
+            "mean_rank_ic": 0.33521406377252255,
+            "mean_gain": -0.4315310398496121,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": -0.4631679164520909
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": -0.3971582177995917
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": -0.4350689327935398
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": -0.3750959129714761
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": -0.2753807856208891
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": -0.2952601461637707
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": -0.30531318520020906
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": -0.40536825133059196
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": -0.34137525955667186
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": -0.45681279391856655
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": -0.5649218858545377
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": -0.6515708927998084
+              },
+              {
+                "year": 2025,
+                "formations": 2,
+                "mean_gain": -0.643409337583213
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.49804099089580783,
+                "upper": -0.36776099731145284
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.5201658476704397,
+                "upper": -0.35165166212635157
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "target": "roa",
+        "horizon": 4,
+        "rows": 165117,
+        "report_start": "2012-06-30",
+        "report_end": "2025-03-31",
+        "models": [
+          {
+            "id": "persistence",
+            "mean_rank_ic": 0.715444167317246,
+            "mean_gain": 0.0,
+            "paired_formations": 52,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": 0.0
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": 0.0,
+                "upper": 0.0
+              },
+              {
+                "block_quarters": 8,
+                "lower": 0.0,
+                "upper": 0.0
+              }
+            ]
+          },
+          {
+            "id": "ridge",
+            "mean_rank_ic": 0.42303048601657606,
+            "mean_gain": -0.29241368130066997,
+            "paired_formations": 52,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": -0.09291045258574042
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": -0.1366585642447453
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": -0.41281940565306713
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": -0.37376436279616687
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": -0.34711812439613016
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": -0.3398325951069443
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": -0.2974060316237316
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": -0.23987173857937485
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": -0.22677592630457702
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": -0.2064238895883164
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": -0.29831908485376585
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": -0.3738692734651627
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": -0.3628060289298187
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.4641199677104118
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.33335963784717865,
+                "upper": -0.25091489509390463
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.33934280587206084,
+                "upper": -0.2460173406626837
+              }
+            ]
+          },
+          {
+            "id": "pointwise",
+            "mean_rank_ic": 0.6898039787271129,
+            "mean_gain": -0.025640188590133086,
+            "paired_formations": 52,
+            "win_fraction": 0.09615384615384616,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": -0.018619425721862704
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": -0.07916447844432375
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": -0.02182875365897699
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": -0.008963966663549816
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": -0.02466946447843177
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": -0.02094061235598485
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": -0.021048351161375767
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": -0.022201997537748902
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": -0.038715921638695694
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": -0.030438202067205933
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": -0.018461315693423158
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": -0.013932702071793784
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": -0.011975587663425602
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.028066115781588685
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.03604508057839078,
+                "upper": -0.018176887768255767
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.03533800345216004,
+                "upper": -0.017713741275169517
+              }
+            ]
+          },
+          {
+            "id": "pairwise",
+            "mean_rank_ic": 0.6464957843830436,
+            "mean_gain": -0.06894838293420244,
+            "paired_formations": 52,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": -0.12547790217918878
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": -0.0956346870557814
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": -0.06285182658010488
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": -0.06392255146742137
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": -0.07604094469646486
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": -0.09357213027130681
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": -0.06564072780817692
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": -0.0545359508809376
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": -0.0514341135421332
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": -0.057982652993863015
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": -0.0373006756172799
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": -0.06560265272771937
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": -0.059797245735571214
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.07161756853391787
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.07985382983078256,
+                "upper": -0.05971415184255239
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.0808088177522214,
+                "upper": -0.05774708460593735
+              }
+            ]
+          },
+          {
+            "id": "listwise",
+            "mean_rank_ic": 0.5155978031303958,
+            "mean_gain": -0.1998463641868501,
+            "paired_formations": 52,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": -0.20078923710039742
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": -0.2619080072452385
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": -0.17577427319530095
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": -0.1609619734562688
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": -0.15090574622195774
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": -0.157790132917782
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": -0.14708736479478382
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": -0.17035946410446545
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": -0.21830722475422662
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": -0.2132339317215107
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": -0.1951890241197128
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": -0.24367971078446893
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": -0.2445274771819229
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.4307459044244566
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.22266611236936693,
+                "upper": -0.178026207479927
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.22717095058324047,
+                "upper": -0.1726797573964656
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "target": "margin",
+        "horizon": 1,
+        "rows": 117647,
+        "report_start": "2012-06-30",
+        "report_end": "2025-12-31",
+        "models": [
+          {
+            "id": "persistence",
+            "mean_rank_ic": 0.9565384867925227,
+            "mean_gain": 0.0,
+            "paired_formations": 42,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": 0.0
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": 0.0,
+                "upper": 0.0
+              },
+              {
+                "block_quarters": 8,
+                "lower": 0.0,
+                "upper": 0.0
+              }
+            ]
+          },
+          {
+            "id": "ridge",
+            "mean_rank_ic": 0.9541010099314411,
+            "mean_gain": -0.002437476861081335,
+            "paired_formations": 42,
+            "win_fraction": 0.047619047619047616,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": -0.0020885548791086763
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": 1.8074987697532425e-05
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": -0.0002162485189452316
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": -0.0029054031025189295
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": -0.003296085406773138
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": -0.0005933365459337055
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": -0.001520554392054822
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": -0.000931591215668918
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": -0.0007401349264919052
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": -0.0010939551545499822
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": -0.006542760005802488
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": -0.0050197875033560395
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": -0.004966896437959593
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": -0.004227442953672796
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.0034794473044874688,
+                "upper": -0.0015345117610496913
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.003738803982175209,
+                "upper": -0.0013125073448012827
+              }
+            ]
+          },
+          {
+            "id": "pointwise",
+            "mean_rank_ic": 0.9461398221882301,
+            "mean_gain": -0.010398664604292448,
+            "paired_formations": 42,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": -0.00878944635794802
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": -0.010573405043661369
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": -0.007913173487880232
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": -0.012583269449386961
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": -0.017437027549478772
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": -0.011714427053384177
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": -0.013301039104709514
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": -0.009528521186485173
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": -0.011941641328363136
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": -0.010765172826160518
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": -0.011084218545522181
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": -0.008688792491724384
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": -0.005167061348978523
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": -0.006094108686411322
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.011834052650295144,
+                "upper": -0.008973750300359528
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.012235037710301789,
+                "upper": -0.008685250456816791
+              }
+            ]
+          },
+          {
+            "id": "pairwise",
+            "mean_rank_ic": 0.9166184765439667,
+            "mean_gain": -0.039920010248556057,
+            "paired_formations": 42,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": -0.009351719842868719
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": -0.012529482953410756
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": -0.015540791030499065
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": -0.020871835253879107
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": -0.02558794207402289
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": -0.03573439557040792
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": -0.03727823838552021
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": -0.04468699323492509
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": -0.05218658106268822
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": -0.05955298508957999
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": -0.06247401421829372
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": -0.06425470217495373
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": -0.05916029798639296
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": -0.0596701646023425
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.04941541009583765,
+                "upper": -0.030157329322656638
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.052690347013646305,
+                "upper": -0.02756825919391615
+              }
+            ]
+          },
+          {
+            "id": "listwise",
+            "mean_rank_ic": 0.7168983338520583,
+            "mean_gain": -0.2396401529404645,
+            "paired_formations": 42,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": -0.17761065692206335
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": -0.17141132953896523
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": -0.25084105205915597
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": -0.2166108272080112
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": -0.18781266978739355
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": -0.21197775132468147
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": -0.1946494857149448
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": -0.21965956082524538
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": -0.24601808132522593
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": -0.27282190182077976
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": -0.28953159863201205
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": -0.29937783215369135
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": -0.2981016768058011
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": -0.3185377170485317
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.26226079191100815,
+                "upper": -0.21806556419140574
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.26971574558588457,
+                "upper": -0.2131901899973548
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "target": "margin",
+        "horizon": 2,
+        "rows": 85621,
+        "report_start": "2013-06-30",
+        "report_end": "2025-09-30",
+        "models": [
+          {
+            "id": "persistence",
+            "mean_rank_ic": 0.9227888877725026,
+            "mean_gain": 0.0,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2025,
+                "formations": 2,
+                "mean_gain": 0.0
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": 0.0,
+                "upper": 0.0
+              },
+              {
+                "block_quarters": 8,
+                "lower": 0.0,
+                "upper": 0.0
+              }
+            ]
+          },
+          {
+            "id": "ridge",
+            "mean_rank_ic": 0.9162335354165406,
+            "mean_gain": -0.006555352355962026,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": -0.002162990260250741
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": -0.0003947252921292499
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": -0.024201209422801184
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": -0.015712441423217427
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": -0.010367520026847987
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": -0.0068723423083152935
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": -0.004515648675485873
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": -0.00536329169220473
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": -0.0009619955980982309
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": -0.0023475114608140224
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": -0.004330570550709012
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": -0.0037878097477401784
+              },
+              {
+                "year": 2025,
+                "formations": 2,
+                "mean_gain": -0.004201524168892412
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.010285600689324718,
+                "upper": -0.0036556955425624095
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.011037233542674156,
+                "upper": -0.0033107254767701243
+              }
+            ]
+          },
+          {
+            "id": "pointwise",
+            "mean_rank_ic": 0.9114552137250398,
+            "mean_gain": -0.011333674047462806,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": -0.008864330696599199
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": -0.006858391823985899
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": -0.01974073313104613
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": -0.02159678968401868
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": -0.015843428401030313
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": -0.01185897625086385
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": -0.008396763938077811
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": -0.00952255242350547
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": -0.009094479764777563
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": -0.015443947121223212
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": -0.008772570228030685
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": -0.006674418014458949
+              },
+              {
+                "year": 2025,
+                "formations": 2,
+                "mean_gain": -0.004670381139398716
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.01431915135288538,
+                "upper": -0.0088882295019805
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.01486418419203215,
+                "upper": -0.008593183005848892
+              }
+            ]
+          },
+          {
+            "id": "pairwise",
+            "mean_rank_ic": 0.8729665791233058,
+            "mean_gain": -0.04982230864919691,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": -0.021842533875837178
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": -0.025457779208520326
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": -0.03236723188114343
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": -0.029171722608581807
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": -0.0359518971786672
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": -0.0437322414951275
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": -0.0515410523882644
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": -0.05579749346070406
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": -0.06403097331129964
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": -0.07059152591521978
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": -0.06499797236843124
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": -0.07472683379821421
+              },
+              {
+                "year": 2025,
+                "formations": 2,
+                "mean_gain": -0.07748075494954904
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.058918224012450615,
+                "upper": -0.04082325732955481
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.0618205572787102,
+                "upper": -0.03813590365042118
+              }
+            ]
+          },
+          {
+            "id": "listwise",
+            "mean_rank_ic": 0.6917984590213236,
+            "mean_gain": -0.23099042875117887,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": -0.18146292438254075
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": -0.23329234900580437
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": -0.22435832345211926
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": -0.2264139674728574
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": -0.1990309582466283
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": -0.2225475500269597
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": -0.20301878420279101
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": -0.23155777494910917
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": -0.21522534546788097
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": -0.2423956578665492
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": -0.24830689844451492
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": -0.2611527414769654
+              },
+              {
+                "year": 2025,
+                "formations": 2,
+                "mean_gain": -0.3141122987706054
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.24575880257347885,
+                "upper": -0.21802827839503974
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.2471031082086107,
+                "upper": -0.21780653205847783
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "target": "margin",
+        "horizon": 4,
+        "rows": 165034,
+        "report_start": "2012-06-30",
+        "report_end": "2025-03-31",
+        "models": [
+          {
+            "id": "persistence",
+            "mean_rank_ic": 0.8904876722956512,
+            "mean_gain": 0.0,
+            "paired_formations": 52,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": 0.0
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": 0.0,
+                "upper": 0.0
+              },
+              {
+                "block_quarters": 8,
+                "lower": 0.0,
+                "upper": 0.0
+              }
+            ]
+          },
+          {
+            "id": "ridge",
+            "mean_rank_ic": 0.8885110407158192,
+            "mean_gain": -0.0019766315798318344,
+            "paired_formations": 52,
+            "win_fraction": 0.21153846153846154,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": -0.007710338741446739
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": -0.004333679581587979
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": -0.0007742572856503371
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": -0.0026192088662085056
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": -0.0023146582992799036
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": -0.0006464660711875403
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": -0.0002628706101400202
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": 0.00017394987593882805
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": 3.9475648568154664e-05
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": -0.0018580816072278072
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": -0.0028166446651634036
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": -0.002324223489850119
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": -0.001959476798311266
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.0008692589265155704
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.0030610958636225188,
+                "upper": -0.0010128237161393513
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.003264298755934402,
+                "upper": -0.000901341107562035
+              }
+            ]
+          },
+          {
+            "id": "pointwise",
+            "mean_rank_ic": 0.8775756909135092,
+            "mean_gain": -0.012911981382141963,
+            "paired_formations": 52,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": -0.009080085778036465
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": -0.009429873717790388
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": -0.005799766389007421
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": -0.011719991780802907
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": -0.014392038413383601
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": -0.014291664534320986
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": -0.013604755953322278
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": -0.00932517223867857
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": -0.016778117945879745
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": -0.019078101636465394
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": -0.02375696072773506
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": -0.010498571371437976
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": -0.010331695814873587
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.008155932442481029
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.015574809370229299,
+                "upper": -0.010501885202605084
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.016091793295997327,
+                "upper": -0.010182888531230233
+              }
+            ]
+          },
+          {
+            "id": "pairwise",
+            "mean_rank_ic": 0.8516691878776455,
+            "mean_gain": -0.03881848441800561,
+            "paired_formations": 52,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": -0.019328300235096352
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": -0.016553708475486067
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": -0.017378616712529577
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": -0.0225972488011284
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": -0.024704064592306396
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": -0.03311950075628231
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": -0.03941266732992002
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": -0.03914557924011447
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": -0.04122346638608235
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": -0.05730930428170172
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": -0.06538524821243463
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": -0.06300812253138344
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": -0.05663962045418994
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.05466769793676529
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.04787906059557095,
+                "upper": -0.030489397779962117
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.05144354586074722,
+                "upper": -0.027707416259894455
+              }
+            ]
+          },
+          {
+            "id": "listwise",
+            "mean_rank_ic": 0.6968960615880277,
+            "mean_gain": -0.19359161070762326,
+            "paired_formations": 52,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 3,
+                "mean_gain": -0.1744985003235107
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": -0.16534904145646667
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": -0.16350297625545243
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": -0.1866222875662183
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": -0.16770314971959668
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": -0.18707926668934904
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": -0.18221300624014794
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": -0.19334641483918058
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": -0.1854190272742695
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": -0.20284082041214285
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": -0.21870232683814475
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": -0.2296869124931718
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": -0.2399483085587196
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.2536141024544375
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.2065186534767037,
+                "upper": -0.18237567874452135
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.21035044944489534,
+                "upper": -0.17890837001613935
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "target": "growth",
+        "horizon": 1,
+        "rows": 113597,
+        "report_start": "2012-06-30",
+        "report_end": "2025-12-31",
+        "models": [
+          {
+            "id": "persistence",
+            "mean_rank_ic": 0.7045993656839256,
+            "mean_gain": 0.0,
+            "paired_formations": 41,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": 0.0
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": 0.0,
+                "upper": 0.0
+              },
+              {
+                "block_quarters": 8,
+                "lower": 0.0,
+                "upper": 0.0
+              }
+            ]
+          },
+          {
+            "id": "ridge",
+            "mean_rank_ic": 0.3012034844949436,
+            "mean_gain": -0.40339588118898195,
+            "paired_formations": 41,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": -0.19900710826163495
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": -0.04208465370162401
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": -0.22078076578560368
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": -0.44444035649536345
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": -0.4161067593049271
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": -0.19204568615455217
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": -0.38188992637788827
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": -0.5560068056301449
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": -0.4313121196830405
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": -0.4914726315934732
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": -0.5060770175610941
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": -0.5922149405854099
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": -0.5413992309816457
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": -0.5645747435535626
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.48031446087026614,
+                "upper": -0.318952463614071
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.49787262639113755,
+                "upper": -0.29541410659928663
+              }
+            ]
+          },
+          {
+            "id": "pointwise",
+            "mean_rank_ic": 0.19659186522261768,
+            "mean_gain": -0.5080075004613078,
+            "paired_formations": 41,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": -0.07809590253000132
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": -0.10926292910813097
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": -0.22383157308939325
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": -0.26329487566358356
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": -0.414533833387831
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": -0.7003445204266017
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": -0.705191262277464
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": -0.7406936975865698
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": -0.6388902991087462
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": -0.577341122464314
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": -0.5997223724058677
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": -0.6467610042930143
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": -0.6887860931171103
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": -0.5820516550225795
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.6198339643684798,
+                "upper": -0.3929174240186382
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.644624610445423,
+                "upper": -0.3568259318498408
+              }
+            ]
+          },
+          {
+            "id": "pairwise",
+            "mean_rank_ic": 0.6711610186215362,
+            "mean_gain": -0.033438347062389434,
+            "paired_formations": 41,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": -0.033455047895850354
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": -0.024424022580031162
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": -0.023851664515148068
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": -0.024858459922730575
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": -0.028420163407006465
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": -0.014696560864013922
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": -0.0222295904604151
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": -0.03155370491536067
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": -0.04951834458384848
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": -0.0166129468974891
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": -0.029419654774247534
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": -0.0449615176435131
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": -0.06678273661085905
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": -0.057358010747425435
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.04148859191794499,
+                "upper": -0.02656855725075586
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.043551069857589615,
+                "upper": -0.02544063575701043
+              }
+            ]
+          },
+          {
+            "id": "listwise",
+            "mean_rank_ic": 0.4231186191688851,
+            "mean_gain": -0.2814807465150403,
+            "paired_formations": 41,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": -0.17271979902838544
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": -0.1841196407149015
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": -0.24705782606602442
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": -0.22682289207216946
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": -0.22819578959060938
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": -0.2304005489357249
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": -0.2549390969937045
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": -0.3092965847114154
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": -0.4029778940078453
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": -0.15327397837836595
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": -0.27122287111802784
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": -0.35531489384222986
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": -0.46673917523382924
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": -0.40139581135511243
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.32728316588132533,
+                "upper": -0.24039504580311585
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.3355176319132768,
+                "upper": -0.23538858825817432
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "target": "growth",
+        "horizon": 2,
+        "rows": 83664,
+        "report_start": "2012-12-31",
+        "report_end": "2025-03-31",
+        "models": [
+          {
+            "id": "persistence",
+            "mean_rank_ic": 0.5332710642289231,
+            "mean_gain": 0.0,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 1,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": 0.0
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": 0.0,
+                "upper": 0.0
+              },
+              {
+                "block_quarters": 8,
+                "lower": 0.0,
+                "upper": 0.0
+              }
+            ]
+          },
+          {
+            "id": "ridge",
+            "mean_rank_ic": 0.14238273316876932,
+            "mean_gain": -0.3908883310601538,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 1,
+                "mean_gain": -0.18340967903207875
+              },
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": -0.16452881806448308
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": -0.1605786456286761
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": -0.2769017882008566
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": -0.19587682076959706
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": -0.19820241359167395
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": -0.3259702472542411
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": -0.5973635265942638
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": -0.523434266183278
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": -0.5792029824550767
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": -0.45102034678845704
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": -0.4973730203106211
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": -0.6290594232786535
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.7806623302921631
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.48397456301047015,
+                "upper": -0.29431252193857066
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.5027856222358066,
+                "upper": -0.2735705189217646
+              }
+            ]
+          },
+          {
+            "id": "pointwise",
+            "mean_rank_ic": 0.18521218933281783,
+            "mean_gain": -0.34805887489610526,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 1,
+                "mean_gain": -0.17441040828435264
+              },
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": -0.17114112365711096
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": -0.11547186088971245
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": -0.11128472983602511
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": -0.2091172889474307
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": -0.48372136353134093
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": -0.41398002107993426
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": -0.5081478973780045
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": -0.4621647660183815
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": -0.2900752474700493
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": -0.5341962818956526
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": -0.4923175998130803
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": -0.45189999547330684
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.3880839870343264
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.4401848717593634,
+                "upper": -0.25406666834979447
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.44786083840675656,
+                "upper": -0.2401835423012972
+              }
+            ]
+          },
+          {
+            "id": "pairwise",
+            "mean_rank_ic": 0.4426009113327885,
+            "mean_gain": -0.09067015289613455,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 1,
+                "mean_gain": -0.09063658650477996
+              },
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": -0.08642379270913375
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": -0.08026749152601226
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": -0.08580386606444598
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": -0.0838260282101742
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": -0.06008780523773499
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": -0.057559426530869096
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": -0.11981033776463901
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": -0.09701464283917535
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": -0.02599680208451502
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": -0.08676548175999352
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": -0.11402601823552974
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": -0.135898086282449
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.19982783030537477
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.10722924964125925,
+                "upper": -0.07345346117440037
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.1080053004752533,
+                "upper": -0.07306905154581513
+              }
+            ]
+          },
+          {
+            "id": "listwise",
+            "mean_rank_ic": 0.2936607348537724,
+            "mean_gain": -0.2396103293751507,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 1,
+                "mean_gain": -0.14479233106108463
+              },
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": -0.2374693222302506
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": -0.2321226708783061
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": -0.2352885596860682
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": -0.18909896896458459
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": -0.1727048796736568
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": -0.20300236510200198
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": -0.26866504457693985
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": -0.3156904493436127
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": -0.10282194146707344
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": -0.17495718412460565
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": -0.28269999765784515
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": -0.39311657013530676
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.46980032501233027
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.27877772129786466,
+                "upper": -0.20085589312748595
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.28327148023267446,
+                "upper": -0.1974751324716462
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "target": "growth",
+        "horizon": 4,
+        "rows": 163314,
+        "report_start": "2012-09-30",
+        "report_end": "2025-03-31",
+        "models": [
+          {
+            "id": "persistence",
+            "mean_rank_ic": 0.12090549444163075,
+            "mean_gain": 0.0,
+            "paired_formations": 51,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": 0.0
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": 0.0,
+                "upper": 0.0
+              },
+              {
+                "block_quarters": 8,
+                "lower": 0.0,
+                "upper": 0.0
+              }
+            ]
+          },
+          {
+            "id": "ridge",
+            "mean_rank_ic": 0.015369022217928551,
+            "mean_gain": -0.10553647222370219,
+            "paired_formations": 51,
+            "win_fraction": 0.13725490196078433,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": -0.12495907839792042
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": -0.04176727449812389
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": -0.06747853479314855
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": -0.1314022837597612
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": -0.04738314375528266
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": -0.21521990581495465
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": -0.19837352609054787
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": -0.23987663234532414
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": 0.09243966807988017
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": -0.1346487624607181
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": -0.03968120150834324
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": -0.023748609784189186
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": -0.20265747487287689
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.1332512001994095
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.14884234058607596,
+                "upper": -0.061833635991894204
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.14762870204885445,
+                "upper": -0.06693149294508946
+              }
+            ]
+          },
+          {
+            "id": "pointwise",
+            "mean_rank_ic": 0.010019180469654589,
+            "mean_gain": -0.11088631397197615,
+            "paired_formations": 51,
+            "win_fraction": 0.2549019607843137,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": -0.2440968610523982
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": -0.1050576659200067
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": -0.1508034483724163
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": -0.17781487673614604
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": -0.00873395879115077
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": -0.13792356262124314
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": -0.1131902388877375
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": -0.18394565635765303
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": 0.022850621147931988
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": -0.1321440974352121
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": -0.022463322327301558
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": -0.08033763465850066
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": -0.1738996230392133
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.11315443447139067
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.14174829181169235,
+                "upper": -0.07783729965836374
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.14108472962986682,
+                "upper": -0.08282592999244034
+              }
+            ]
+          },
+          {
+            "id": "pairwise",
+            "mean_rank_ic": 0.0828006198063125,
+            "mean_gain": -0.03810487463531823,
+            "paired_formations": 51,
+            "win_fraction": 0.3333333333333333,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": -0.1482630601887605
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": -0.027627105236324927
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": -0.023610015507507888
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": -0.05998207735762681
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": -0.03948262864655121
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": -0.03872444420187942
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": -0.005044759875152686
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": -0.13310494128726358
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": 0.05136289908998448
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": -0.05962526386480412
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": 0.06569677356975034
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": 0.002081242322654355
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": -0.11391925024985264
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.11890420104541197
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.06674613570170236,
+                "upper": -0.011867781078917053
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.06397429650720941,
+                "upper": -0.012834543289911257
+              }
+            ]
+          },
+          {
+            "id": "listwise",
+            "mean_rank_ic": 0.06247100123330046,
+            "mean_gain": -0.05843449320833027,
+            "paired_formations": 51,
+            "win_fraction": 0.2549019607843137,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": -0.11357604379656926
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": -0.04910752071997805
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": -0.06474808200536125
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": -0.08087039359086015
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": -0.009482480876120757
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": -0.031117539618604834
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": -0.028559534536632552
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": -0.17118589983883614
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": 0.04540292457576176
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": -0.09313882878136485
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": 0.04695688347722017
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": -0.05592118137898756
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": -0.1604387884085105
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.14416529922260587
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.0902630800307851,
+                "upper": -0.02911271300277443
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.08789219415574166,
+                "upper": -0.03235938259201804
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "target": "cash_conversion",
+        "horizon": 1,
+        "rows": 113597,
+        "report_start": "2012-06-30",
+        "report_end": "2025-12-31",
+        "models": [
+          {
+            "id": "persistence",
+            "mean_rank_ic": 0.1437820473907126,
+            "mean_gain": 0.0,
+            "paired_formations": 41,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": 0.0
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": 0.0,
+                "upper": 0.0
+              },
+              {
+                "block_quarters": 8,
+                "lower": 0.0,
+                "upper": 0.0
+              }
+            ]
+          },
+          {
+            "id": "ridge",
+            "mean_rank_ic": -0.060924753698178916,
+            "mean_gain": -0.20470680108889153,
+            "paired_formations": 41,
+            "win_fraction": 0.21951219512195122,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": -0.04024754849729595
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": -0.009225374282616938
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": -0.041087789804491924
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": -0.057109714743000924
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": -0.20382248784661208
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": -0.18786015981206503
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": -0.19343687612260882
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": -0.18648715033986782
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": -0.2146044474068576
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": -0.2603365905089277
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": -0.3202593536286512
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": -0.36908503914984697
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": -0.3714506723237143
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": -0.35606225991405865
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.2679702831455481,
+                "upper": -0.14358151336479497
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.2862035142652195,
+                "upper": -0.12520039591690657
+              }
+            ]
+          },
+          {
+            "id": "pointwise",
+            "mean_rank_ic": 0.018282991567694164,
+            "mean_gain": -0.12549905582301843,
+            "paired_formations": 41,
+            "win_fraction": 0.34146341463414637,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": -0.00690216011116665
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": -0.07332151413268412
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": -0.07033439147627966
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": -0.10896932315151704
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": -0.1435295850152574
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": -0.14984034674126376
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": -0.18590662293265206
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": -0.15268016302675944
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": -0.12424101713968626
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": -0.16572157263383439
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": -0.12324885233658238
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": -0.1316020451524868
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": -0.14659698577349656
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": -0.13455990332797427
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.14857310685775568,
+                "upper": -0.10081995441874307
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.1513040730313144,
+                "upper": -0.09765238945473144
+              }
+            ]
+          },
+          {
+            "id": "pairwise",
+            "mean_rank_ic": 0.19409586201714502,
+            "mean_gain": 0.0503138146264324,
+            "paired_formations": 41,
+            "win_fraction": 0.5365853658536586,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": 0.03699600284548052
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": 0.023201173024344973
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": 0.033560291243410666
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": 0.03352801954929467
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": 0.04369241529711986
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": 0.05401773051876058
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": 0.024673360175115417
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": 0.07171039747176819
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": 0.04290718342914171
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": 0.07704238811585919
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": 0.04509794217039056
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": 0.053805125837426436
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": 0.05385000080340644
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": 0.1058721036948838
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": 0.03874258869443562,
+                "upper": 0.06293618787039731
+              },
+              {
+                "block_quarters": 8,
+                "lower": 0.03844143698234244,
+                "upper": 0.06423893050172025
+              }
+            ]
+          },
+          {
+            "id": "listwise",
+            "mean_rank_ic": 0.07627896549986922,
+            "mean_gain": -0.06750308189084336,
+            "paired_formations": 41,
+            "win_fraction": 0.34146341463414637,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": -0.0365820229366296
+              },
+              {
+                "year": 2013,
+                "formations": 3,
+                "mean_gain": -0.05285243845249585
+              },
+              {
+                "year": 2014,
+                "formations": 3,
+                "mean_gain": -0.0954220209104486
+              },
+              {
+                "year": 2015,
+                "formations": 3,
+                "mean_gain": -0.05042157554613912
+              },
+              {
+                "year": 2016,
+                "formations": 3,
+                "mean_gain": -0.03063699671314248
+              },
+              {
+                "year": 2017,
+                "formations": 3,
+                "mean_gain": -0.08226094857015039
+              },
+              {
+                "year": 2018,
+                "formations": 3,
+                "mean_gain": -0.07470646995662793
+              },
+              {
+                "year": 2019,
+                "formations": 3,
+                "mean_gain": -0.05283540605624908
+              },
+              {
+                "year": 2020,
+                "formations": 3,
+                "mean_gain": -0.027504715746487104
+              },
+              {
+                "year": 2021,
+                "formations": 3,
+                "mean_gain": -0.05382784270491652
+              },
+              {
+                "year": 2022,
+                "formations": 3,
+                "mean_gain": -0.09406254693573858
+              },
+              {
+                "year": 2023,
+                "formations": 3,
+                "mean_gain": -0.11581620556141588
+              },
+              {
+                "year": 2024,
+                "formations": 3,
+                "mean_gain": -0.11269409167027239
+              },
+              {
+                "year": 2025,
+                "formations": 3,
+                "mean_gain": -0.05511284505968903
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.08313460048834286,
+                "upper": -0.05316529791328207
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.08490880543491525,
+                "upper": -0.05166819204832793
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "target": "cash_conversion",
+        "horizon": 2,
+        "rows": 83664,
+        "report_start": "2012-12-31",
+        "report_end": "2025-03-31",
+        "models": [
+          {
+            "id": "persistence",
+            "mean_rank_ic": 0.1877318916079525,
+            "mean_gain": 0.0,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 1,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": 0.0
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": 0.0,
+                "upper": 0.0
+              },
+              {
+                "block_quarters": 8,
+                "lower": 0.0,
+                "upper": 0.0
+              }
+            ]
+          },
+          {
+            "id": "ridge",
+            "mean_rank_ic": -0.0945754688976743,
+            "mean_gain": -0.2823073605056268,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 1,
+                "mean_gain": -0.10614182476369784
+              },
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": -0.10100830751624787
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": -0.14139771026113165
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": -0.11270381100603598
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": -0.3644961647429209
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": -0.3488613286174162
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": -0.34271857711373044
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": -0.3547552478571527
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": -0.2948694594315351
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": -0.31790992000749263
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": -0.33211823758583287
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": -0.34013071557403085
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": -0.32164979426286405
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.4886110004298172
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.32793325301040266,
+                "upper": -0.2294418341058255
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.3369077423682347,
+                "upper": -0.2191779522607482
+              }
+            ]
+          },
+          {
+            "id": "pointwise",
+            "mean_rank_ic": -0.001954637953559454,
+            "mean_gain": -0.18968652956151197,
+            "paired_formations": 26,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 1,
+                "mean_gain": -0.050489949582151666
+              },
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": -0.12718857264447428
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": -0.11600672755685029
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": -0.17680207088026034
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": -0.18564794816936125
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": -0.1828222014066005
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": -0.16803113282398982
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": -0.19082791820698367
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": -0.18013860028393985
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": -0.22947289149539732
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": -0.2512182147721201
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": -0.22428346841992816
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": -0.23555050202152078
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.34537932165430685
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.21195239702663998,
+                "upper": -0.16664977781418105
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.21650732973197412,
+                "upper": -0.16382788089690972
+              }
+            ]
+          },
+          {
+            "id": "pairwise",
+            "mean_rank_ic": 0.10533551812546765,
+            "mean_gain": -0.08239637348248487,
+            "paired_formations": 26,
+            "win_fraction": 0.46153846153846156,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 1,
+                "mean_gain": -0.021483573523329663
+              },
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": -0.046855841963283025
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": -0.10228715213273828
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": -0.08459346549666596
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": -0.12394231462158795
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": -0.09607684587363383
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": -0.08430698257543492
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": -0.06358838682124948
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": -0.02792847358879485
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": -0.06841683718813282
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": -0.06273477818883572
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": -0.10213760972434127
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": -0.07599055882610292
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.2431036430196748
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.0976474737729942,
+                "upper": -0.06703193787079774
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.09914190783739733,
+                "upper": -0.06603207153155921
+              }
+            ]
+          },
+          {
+            "id": "listwise",
+            "mean_rank_ic": 0.12231817601757208,
+            "mean_gain": -0.06541371559038042,
+            "paired_formations": 26,
+            "win_fraction": 0.4230769230769231,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 1,
+                "mean_gain": 0.04401386354091795
+              },
+              {
+                "year": 2013,
+                "formations": 2,
+                "mean_gain": -0.06745264780852446
+              },
+              {
+                "year": 2014,
+                "formations": 2,
+                "mean_gain": -0.08912268791131199
+              },
+              {
+                "year": 2015,
+                "formations": 2,
+                "mean_gain": -0.05685317618154468
+              },
+              {
+                "year": 2016,
+                "formations": 2,
+                "mean_gain": -0.048530158029164494
+              },
+              {
+                "year": 2017,
+                "formations": 2,
+                "mean_gain": -0.048315367243973444
+              },
+              {
+                "year": 2018,
+                "formations": 2,
+                "mean_gain": -0.04906525799485677
+              },
+              {
+                "year": 2019,
+                "formations": 2,
+                "mean_gain": -0.06294888692380274
+              },
+              {
+                "year": 2020,
+                "formations": 2,
+                "mean_gain": -0.002146095636911996
+              },
+              {
+                "year": 2021,
+                "formations": 2,
+                "mean_gain": -0.06409131835194026
+              },
+              {
+                "year": 2022,
+                "formations": 2,
+                "mean_gain": -0.09091501600917647
+              },
+              {
+                "year": 2023,
+                "formations": 2,
+                "mean_gain": -0.1289879997699847
+              },
+              {
+                "year": 2024,
+                "formations": 2,
+                "mean_gain": -0.09199729193374714
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.14391866130093095
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.08605601214878535,
+                "upper": -0.047377466084787226
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.08640247009629325,
+                "upper": -0.04701095483481774
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "target": "cash_conversion",
+        "horizon": 4,
+        "rows": 163314,
+        "report_start": "2012-09-30",
+        "report_end": "2025-03-31",
+        "models": [
+          {
+            "id": "persistence",
+            "mean_rank_ic": 0.404298202411543,
+            "mean_gain": 0.0,
+            "paired_formations": 51,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": 0.0
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": 0.0
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": 0.0,
+                "upper": 0.0
+              },
+              {
+                "block_quarters": 8,
+                "lower": 0.0,
+                "upper": 0.0
+              }
+            ]
+          },
+          {
+            "id": "ridge",
+            "mean_rank_ic": 0.03393188042329111,
+            "mean_gain": -0.3703663219882519,
+            "paired_formations": 51,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": -0.04308745361077218
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": -0.24842143948813736
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": -0.16746144501090782
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": -0.35920551894642894
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": -0.37273266925646714
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": -0.39026663937929207
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": -0.39408083587796583
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": -0.3743624913588365
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": -0.3908012430813013
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": -0.45189429429126565
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": -0.4322762451901039
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": -0.49090065765894747
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": -0.5096009335021869
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.4744898620119373
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.41904976605473715,
+                "upper": -0.31486150441351746
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.4293671167318963,
+                "upper": -0.30646602198260103
+              }
+            ]
+          },
+          {
+            "id": "pointwise",
+            "mean_rank_ic": -0.0032013314230876326,
+            "mean_gain": -0.4074995338346306,
+            "paired_formations": 51,
+            "win_fraction": 0.0196078431372549,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": -0.015259197594096524
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": -0.16302700196829667
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": -0.3012338162142776
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": -0.4345454403671738
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": -0.36492856424867137
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": -0.485693911604662
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": -0.40984820009018197
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": -0.4026351765346586
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": -0.4724575865564932
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": -0.4484063448465115
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": -0.4342655084418004
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": -0.5278650773701984
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": -0.5401413150870455
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.8117660570580842
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.46201247108533544,
+                "upper": -0.3478679477785902
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.46834964131353785,
+                "upper": -0.3365207119293464
+              }
+            ]
+          },
+          {
+            "id": "pairwise",
+            "mean_rank_ic": 0.35944888597791796,
+            "mean_gain": -0.04484931643362515,
+            "paired_formations": 51,
+            "win_fraction": 0.11764705882352941,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": -0.026619246652284656
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": -0.0792927917770516
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": -0.07594450521604995
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": -0.05577821103014095
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": -0.05398134207299661
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": -0.03597686961818122
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": -0.033255086947610396
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": -0.03309381935031443
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": -0.03667010875654034
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": -0.031918204790502294
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": -0.052784162719313965
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": -0.03817568458343969
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": -0.01529293868225011
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.06542174263274636
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.05505733196272999,
+                "upper": -0.03520968278446319
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.05684077350581232,
+                "upper": -0.03405906964369397
+              }
+            ]
+          },
+          {
+            "id": "listwise",
+            "mean_rank_ic": 0.08238269777844706,
+            "mean_gain": -0.321915504633096,
+            "paired_formations": 51,
+            "win_fraction": 0.0,
+            "annual": [
+              {
+                "year": 2012,
+                "formations": 2,
+                "mean_gain": -0.20813647053256773
+              },
+              {
+                "year": 2013,
+                "formations": 4,
+                "mean_gain": -0.35098978872633424
+              },
+              {
+                "year": 2014,
+                "formations": 4,
+                "mean_gain": -0.3519792396657032
+              },
+              {
+                "year": 2015,
+                "formations": 4,
+                "mean_gain": -0.3172666994227133
+              },
+              {
+                "year": 2016,
+                "formations": 4,
+                "mean_gain": -0.2971348451942051
+              },
+              {
+                "year": 2017,
+                "formations": 4,
+                "mean_gain": -0.31016613432884566
+              },
+              {
+                "year": 2018,
+                "formations": 4,
+                "mean_gain": -0.2973546910483398
+              },
+              {
+                "year": 2019,
+                "formations": 4,
+                "mean_gain": -0.2932948581018481
+              },
+              {
+                "year": 2020,
+                "formations": 4,
+                "mean_gain": -0.26923503987514097
+              },
+              {
+                "year": 2021,
+                "formations": 4,
+                "mean_gain": -0.32997696418245875
+              },
+              {
+                "year": 2022,
+                "formations": 4,
+                "mean_gain": -0.3180471024581413
+              },
+              {
+                "year": 2023,
+                "formations": 4,
+                "mean_gain": -0.3336925172392578
+              },
+              {
+                "year": 2024,
+                "formations": 4,
+                "mean_gain": -0.36786121492475304
+              },
+              {
+                "year": 2025,
+                "formations": 1,
+                "mean_gain": -0.6534214145517924
+              }
+            ],
+            "intervals": [
+              {
+                "block_quarters": 4,
+                "lower": -0.34049279077427685,
+                "upper": -0.30355548784668973
+              },
+              {
+                "block_quarters": 8,
+                "lower": -0.34559848941683435,
+                "upper": -0.3007912030781945
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "change_groups": [
+      {
+        "target": "roa",
+        "horizon": 1,
+        "rows": 106983,
+        "formations": 41,
+        "models": [
+          {
+            "id": "zero",
+            "mae": 10.348459538621901,
+            "rank_ic": null,
+            "direction_accuracy": 6.294256490952007e-06,
+            "negative_share": 0.40373262511918173,
+            "deterioration_precision": null,
+            "deterioration_recall": 0.0,
+            "gain_vs_zero": 0.0,
+            "gain_vs_seasonal": -8.5170227618418
+          },
+          {
+            "id": "seasonal",
+            "mae": 1.8314367767801036,
+            "rank_ic": 0.5527240503551926,
+            "direction_accuracy": 0.8445428994699541,
+            "negative_share": 0.40373262511918173,
+            "deterioration_precision": 0.5476779974150948,
+            "deterioration_recall": 0.5842336993750874,
+            "gain_vs_zero": 8.5170227618418,
+            "gain_vs_seasonal": 0.0
+          },
+          {
+            "id": "level_ridge",
+            "mae": 8.523440480652926,
+            "rank_ic": -0.025765242934447322,
+            "direction_accuracy": 0.7495008503895431,
+            "negative_share": 0.40373262511918173,
+            "deterioration_precision": 0.38780373305727056,
+            "deterioration_recall": 0.38669242305409235,
+            "gain_vs_zero": 1.8250190579689771,
+            "gain_vs_seasonal": -6.692003703872822
+          },
+          {
+            "id": "delta_ridge",
+            "mae": 8.523471878405083,
+            "rank_ic": -0.02579193300984693,
+            "direction_accuracy": 0.7494871940379739,
+            "negative_share": 0.40373262511918173,
+            "deterioration_precision": 0.3877899381412917,
+            "deterioration_recall": 0.38669242305409235,
+            "gain_vs_zero": 1.8249876602168211,
+            "gain_vs_seasonal": -6.692035101624978
+          },
+          {
+            "id": "level_xgb",
+            "mae": 1.4298239372805535,
+            "rank_ic": 0.49260361374513106,
+            "direction_accuracy": 0.8789645338307902,
+            "negative_share": 0.40373262511918173,
+            "deterioration_precision": 0.5871846368407718,
+            "deterioration_recall": 0.3917260370814954,
+            "gain_vs_zero": 8.918635601341348,
+            "gain_vs_seasonal": 0.4016128394995501
+          },
+          {
+            "id": "delta_xgb",
+            "mae": 9.03479803262655,
+            "rank_ic": 0.6019046311897391,
+            "direction_accuracy": 0.8774013810324799,
+            "negative_share": 0.40373262511918173,
+            "deterioration_precision": 0.4932895115329222,
+            "deterioration_recall": 0.3445743170609142,
+            "gain_vs_zero": 1.313661505995353,
+            "gain_vs_seasonal": -7.203361255846447
+          }
+        ]
+      },
+      {
+        "target": "margin",
+        "horizon": 1,
+        "rows": 106878,
+        "formations": 41,
+        "models": [
+          {
+            "id": "zero",
+            "mae": 3.4142258398275587,
+            "rank_ic": null,
+            "direction_accuracy": 0.00016119817670672977,
+            "negative_share": 0.5052293345176814,
+            "deterioration_precision": null,
+            "deterioration_recall": 0.0,
+            "gain_vs_zero": 0.0,
+            "gain_vs_seasonal": 2.197553651220441
+          },
+          {
+            "id": "seasonal",
+            "mae": 5.611779491048001,
+            "rank_ic": 0.19580032584584858,
+            "direction_accuracy": 0.5697372023704637,
+            "negative_share": 0.5052293345176814,
+            "deterioration_precision": 0.5809986358464572,
+            "deterioration_recall": 0.544340713991835,
+            "gain_vs_zero": -2.197553651220441,
+            "gain_vs_seasonal": 0.0
+          },
+          {
+            "id": "level_ridge",
+            "mae": 5.9327813531599425,
+            "rank_ic": 0.09839608741061888,
+            "direction_accuracy": 0.5269880239128448,
+            "negative_share": 0.5052293345176814,
+            "deterioration_precision": 0.5362318687149278,
+            "deterioration_recall": 0.4658377124429705,
+            "gain_vs_zero": -2.5185555133323825,
+            "gain_vs_seasonal": -0.3210018621119412
+          },
+          {
+            "id": "delta_ridge",
+            "mae": 5.932771950236339,
+            "rank_ic": 0.09838807946698996,
+            "direction_accuracy": 0.5269880239128448,
+            "negative_share": 0.5052293345176814,
+            "deterioration_precision": 0.5362318687149278,
+            "deterioration_recall": 0.4658377124429705,
+            "gain_vs_zero": -2.5185461104087805,
+            "gain_vs_seasonal": -0.32099245918833885
+          },
+          {
+            "id": "level_xgb",
+            "mae": 4.914501371251019,
+            "rank_ic": 0.08833168369647726,
+            "direction_accuracy": 0.5237221341662526,
+            "negative_share": 0.5052293345176814,
+            "deterioration_precision": 0.5314223945677402,
+            "deterioration_recall": 0.49990943763253987,
+            "gain_vs_zero": -1.50027553142346,
+            "gain_vs_seasonal": 0.6972781197969814
+          },
+          {
+            "id": "delta_xgb",
+            "mae": 3.5310738511429864,
+            "rank_ic": 0.10630188231432379,
+            "direction_accuracy": 0.530701938190094,
+            "negative_share": 0.5052293345176814,
+            "deterioration_precision": 0.5327688019898668,
+            "deterioration_recall": 0.6395276084666432,
+            "gain_vs_zero": -0.11684801131542676,
+            "gain_vs_seasonal": 2.080705639905015
+          }
+        ]
+      },
+      {
+        "target": "roa",
+        "horizon": 4,
+        "rows": 163948,
+        "formations": 51,
+        "models": [
+          {
+            "id": "zero",
+            "mae": 14.103537418203908,
+            "rank_ic": null,
+            "direction_accuracy": 2.680023710880225e-05,
+            "negative_share": 0.5594339608903433,
+            "deterioration_precision": null,
+            "deterioration_recall": 0.0,
+            "gain_vs_zero": 0.0,
+            "gain_vs_seasonal": 0.0
+          },
+          {
+            "id": "seasonal",
+            "mae": 14.103537418203908,
+            "rank_ic": null,
+            "direction_accuracy": 2.680023710880225e-05,
+            "negative_share": 0.5594339608903433,
+            "deterioration_precision": null,
+            "deterioration_recall": 0.0,
+            "gain_vs_zero": 0.0,
+            "gain_vs_seasonal": 0.0
+          },
+          {
+            "id": "level_ridge",
+            "mae": 75.19085374032001,
+            "rank_ic": 0.278115018920886,
+            "direction_accuracy": 0.580186431581282,
+            "negative_share": 0.5594339608903433,
+            "deterioration_precision": 0.6434906645514845,
+            "deterioration_recall": 0.5636930724333454,
+            "gain_vs_zero": -61.08731632211609,
+            "gain_vs_seasonal": -61.08731632211609
+          },
+          {
+            "id": "delta_ridge",
+            "mae": 75.19260504373896,
+            "rank_ic": 0.2781124987296755,
+            "direction_accuracy": 0.5801839460974026,
+            "negative_share": 0.5594339608903433,
+            "deterioration_precision": 0.6434826288555883,
+            "deterioration_recall": 0.5637053580493462,
+            "gain_vs_zero": -61.089067625535044,
+            "gain_vs_seasonal": -61.089067625535044
+          },
+          {
+            "id": "level_xgb",
+            "mae": 8.157402572345237,
+            "rank_ic": 0.32976749412619266,
+            "direction_accuracy": 0.6090365310589094,
+            "negative_share": 0.5594339608903433,
+            "deterioration_precision": 0.6447022086909441,
+            "deterioration_recall": 0.6860103988671906,
+            "gain_vs_zero": 5.946134845858671,
+            "gain_vs_seasonal": 5.946134845858671
+          },
+          {
+            "id": "delta_xgb",
+            "mae": 13.962979928475574,
+            "rank_ic": 0.31488685042462294,
+            "direction_accuracy": 0.6108979708695012,
+            "negative_share": 0.5594339608903433,
+            "deterioration_precision": 0.5988983351488476,
+            "deterioration_recall": 0.9150993388745953,
+            "gain_vs_zero": 0.1405574897283367,
+            "gain_vs_seasonal": 0.1405574897283367
+          }
+        ]
+      },
+      {
+        "target": "margin",
+        "horizon": 4,
+        "rows": 163867,
+        "formations": 51,
+        "models": [
+          {
+            "id": "zero",
+            "mae": 5.742280944496149,
+            "rank_ic": null,
+            "direction_accuracy": 7.400954913939891e-05,
+            "negative_share": 0.5363221667035422,
+            "deterioration_precision": null,
+            "deterioration_recall": 0.0,
+            "gain_vs_zero": 0.0,
+            "gain_vs_seasonal": 0.0
+          },
+          {
+            "id": "seasonal",
+            "mae": 5.742280944496149,
+            "rank_ic": null,
+            "direction_accuracy": 7.400954913939891e-05,
+            "negative_share": 0.5363221667035422,
+            "deterioration_precision": null,
+            "deterioration_recall": 0.0,
+            "gain_vs_zero": 0.0,
+            "gain_vs_seasonal": 0.0
+          },
+          {
+            "id": "level_ridge",
+            "mae": 150.53859996105595,
+            "rank_ic": 0.07522900083547292,
+            "direction_accuracy": 0.538866167405423,
+            "negative_share": 0.5363221667035422,
+            "deterioration_precision": 0.5589946381370023,
+            "deterioration_recall": 0.7195799682541784,
+            "gain_vs_zero": -144.7963190165598,
+            "gain_vs_seasonal": -144.7963190165598
+          },
+          {
+            "id": "delta_ridge",
+            "mae": 150.53889004735905,
+            "rank_ic": 0.0752209778460569,
+            "direction_accuracy": 0.5388475798749308,
+            "negative_share": 0.5363221667035422,
+            "deterioration_precision": 0.5589827903472373,
+            "deterioration_recall": 0.7195607637065415,
+            "gain_vs_zero": -144.79660910286287,
+            "gain_vs_seasonal": -144.79660910286287
+          },
+          {
+            "id": "level_xgb",
+            "mae": 6.93036491006214,
+            "rank_ic": 0.1658936407607812,
+            "direction_accuracy": 0.549552353897352,
+            "negative_share": 0.5363221667035422,
+            "deterioration_precision": 0.5809860172749878,
+            "deterioration_recall": 0.5870359865780822,
+            "gain_vs_zero": -1.188083965565991,
+            "gain_vs_seasonal": -1.188083965565991
+          },
+          {
+            "id": "delta_xgb",
+            "mae": 6.164539908190215,
+            "rank_ic": 0.1844825889597206,
+            "direction_accuracy": 0.5581419219001761,
+            "negative_share": 0.5363221667035422,
+            "deterioration_precision": 0.5811416185445163,
+            "deterioration_recall": 0.6635053930369375,
+            "gain_vs_zero": -0.42225896369406507,
+            "gain_vs_seasonal": -0.42225896369406507
+          }
+        ]
+      }
+    ],
+    "returns": [
+      {
+        "width": 10,
+        "periods": 26,
+        "dates": [
+          "2015-07-01",
+          "2017-01-03",
+          "2017-07-03",
+          "2017-10-09",
+          "2018-07-02",
+          "2018-10-08",
+          "2019-01-02",
+          "2019-04-01",
+          "2019-10-08",
+          "2020-04-01",
+          "2020-07-01",
+          "2020-10-09",
+          "2021-01-04",
+          "2021-10-08",
+          "2022-01-04",
+          "2022-07-01",
+          "2022-10-10",
+          "2023-07-03",
+          "2023-10-09",
+          "2024-04-01",
+          "2024-10-08",
+          "2025-04-01",
+          "2025-10-09",
+          "2026-01-05",
+          "2026-04-01",
+          "2026-07-01",
+          "2026-09-02"
+        ],
+        "wealth": [
+          1.0,
+          0.7763988620122696,
+          0.8240091470329443,
+          0.8865936607467514,
+          0.7501451998145798,
+          0.7991140390428044,
+          0.7478818216547765,
+          0.866886458699067,
+          0.8493948493373903,
+          0.7755918879426519,
+          0.7835531869303345,
+          0.739964188008665,
+          0.7369964637816889,
+          0.6933684224422694,
+          0.6862358511242099,
+          0.7018168121730171,
+          0.653407757657564,
+          0.7677492491214949,
+          0.7570112883513259,
+          0.8461007304460413,
+          0.9747378296937346,
+          0.999238898248933,
+          0.9347997305460966,
+          0.9802202211857537,
+          0.9699873296622981,
+          0.8586302753495488,
+          0.9590382377497086
+        ],
+        "drawdown": [
+          0.0,
+          -0.2236011379877304,
+          -0.17599085296705574,
+          -0.11340633925324861,
+          -0.24985480018542017,
+          -0.20088596095719558,
+          -0.25211817834522354,
+          -0.133113541300933,
+          -0.1506051506626097,
+          -0.22440811205734812,
+          -0.2164468130696655,
+          -0.26003581199133496,
+          -0.2630035362183111,
+          -0.30663157755773063,
+          -0.31376414887579007,
+          -0.29818318782698294,
+          -0.346592242342436,
+          -0.2322507508785051,
+          -0.24298871164867408,
+          -0.15389926955395872,
+          -0.02526217030626543,
+          -0.0007611017510670282,
+          -0.06520026945390345,
+          -0.019779778814246307,
+          -0.03001267033770194,
+          -0.14136972465045117,
+          -0.040961762250291356
+        ],
+        "total_return": -0.040961762250291356,
+        "max_drawdown": -0.346592242342436,
+        "archived_max_drawdown": -0.2630132758819659,
+        "average_turnover": 0.1376229314572868,
+        "average_cost_drag": 0.0005919608111325
+      },
+      {
+        "width": 20,
+        "periods": 26,
+        "dates": [
+          "2015-07-01",
+          "2017-01-03",
+          "2017-07-03",
+          "2017-10-09",
+          "2018-07-02",
+          "2018-10-08",
+          "2019-01-02",
+          "2019-04-01",
+          "2019-10-08",
+          "2020-04-01",
+          "2020-07-01",
+          "2020-10-09",
+          "2021-01-04",
+          "2021-10-08",
+          "2022-01-04",
+          "2022-07-01",
+          "2022-10-10",
+          "2023-07-03",
+          "2023-10-09",
+          "2024-04-01",
+          "2024-10-08",
+          "2025-04-01",
+          "2025-10-09",
+          "2026-01-05",
+          "2026-04-01",
+          "2026-07-01",
+          "2026-09-02"
+        ],
+        "wealth": [
+          1.0,
+          0.811355706245658,
+          0.8192596851236704,
+          0.8360403415614441,
+          0.6779390952180949,
+          0.6722027141704091,
+          0.6306058883035396,
+          0.7455668962654972,
+          0.6786034741637853,
+          0.620911447865918,
+          0.6325605135286338,
+          0.6353460634945504,
+          0.6500055632767556,
+          0.6215423442456637,
+          0.6323331310968917,
+          0.6473295384691552,
+          0.5956739358336539,
+          0.6449578713187465,
+          0.6451698281710581,
+          0.6890953397621153,
+          0.8043631914487207,
+          0.8230997237742257,
+          0.8421755232501467,
+          0.877207997109113,
+          0.8616284161575385,
+          0.784337316455073,
+          0.881913481574698
+        ],
+        "drawdown": [
+          0.0,
+          -0.188644293754342,
+          -0.18074031487632958,
+          -0.16395965843855587,
+          -0.3220609047819051,
+          -0.3277972858295909,
+          -0.3693941116964604,
+          -0.2544331037345028,
+          -0.3213965258362147,
+          -0.379088552134082,
+          -0.36743948647136615,
+          -0.36465393650544964,
+          -0.3499944367232444,
+          -0.3784576557543363,
+          -0.3676668689031083,
+          -0.3526704615308448,
+          -0.4043260641663461,
+          -0.3550421286812535,
+          -0.35483017182894194,
+          -0.31090466023788466,
+          -0.1956368085512793,
+          -0.1769002762257743,
+          -0.15782447674985334,
+          -0.12279200289088699,
+          -0.1383715838424615,
+          -0.21566268354492701,
+          -0.11808651842530205
+        ],
+        "total_return": -0.11808651842530205,
+        "max_drawdown": -0.4043260641663461,
+        "archived_max_drawdown": -0.2875057503551395,
+        "average_turnover": 0.1718802096805228,
+        "average_cost_drag": 0.0007680548945564
+      },
+      {
+        "width": 30,
+        "periods": 26,
+        "dates": [
+          "2015-07-01",
+          "2017-01-03",
+          "2017-07-03",
+          "2017-10-09",
+          "2018-07-02",
+          "2018-10-08",
+          "2019-01-02",
+          "2019-04-01",
+          "2019-10-08",
+          "2020-04-01",
+          "2020-07-01",
+          "2020-10-09",
+          "2021-01-04",
+          "2021-10-08",
+          "2022-01-04",
+          "2022-07-01",
+          "2022-10-10",
+          "2023-07-03",
+          "2023-10-09",
+          "2024-04-01",
+          "2024-10-08",
+          "2025-04-01",
+          "2025-10-09",
+          "2026-01-05",
+          "2026-04-01",
+          "2026-07-01",
+          "2026-09-02"
+        ],
+        "wealth": [
+          1.0,
+          0.7995925986992971,
+          0.8297563184494036,
+          0.8650457007366373,
+          0.6842069945331122,
+          0.676492898116938,
+          0.6484879807814604,
+          0.7931564818261903,
+          0.6975201314023869,
+          0.6296054928201219,
+          0.6416707489911806,
+          0.6655595710567169,
+          0.6855168957922143,
+          0.6645081368299703,
+          0.6668896945900944,
+          0.6773443826062099,
+          0.6283875887574514,
+          0.676001627855873,
+          0.6770796056438686,
+          0.7073960752165008,
+          0.8635006765192588,
+          0.8690494349309382,
+          0.8727082362657028,
+          0.9151527437854761,
+          0.8999508126879684,
+          0.8105454884709843,
+          0.9112502590991868
+        ],
+        "drawdown": [
+          0.0,
+          -0.2004074013007029,
+          -0.17024368155059644,
+          -0.13495429926336266,
+          -0.3157930054668878,
+          -0.323507101883062,
+          -0.3515120192185396,
+          -0.20684351817380975,
+          -0.3024798685976131,
+          -0.3703945071798781,
+          -0.3583292510088194,
+          -0.3344404289432831,
+          -0.3144831042077857,
+          -0.33549186317002966,
+          -0.3331103054099056,
+          -0.3226556173937901,
+          -0.3716124112425486,
+          -0.32399837214412697,
+          -0.3229203943561314,
+          -0.29260392478349917,
+          -0.13649932348074123,
+          -0.13095056506906178,
+          -0.12729176373429718,
+          -0.08484725621452394,
+          -0.1000491873120316,
+          -0.1894545115290157,
+          -0.08874974090081322
+        ],
+        "total_return": -0.08874974090081322,
+        "max_drawdown": -0.3716124112425486,
+        "archived_max_drawdown": -0.2735787389933938,
+        "average_turnover": 0.2357001464166951,
+        "average_cost_drag": 0.0010855520141347
+      },
+      {
+        "width": 50,
+        "periods": 26,
+        "dates": [
+          "2015-07-01",
+          "2017-01-03",
+          "2017-07-03",
+          "2017-10-09",
+          "2018-07-02",
+          "2018-10-08",
+          "2019-01-02",
+          "2019-04-01",
+          "2019-10-08",
+          "2020-04-01",
+          "2020-07-01",
+          "2020-10-09",
+          "2021-01-04",
+          "2021-10-08",
+          "2022-01-04",
+          "2022-07-01",
+          "2022-10-10",
+          "2023-07-03",
+          "2023-10-09",
+          "2024-04-01",
+          "2024-10-08",
+          "2025-04-01",
+          "2025-10-09",
+          "2026-01-05",
+          "2026-04-01",
+          "2026-07-01",
+          "2026-09-02"
+        ],
+        "wealth": [
+          1.0,
+          0.7729558555163181,
+          0.8027558122794141,
+          0.8320943480075501,
+          0.6254267076291242,
+          0.6147268503946302,
+          0.5890724511338273,
+          0.7427067533149679,
+          0.6105045883747925,
+          0.5543229566655138,
+          0.5773897042281365,
+          0.5999242576811078,
+          0.6121968038401062,
+          0.5870437115638837,
+          0.5828558961215924,
+          0.5814944491359413,
+          0.526319106849892,
+          0.6043846798897887,
+          0.6035372301664275,
+          0.6184385020316141,
+          0.7391683275837103,
+          0.7251040832420806,
+          0.7383757540604159,
+          0.7745475584113442,
+          0.7642025125513199,
+          0.693922035088589,
+          0.7583150477565815
+        ],
+        "drawdown": [
+          0.0,
+          -0.22704414448368193,
+          -0.19724418772058594,
+          -0.1679056519924499,
+          -0.3745732923708758,
+          -0.38527314960536985,
+          -0.41092754886617266,
+          -0.25729324668503206,
+          -0.3894954116252075,
+          -0.4456770433344862,
+          -0.4226102957718635,
+          -0.4000757423188922,
+          -0.3878031961598938,
+          -0.4129562884361163,
+          -0.4171441038784076,
+          -0.4185055508640587,
+          -0.473680893150108,
+          -0.3956153201102113,
+          -0.39646276983357254,
+          -0.3815614979683859,
+          -0.2608316724162897,
+          -0.27489591675791936,
+          -0.2616242459395841,
+          -0.22545244158865585,
+          -0.23579748744868012,
+          -0.30607796491141104,
+          -0.24168495224341846
+        ],
+        "total_return": -0.24168495224341846,
+        "max_drawdown": -0.473680893150108,
+        "archived_max_drawdown": -0.3674766471973242,
+        "average_turnover": 0.2678549998861824,
+        "average_cost_drag": 0.0012469673071232
+      },
+      {
+        "width": 100,
+        "periods": 26,
+        "dates": [
+          "2015-07-01",
+          "2017-01-03",
+          "2017-07-03",
+          "2017-10-09",
+          "2018-07-02",
+          "2018-10-08",
+          "2019-01-02",
+          "2019-04-01",
+          "2019-10-08",
+          "2020-04-01",
+          "2020-07-01",
+          "2020-10-09",
+          "2021-01-04",
+          "2021-10-08",
+          "2022-01-04",
+          "2022-07-01",
+          "2022-10-10",
+          "2023-07-03",
+          "2023-10-09",
+          "2024-04-01",
+          "2024-10-08",
+          "2025-04-01",
+          "2025-10-09",
+          "2026-01-05",
+          "2026-04-01",
+          "2026-07-01",
+          "2026-09-02"
+        ],
+        "wealth": [
+          1.0,
+          0.7377098068524852,
+          0.7686221393038908,
+          0.7925988951923943,
+          0.6017956584934009,
+          0.5781816533392333,
+          0.5491151625251298,
+          0.7294521660333756,
+          0.6032225841984834,
+          0.5529129932644247,
+          0.5919024969870985,
+          0.6356916886716074,
+          0.6416975486622313,
+          0.6577968336725454,
+          0.690650662904713,
+          0.6609732658223996,
+          0.5965093113389365,
+          0.6638556784027253,
+          0.6657585608949423,
+          0.6779163221146044,
+          0.7974421673593812,
+          0.7899927397838797,
+          0.8237008550049368,
+          0.8361899634252405,
+          0.8393538722364654,
+          0.7767771336710934,
+          0.8247490423260079
+        ],
+        "drawdown": [
+          0.0,
+          -0.2622901931475148,
+          -0.23137786069610922,
+          -0.20740110480760565,
+          -0.3982043415065991,
+          -0.4218183466607667,
+          -0.4508848374748702,
+          -0.2705478339666244,
+          -0.3967774158015166,
+          -0.44708700673557533,
+          -0.4080975030129015,
+          -0.3643083113283926,
+          -0.3583024513377687,
+          -0.3422031663274546,
+          -0.309349337095287,
+          -0.33902673417760043,
+          -0.4034906886610635,
+          -0.3361443215972747,
+          -0.33424143910505766,
+          -0.3220836778853956,
+          -0.20255783264061877,
+          -0.21000726021612026,
+          -0.17629914499506316,
+          -0.16381003657475945,
+          -0.1606461277635346,
+          -0.22322286632890664,
+          -0.17525095767399212
+        ],
+        "total_return": -0.17525095767399212,
+        "max_drawdown": -0.4508848374748702,
+        "archived_max_drawdown": -0.3071966591729376,
+        "average_turnover": 0.3146472284016558,
+        "average_cost_drag": 0.0014790053727775
+      }
+    ]
+  }
 }
