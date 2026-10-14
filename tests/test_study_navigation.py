@@ -27,6 +27,14 @@ class StudyNavigationTests(unittest.TestCase):
             for key in ['source_path','private_reproduction','artifact_root','runner','config','symbol','ticker','weights']:
                 self.assertNotIn('"'+key+'"',json.dumps(data))
             self.assertNotIn('/home/',json.dumps(data))
+    def test_employee_input_audit_hashes_follow_browser_navigation_contract(self):
+        data = next(a for a in self.assets if a['study_id'] == 'employee-compensation')
+        self.assertIsInstance(data['reproduction']['artifact_sha256'], dict)
+        self.assertEqual(set(data['reproduction']['artifact_sha256']), {'input_audit'})
+        self.assertEqual(data['reproduction']['status'], 'artifact_verified')
+        self.assertEqual(data['next_tasks'][0]['status'], 'completed')
+        self.assertEqual(data['next_tasks'][1]['status'], 'blocked')
+
     def test_forecast_catalog_task_states_match_detailed_navigation(self):
         study = next(s for s in self.catalog['studies'] if s['id'] == 'fundamental-state-forecasting')
         data = next(a for a in self.assets if a['study_id'] == study['id'])

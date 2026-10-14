@@ -55,7 +55,7 @@
       "public_id": "employee-compensation",
       "source_ref": "doc:quant-research.research.fundamental-research-series",
       "source_status": "active",
-      "publication_status": "hypothesis_only",
+      "publication_status": "preliminary_aggregate",
       "locales": [
         "en-US",
         "zh-CN"
@@ -92,7 +92,7 @@
         "private_code"
       ],
       "exploration_asset": "data/study-exploration/employee-compensation.json",
-      "exploration_reviewed_at": "2026-10-02",
+      "exploration_reviewed_at": "2026-10-14",
       "navigation_asset": "data/study-navigation/employee-compensation.json"
     },
     {

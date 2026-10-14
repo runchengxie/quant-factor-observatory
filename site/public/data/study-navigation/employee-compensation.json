@@ -2,30 +2,30 @@
   "schema_version": "observatory.study_navigation.v1",
   "study_id": "employee-compensation",
   "source_ref": "doc:quant-research.research.fundamental-research-series",
-  "source_revision": "e1984591be37073d9e1b3b1dee8a7e7813652cb3",
+  "source_revision": "e83f2d10a5c45aa4b4bc4b28a288887f86500aa8",
   "reviewed_at": "2026-10-14",
   "authority_ref": "doc:quant-research.research.fundamental-evidence-navigation",
   "trust": [
     {
       "dimension": "announcement_clock",
-      "status": "unverified",
+      "status": "partial",
       "detail": {
-        "en-US": "Not independently qualified in the cited record.",
-        "zh-CN": "引用记录尚未独立完成这一项核查。"
+        "en-US": "The observation ledger uses actual retrieval and disclosure plus one calendar day; the annual snapshot has no original-availability certificate.",
+        "zh-CN": "观测账本按真实获取日与披露日的较晚者加一天确定可见时间；年度快照没有原始可得性凭证。"
       },
       "source_refs": [
-        "doc:quant-research.research.fundamental-research-series"
+        "doc:quant-research.research.employee-cash-input-audit"
       ]
     },
     {
       "dimension": "financial_versions",
-      "status": "unverified",
+      "status": "partial",
       "detail": {
-        "en-US": "Not independently qualified in the cited record.",
-        "zh-CN": "引用记录尚未独立完成这一项核查。"
+        "en-US": "The ledger explicitly declares incomplete historical revisions. Conflicting annual values are excluded; coverage does not establish a complete original-vintage chain.",
+        "zh-CN": "账本明确声明历史修订不完整，年度金额冲突已排除；覆盖率不能证明完整原始版本链。"
       },
       "source_refs": [
-        "doc:quant-research.research.fundamental-research-series"
+        "doc:quant-research.research.employee-cash-input-audit"
       ]
     },
     {
@@ -74,40 +74,68 @@
     }
   ],
   "reproduction": {
-    "run_id": "labor-cost-definition",
-    "status": "not_run",
+    "run_id": "employee-cash-coverage-20261014-v2",
+    "status": "artifact_verified",
     "code_revision": null,
-    "runner_sha256": null,
+    "runner_sha256": "792e0adfe0e2fef957b50351c91fd883de041a5e6d163f85b6c8be7f73be9fd7",
     "data_version": {
-      "en-US": "Definition hypothesis only; no predictive artifact or run is claimed.",
-      "zh-CN": "仅为定义假设，不声称已有预测产物或运行。"
+      "en-US": "Stored statement snapshot audited on 2026-10-14; 59,167 annual candidates. This verifies the input diagnostic, not a predictive experiment.",
+      "zh-CN": "2026-10-14 已存财报快照审计，构建 59,167 条年度候选记录。这里只核验输入诊断，不是预测实验。"
     },
     "missing": {
-      "en-US": "A source entry or artifact hash does not certify a complete rerun; original availability, dependencies and historical eligibility must match.",
-      "zh-CN": "来源入口或产物哈希不等于完整复跑认证；原始可得性、依赖和历史资格必须一致。"
+      "en-US": "Exact reruns require the same immutable input hashes. Original revisions, historical eligibility, controls and all return/execution evidence remain unqualified.",
+      "zh-CN": "精确复跑需要输入哈希一致的不可变快照。原始版本、历史资格、控制变量以及收益和执行证据仍未核验。"
     },
     "source_refs": [
-      "doc:quant-research.research.fundamental-research-series"
+      "doc:quant-research.research.employee-cash-input-audit"
     ],
-    "artifact_sha256": null
+    "artifact_sha256": {
+      "input_audit": "3c29ca2fafab976cf44f9d927e99d6d1435a5bbfcf3adccee12ae0f9dabd132b"
+    }
   },
   "decision": "hypothesis",
   "resume_when": {
-    "en-US": "Distinguish payable balances from labor-cost flows and audit coverage before the first predictive test.",
-    "zh-CN": "先区分应付余额与劳动成本流量，核实覆盖后再做首个预测检验。"
+    "en-US": "After original-version and historical-universe qualification, do cash-expenditure candidates add predictive information beyond industry, size, valuation and profitability on a common sample?",
+    "zh-CN": "原始版本与历史股票池通过核验后，现金支出指标能否在共同样本上提供超出行业、规模、估值和盈利能力的预测信息？"
   },
   "next_tasks": [
     {
       "id": "employee-compensation-qualification",
       "priority": "P0",
-      "status": "ready",
+      "status": "completed",
       "action": {
-        "en-US": "Distinguish payable balances from labor-cost flows and audit coverage before the first predictive test.",
-        "zh-CN": "先区分应付余额与劳动成本流量，核实覆盖后再做首个预测检验。"
+        "en-US": "Audit stored flow and payable population; build annual candidates without current-headcount backfill.",
+        "zh-CN": "审计已存现金流量和应付余额覆盖，构建年度候选指标，不回填当前员工人数。"
       },
       "acceptance": {
-        "en-US": "Retain an immutable audit with the named evidence gap resolved; preserve the previous decision if the gate fails.",
-        "zh-CN": "保留不可变审计并解决上述证据缺口；门槛未通过则保留原判断。"
+        "en-US": "Retained hashed input audit, duplicate/conflict accounting, annual common samples and disclosure limitations; no returns read.",
+        "zh-CN": "已保留输入哈希、重复及冲突统计、年度共同样本与披露限制，没有读取收益。"
+      }
+    },
+    {
+      "id": "employee-original-availability",
+      "priority": "P0",
+      "status": "blocked",
+      "action": {
+        "en-US": "Qualify original financial versions, historical eligibility and dated industry/size/valuation/profitability controls.",
+        "zh-CN": "核验原始财报版本、历史资格及带时点的行业、规模、估值和盈利能力控制变量。"
+      },
+      "acceptance": {
+        "en-US": "An immutable formation panel respects actual observed availability and historical eligibility; unresolved vintage history keeps the return gate closed.",
+        "zh-CN": "不可变形成样本须满足真实观测可见时间和历史资格，版本链未解决则不开放收益检验。"
+      }
+    },
+    {
+      "id": "employee-predictive-test",
+      "priority": "P1",
+      "status": "blocked",
+      "action": {
+        "en-US": "Run the registered four-candidate common-sample return diagnostic after input qualification.",
+        "zh-CN": "输入核验通过后，运行已登记的四项候选指标共同样本收益诊断。"
+      },
+      "acceptance": {
+        "en-US": "Report every candidate against matched controls, annual stability and serial-dependence-aware uncertainty. Portfolio evidence needs separate cost and execution qualification.",
+        "zh-CN": "每项指标均须对照共同控制变量，报告年度稳定性及考虑序列相关性的区间；组合证据另需成本与执行核验。"
       }
     },
     {
@@ -115,12 +143,12 @@
       "priority": "P1",
       "status": "completed",
       "action": {
-        "en-US": "Review the changed series overview and retain its hypothesis classification.",
-        "zh-CN": "复核变化的系列总览，保留研究假设分类。"
+        "en-US": "Review the series overview and new employee cash input audit while retaining the untested return hypothesis.",
+        "zh-CN": "复核系列总览及新增员工现金支出输入审计，收益假设保持未检验。"
       },
       "acceptance": {
-        "en-US": "Content changes are navigation only; no new predictive results. Expense-flow and headcount qualification remains open.",
-        "zh-CN": "内容变化仅涉及导航，没有新增预测结果。费用流量与员工人数核验仍待完成。"
+        "en-US": "Reviewed input coverage, annual construction and aggregate distributions; original financial versions and historical workforce remain unqualified. No predictive results were added.",
+        "zh-CN": "已复核输入覆盖、年度指标构建和汇总分布；原始财报版本与历史人数仍未核验，没有新增预测结果。"
       }
     }
   ],

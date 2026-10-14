@@ -2,12 +2,12 @@
   "schema_version": "observatory.study_exploration.v1",
   "study_id": "employee-compensation",
   "source_ref": "doc:quant-research.research.fundamental-research-series",
-  "source_revision": "e1984591be37073d9e1b3b1dee8a7e7813652cb3",
+  "source_revision": "e83f2d10a5c45aa4b4bc4b28a288887f86500aa8",
   "reviewed_at": "2026-10-14",
   "evidence_stage": "hypothesis",
   "summary": {
-    "en-US": "Accounting stocks and labor-cost flows must be separated before building a predictive test.",
-    "zh-CN": "构建预测检验之前须先区分会计存量与劳动成本流量。"
+    "en-US": "Employee cash disclosures support 59,167 annual candidate records, including 52,203 adjacent-year growth observations. Historical revisions and workforce counts remain unqualified. No returns were read; these are input diagnostics.",
+    "zh-CN": "员工现金支出披露支持构建 59,167 条年度候选记录，其中 52,203 条可计算连续年度增长。历史财报版本与员工人数序列仍未核实。本次没有读取收益，图表仅展示输入核验。"
   },
   "sources": [
     {
@@ -16,6 +16,14 @@
       "label": {
         "en-US": "Authoritative study overview",
         "zh-CN": "权威研究综述"
+      }
+    },
+    {
+      "id": "input-audit",
+      "source_ref": "doc:quant-research.research.employee-cash-input-audit",
+      "label": {
+        "en-US": "Employee cash input audit, 2026-10-14",
+        "zh-CN": "员工现金支出输入审计，2026-10-14"
       }
     }
   ],
@@ -50,28 +58,82 @@
     {
       "id": "coverage",
       "period": {
-        "en-US": "Before experiment",
-        "zh-CN": "实验前"
+        "en-US": "2026-10-14 input audit",
+        "zh-CN": "2026-10-14 输入审计"
       },
-      "status": "pending",
+      "status": "diagnostic",
       "title": {
-        "en-US": "Audit comparable disclosures",
-        "zh-CN": "审计可比披露"
+        "en-US": "Stored cash and payable disclosures are widely populated",
+        "zh-CN": "已存现金支出与应付余额的字段覆盖较高"
       },
       "question": {
         "en-US": "Are labor flows and workforce counts comparable?",
         "zh-CN": "劳动成本流量与人数是否可比？"
       },
       "finding": {
-        "en-US": "Flow disclosures, headcount, outsourcing and capitalization need distinct coverage checks.",
-        "zh-CN": "流量披露、员工人数、外包及资本化需要分别检查覆盖。"
+        "en-US": "Employee cash expenditure is finite in 222,125 of 222,529 stored statements (99.82%); payables in 218,429 of 220,208 (99.19%). Current employee counts are populated in 6,291 of 6,294 company records, but are not a historical workforce series.",
+        "zh-CN": "222,529 条已存现金流量表中，222,125 条有有限的员工现金支出值（99.82%）；220,208 条资产负债表中，218,429 条有应付余额值（99.19%）。6,294 条当前公司资料中有 6,291 条员工人数，但这不是历史人数序列。"
       },
       "decision": {
-        "en-US": "Fix definition and availability before comparing labor efficiency or intensity.",
-        "zh-CN": "先固定定义与可见时间，再比较劳动效率或强度。"
+        "en-US": "Use cash expenditure as a defined flow proxy. Do not label it accrued wages or backfill current headcount. Population among stored rows does not establish historical universe completeness.",
+        "zh-CN": "以现金支出作为定义明确的流量代理，不将其称为应计工资，也不回填当前人数。已存记录的字段覆盖不能证明历史股票池完整。"
       },
       "source_ids": [
-        "overview"
+        "input-audit"
+      ]
+    },
+    {
+      "id": "annual-construction",
+      "status": "diagnostic",
+      "period": {
+        "en-US": "2015–2025 annual statements",
+        "zh-CN": "2015—2025 年报"
+      },
+      "title": {
+        "en-US": "Build matched annual cash candidates",
+        "zh-CN": "构建同年度可比的现金支出指标"
+      },
+      "question": {
+        "en-US": "Can annual cash, revenue and assets form comparable candidate records?",
+        "zh-CN": "年度现金支出、营收和资产能否形成可比候选记录？"
+      },
+      "finding": {
+        "en-US": "The matched nonfinancial annual panel contains 59,167 positive finite records. Conflicting cash, revenue and asset values exclude 57, 453 and 796 source keys, respectively; the exclusions overlap. A further 119 common rows fail positive finite inputs.",
+        "zh-CN": "非金融企业同年度匹配后得到 59,167 条输入为正且有限的记录。现金、营收和资产分别有 57、453、796 个来源键存在金额冲突，已排除；这些排除范围存在重叠。另有 119 条共同样本因输入非正或非有限而排除。"
+      },
+      "decision": {
+        "en-US": "Use annual cash/revenue, cash/assets, cash growth and the revenue-minus-cash growth spread. Growth needs adjacent calendar years; do not turn year-to-date quarters into standalone-quarter values.",
+        "zh-CN": "先使用年度现金支出占营收、占资产、支出增长及营收与支出增长差。增长要求连续年度，不把季度累计数当作单季度值。"
+      },
+      "source_ids": [
+        "input-audit"
+      ]
+    },
+    {
+      "id": "availability",
+      "status": "pending",
+      "period": {
+        "en-US": "Before reading outcomes",
+        "zh-CN": "读取收益之前"
+      },
+      "title": {
+        "en-US": "Qualify original versions and historical eligibility",
+        "zh-CN": "核验原始财报版本与历史资格"
+      },
+      "question": {
+        "en-US": "Does populated data establish what was known at the formation date?",
+        "zh-CN": "字段覆盖高是否证明形成时点已经知道这些信息？"
+      },
+      "finding": {
+        "en-US": "None of the 128 current PIT data partitions exposes compensation fields. The separate statement-observation ledger is completed but explicitly lacks complete historical revisions; availability follows actual retrieval as well as disclosure.",
+        "zh-CN": "128 个当前 PIT 数据分区均未暴露薪酬字段。独立财报观测账本虽已完成，但明确不具备完整历史修订记录；可见时间同时受真实获取日和披露日约束。"
+      },
+      "decision": {
+        "en-US": "Keep the return hypothesis untested until original vintages, dated universe and matched controls are qualified. A recent retrieval must not be assigned an old announcement date as its original availability.",
+        "zh-CN": "原始版本、历史股票池和共同控制变量核验通过前，收益假设保持未检验。不能将近期获取的财报倒填为早年公告时点已知。"
+      },
+      "source_ids": [
+        "input-audit"
       ]
     },
     {
@@ -94,11 +156,12 @@
         "zh-CN": "该家族尚无已发布逐因子预测结果。"
       },
       "decision": {
-        "en-US": "Keep this page at hypothesis status with no performance chart.",
-        "zh-CN": "本页保留假设状态，不绘制绩效图。"
+        "en-US": "The next test is registered, but no performance chart is released. Input coverage and distribution charts do not measure investment performance.",
+        "zh-CN": "后续检验已登记，尚不发布绩效图。输入覆盖和分布图不衡量投资表现。"
       },
       "source_ids": [
-        "overview"
+        "overview",
+        "input-audit"
       ]
     },
     {
@@ -129,10 +192,370 @@
       ]
     }
   ],
-  "charts": [],
+  "charts": [
+    {
+      "id": "disclosure-population",
+      "title": {
+        "en-US": "Stored disclosure population by report year",
+        "zh-CN": "按报告年份查看已存字段覆盖"
+      },
+      "metric": {
+        "en-US": "Finite-value share among stored statement rows",
+        "zh-CN": "已存报表记录中有限值的占比"
+      },
+      "context": {
+        "en-US": "All stored report periods, including duplicate versions. This is not historical universe completeness or return performance. 2026 contains only reports through the second quarter.",
+        "zh-CN": "包含各报告期及重复版本；这不是历史股票池完整率或收益绩效。2026 年仅含截至第二季度的报表。"
+      },
+      "interpretation": {
+        "en-US": "Cash coverage stays high; payables are less complete in early years. High population does not certify original availability.",
+        "zh-CN": "现金支出字段覆盖一直较高，应付余额早期缺失较多。高覆盖不能证明原始时点可得性。"
+      },
+      "unit": "percent",
+      "categories": [
+        {
+          "en-US": "2015",
+          "zh-CN": "2015"
+        },
+        {
+          "en-US": "2016",
+          "zh-CN": "2016"
+        },
+        {
+          "en-US": "2017",
+          "zh-CN": "2017"
+        },
+        {
+          "en-US": "2018",
+          "zh-CN": "2018"
+        },
+        {
+          "en-US": "2019",
+          "zh-CN": "2019"
+        },
+        {
+          "en-US": "2020",
+          "zh-CN": "2020"
+        },
+        {
+          "en-US": "2021",
+          "zh-CN": "2021"
+        },
+        {
+          "en-US": "2022",
+          "zh-CN": "2022"
+        },
+        {
+          "en-US": "2023",
+          "zh-CN": "2023"
+        },
+        {
+          "en-US": "2024",
+          "zh-CN": "2024"
+        },
+        {
+          "en-US": "2025",
+          "zh-CN": "2025"
+        },
+        {
+          "en-US": "2026 (partial)",
+          "zh-CN": "2026（不完整）"
+        }
+      ],
+      "series": [
+        {
+          "id": "cash",
+          "label": {
+            "en-US": "Employee cash expenditure",
+            "zh-CN": "员工现金支出"
+          },
+          "values": [
+            0.9982985963419821,
+            0.9985281883918858,
+            0.9984940666224926,
+            0.998349741080066,
+            0.9985911677052289,
+            0.9993069650017326,
+            0.9976521322472448,
+            0.99705375759224,
+            0.9980867346938775,
+            0.9983671364730148,
+            0.9979343964306371,
+            0.9973492379058979
+          ]
+        },
+        {
+          "id": "payables",
+          "label": {
+            "en-US": "Employee benefits payable",
+            "zh-CN": "应付职工薪酬"
+          },
+          "values": [
+            0.9745065190472721,
+            0.9804832088296656,
+            0.9862627253771618,
+            0.9887704824109087,
+            0.9919035122005695,
+            0.9955592275121347,
+            0.9967654986522911,
+            0.994325290437891,
+            0.9950426416838214,
+            0.996925835788395,
+            0.9965301873698821,
+            0.9967099851949334
+          ]
+        }
+      ],
+      "source_ids": [
+        "input-audit"
+      ]
+    },
+    {
+      "id": "annual-candidates",
+      "title": {
+        "en-US": "Annual candidate sample and growth availability",
+        "zh-CN": "年度候选样本及增长指标覆盖"
+      },
+      "metric": {
+        "en-US": "Matched security/annual-period records",
+        "zh-CN": "同证券、同年度的匹配记录数"
+      },
+      "context": {
+        "en-US": "Annual nonfinancial statements, 2015–2025; positive finite cash, revenue and assets; conflicting source keys excluded. This is not historical universe completeness or a historically tradable stock list.",
+        "zh-CN": "2015—2025 年非金融企业年报，现金、营收和资产均为正且有限，已排除来源金额冲突。这不是历史股票池完整率，也不是历史可交易股票池。"
+      },
+      "interpretation": {
+        "en-US": "59,167 annual records and 52,203 adjacent-year growth records. The first year has zero growth records because 2014 is outside this input snapshot.",
+        "zh-CN": "共 59,167 条年度记录及 52,203 条连续年度增长记录。首年增长记录为零，因为输入快照不含 2014 年。"
+      },
+      "unit": "number",
+      "categories": [
+        {
+          "en-US": "2015",
+          "zh-CN": "2015"
+        },
+        {
+          "en-US": "2016",
+          "zh-CN": "2016"
+        },
+        {
+          "en-US": "2017",
+          "zh-CN": "2017"
+        },
+        {
+          "en-US": "2018",
+          "zh-CN": "2018"
+        },
+        {
+          "en-US": "2019",
+          "zh-CN": "2019"
+        },
+        {
+          "en-US": "2020",
+          "zh-CN": "2020"
+        },
+        {
+          "en-US": "2021",
+          "zh-CN": "2021"
+        },
+        {
+          "en-US": "2022",
+          "zh-CN": "2022"
+        },
+        {
+          "en-US": "2023",
+          "zh-CN": "2023"
+        },
+        {
+          "en-US": "2024",
+          "zh-CN": "2024"
+        },
+        {
+          "en-US": "2025",
+          "zh-CN": "2025"
+        }
+      ],
+      "series": [
+        {
+          "id": "annual",
+          "label": {
+            "en-US": "Annual matched records",
+            "zh-CN": "年度匹配记录"
+          },
+          "values": [
+            4311,
+            4578,
+            4908,
+            5064,
+            5421,
+            5400,
+            5370,
+            5918,
+            6047,
+            6046,
+            6104
+          ]
+        },
+        {
+          "id": "growth",
+          "label": {
+            "en-US": "Adjacent-year growth records",
+            "zh-CN": "连续年度增长记录"
+          },
+          "values": [
+            0,
+            4283,
+            4544,
+            4862,
+            5026,
+            5375,
+            5337,
+            5118,
+            5787,
+            5929,
+            5942
+          ]
+        }
+      ],
+      "source_ids": [
+        "input-audit"
+      ]
+    },
+    {
+      "id": "cash-intensity",
+      "title": {
+        "en-US": "Employee cash expenditure relative to annual revenue",
+        "zh-CN": "年度员工现金支出占营收的分布"
+      },
+      "metric": {
+        "en-US": "Cross-sectional percentiles of annual cash expenditure / annual revenue",
+        "zh-CN": "年度员工现金支出占年度营收的截面分位数"
+      },
+      "context": {
+        "en-US": "The same annual candidate panel, with changing company composition. These are raw descriptive ratios, not wages, an industry-adjusted trend or a return signal.",
+        "zh-CN": "使用上述年度候选样本，公司构成随年份变化。这是原始比率的描述性分布，不是工资、行业调整后的趋势或收益信号。"
+      },
+      "interpretation": {
+        "en-US": "The median moves from 12.41% to 15.95%. Changing coverage and industry mix prevent attributing this to within-firm wage growth. No predictive direction was selected.",
+        "zh-CN": "中位数从 12.41% 变为 15.95%。覆盖与行业构成变化使其不能归因于同一批企业的工资增长，尚未选择预测方向。"
+      },
+      "unit": "percent",
+      "categories": [
+        {
+          "en-US": "2015",
+          "zh-CN": "2015"
+        },
+        {
+          "en-US": "2016",
+          "zh-CN": "2016"
+        },
+        {
+          "en-US": "2017",
+          "zh-CN": "2017"
+        },
+        {
+          "en-US": "2018",
+          "zh-CN": "2018"
+        },
+        {
+          "en-US": "2019",
+          "zh-CN": "2019"
+        },
+        {
+          "en-US": "2020",
+          "zh-CN": "2020"
+        },
+        {
+          "en-US": "2021",
+          "zh-CN": "2021"
+        },
+        {
+          "en-US": "2022",
+          "zh-CN": "2022"
+        },
+        {
+          "en-US": "2023",
+          "zh-CN": "2023"
+        },
+        {
+          "en-US": "2024",
+          "zh-CN": "2024"
+        },
+        {
+          "en-US": "2025",
+          "zh-CN": "2025"
+        }
+      ],
+      "series": [
+        {
+          "id": "p10",
+          "label": {
+            "en-US": "10th percentile",
+            "zh-CN": "第 10 分位"
+          },
+          "values": [
+            0.04550139475478635,
+            0.04560663797909069,
+            0.04367691767603434,
+            0.04620422021987247,
+            0.04968030748468474,
+            0.0486236384998529,
+            0.04734909393390448,
+            0.04970279113937197,
+            0.05428561726713534,
+            0.058021232599009064,
+            0.059289465866043764
+          ]
+        },
+        {
+          "id": "median",
+          "label": {
+            "en-US": "Median",
+            "zh-CN": "中位数"
+          },
+          "values": [
+            0.12414741862833925,
+            0.12600358860001437,
+            0.12527044787610853,
+            0.13165843469252628,
+            0.13493690522490392,
+            0.13167450526523442,
+            0.13465918882333347,
+            0.1452098358322141,
+            0.14908025798284058,
+            0.15561351320103856,
+            0.15946475529927534
+          ]
+        },
+        {
+          "id": "p90",
+          "label": {
+            "en-US": "90th percentile",
+            "zh-CN": "第 90 分位"
+          },
+          "values": [
+            0.27113422036896706,
+            0.2726428123080926,
+            0.27571070759345845,
+            0.29224742116592095,
+            0.2984502817013659,
+            0.2966607125095226,
+            0.30366335815643347,
+            0.34027828813177624,
+            0.34897393564057466,
+            0.3714515835745622,
+            0.3673542358220742
+          ]
+        }
+      ],
+      "source_ids": [
+        "input-audit"
+      ]
+    }
+  ],
   "next_question": {
-    "en-US": "After coverage audit, does a labor flow measure add predictive information beyond basic controls?",
-    "zh-CN": "覆盖审计之后，劳动流量指标能否相对基本控制增加预测信息？"
+    "en-US": "After original-version and historical-universe qualification, do cash-expenditure candidates add predictive information beyond industry, size, valuation and profitability on a common sample?",
+    "zh-CN": "原始版本与历史股票池通过核验后，现金支出指标能否在共同样本上提供超出行业、规模、估值和盈利能力的预测信息？"
   },
   "conclusion_changes": [
     {
@@ -156,6 +579,29 @@
       },
       "source_ids": [
         "overview"
+      ]
+    },
+    {
+      "id": "employee-cash-input-audit-20261014",
+      "kind": "coverage",
+      "period": {
+        "en-US": "2026-10-14",
+        "zh-CN": "2026-10-14"
+      },
+      "before": {
+        "en-US": "Input coverage and a usable labor-flow proxy had not been audited.",
+        "zh-CN": "输入覆盖和可用劳动流量代理尚未审计。"
+      },
+      "trigger": {
+        "en-US": "The stored-disclosure audit and matched annual construction completed with immutable input hashes.",
+        "zh-CN": "已完成存储披露审计与同年度指标构建，并保留输入哈希。"
+      },
+      "after": {
+        "en-US": "Employee cash expenditure supports annual candidate construction. Historical revisions, workforce series and predictive evidence remain unresolved.",
+        "zh-CN": "员工现金支出支持年度候选指标构建；历史财报版本、人数序列和预测证据仍待解决。"
+      },
+      "source_ids": [
+        "input-audit"
       ]
     }
   ]
