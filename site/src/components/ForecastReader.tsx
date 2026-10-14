@@ -14,7 +14,7 @@ export default function ForecastReader({ guide, part = 'intro' }: { guide: Forec
   const periods = cashModel.paired_formations
   const wins = cashModel.win_fraction === null ? null : Math.round(cashModel.win_fraction * periods)
   return <section className="forecast-reader" aria-labelledby={part === 'intro' ? 'forecast-reader-title' : undefined}>
-    {part === 'intro' && <section className="panel"><h2 id="forecast-reader-title">{c.title}</h2><p className="lede">{guide.robustness ? c.latestLead : c.lead}</p><h3>{c.question}</h3><p>{c.setup}</p></section>}
+    {part === 'intro' && <section className="panel"><h2 id="forecast-reader-title">{c.title}</h2><p className="lede">{guide.robustness ? c.latestLead : c.lead}</p>{guide.robustness && <p><a href={`https://github.com/runchengxie/quant-factor-observatory/blob/main/docs/research/financial-candidates-20261014.${locale}.md`}>{c.newStudy}</a></p>}<h3>{c.question}</h3><p>{c.setup}</p></section>}
     {part === 'comparisons' && <section className="panel"><p className="eyebrow">{c.retained}</p><h2>{c.scores}</h2><p>{c.scale}</p><div className="forecast-reader-comparisons">{comparisons.map(item => {
       const group = guide.groups.find(g => g.target === item.target && g.horizon === 1)!
       const methods = [{ label: c.latest, value: group.models.find(m => m.id === 'persistence')!.mean_rank_ic }, { label: c.learned, value: group.models.find(m => m.id === item.model)!.mean_rank_ic }]
