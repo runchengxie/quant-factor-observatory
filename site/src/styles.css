@@ -496,3 +496,4 @@
 .jump-comparison-svg{display:block;width:100%;min-width:640px;margin:14px 0}
 .shape-page .panel-note{line-height:1.7}
 @media(max-width:700px){.shape-page .exploration-controls label{flex-basis:100%}.shape-page .exploration-controls input,.shape-page .exploration-controls select{max-width:100%;width:100%}.shape-page .shape-checkbox input{width:auto}.shape-page .panel{min-width:0}}
+:root[data-theme="dark"] .shape-page{--ink:#e9edf4;--ink-soft:#d0d7e2;--muted:#a8b0bf;--surface:#131a27;--paper:#0f151f;--rule:#303a4d;--rule-soft:#263043}

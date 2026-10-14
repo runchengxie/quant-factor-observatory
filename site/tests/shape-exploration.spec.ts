@@ -104,3 +104,22 @@ test('Hermite single-date ranges keep isolated observations visible on the chart
   await expect(page.locator('.shape-trend svg circle')).toHaveCount(1)
   await expect(page.locator('.shape-trend svg circle title')).toContainText('2026-06-02')
 })
+
+test('dark shape explorers retain readable chart labels, row labels and date inputs', async ({ page }) => {
+  await page.addInitScript(() => localStorage.setItem('quant-factor-theme', 'dark'))
+  const contrast = async (selector: string, background: string) => page.locator(selector).first().evaluate((element, bgSelector) => {
+    const rgb = (value: string) => (value.match(/[\d.]+/g) ?? []).slice(0, 3).map(Number)
+    const luminance = (value: string) => rgb(value).map(v => { const s = v / 255; return s <= .04045 ? s / 12.92 : ((s + .055) / 1.055) ** 2.4 }).reduce((sum, v, i) => sum + v * [.2126, .7152, .0722][i], 0)
+    const style = getComputedStyle(element)
+    const fg = luminance(element.tagName.toLowerCase() === 'text' ? style.fill : style.color)
+    const bg = luminance(getComputedStyle(document.querySelector(bgSelector)!).backgroundColor)
+    return (Math.max(fg, bg) + .05) / (Math.min(fg, bg) + .05)
+  }, background)
+  await page.goto('jumps')
+  await expect(page.locator('.jump-comparison-svg')).toBeVisible()
+  expect(await contrast('.jump-comparison-svg text', '.shape-comparison')).toBeGreaterThanOrEqual(4.5)
+  expect(await contrast('.shape-table th[scope="row"]', '.shape-comparison')).toBeGreaterThanOrEqual(4.5)
+  await page.goto('hermite')
+  await expect(page.locator('input[type="date"]').first()).toBeVisible()
+  expect(await contrast('input[type="date"]', 'input[type="date"]')).toBeGreaterThanOrEqual(4.5)
+})
