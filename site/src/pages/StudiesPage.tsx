@@ -78,6 +78,8 @@ export function StudyDetailPage({ study, updatedAt, rdAnnual, catalog }: { catal
   const content = localizedStudy(study, locale)
   const rdGuide = rdInvestmentCopy[locale]
   const forecast = study.id === 'fundamental-state-forecasting'
+  const updatedDate = new Date(updatedAt)
+  const displayUpdatedAt = forecast && Number.isFinite(updatedDate.getTime()) ? new Intl.DateTimeFormat(locale, { dateStyle: 'long', timeZone: 'UTC' }).format(updatedDate) : updatedAt
   const exploration = <Suspense fallback={<p className="panel">{copy.studyExploration.loading}</p>}><StudyExploration study={study} /></Suspense>
   const records = <>
     <div className="study-columns"><section className="panel"><p className="eyebrow">{copy.studies.highlights}</p><h2>{copy.studies.whatCan}</h2><ul>{content.findings.map((item) => <li key={item}>{item}</li>)}</ul></section><section className="panel"><p className="eyebrow">{copy.studies.limitsLabel}</p><h2>{english ? 'What this evidence does not establish' : '还不能据此推断什么'}</h2><ul>{content.limits.map((item) => <li key={item}>{item}</li>)}</ul></section></div>
@@ -95,7 +97,7 @@ export function StudyDetailPage({ study, updatedAt, rdAnnual, catalog }: { catal
   </>
   return <main className="page study-page">
     <a className="back" href={`${import.meta.env.BASE_URL}studies`}>← {english ? 'All studies' : '全部研究专题'}</a>
-    <section className="detail-head"><p className="eyebrow">{content.family}</p><h1>{content.title}</h1><p className="lede">{forecast ? forecastReaderCopy[locale].summary : content.summary}</p><div className="detail-tags"><span className={`study-status study-status-${study.status}`}>{content.status_label}</span><span className="tag">{copy.studies.updated} {updatedAt}</span>{!forecast && taxonomyLabels(study, copy.studyTaxonomy).map((label) => <span className="tag" key={label}>{label}</span>)}</div></section>
+    <section className="detail-head"><p className="eyebrow">{content.family}</p><h1>{content.title}</h1><p className="lede">{forecast ? forecastReaderCopy[locale].summary : content.summary}</p><div className="detail-tags"><span className={`study-status study-status-${study.status}`}>{content.status_label}</span><span className="tag">{copy.studies.updated} {displayUpdatedAt}</span>{!forecast && taxonomyLabels(study, copy.studyTaxonomy).map((label) => <span className="tag" key={label}>{label}</span>)}</div></section>
     {forecast && exploration}
     {forecast ? <details className="forecast-study-records"><summary>{forecastReaderCopy[locale].records}</summary>{records}</details> : records}
     {catalog && <StudyConnections study={study} catalog={catalog} />}
