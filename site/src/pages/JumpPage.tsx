@@ -1,3 +1,4 @@
+import { ResearchStudiesLink } from '../components/ResearchExplorationEntries'
 import { useEffect, useRef, useState } from 'react'
 import BarChart from '../components/BarChart'
 import ContextStrip from '../components/ContextStrip'
@@ -112,6 +113,7 @@ export default function JumpPage({ snapshot, riskHistory }: { snapshot: Snapshot
 
   if (mode === 'historical') return <main className="page shape-page">
     <a className="back" href={import.meta.env.BASE_URL}>{copy.back}</a>
+    <ResearchStudiesLink />
     <section className="detail-head"><p className="eyebrow">{copy.eyebrow}</p><h1>{copy.title}</h1><p className="lede">{copy.lede}</p><span className="badge">{riskHistoryCopy[locale].archived}</span></section>
     <RiskModePanel mode={mode} onMode={onMode} unavailable={!history} onRetry={() => { void loadRiskHistory().then(setHistory) }} />
     {history && <><HistoricalJumpPanel history={history} granularity={granularity} setGranularity={setGranularity} period={activePeriod} setPeriod={setPeriod} component={component} setComponent={setComponent} /><p className="panel-note"><a href={import.meta.env.BASE_URL + 'quality'}>{riskHistoryCopy[locale].source}</a> · <a href={import.meta.env.BASE_URL + 'studies'}>{riskHistoryCopy[locale].studies}</a></p></>}
@@ -119,6 +121,7 @@ export default function JumpPage({ snapshot, riskHistory }: { snapshot: Snapshot
 
   return <main className="page shape-page">
     <a className="back" href={import.meta.env.BASE_URL}>{copy.back}</a>
+    <ResearchStudiesLink />
     <section className="detail-head"><p className="eyebrow">{copy.eyebrow}</p><h1>{copy.title}</h1><p className="lede">{copy.lede}</p><span className="badge">{snapshot.source === 'demo' ? copy.demo : `${snapshot.source} · ${dataset?.name ?? ''}`}</span></section>
     <RiskModePanel mode={mode} onMode={onMode} />
     <section className="panel research-verdict"><h2>{copy.conclusionLabel}</h2><p className="lede">{copy.conclusion}</p><p className="panel-note">{copy.boundary}</p></section>

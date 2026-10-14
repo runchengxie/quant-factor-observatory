@@ -1,3 +1,4 @@
+import ResearchExplorationEntries from '../components/ResearchExplorationEntries'
 import { lazy, Suspense, useState } from 'react'
 import { StudyConnections, SourceReviewWarning, StudyEvidenceSummary, StudyFilters, filterStudies } from '../components/ResearchEvidenceHub'
 import type { RdAnnualEvidence, Study, StudyCatalog, StudySeries } from '../types'
@@ -30,6 +31,7 @@ export function StudiesPage({ catalog }: { catalog: StudyCatalog }) {
     <section className="detail-head"><p className="eyebrow">FACTOR RESEARCH / STUDIES</p><h1>{english ? 'Research studies' : '因子研究专题'}</h1><p className="lede">{english ? 'Review research hypotheses and historical evidence with explicit data definitions, validation status, and open questions.' : '从研究假设到历史证据，逐项标明数据口径、检验状态和仍待解决的问题。'}</p><span className="badge">{english ? 'Updated' : '更新于'} {catalog.updated_at}</span></section>
     <p>{copy.researchHub.indexNote}</p>
     <p className="panel-note">{english ? 'Reading the tags: “cross-sectional” compares stocks on the same date; a “portfolio replay” rebuilds holdings from historical rules; a “prospective holdout” is a future period kept aside until the method is fixed. These labels describe how a study was checked, not how strong its conclusion is.' : '标签这样理解：“截面排序”是在同一天比较不同股票；“组合回放”是按历史规则重建持仓；“前瞻留出期”是先封存、等方法固定后再检验的未来区间。这些标签说明研究怎样检查，不代表结论有多可靠。'}</p>
+    <ResearchExplorationEntries />
     <StudyFilters studies={catalog.studies} query={query} market={market} stage={stage} setQuery={setQuery} setMarket={setMarket} setStage={setStage} />
     <p className="study-navigation-links"><a href={href('evidence')}>{copy.researchHub.evidenceLink}</a><a href={href('compare')}>{copy.researchHub.compare}</a></p>
     <p className="panel-note"><a href={import.meta.env.BASE_URL + 'quality'}>{riskText.studyQualityLink}</a></p>

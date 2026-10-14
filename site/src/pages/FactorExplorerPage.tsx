@@ -1,3 +1,4 @@
+import { Alpha810CatalogEntry } from '../components/ResearchExplorationEntries'
 import { useMemo, useState } from 'react'
 import { filterResearchRecords, sortResearchRecords } from '../research'
 import { localizeFactorRecord, localizedStatus } from '../researchLocale'
@@ -61,6 +62,7 @@ export default function FactorExplorerPage({ records, context }: { records: Fact
     <section className="detail-head explorer-head"><p className="eyebrow">FACTOR EXPLORER</p><h1>{english ? 'Factor catalog' : '因子目录'}</h1><p className="lede">{copy.factor.catalogLede}</p><span className="badge">{copy.factor.catalogBadge} · {localizedRecords.length} {english ? 'ENTRIES' : '个条目'}</span></section>
     <ContextStrip items={[{ label: english ? 'Market data' : '市场数据', value: context.source }, { label: english ? 'Sample range' : '样本区间', value: context.snapshotRange }, { label: english ? 'Sample universe' : '样本股票池', value: context.universe }, { label: 'PIT', value: english ? context.pitStatus : '此市场示例未验证 PIT' }]} />
     <p className="context-note">{english ? 'This market sample is an illustration. The financial-data page uses a separate point-in-time (PIT) snapshot, showing what was available on each historical date. The two datasets cover different records, so their valid-value counts cannot be compared directly.' : '这里的市场样本用于演示。基本面页面使用另一份点时（PIT）快照，按历史日期展示当时可用的信息。两份数据覆盖的记录不同，因此有效值数量不能直接比较。'} <a href={`${import.meta.env.BASE_URL}fundamentals`}>{english ? 'View financial-data snapshot →' : '查看基本面数据 →'}</a></p>
+    <Alpha810CatalogEntry />
     <section className="panel explorer-panel">
       <div className="explorer-toolbar">
         <label className="search-field"><span>{english ? 'Search' : '搜索'}</span><input value={filters.query} onChange={(event) => changeFilters({ query: event.target.value })} placeholder={english ? 'Factor name, definition, input…' : '因子名、定义、输入字段…'} /></label>
