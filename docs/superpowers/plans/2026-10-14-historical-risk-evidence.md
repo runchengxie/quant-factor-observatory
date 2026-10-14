@@ -40,7 +40,7 @@
 
 **Interfaces:**
 - Consumes: aligned wide date-by-security DataFrames for `realized_variance`, `ivhat`, `rjv`, `rljv`, `rsjv`, `realized_skewness` and `realized_kurtosis`.
-- Produces: `build_risk_history(panels: Mapping[str, DataFrame], *, review_date: date, owner_revision: str) -> dict[str, object]`; returned object is private calculation output and includes the public projection candidate plus a complete private receipt.
+- Produces: `build_risk_history(panels: Mapping[str, DataFrame], *, review_date: date, owner_revision: str, source_metadata: Mapping[str, object]) -> dict[str, object]`; `source_metadata` contains the stable source ID, seven input content hashes, units and key schema; returned object includes the public projection candidate plus the private receipt.
 
 - [ ] **Step 1: Write failing fixture tests** for key alignment, duplicate keys, missing/nonfinite/negative values, zero RV, raw IVhat above RV, additive residual, pooled versus median shares, period counts, rolling warm-up, tail-limited sensitivity and paired rank-correlation cohort.
 - [ ] **Step 2: Run the focused tests** with `uv run --locked --extra dev python -m pytest tests/strategy_research/test_historical_risk_history.py -q`; confirm failures identify the absent calculation API.
@@ -58,7 +58,7 @@
 
 **Interfaces:**
 - Consumes: `build_risk_history` from Task 1 and the five audited retained wide panels.
-- Produces: task-scoped private receipt under `DATA_ROOT/quant/quant-research/research/historical-risk-<task-id>/`, source hashes, owner code revision, key schemas, units, source coverage, commands and known limits; no `current`/`latest` alias is updated.
+- Produces: task-scoped private receipt under `DATA_ROOT/quant/quant-research/research/historical-risk-<task-id>/`, seven source hashes, owner code revision, key schemas, units, source coverage, commands and known limits; no `current`/`latest` alias is updated.
 
 - [ ] **Step 1: Add CLI tests** for missing inputs, malformed panel schemas, stable receipt fields and task-specific output paths.
 - [ ] **Step 2: Run the focused tests** and confirm the runner and receipt contract are absent.
