@@ -8,6 +8,12 @@ test.beforeEach(async ({ page }) => {
 test('forecast guide explains matched gains, keeps forecasts separate from returns and switches locale', async ({ page }) => {
   await page.goto('/studies/fundamental-state-forecasting')
   const guide = page.locator('.forecast-guide')
+  await expect(guide.getByRole('heading', { name: 'Can today’s financial reports help us predict the next ones?' })).toBeVisible()
+  await expect(guide.getByRole('table', { name: 'Gain over the latest reported value' })).toBeHidden()
+  await expect(guide.locator('.forecast-reader')).toContainText('omitted third-fiscal-quarter reports')
+  await expect(guide.locator('[data-reader-target="roa"]')).toContainText('0.840')
+  await expect(guide.locator('[data-reader-target="roa"]')).toContainText('0.819')
+  await guide.getByText('Explore all charts, numbers and forecasting methods', { exact: true }).click()
   await expect(guide.getByRole('heading', { name: 'What the forecasts add' })).toBeVisible()
   await expect(guide.getByRole('table', { name: 'Gain over the latest reported value' })).toBeVisible()
   await expect(guide.locator('[data-cell="roa-1-pairwise"]')).toHaveText('-0.021')
@@ -20,7 +26,7 @@ test('forecast guide explains matched gains, keeps forecasts separate from retur
   await expect(guide.locator('[data-cell="roa-1-pairwise"]')).toHaveText('-0.021')
   await expect(guide).toContainText('经营现金流占营收的比例')
   await page.reload()
-  await expect(guide.getByRole('heading', { name: '这些预测多告诉了我们什么' })).toBeVisible()
+  await expect(guide.getByRole('heading', { name: '用今天的财报，能猜到公司下一份财报怎么样吗' })).toBeVisible()
 })
 
 test('mobile forecast guide contains scrollable comparisons without page overflow', async ({ page }) => {
@@ -28,7 +34,9 @@ test('mobile forecast guide contains scrollable comparisons without page overflo
   await page.goto('/studies/fundamental-state-forecasting')
   await expect(page.locator('.forecast-guide')).toBeVisible()
   expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
-  await expect(page.locator('.forecast-guide .table-scroll').first()).toBeVisible()
+  await expect(page.locator('.forecast-reader')).toContainText('22 / 41')
+  await page.getByText('Explore all charts, numbers and forecasting methods', { exact: true }).click()
+  await expect(page.getByRole('table', { name: 'Gain over the latest reported value', exact: true })).toBeVisible()
 })
 
 test('malformed guide preserves the study and offers a retry', async ({ page }) => {
@@ -43,7 +51,7 @@ test('malformed guide preserves the study and offers a retry', async ({ page }) 
   await expect(page.getByRole('button', { name: 'Retry' }).last()).toBeVisible()
 })
 
-for (const defect of ['duplicate widths', 'invalid annual range', 'duplicate change models']) {
+for (const defect of ['duplicate widths', 'invalid annual range', 'duplicate change models', 'oversized formation count', 'inconsistent annual count']) {
   test(`invalid ${defect} shows a retry instead of crashing`, async ({ page }) => {
     await page.route('**/data/study-exploration/fundamental-state-forecasting.json', async route => {
       const data = await (await route.fetch()).json()
@@ -52,7 +60,60 @@ for (const defect of ['duplicate widths', 'invalid annual range', 'duplicate cha
         data.guide.groups[0].models[3].annual[0].year = 0
         data.guide.groups[0].models[3].annual.at(-1).year = 1e12
       }
+      if (defect === 'oversized formation count') data.guide.groups[0].models[0].paired_formations = 1e11
+      if (defect === 'inconsistent annual count') data.guide.groups[0].models[0].annual[0].formations += 1
       if (defect === 'duplicate change models') data.guide.change_groups[0].models = data.guide.change_groups[0].models.map(() => data.guide.change_groups[0].models[0])
+      await route.fulfill({ json: data })
+    })
+    await page.goto('/studies/fundamental-state-forecasting')
+    await expect(page.getByRole('button', { name: 'Retry' }).last()).toBeVisible()
+    await expect(page.locator('h1')).toContainText('Fundamental-state forecasting')
+  })
+}
+
+
+test('unavailable win fraction remains unavailable and all details remain readable on mobile', async ({ page }) => {
+  await page.route('**/data/study-exploration/fundamental-state-forecasting.json', async route => {
+    const data = await (await route.fetch()).json()
+    data.guide.groups.find((g: { target: string; horizon: number }) => g.target === 'cash_conversion' && g.horizon === 1).models.find((m: { id: string }) => m.id === 'pairwise').win_fraction = null
+    await route.fulfill({ json: data })
+  })
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/studies/fundamental-state-forecasting')
+  await expect(page.locator('.forecast-reader-periods')).toHaveCount(0)
+  await expect(page.locator('.forecast-reader')).toContainText('The share of winning periods is unavailable')
+  await page.getByText('Explore all charts, numbers and forecasting methods', { exact: true }).click()
+  await page.getByText('Read the earlier comparisons and research history', { exact: true }).click()
+  await page.getByText('Study records, evidence limits and related research', { exact: true }).click()
+  await expect(page.getByRole('heading', { name: 'Data trust card' })).toBeVisible()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+})
+
+
+test('new decline view shows false alarms, misses and prevalence and retains every treatment', async ({ page }) => {
+  await page.goto('/studies/fundamental-state-forecasting')
+  const panel = page.locator('.forecast-robustness')
+  await expect(panel.getByRole('heading', { name: 'When the model flags a decline, what actually happens?' })).toBeVisible()
+  await expect(panel.locator('.forecast-confusion article')).toHaveCount(4)
+  await expect(panel).toContainText('Share of rows with this actual decline')
+  await panel.getByLabel('Choose a financial measure').selectOption('reported_roa')
+  await expect(panel).toContainText('prior-year comparable fiscal quarter')
+  await panel.getByLabel('How far ahead').selectOption('4')
+  await panel.getByLabel('Count a decline of at least').selectOption('2')
+  await panel.getByText('All methods, extreme-value sensitivities and decline counts', { exact: true }).click()
+  await expect(panel.locator('.forecast-full-details > details')).toHaveCount(18)
+  await page.getByRole('button', { name: 'Switch to 中文' }).click()
+  await expect(panel.getByRole('heading', { name: '模型提醒要下降，后来真的下降了吗' })).toBeVisible()
+  await expect(panel).toContainText('买入日缺少行情')
+})
+
+for (const defect of ['inconsistent decline counts', 'duplicate robustness groups', 'negative forecast error']) {
+  test(`invalid ${defect} preserves the study and offers retry`, async ({ page }) => {
+    await page.route('**/data/study-exploration/fundamental-state-forecasting.json', async route => {
+      const data = await (await route.fetch()).json()
+      if (defect === 'inconsistent decline counts') data.guide.robustness.groups[0].models[0].thresholds[0].false_positive += 1
+      if (defect === 'duplicate robustness groups') data.guide.robustness.groups[0] = data.guide.robustness.groups[1]
+      if (defect === 'negative forecast error') data.guide.robustness.groups[0].models[0].raw_mae = -1
       await route.fulfill({ json: data })
     })
     await page.goto('/studies/fundamental-state-forecasting')

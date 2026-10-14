@@ -1,3 +1,4 @@
+import { isForecastRobustness, type ForecastRobustnessData } from './forecastRobustness'
 import type { BilingualText } from './studyExploration'
 
 export type ForecastInterval = { block_quarters: number; lower: number | null; upper: number | null }
@@ -6,7 +7,7 @@ export type ForecastGroup = { target: string; horizon: number; rows: number; rep
 export type ChangeModel = { id: string; mae: number | null; rank_ic: number | null; direction_accuracy: number | null; negative_share: number | null; deterioration_precision: number | null; deterioration_recall: number | null; gain_vs_zero: number | null; gain_vs_seasonal: number | null }
 export type ChangeGroup = { target: string; horizon: number; rows: number; formations: number; models: ChangeModel[] }
 export type ReturnGroup = { width: number; periods: number; dates: string[]; wealth: number[]; drawdown: number[]; total_return: number; max_drawdown: number; archived_max_drawdown: number; average_turnover: number; average_cost_drag: number }
-export type ForecastGuideData = { schema_version: string; source_ids: string[]; reviewed_at: string; paragraphs: BilingualText[]; groups: ForecastGroup[]; change_groups: ChangeGroup[]; returns: ReturnGroup[] }
+export type ForecastGuideData = { schema_version: string; source_ids: string[]; reviewed_at: string; paragraphs: BilingualText[]; groups: ForecastGroup[]; change_groups: ChangeGroup[]; returns: ReturnGroup[]; robustness?: ForecastRobustnessData }
 
 const finite = (v: unknown): v is number => typeof v === 'number' && Number.isFinite(v)
 const numeric = (v: unknown) => v === null || finite(v)
@@ -26,7 +27,9 @@ function forecastGroup(g: ForecastGroup) {
   if (!g || !targets.includes(g.target) || ![1, 2, 4].includes(g.horizon) || !count(g.rows) || !date(g.report_start) || !date(g.report_end) || g.report_start > g.report_end || !Array.isArray(g.models) || g.models.length !== 5 || !unique(g.models.map(m => m?.id))) return false
   const firstYear = Number(g.report_start.slice(0, 4)), lastYear = Number(g.report_end.slice(0, 4))
   if (firstYear < 1900 || lastYear > 2100 || lastYear - firstYear > 100) return false
-  return g.models.every(m => m && models.includes(m.id) && numeric(m.mean_rank_ic) && numeric(m.mean_gain) && count(m.paired_formations) && rate(m.win_fraction) && intervals(m.intervals) && Array.isArray(m.annual) && m.annual.length > 0 && m.annual.every((a, index) => a && count(a.year) && a.year >= firstYear && a.year <= lastYear && (index === 0 || a.year > m.annual[index - 1].year) && count(a.formations) && numeric(a.mean_gain)))
+  const quarter = (d: string) => Math.floor((Number(d.slice(5, 7)) - 1) / 3)
+  const maximumFormations = (lastYear - firstYear) * 4 + quarter(g.report_end) - quarter(g.report_start) + 1
+  return g.models.every(m => m && models.includes(m.id) && numeric(m.mean_rank_ic) && numeric(m.mean_gain) && count(m.paired_formations) && m.paired_formations <= maximumFormations && rate(m.win_fraction) && intervals(m.intervals) && Array.isArray(m.annual) && m.annual.length > 0 && m.annual.every((a, index) => a && count(a.year) && a.year >= firstYear && a.year <= lastYear && (index === 0 || a.year > m.annual[index - 1].year) && count(a.formations) && a.formations <= 4 && numeric(a.mean_gain)) && m.annual.reduce((total, a) => total + a.formations, 0) === m.paired_formations)
 }
 
 function changeGroup(g: ChangeGroup) {
@@ -44,5 +47,6 @@ export function isForecastGuide(value: unknown): value is ForecastGuideData {
   if (!Array.isArray(d.paragraphs) || !d.paragraphs.length || !d.paragraphs.every(p => p && typeof p['en-US'] === 'string' && typeof p['zh-CN'] === 'string')) return false
   if (!Array.isArray(d.groups) || d.groups.length !== 12 || !d.groups.every(forecastGroup) || !unique(d.groups.map(g => `${g.target}-${g.horizon}`))) return false
   if (!Array.isArray(d.change_groups) || d.change_groups.length !== 4 || !d.change_groups.every(changeGroup) || !unique(d.change_groups.map(g => `${g.target}-${g.horizon}`))) return false
+  if (d.robustness !== undefined && !isForecastRobustness(d.robustness)) return false
   return Array.isArray(d.returns) && d.returns.length === 5 && d.returns.every(returnGroup) && unique(d.returns.map(g => g.width))
 }

@@ -1,5 +1,6 @@
+import { forecastReaderCopy } from '../forecastReaderCopy'
 import ForecastGuide from './ForecastGuide'
-import { useEffect, useState } from 'react'
+import { Fragment, useEffect, useState } from 'react'
 import { useLocale } from '../i18n'
 import type { Study } from '../types'
 import { isStudyExploration, type StudyExplorationData } from '../studyExploration'
@@ -10,11 +11,13 @@ function ExplorationContent({ data }: { data: StudyExplorationData }) {
   const labels = copy.studyExploration
   const [chartId, setChartId] = useState(data.charts[0]?.id ?? '')
   const chart = data.charts.find((c) => c.id === chartId) ?? data.charts[0]
+  const Archive = data.guide ? 'details' : Fragment
   const sourceLink = (id: string) => `#study-source-${data.study_id}-${id}`
   const sourceNames = (ids: string[]) => <span className="study-evidence-sources">{labels.source}: {ids.map((id) => <a key={id} href={sourceLink(id)}>{data.sources.find((s) => s.id === id)?.label[locale]}</a>)}</span>
   return <section className="study-exploration" aria-labelledby="study-exploration-title">
-    <section className="panel study-exploration-head"><p className="eyebrow">{labels.eyebrow}</p><h2 id="study-exploration-title">{labels.title}</h2><p>{data.summary[locale]}</p><nav className="study-exploration-nav" aria-label={labels.navigation}><a href="#study-exploration-comparison">{labels.comparison}</a><a href="#study-exploration-path">{labels.path}</a><a href="#study-exploration-sources">{labels.sources}</a></nav></section>
     {data.guide && <ForecastGuide guide={data.guide} exploration={data} />}
+    <Archive {...(data.guide ? { className: 'forecast-archive' } : {})}>{data.guide && <summary>{forecastReaderCopy[locale].archive}</summary>}
+    <section className="panel study-exploration-head"><p className="eyebrow">{labels.eyebrow}</p><h2 id="study-exploration-title">{labels.title}</h2><p>{data.summary[locale]}</p><nav className="study-exploration-nav" aria-label={labels.navigation}><a href="#study-exploration-comparison">{labels.comparison}</a><a href="#study-exploration-path">{labels.path}</a><a href="#study-exploration-sources">{labels.sources}</a></nav></section>
     <section className="panel study-exploration-comparison" id="study-exploration-comparison" aria-labelledby="study-comparison-title">
       <h2 id="study-comparison-title">{labels.comparison}</h2>
       {chart ? <>
@@ -31,6 +34,7 @@ function ExplorationContent({ data }: { data: StudyExplorationData }) {
     </li>)}</ol><div className="study-next-question"><strong>{labels.nextQuestion}</strong><p>{data.next_question[locale]}</p></div></section>
     {!!data.conclusion_changes?.length && <section className="panel study-conclusion-changes"><h2>{copy.researchHub.changes}</h2>{data.conclusion_changes.map(change => <article className="hub-change" key={change.id}><p>{change.period[locale]}</p><dl><dt>{copy.researchHub.before}</dt><dd>{change.before[locale]}</dd><dt>{copy.researchHub.trigger}</dt><dd>{change.trigger[locale]}</dd><dt>{copy.researchHub.after}</dt><dd>{change.after[locale]}</dd></dl>{sourceNames(change.source_ids)}</article>)}</section>}
     <details className="panel study-exploration-sources" id="study-exploration-sources"><summary>{labels.sources}</summary><p className="panel-note">{labels.sourceNote} · {labels.reviewed}: {data.reviewed_at}</p><ul>{data.sources.map((source) => <li id={`study-source-${data.study_id}-${source.id}`} key={source.id}><strong>{source.label[locale]}</strong><code>{source.source_ref}</code></li>)}</ul><small>{labels.sourceRevision}: <code>{data.source_revision.slice(0, 12)}</code></small></details>
+    </Archive>
   </section>
 }
 

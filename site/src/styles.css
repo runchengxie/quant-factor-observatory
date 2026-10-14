@@ -442,3 +442,38 @@
 .forecast-guide code { overflow-wrap: anywhere; }
 @media (max-width: 760px) { .forecast-workflow { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
 @media (max-width: 460px) { .forecast-workflow { grid-template-columns: 1fr; } .forecast-guide .exploration-controls { display: grid; } .forecast-guide select { max-width: 100%; } }
+
+.forecast-reader { display: grid; gap: 1.25rem; min-width: 0; }
+.forecast-reader-comparisons { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.5rem; margin: 1.5rem 0; }
+.forecast-reader-comparisons article { border-top: 1px solid var(--rule); padding-top: .75rem; min-width: 0; }
+.forecast-reader-bar { display: grid; grid-template-columns: 1fr auto; gap: .35rem; margin: 1rem 0; }
+.forecast-reader-bar span { font-size: .85rem; }
+.forecast-reader-track { grid-column: 1 / -1; height: 12px; background: var(--rule-soft); }
+.forecast-reader-track i { display: block; height: 100%; }
+.forecast-reader-periods { display: grid; grid-template-columns: repeat(14, 1fr); gap: 5px; max-width: 540px; margin-top: 1rem; }
+.forecast-reader-periods i { height: 18px; background: var(--rule); }
+.forecast-reader-periods .won { background: var(--study-series-1, #315b74); }
+.forecast-full-details > summary, .forecast-archive > summary, .forecast-study-records > summary { cursor: pointer; padding: 1rem; border: 1px solid var(--rule); font-weight: 600; line-height: 1.6; }
+.forecast-full-details[open], .forecast-archive[open] { display: grid; gap: 1.25rem; }
+@media (max-width: 800px) { .forecast-reader-comparisons { grid-template-columns: 1fr; } }
+.forecast-study-records, .forecast-archive, .forecast-full-details { min-width: 0; }
+.forecast-guide, .forecast-reader, .forecast-full-details[open], .forecast-archive[open] { grid-template-columns: minmax(0, 1fr); }
+.forecast-robustness { display: grid; gap: 1.25rem; grid-template-columns: minmax(0, 1fr); }
+.forecast-robustness .panel { min-width: 0; }
+.forecast-reader p, .forecast-robustness p { font-size: 15px; line-height: 1.85; }
+.forecast-confusion { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1rem; margin: 1.5rem 0; }
+.forecast-confusion article { border: 1px solid var(--rule); padding: 1rem; }
+.forecast-confusion .correct { border-top: 3px solid var(--study-series-1, #315b74); }
+.forecast-confusion .incorrect { border-top: 3px solid var(--study-series-2, #b64d33); }
+.forecast-confusion strong { font-size: 1.5rem; }
+.forecast-reader-kpis { display: flex; flex-wrap: wrap; gap: 1rem 2rem; margin: 1rem 0; }
+.forecast-reader-kpis strong { display: block; font-size: 1.5rem; color: var(--ink); }
+.forecast-reader-kpis dt { font-size: 14px; }
+.forecast-reader-kpis dd { margin: .5rem 0 0; font-size: 1.5rem; }
+.forecast-robustness .factor-table { min-width: 540px; }
+@media (max-width: 460px) { .forecast-robustness .exploration-controls { display: grid; } }
+.forecast-cash-quarters { margin: 1.5rem 0; }
+.forecast-cash-quarters article { display: grid; grid-template-columns: 5rem minmax(0, 1fr) 5rem; gap: .5rem; align-items: center; margin: 1rem 0; }
+.forecast-cash-quarters svg { width: 100%; }
+.forecast-cash-quarters strong { text-align: right; }
+.forecast-cash-quarters small { grid-column: 2 / -1; color: var(--muted); }

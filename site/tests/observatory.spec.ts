@@ -444,6 +444,7 @@ test('all fundamental studies show source-backed exploration and optional charts
   const ids = ['pb-roe', 'rd-investment', 'fundamental-state-forecasting', 'fundamental-family-shadow', 'cashflow-indices', 'hk-fundamental-archive', 'employee-compensation', 'absolute-level-forecast']
   for (const id of ids) {
     await page.goto(`/studies/${id}`)
+    if (id === 'fundamental-state-forecasting') await page.getByText('Read the earlier comparisons and research history', { exact: true }).click()
     await expect(page.getByRole('heading', { name: 'How the evidence developed' })).toBeVisible()
     await expect(page.locator('.study-exploration-steps > li')).toHaveCount(id === 'rd-investment' ? 8 : ['employee-compensation', 'cashflow-indices', 'fundamental-state-forecasting'].includes(id) ? 4 : 3)
     if (id === 'cashflow-indices') {

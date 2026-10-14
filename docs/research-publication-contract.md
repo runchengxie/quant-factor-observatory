@@ -89,3 +89,21 @@ unique portfolio widths, ordered bounded report years and dated return paths.
 Malformed optional data preserves the main study and offers a localized
 retry. Public guides exclude all security-level cases, raw observations,
 private parameters, portfolio weights and reproduction locators.
+
+The reader first sees plain-language questions and selected retained comparisons.
+All original forecast, change, return and research-history content remains available
+through keyboard-accessible native disclosures. Restricted fiscal-quarter coverage
+from the old month-end matching defect is visible beside the retained lead.
+Counts are bounded by calendar coverage and reconcile with annual counts; unknown
+win fractions remain unavailable rather than becoming zero wins.
+
+The optional `observatory.forecast_robustness.v1` aggregate adds eighteen unique
+registered target/horizon/treatment groups. It retains raw and commonly bounded
+numeric errors, matched-row material-decline confusion counts with precision,
+recall and prevalence, and the separate unitless cash-flow ranking confirmation.
+The quarterly net-profit target is distinct from the accumulated asset-remuneration
+target. Fixed decline thresholds are diagnostic and do not certify business distress.
+Input qualification publishes aggregate gaps and an explicit unqualified return
+status. No security records, vendor fields, private parameters, paths or signals
+are included. New and old runs have different snapshots, features and coverage;
+their difference must not be attributed solely to the calendar repair.

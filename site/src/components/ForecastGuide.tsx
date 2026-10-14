@@ -1,3 +1,5 @@
+import ForecastReader from './ForecastReader'
+import { forecastReaderCopy } from '../forecastReaderCopy'
 import { useState } from 'react'
 import { useLocale } from '../i18n'
 import { forecastGuideCopy } from '../forecastGuideCopy'
@@ -48,6 +50,8 @@ export default function ForecastGuide({ guide, exploration }: { guide: ForecastG
   const returnGroup = guide.returns.find(g => g.width === width)!
   const sources = guide.source_ids.map(id => exploration.sources.find(s => s.id === id)!)
   return <section className="forecast-guide" aria-labelledby="forecast-guide-title">
+    <ForecastReader guide={guide} />
+    <details className="forecast-full-details"><summary>{forecastReaderCopy[locale].details}</summary>
     <section className="panel forecast-intro"><p className="eyebrow">{c.stage} · {c.date}</p><h2 id="forecast-guide-title">{c.title}</h2>{guide.paragraphs.map((p, i) => <p key={i}>{p[locale]}</p>)}</section>
     <nav className="study-exploration-nav" aria-label={c.title}><a href="#forecast-gain">{c.gainTitle}</a><a href="#forecast-stability">{c.stabilityTitle}</a><a href="#forecast-return">{c.returnTitle}</a><a href="#forecast-glossary">{c.glossaryTitle}</a></nav>
     <section className="panel"><h2>{c.workflowTitle}</h2><ol className="forecast-workflow">{c.workflow.map(([title, text], i) => <li key={title}><span>{i + 1}</span><h3>{title}</h3><p>{text}</p></li>)}</ol></section>
@@ -76,5 +80,6 @@ export default function ForecastGuide({ guide, exploration }: { guide: ForecastG
       <details><summary>{c.values}</summary><div className="table-scroll"><table className="factor-table"><caption>{c.wealth}</caption><thead><tr><th>{c.dateLabel}</th><th>{c.wealth}</th><th>{c.drawdown}</th></tr></thead><tbody>{returnGroup.dates.map((d, i) => <tr key={d}><th>{d}</th><td>{number(returnGroup.wealth[i])}</td><td>{pct(returnGroup.drawdown[i])}</td></tr>)}</tbody></table></div></details>
     </section>
     <section className="panel" id="forecast-glossary"><h2>{c.glossaryTitle}</h2><dl className="forecast-glossary">{c.glossary.map(([term, meaning]) => <div key={term}><dt>{term}</dt><dd>{meaning}</dd></div>)}</dl><h3>{c.nextTitle}</h3><ul>{c.next.map(p => <li key={p}>{p}</li>)}</ul><details><summary>{c.source}</summary><ul>{sources.map(s => <li key={s.id}>{s.label[locale]} <code>{s.source_ref}</code></li>)}</ul></details></section>
+    </details>
   </section>
 }
