@@ -2,7 +2,7 @@
   "schema_version": "observatory.study_exploration.v1",
   "study_id": "cashflow-indices",
   "source_ref": "doc:quant-research.research.cashflow-indices-map",
-  "source_revision": "1ef2ef9f4718c17c27030f7044c517f68c8e4b26",
+  "source_revision": "e1984591be37073d9e1b3b1dee8a7e7813652cb3",
   "reviewed_at": "2026-10-14",
   "evidence_stage": "retrospective_diagnostic",
   "summary": {
@@ -137,8 +137,8 @@
         "zh-CN": "官方 980092 调整导出覆盖自 2024-09-18 起的 9 个区间，每个区间含 100 个成分。文件提供成分变更，但没有历史权重；官方权重导出仅提供 2026-09-30 快照。"
       },
       "decision": {
-        "en-US": "This improves membership evidence, not a complete ten-year official replication. Keep earlier snapshot correlations and shadow portfolio comparisons separate from this new coverage.",
-        "zh-CN": "这补充了成分证据，不代表完成十年官方指数复现。此前快照相关性和影子组合比较应与新增覆盖分开呈现。"
+        "en-US": "The current methodology took effect on 2024-08-15, but the export does not establish membership through 2024-09-17. Historical weights remain unavailable. This is not a complete ten-year official replication; keep earlier snapshot correlations and shadow portfolio comparisons separate.",
+        "zh-CN": "现行方法自 2024-08-15 生效，但导出未覆盖该日至 2024-09-17 的成分。历史权重仍缺失。这不代表完成十年官方指数复现；此前快照相关性和影子组合比较应单独呈现。"
       },
       "source_ids": [
         "overview"
