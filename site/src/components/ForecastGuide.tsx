@@ -1,6 +1,7 @@
 import ForecastReader from './ForecastReader'
 import ForecastRobustness from './ForecastRobustness'
 import QuarterlyCalendarResults from './QuarterlyCalendarResults'
+import ForecastSelectionPilot from './ForecastSelectionPilot'
 import type { ReactNode } from 'react'
 import { forecastReaderCopy } from '../forecastReaderCopy'
 import { useState } from 'react'
@@ -90,6 +91,7 @@ export default function ForecastGuide({ guide, exploration, comparison }: { guid
     </section>
     <section className="forecast-question" id="forecast-investment"><h2 className="forecast-question-title">{forecastReaderCopy[locale].returnQuestion}</h2>
     <ForecastReader guide={guide} part="investment" />
+    <ForecastSelectionPilot />
     {guide.robustness && <ForecastRobustness data={guide.robustness} part="qualification" />}
     <section className="panel" id="forecast-return"><h2>{c.returnTitle}</h2><p className="forecast-caveat"><strong>{c.returnStatus}</strong></p><p>{c.returnNote}</p><p>{c.returnCorrection}</p><div className="exploration-controls"><label>{c.width}<select value={width} onChange={e => setWidth(Number(e.target.value))}>{guide.returns.map(g => <option key={g.width} value={g.width}>{g.width}</option>)}</select></label></div>
       <Plot title={c.wealth} x={returnGroup.dates.map(d => new Date(`${d}T00:00:00Z`).getTime())} labels={returnGroup.dates} curves={[{ label: c.wealth, values: returnGroup.wealth }]} number={number} />
