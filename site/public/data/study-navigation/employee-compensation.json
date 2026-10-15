@@ -79,7 +79,7 @@
   "reproduction": {
     "run_id": "employee-cash-eligibility-20261015-v2",
     "status": "artifact_verified",
-    "code_revision": "33e1c06bcb16ce5526ecf2297b673a69514e283b",
+    "code_revision": null,
     "runner_sha256": "792e0adfe0e2fef957b50351c91fd883de041a5e6d163f85b6c8be7f73be9fd7",
     "data_version": {
       "en-US": "Aggregate retrospective eligibility screen over 59,167 annual candidates using sealed research-only PIT, reconstructed listing/ST states and dated industry intervals. No returns read.",
@@ -109,19 +109,6 @@
   },
   "next_tasks": [
     {
-      "id": "employee-retrospective-eligibility-screen",
-      "priority": "P0",
-      "status": "completed",
-      "action": {
-        "en-US": "Aggregate reconstructed listing, ST, dated-industry and observed-PIT-at-signal coverage without reading returns.",
-        "zh-CN": "在不读取收益的前提下，汇总重建上市、ST、带日期行业及信号日 PIT 观测覆盖。"
-      },
-      "acceptance": {
-        "en-US": "Immutable aggregate-only audit with verified input hashes and an explicit no-historical-PIT finding.",
-        "zh-CN": "保留不可变汇总审计和输入哈希核验，并明确记录历史信号日无 PIT 观测。"
-      }
-    },
-    {
       "id": "employee-compensation-qualification",
       "priority": "P0",
       "status": "completed",
@@ -145,6 +132,19 @@
       "acceptance": {
         "en-US": "An immutable formation panel respects actual observed availability and historical eligibility; unresolved vintage history keeps the return gate closed.",
         "zh-CN": "不可变形成样本须满足真实观测可见时间和历史资格，版本链未解决则不开放收益检验。"
+      }
+    },
+    {
+      "id": "employee-retrospective-eligibility-screen",
+      "priority": "P0",
+      "status": "completed",
+      "action": {
+        "en-US": "Aggregate reconstructed listing, ST, dated-industry and observed-PIT-at-signal coverage without reading returns.",
+        "zh-CN": "在不读取收益的前提下，汇总重建上市、ST、带日期行业及信号日 PIT 观测覆盖。"
+      },
+      "acceptance": {
+        "en-US": "Immutable aggregate-only audit with verified input hashes and an explicit no-historical-PIT finding.",
+        "zh-CN": "保留不可变汇总审计和输入哈希核验，并明确记录历史信号日无 PIT 观测。"
       }
     },
     {

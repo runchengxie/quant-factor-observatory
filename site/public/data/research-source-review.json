@@ -203,7 +203,7 @@
     },
     {
       "brief_sha256": "d698ffbef43e665f1d13f95b38a2ad445fd32997104b268e4203e5d53cc6878a",
-      "navigation_sha256": "c2be5b542f59f8071a6e9e96386658868839769e78ffaf4319a1eb29a51030f1",
+      "navigation_sha256": "aa2ba295c15ce6d3f4ca32bf4ca40c9908ae3831a7e674df05739db7f97e9461",
       "navigation_sources": [
         {
           "source_ref": "doc:quant-research.research.employee-cash-followup",
@@ -228,7 +228,7 @@
       ],
       "study_id": "employee-compensation",
       "source_revision": "1616bd9164bc848c9b05a58a14160732a7f2b3b4",
-      "catalog_sha256": "5e2c1fea9bad5ef20a18bfa367c6d2e3c83eeacceff2a1b4a11cbf55edfa6687",
+      "catalog_sha256": "de430f10343d7139b6887824ab83e212748a6f27c45abc1f5fc9a583bcac3a17",
       "exploration_sha256": "f55db8d9efe71db1eb125f77806a81dda1506457690da867289293b9ba77064e",
       "sources": [
         {
