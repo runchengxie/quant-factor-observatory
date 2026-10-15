@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-14T10:07:04+00:00",
+  "updated_at": "2026-10-15",
   "studies": [
     {
       "id": "pb-roe",
@@ -1262,7 +1262,7 @@
       "family": "人力资本与劳动",
       "status": "hypothesis",
       "status_label": "研究假设",
-      "summary": "2015—2025 年员工现金支出占营收中位数在全样本、行业匹配样本和固定队列中均上升；行业匹配覆盖扩大，6 个年度键违反现金流小计关系，现有 21 期 PIT 快照均不含薪酬字段。收益预测未检验。",
+      "summary": "2015—2025 年员工现金支出占营收中位数在全样本、行业匹配样本和固定队列中均上升。回溯筛查发现 43,589/59,167 条候选在重建信号日上市且非 ST，43,055 条另有行业匹配，但历史信号日没有已观测 PIT 版本。收益预测未检验。",
       "period": "输入报告期：2015 年一季度至 2026 年二季度；年度候选：2015—2025 年",
       "source_note": "新增四线年度对照为描述性会计比率；不代表工资或收益结论。尚未读取收益。",
       "columns": [],
@@ -1270,19 +1270,21 @@
       "findings": [
         "59,167 条年度候选记录；行业匹配覆盖从 62.4% 增至 90.0%，构成会变化。",
         "全样本、行业匹配样本、L3 行业等权中位数及 3,749 家固定队列的现金支出/营收中位数均上升。",
-        "6 个年度键的员工现金支出超过经营现金流出小计，需回查来源报表与映射。"
+        "6 个年度键的员工现金支出超过经营现金流出小计，需回查来源报表与映射。",
+        "回溯资格筛查：43,589/59,167 条候选在重建信号日上市且非 ST；其中 43,055 条另有行业匹配。历史信号日没有已观测 PIT 版本。"
       ],
       "limits": [
         "21 期已留存 PIT 快照均未映射员工现金支出或应付职工薪酬；早期历史属于重建 PIT。",
         "存储覆盖不代表历史股票池完整；固定队列也有幸存者和可得性偏差。",
-        "现金支出不是工资或人均薪酬；尚无 Rank IC、分组收益或含成本回测。"
+        "现金支出不是工资或人均薪酬；尚无 Rank IC、分组收益或含成本回测。",
+        "回溯上市、ST 和行业状态不等于当时真实可得的财报版本；没有历史信号日的映射 PIT 观测。"
       ],
       "translations": {
         "en-US": {
           "title": "Employee cash expenditure: inputs audited, return hypothesis untested",
           "family": "Human capital and labor",
           "status_label": "Research hypothesis",
-          "summary": "From 2015–2025, median employee cash/revenue rose in the all-company, dated-industry and fixed-cohort samples. Industry coverage expanded; six annual keys violate a cash-flow subtotal check, and all 21 retained PIT snapshots lack compensation fields. Returns remain untested.",
+          "summary": "From 2015–2025, median employee cash/revenue rose in all-company, dated-industry and fixed-cohort samples. A retrospective screen finds 43,589 of 59,167 candidates listed and non-ST on reconstructed signal dates; 43,055 also have industry matches, but none had an observed mapped PIT vintage at its signal date. Returns remain untested.",
           "period": "Input reports: 2015Q1–2026Q2; annual candidates: 2015–2025",
           "source_note": "The four-line annual comparison shows descriptive accounting ratios, not wage or return conclusions. No returns were read.",
           "columns": [],
@@ -1290,12 +1292,14 @@
           "findings": [
             "59,167 annual candidates; dated-industry coverage rises from 62.4% to 90.0%, so composition changes.",
             "Cash/revenue medians rise in the all-company, dated-industry, equal-weight L3-industry and 3,749-company fixed-cohort samples.",
-            "Six annual keys have employee cash exceeding operating cash outflows and need source-statement reconciliation."
+            "Six annual keys have employee cash exceeding operating cash outflows and need source-statement reconciliation.",
+            "Retrospective eligibility screen: 43,589/59,167 candidates were listed and non-ST on reconstructed signal dates; 43,055 also had industry matches. No candidate had an observed mapped PIT vintage at its signal date."
           ],
           "limits": [
             "All 21 retained PIT snapshots lack mapped employee cash and payroll-payable fields; earlier history is reconstructed PIT.",
             "Stored coverage does not establish historical universe completeness; even the fixed cohort has survivorship and availability bias.",
-            "Cash expenditure is not wages or per-worker pay; no Rank IC, grouped returns or costed backtest is available."
+            "Cash expenditure is not wages or per-worker pay; no Rank IC, grouped returns or costed backtest is available.",
+            "Reconstructed listing, ST and industry states do not establish contemporaneous financial availability; no mapped PIT vintage was observed at historical signal dates."
           ]
         }
       },
@@ -1312,7 +1316,7 @@
       "source_ref": "doc:quant-research.research.fundamental-research-series",
       "exploration_asset": "data/study-exploration/employee-compensation.json",
       "exploration_counts": {
-        "steps": 7,
+        "steps": 8,
         "charts": 4
       },
       "evidence_summary": {
@@ -1358,7 +1362,7 @@
       },
       "navigation_asset": "data/study-navigation/employee-compensation.json",
       "navigation_summary": {
-        "run_id": "employee-cash-followup-20261014-v5",
+        "run_id": "employee-cash-eligibility-20261015-v2",
         "reproduction_status": "artifact_verified",
         "decision": "hypothesis",
         "negative_result": false,
@@ -1391,6 +1395,19 @@
             "acceptance": {
               "en-US": "An immutable formation panel respects actual observed availability and historical eligibility; unresolved vintage history keeps the return gate closed.",
               "zh-CN": "不可变形成样本须满足真实观测可见时间和历史资格，版本链未解决则不开放收益检验。"
+            }
+          },
+          {
+            "id": "employee-retrospective-eligibility-screen",
+            "priority": "P0",
+            "status": "completed",
+            "action": {
+              "en-US": "Aggregate reconstructed listing, ST, dated-industry and observed-PIT-at-signal coverage without reading returns.",
+              "zh-CN": "在不读取收益的前提下，汇总重建上市、ST、带日期行业及信号日 PIT 观测覆盖。"
+            },
+            "acceptance": {
+              "en-US": "Immutable aggregate-only audit with verified input hashes and an explicit no-historical-PIT finding.",
+              "zh-CN": "保留不可变汇总审计和输入哈希核验，并明确记录历史信号日无 PIT 观测。"
             }
           },
           {
