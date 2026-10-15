@@ -37,6 +37,6 @@ The experiment uses 205,037 retained earliest-disclosure rows. It tests ROA, gro
 
 This is a retrospective diagnostic over a period already explored. Disclosure dates are reconstructed and the data provider's revision history is incomplete. Ridge emitted ill-conditioned-matrix warnings and remains an unstable diagnostic arm. It does not change the XGBoost comparison above.
 
-The retained market-data audit still has six missing entry quotes, six missing exit quotes and twelve missing historical industry assignments. Missing prices do not establish suspension or delisting. The historical return test therefore remains unqualified. Free-cash-flow and dividend model tests also remain pending until their point-in-time definitions are fixed.
+The retained market-data audit still has six missing entry quotes, six missing exit quotes and twelve missing historical industry assignments. The October 15 follow-up matches all 12 missing quotes to same-day events in a complete suspension source. That explains their absence but does not establish executable prices. The historical return test remains unqualified. See the [fixed selection pilot](three-arm-selection-pilot-20261015.en-US.md). Free-cash-flow and dividend model tests remain pending until their point-in-time definitions are fixed.
 
 The private research record retains the full protocol, source hashes, row-level outputs, reconciliation, warning and failure receipts. This public note contains aggregate results only.

@@ -19,7 +19,7 @@ export const forecastRobustnessCopy = {
     details: 'All methods, extreme-value sensitivities and decline counts', error: 'Average numerical error', robustError: 'Error with a common train-defined bound', ranking: 'Ranking score',
     errorNote: 'Smaller errors are better. Raw error retains every extreme outcome. The bounded error uses the same training-defined bounds across treatment variants and is a separate diagnostic scoring rule. Each formation has equal weight. Decline counts below pool matched rows.',
     qualifiedTitle: 'What still prevents a reliable return comparison?', candidates: 'Candidates checked', entry: 'Missing entry observations', exit: 'Missing exit observations', industry: 'Missing industry memberships',
-    qualifiedNote: 'The bounded one-month input audit checks August 3–31, 2026. Missing rows cannot automatically be treated as suspensions. Historical eligibility, suspension coverage, tradable fills, terminal events and industry freshness still need verification. No return comparison has been calculated from these inputs.',
+    qualifiedNote: 'The August 3–31 input audit still has six missing entry quotes and six missing exit quotes. A follow-up matched all 12 to same-day events in a suspension source marked complete. That explains the missing rows, but supplies no fill price. Twelve recorded industry assignments, historical eligibility, executable prices and terminal events still need qualification. No return comparison has been calculated from these inputs.',
   },
   'zh-CN': {
     title: '现金流模型在哪几个季度给公司排得更准',
@@ -41,6 +41,6 @@ export const forecastRobustnessCopy = {
     details: '展开所有方法、异常值处理对照和下降记录', error: '平均猜错多少', robustError: '按统一边界处理后的误差', ranking: '排序分数',
     errorNote: '误差越小，猜得越接近。原始误差保留每个特别大的实际数值。另一种误差按训练时确定的统一边界处理，单独列出，不能替代原始误差。各测试期权重相同。下降记录的数量和比例则合并全部共同样本计算。',
     qualifiedTitle: '收益比较目前卡在哪里', candidates: '检查过的股票数', entry: '买入日缺少行情', exit: '卖出日缺少行情', industry: '缺少有效行业记录',
-    qualifiedNote: '这次检查的是 2026 年 8 月 3 日至 31 日的一段输入数据。缺少行情不能直接当作停牌。历史股票资格、停牌记录和退市资料仍需核实，也要确认当时能不能成交、行业记录是否更新。这批输入还没有用于计算收益对照。',
+    qualifiedNote: '8 月 3 日和 31 日各缺 6 条行情。后续补查已把这 12 条缺价全部匹配到完整停牌表中的同日记录，原因已经查明，但停牌日没有成交价。另有 12 只股票缺少当日行业记录，历史股票资格、实际可成交价格和退市等处理也仍需核实。这批输入还没有用于计算收益对照。',
   },
 }

@@ -561,6 +561,10 @@
   .site-nav-group[open] { flex-basis: 100%; }
   .site-nav-submenu { position: static; min-width: 0; width: 100%; box-shadow: none; }
 }
+.selection-pilot-cohorts { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 260px), 1fr)); gap: 1.5rem; }
+.selection-pilot-slots { display: grid; grid-template-columns: repeat(20, minmax(0, 1fr)); gap: 3px; margin: 1rem 0; }
+.selection-slot { display: block; height: 30px; border: 1px solid var(--study-series-3, #33796c); background: var(--study-series-3, #33796c); }
+.selection-slot.changed { border-color: var(--study-series-2, #b64d33); background: repeating-linear-gradient(135deg, transparent, transparent 3px, var(--study-series-2, #b64d33) 3px, var(--study-series-2, #b64d33) 5px); }
 :root[data-theme="dark"] .site-nav {
   --ink: #e9edf4;
   --ink-soft: #d0d7e2;
