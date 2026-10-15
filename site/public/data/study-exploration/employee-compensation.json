@@ -2,12 +2,12 @@
   "schema_version": "observatory.study_exploration.v1",
   "study_id": "employee-compensation",
   "source_ref": "doc:quant-research.research.fundamental-research-series",
-  "source_revision": "f97005df21107c451dfe755e142a305bfb07b6b6",
-  "reviewed_at": "2026-10-14",
+  "source_revision": "33e1c06bcb16ce5526ecf2297b673a69514e283b",
+  "reviewed_at": "2026-10-15",
   "evidence_stage": "hypothesis",
   "summary": {
-    "en-US": "The 2015–2025 cash-to-revenue median rises in all-company, dated-industry and fixed-company comparisons. Industry coverage also expands from 62.4% to 90.0%; these are descriptive accounting ratios, not wage or return conclusions. Six annual cash-flow keys exceed the operating outflow subtotal, and compensation fields are absent from all 21 retained PIT snapshots. No returns were read.",
-    "zh-CN": "2015—2025 年员工现金支出占营收中位数，在全样本、带时点行业样本和固定公司队列中均上升。行业匹配覆盖率也从 62.4% 升至 90.0%。这些是描述性会计比率，不代表工资结论或收益结论。另有 6 个年度键的员工现金支出超过经营现金流出小计，21 期已留存 PIT 快照均未包含薪酬字段。本次没有读取收益。"
+    "en-US": "The 2015–2025 cash-to-revenue median rises in all-company, dated-industry and fixed-company comparisons. A retrospective screen classifies 43,589 of 59,167 candidates as listed and non-ST on reconstructed signal dates; 43,055 also have dated industry matches. None has an observed mapped PIT vintage at its signal date. These are descriptive accounting ratios, not wage or return conclusions. No returns were read.",
+    "zh-CN": "2015—2025 年现金支出/营收中位数在全样本、带时点行业样本和固定公司队列中均上升。回溯筛查中，59,167 条候选记录有 43,589 条在重建信号日处于上市且非 ST 状态，其中 43,055 条另有带日期的行业匹配；没有记录在其历史信号日拥有已观测的映射 PIT 版本。这些是描述性会计比率，不代表工资或收益结论。本次没有读取收益。"
   },
   "sources": [
     {
@@ -32,6 +32,14 @@
       "label": {
         "en-US": "Industry, cohort, accounting and PIT follow-up, 2026-10-14",
         "zh-CN": "行业、队列、会计口径与 PIT 补充审计，2026-10-14"
+      }
+    },
+    {
+      "id": "eligibility",
+      "source_ref": "doc:quant-research.research.employee-cash-historical-eligibility",
+      "label": {
+        "en-US": "Historical eligibility qualification, 2026-10-15",
+        "zh-CN": "历史资格核验，2026-10-15"
       }
     }
   ],
@@ -224,6 +232,33 @@
       },
       "source_ids": [
         "followup"
+      ]
+    },
+    {
+      "id": "historical-eligibility",
+      "period": {
+        "en-US": "Retrospective eligibility audit, 2026-10-15",
+        "zh-CN": "回溯历史资格审计，2026-10-15"
+      },
+      "status": "diagnostic",
+      "title": {
+        "en-US": "Reconstruct eligibility without claiming historical PIT availability",
+        "zh-CN": "重建历史资格，但不视为历史 PIT 可得"
+      },
+      "question": {
+        "en-US": "How many annual candidates were listed, non-ST and industry-classified on a reconstructed signal date?",
+        "zh-CN": "在重建信号日，有多少年度候选仍在上市、非 ST 且有行业分类？"
+      },
+      "finding": {
+        "en-US": "Of 59,167 candidates, 43,589 were listed and non-ST on reconstructed signal dates; 43,055 also had dated industry matches. None had an observed mapped PIT vintage at the signal date.",
+        "zh-CN": "59,167 条候选中，43,589 条在重建信号日处于上市且非 ST 状态；其中 43,055 条另有带日期的行业匹配。没有记录在该信号日拥有已观测的映射 PIT 版本。"
+      },
+      "decision": {
+        "en-US": "This qualifies retrospective sample construction only. It does not establish point-in-time factor availability and does not open the return test.",
+        "zh-CN": "这只核验了回溯样本构建，不证明因子在当时真实可得，也不开放收益检验。"
+      },
+      "source_ids": [
+        "eligibility"
       ]
     }
   ],

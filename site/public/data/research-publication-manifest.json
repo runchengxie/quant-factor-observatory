@@ -1,6 +1,6 @@
 {
   "schema_version": "observatory.research_publication.v1",
-  "generated_at": "2026-10-14",
+  "generated_at": "2026-10-15",
   "source_repository": "quant-research",
   "source_manifest": "docs/research/knowledge-pilot.yml",
   "projections": [
@@ -139,7 +139,7 @@
         "private_code"
       ],
       "exploration_asset": "data/study-exploration/employee-compensation.json",
-      "exploration_reviewed_at": "2026-10-14",
+      "exploration_reviewed_at": "2026-10-15",
       "navigation_asset": "data/study-navigation/employee-compensation.json"
     },
     {

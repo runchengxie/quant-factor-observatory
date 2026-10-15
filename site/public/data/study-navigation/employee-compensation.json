@@ -2,8 +2,8 @@
   "schema_version": "observatory.study_navigation.v1",
   "study_id": "employee-compensation",
   "source_ref": "doc:quant-research.research.fundamental-research-series",
-  "source_revision": "f97005df21107c451dfe755e142a305bfb07b6b6",
-  "reviewed_at": "2026-10-14",
+  "source_revision": "33e1c06bcb16ce5526ecf2297b673a69514e283b",
+  "reviewed_at": "2026-10-15",
   "authority_ref": "doc:quant-research.research.fundamental-evidence-navigation",
   "trust": [
     {
@@ -21,23 +21,25 @@
       "dimension": "financial_versions",
       "status": "partial",
       "detail": {
-        "en-US": "The ledger declares incomplete historical revisions; all 21 retained PIT snapshots lack mapped compensation fields. Earlier history is reconstructed PIT.",
-        "zh-CN": "账本声明历史修订不完整；21 期已留存 PIT 快照均未映射薪酬字段，早期历史属于重建 PIT。"
+        "en-US": "A research-only mapped build covers 14 sealed observed vintages; continuous revision-safe coverage begins only on 2026-10-14. No mapped vintage was available at the reconstructed 2015–2025 signal dates; earlier history remains reconstructed PIT.",
+        "zh-CN": "研究专用映射构建覆盖 14 期已封存观测版本；连续满足修订安全的覆盖仅从 2026-10-14 开始。重建的 2015—2025 信号日均无可用映射版本，更早历史仍属于重建 PIT。"
       },
       "source_refs": [
         "doc:quant-research.research.employee-cash-input-audit",
-        "doc:quant-research.research.employee-cash-followup"
+        "doc:quant-research.research.employee-cash-followup",
+        "doc:quant-research.research.employee-cash-historical-eligibility"
       ]
     },
     {
       "dimension": "historical_universe",
-      "status": "unverified",
+      "status": "partial",
       "detail": {
-        "en-US": "Industry history is dated and non-overlapping, but match coverage rises from 62.4% to 90.0%; historical eligibility remains unverified.",
-        "zh-CN": "行业历史带有日期且区间不重叠，但匹配覆盖率从 62.4% 升至 90.0%；历史资格仍未核实。"
+        "en-US": "A retrospective screen reconstructs listing/delisting, ST and dated-industry states: 43,589 candidates are listed and non-ST, and 43,055 also have industry matches. The screen does not establish historical PIT availability or fully qualified controls.",
+        "zh-CN": "回溯筛查重建上市/退市、ST 和带日期的行业状态：43,589 条候选处于上市且非 ST 状态，43,055 条另有行业匹配。该筛查不证明历史 PIT 可得性，也未完成控制变量核验。"
       },
       "source_refs": [
-        "doc:quant-research.research.employee-cash-followup"
+        "doc:quant-research.research.employee-cash-followup",
+        "doc:quant-research.research.employee-cash-historical-eligibility"
       ]
     },
     {
@@ -75,21 +77,22 @@
     }
   ],
   "reproduction": {
-    "run_id": "employee-cash-followup-20261014-v5",
+    "run_id": "employee-cash-eligibility-20261015-v2",
     "status": "artifact_verified",
-    "code_revision": null,
+    "code_revision": "33e1c06bcb16ce5526ecf2297b673a69514e283b",
     "runner_sha256": "792e0adfe0e2fef957b50351c91fd883de041a5e6d163f85b6c8be7f73be9fd7",
     "data_version": {
-      "en-US": "Follow-up aggregate receipt v5; four descriptive median series, six subtotal exceptions, and PIT inventory. No returns read.",
-      "zh-CN": "补充汇总回执 v5：四条描述性中位数、6 个小计异常及 PIT 字段清点；没有读取收益。"
+      "en-US": "Aggregate retrospective eligibility screen over 59,167 annual candidates using sealed research-only PIT, reconstructed listing/ST states and dated industry intervals. No returns read.",
+      "zh-CN": "基于已封存研究专用 PIT、重建上市/ST 状态和带日期行业区间，对 59,167 条年度候选进行的回溯资格汇总筛查；没有读取收益。"
     },
     "missing": {
-      "en-US": "Reconcile six source keys and qualify original vintages and historical eligibility before any registered return diagnostic.",
-      "zh-CN": "任何已登记收益诊断之前，须核对 6 个来源键并核验原始版本与历史资格。"
+      "en-US": "No candidate had an observed mapped PIT vintage at its reconstructed signal date. Deploy the archive map and collect at least 12 months of verified prospective vintages before registering a return test.",
+      "zh-CN": "没有候选在其重建信号日拥有已观测映射 PIT 版本。部署归档映射并积累至少 12 个月经核验的前瞻版本后，才考虑登记收益检验。"
     },
     "source_refs": [
       "doc:quant-research.research.employee-cash-input-audit",
-      "doc:quant-research.research.employee-cash-followup"
+      "doc:quant-research.research.employee-cash-followup",
+      "doc:quant-research.research.employee-cash-historical-eligibility"
     ],
     "artifact_sha256": {
       "input_audit": "3c29ca2fafab976cf44f9d927e99d6d1435a5bbfcf3adccee12ae0f9dabd132b",
@@ -105,6 +108,19 @@
     "zh-CN": "原始版本与历史股票池通过核验后，现金支出指标能否在共同样本上提供超出行业、规模、估值和盈利能力的预测信息？"
   },
   "next_tasks": [
+    {
+      "id": "employee-retrospective-eligibility-screen",
+      "priority": "P0",
+      "status": "completed",
+      "action": {
+        "en-US": "Aggregate reconstructed listing, ST, dated-industry and observed-PIT-at-signal coverage without reading returns.",
+        "zh-CN": "在不读取收益的前提下，汇总重建上市、ST、带日期行业及信号日 PIT 观测覆盖。"
+      },
+      "acceptance": {
+        "en-US": "Immutable aggregate-only audit with verified input hashes and an explicit no-historical-PIT finding.",
+        "zh-CN": "保留不可变汇总审计和输入哈希核验，并明确记录历史信号日无 PIT 观测。"
+      }
+    },
     {
       "id": "employee-compensation-qualification",
       "priority": "P0",
