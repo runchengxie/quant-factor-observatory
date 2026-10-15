@@ -447,7 +447,7 @@ test('all fundamental studies show source-backed exploration and optional charts
     await page.goto(`/studies/${id}`)
     if (id === 'fundamental-state-forecasting') await page.getByText('Research history and sources', { exact: true }).click()
     await expect(page.getByRole('heading', { name: 'How the evidence developed' })).toBeVisible()
-    await expect(page.locator('.study-exploration-steps > li')).toHaveCount(id === 'rd-investment' ? 8 : id === 'employee-compensation' ? 7 : ['cashflow-indices', 'fundamental-state-forecasting'].includes(id) ? 4 : 3)
+    await expect(page.locator('.study-exploration-steps > li')).toHaveCount(id === 'rd-investment' ? 8 : id === 'employee-compensation' ? 8 : ['cashflow-indices', 'fundamental-state-forecasting'].includes(id) ? 4 : 3)
     if (id === 'cashflow-indices') {
       await expect(page.locator('.study-exploration-steps')).toContainText('2024-09-18')
       await expect(page.locator('.study-exploration-steps')).toContainText('no historical weights')
@@ -719,7 +719,7 @@ test('employee cash audit shows input coverage without claiming return performan
   await expect(page.locator('.study-values')).toContainText('5,942')
   await expect(page.locator('.study-exploration-head')).toContainText('No returns')
   await expect(page.getByRole('heading', { name: 'Data trust card' })).toBeVisible()
-  await expect(page.locator('.study-reproduction')).toContainText('employee-cash-followup-20261014-v5')
+  await expect(page.locator('.study-reproduction')).toContainText('employee-cash-eligibility-20261015-v2')
   await expect(page.getByRole('heading', { name: 'Research decision queue' })).toBeVisible()
   await page.getByRole('button', { name: 'Switch to 中文', exact: true }).click()
   await expect(page.locator('.study-chart-context')).toContainText('不是历史可交易股票池')
