@@ -32,7 +32,7 @@
   "employee-compensation": {
     "reviewed_at": "2026-10-15",
     "source_asset": "data/study-navigation/employee-compensation.json",
-    "source_revision": "33e1c06bcb16ce5526ecf2297b673a69514e283b"
+    "source_revision": "1616bd9164bc848c9b05a58a14160732a7f2b3b4"
   },
   "absolute-level-forecast": {
     "reviewed_at": "2026-10-14",

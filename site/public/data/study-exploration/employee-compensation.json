@@ -2,7 +2,7 @@
   "schema_version": "observatory.study_exploration.v1",
   "study_id": "employee-compensation",
   "source_ref": "doc:quant-research.research.fundamental-research-series",
-  "source_revision": "33e1c06bcb16ce5526ecf2297b673a69514e283b",
+  "source_revision": "1616bd9164bc848c9b05a58a14160732a7f2b3b4",
   "reviewed_at": "2026-10-15",
   "evidence_stage": "hypothesis",
   "summary": {
