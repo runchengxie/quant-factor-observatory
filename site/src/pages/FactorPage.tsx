@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react'
 import LineChart from '../components/LineChart'
 import MetricCard from '../components/MetricCard'
+import LegacyFactorEvidence from '../components/LegacyFactorEvidence'
 import { localizeFactorRecord, localizedStatus } from '../researchLocale'
 import type { FactorRecord, FundamentalSnapshot, ResearchContext } from '../types'
 import { useLocale } from '../i18n'
@@ -31,6 +32,7 @@ export default function FactorPage({ factor, context, fundamental }: { factor?: 
   return <main className="page factor-detail-page">
     <a className="back" href={`${import.meta.env.BASE_URL}factors`}>← {english ? 'Factor catalog' : '因子目录'}</a>
     <section className="detail-head"><p className="eyebrow">{view.family}{view.subfamily ? ` / ${view.subfamily}` : ''}</p><h1>{english ? view.displayName : view.displayNameCn ?? view.displayName}</h1><p className="factor-id">{view.id}</p><p className="lede">{view.definition}</p><div className="detail-tags"><span className={`status-pill status-${view.status}`}>{localizedStatus(view.status, locale)}</span><span className="tag">{view.frequencyIn ?? (english ? 'Frequency unavailable' : '频率不可用')} → {view.frequencyOut ?? (english ? 'Frequency unavailable' : '频率不可用')}</span><span className="tag">{english ? 'Public research record' : '公开研究记录'}</span></div></section>
+    <LegacyFactorEvidence factorId={factor.id} />
     <section className="panel plain-reading"><p className="eyebrow">{english ? 'START HERE' : '先看这里'}</p><h2>{english ? 'How to read a factor page' : '怎样读懂这张因子页'}</h2><p>{english ? 'A factor is a rule that gives each stock a score from available data. Researchers compare stocks with higher and lower scores to see whether those groups later behaved differently. The score is a research measure; by itself it is not a buy or sell instruction.' : '因子是一条计算规则：用已有数据给每只股票打分。研究者再比较高分组和低分组之后的表现，看两组是否不同。这个分数用于研究，本身不是买卖信号。'} {english ? '“Input → output” shows how often the source data is available and how often the score is formed.' : '“输入频率 → 输出频率”表示源数据多久更新一次，以及因子分数多久形成一次。'}</p></section>
     <section className="panel factor-evidence-card"><p className="eyebrow">{copy.factor.evidenceCard}</p><div className="factor-evidence-grid"><div><span>{view.researchQuestion ? copy.factor.question : copy.factor.interpretation}</span><p>{view.researchQuestion ?? view.intuition ?? view.definition}</p></div><div><span>{copy.factor.status}</span><strong>{localizedStatus(view.status, locale)}</strong><small>{view.researchEvidence?.summary ?? copy.factor.noEvidence}</small></div><div><span>{copy.factor.sample}</span><strong>{sourceNote}</strong><small>{!isFundamental ? `${copy.factor.sourceDate}: ${context.generatedAt.slice(0, 16).replace('T', ' ')} UTC` : `${copy.factor.pitVintage}: ${fundamental.vintage}`}</small></div><div><span>{copy.factor.coverage}</span><strong>{view.coverage?.count?.toLocaleString() ?? '—'}</strong><small>{view.coverage?.missing !== undefined ? `${english ? 'Missing' : '缺失'} ${view.coverage.missing.toLocaleString()}` : (english ? 'Count not published' : '未发布计数')}</small></div></div></section>
     <div className="detail-grid">

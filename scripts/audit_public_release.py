@@ -54,6 +54,14 @@ def public_files(paths: list[str]) -> list[Path]:
 
 def audit() -> list[str]:
     errors: list[str] = []
+    try:
+        try:
+            from scripts.legacy_factor_evidence_contract import validate_repository
+        except ImportError:
+            from legacy_factor_evidence_contract import validate_repository
+        validate_repository(ROOT)
+    except (ValueError, KeyError, OSError) as error:
+        errors.append(f"legacy factor evidence: {error}")
     tracked = set(tracked_files())
     unexpected = sorted(path for path in tracked if path not in ALLOWED_ROOT_FILES and not path.startswith(ALLOWED_PREFIXES))
     errors.extend(f"file is outside the public allowlist: {path}" for path in unexpected)
