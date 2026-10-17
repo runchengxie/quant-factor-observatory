@@ -28,6 +28,8 @@
 
 站点直接消费 `site/public/data/` 中已提交的公开快照：
 
+`factor-snapshot.json` 是演示数据，包含 3 只股票和连续 42 个日历日期，其中包括非交易日。旧字段 `trading_days` 在页面上显示为“示例日期”。基本面 PIT 数据来自独立的 `fundamental-snapshot.json`；两份快照的日期范围、股票池和可用性定义不能混用。
+
 ```bash
 npm ci --prefix site
 npm run dev --prefix site
