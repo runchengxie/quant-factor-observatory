@@ -243,7 +243,7 @@ class PublicResearchContractTests(unittest.TestCase):
         workflow = (ROOT / ".github" / "workflows" / "deploy-pages.yml").read_text()
         self.assertIn("cp site/dist/index.html site/dist/404.html", workflow)
         self.assertIn("cmp site/dist/index.html site/dist/404.html", workflow)
-        self.assertIn('for route in hermite jumps fundamentals', workflow)
+        self.assertIn('for route in hermite jumps fundamentals quality studies studies/pb-roe; do', workflow)
         self.assertIn('mkdir -p "site/dist/$route"', workflow)
         self.assertIn('cp site/dist/index.html "site/dist/$route/index.html"', workflow)
         self.assertIn('cmp site/dist/index.html "site/dist/$route/index.html"', workflow)
