@@ -1,31 +1,57 @@
-import { lazy } from 'react'
-import MetricCard from '../components/MetricCard'
-import ContextStrip from '../components/ContextStrip'
-import DeferredContent from '../components/DeferredContent'
-import type { FactorRecord, FundamentalSnapshot, ResearchContext, Snapshot, StudyCatalog } from '../types'
+import type { StudyCatalog } from '../types'
 import { useLocale } from '../i18n'
-import { localizedFactorGroup, localizedFamily } from '../researchLocale'
+import { homeCopy } from '../homeCopy'
+import EvidenceReviewDate from '../components/EvidenceReviewDate'
+import { SourceReviewWarning } from '../components/ResearchEvidenceHub'
+import '../styles/reader-home.css'
 
-const ResearchCharts = lazy(() => import('../components/ResearchCharts'))
+const href = (route: string) => import.meta.env.BASE_URL + route
 
-export default function OverviewPage({ snapshot, records, context, fundamental, studies }: { snapshot: Snapshot; records: FactorRecord[]; context: ResearchContext; fundamental: FundamentalSnapshot; studies: StudyCatalog }) {
+export default function OverviewPage({ studies }: { studies: StudyCatalog }) {
   const { locale, copy } = useLocale()
-  const english = locale === 'en-US'
-  const dataset = snapshot.datasets[0]
-  const minuteCount = records.filter((record) => record.family !== 'Hermite 元因子' && record.frequencyIn === 'minute').length
-  const hermiteCount = records.filter((record) => record.family === 'Hermite 元因子').length
-  const fundamentalCount = records.filter((record) => records && record.frequencyIn === 'PIT quarterly reports').length
-  const experimentalCount = records.filter((record) => record.status === 'experimental').length
-  const familyCounts = [{ name: english ? 'Minute factors' : '分钟因子', value: minuteCount }, { name: 'Hermite', value: hermiteCount }, { name: english ? 'Fundamental entries' : '基本面研究入口', value: fundamentalCount }]
-  return <main className="page">
-    <section className="hero"><p className="eyebrow">{copy.overview.eyebrow}</p><h1>{copy.overview.title}</h1><p className="lede">{copy.overview.lede}</p><span className="badge">{snapshot.source === 'demo' ? copy.overview.demoBadge : copy.overview.snapshotBadge}</span></section>
-    <section className="section home-findings"><div className="section-heading"><p className="eyebrow">{copy.overview.recentResearch}</p><div className="section-heading-row"><h2>{copy.overview.publishedEvidence}</h2><a className="section-link" href={`${import.meta.env.BASE_URL}studies`}>{copy.studies.all} →</a></div><p className="section-description">{copy.overview.studiesUpdated} {studies.updated_at}. {copy.overview.recentResearchNote}</p></div><div className="home-finding-grid">{studies.studies.map((study) => ({ study, content: { ...study, ...(study.translations?.[locale] ?? {}) } })).filter(({ content }) => content.rows.length > 0 && content.findings.length > 0).slice(0, 3).map(({ study, content }) => <a className="home-finding-card" href={`${import.meta.env.BASE_URL}studies/${study.id}`} key={study.id}><span className={`study-status study-status-${study.status}`}>{content.status_label}</span><small>{content.family}</small><h3>{content.title}</h3><p>{content.findings[0]}</p><span className="home-finding-limit"><strong>{copy.overview.evidenceBoundary}</strong>{content.limits[0]}</span><span className="study-link">{copy.studies.read}</span></a>)}</div></section>
-    <ContextStrip items={[{ label: english ? 'Market data' : '市场数据', value: context.source }, { label: english ? 'Sample range' : '样本区间', value: context.snapshotRange }, { label: english ? 'Sample universe' : '样本股票池', value: context.universe }, { label: english ? 'Frequency' : '频率', value: english ? context.frequency : '日度示例观测' }]} />
-    <p className="context-note">{snapshot.source === 'demo' ? (english ? 'Demonstration dataset. Dates include non-trading days; this is not a production market-data release.' : '演示数据集：日期包含非交易日，不代表正式行情数据发布。') : (english ? 'Published market snapshot; inspect source notes before interpreting coverage.' : '公开市场快照；解释覆盖范围前请核对来源说明。')} · {copy.overview.snapshotGenerated} {snapshot.generated_at.slice(0, 16).replace('T', ' ')} UTC · {copy.overview.studiesUpdated} {studies.updated_at}</p>
-    <div className="metrics"><MetricCard label={snapshot.source === 'demo' ? (english ? 'Sample dates' : '示例日期') : (english ? 'Trading days' : '交易日')} value={dataset?.trading_days.toLocaleString() ?? '—'} note={`${dataset?.date_start ?? '—'} → ${dataset?.date_end ?? '—'}`} /><MetricCard label={english ? 'Market sample tickers' : '市场示例股票'} value={dataset?.tickers.toLocaleString() ?? '—'} note={english ? 'Not a full market universe' : '并非全市场股票池'} /><MetricCard label={english ? 'Catalog entries' : '目录条目'} value={records.length.toLocaleString()} note={`${minuteCount} minute · ${hermiteCount} Hermite · ${fundamentalCount} fundamental`} /><MetricCard label={english ? 'Experimental' : '实验性'} value={experimentalCount.toLocaleString()} note={english ? 'Predictive validation incomplete' : '预测性验证尚未完成'} /></div>
-
-    <section className="panel provenance-panel"><p className="eyebrow">{copy.overview.fundamentalVintage}</p><h2>{copy.overview.fundamentalTitle}</h2><p>{copy.overview.fundamentalSummary.replace('{start}', fundamental.coverage.date_start).replace('{end}', fundamental.coverage.date_end).replace('{count}', fundamental.coverage.tickers_count.toLocaleString()).replace('{examples}', String(fundamental.coverage.representative_tickers.length)).replace('{basis}', fundamental.validation.availability_basis)}</p><a className="section-link" href={`${import.meta.env.BASE_URL}fundamentals`}>{english ? 'Explore fundamental evidence →' : '查看基本面证据 →'}</a></section>
-    <section className="section"><div className="section-heading"><p className="eyebrow">FACTOR ATLAS</p><div className="section-heading-row"><h2>{english ? 'Factor map' : '因子地图'}</h2><a className="section-link" href={`${import.meta.env.BASE_URL}factors`}>{english ? 'Browse all factors →' : '浏览全部因子 →'}</a></div></div><DeferredContent minHeight={230} label={english ? 'Loading chart…' : '图表加载中…'}><ResearchCharts kind="family" counts={familyCounts} english={english} /></DeferredContent><div className="group-grid">{snapshot.factor_groups.map((group, index) => <a className="group-card" href={`${import.meta.env.BASE_URL}${index === 0 ? 'factors/realized_variance' : 'hermite'}`} key={group.name}><span className="group-index">0{index + 1}</span><div><h3>{localizedFactorGroup(group.name, group.label, locale)}</h3><p>{english ? (index === 0 ? 'Intraday risk states' : 'Distribution shape states') : group.name}</p></div><strong>{index === 0 ? minuteCount : hermiteCount}</strong></a>)}<a className="group-card" href={`${import.meta.env.BASE_URL}fundamentals`}><span className="group-index">03</span><div><h3>{english ? 'Fundamental research' : '基本面研究'}</h3><p>{english ? 'Separate PIT vintage' : '独立 PIT 快照'}</p></div><strong>{fundamentalCount}</strong></a></div></section>
-    <section className="section flow"><div className="section-heading"><p className="eyebrow">THE RESEARCH PATH</p><h2>{english ? 'From observations to evidence' : '从观测到研究证据'}</h2></div><div className="flow-row"><span>{english ? 'Prepared data' : '整理后的数据'}</span><i>→</i><span>{english ? 'Factor definitions' : '因子定义'}</span><i>→</i><span>{english ? 'Quality checks' : '质量检查'}</span><i>→</i><span>{english ? 'Published evidence' : '公开证据'}</span></div></section>
+  const text = homeCopy[locale]
+  const selected = studies.studies
+    .map(study => ({ study, content: { ...study, ...study.translations?.[locale] } }))
+    .filter(({ content }) => content.rows.length > 0 && content.findings.length > 0)
+    .slice(0, 3)
+  return <main className="page reader-home">
+    <section className="hero">
+      <p className="eyebrow">{text.eyebrow}</p>
+      <h1>{text.title}</h1><p className="lede">{text.intro}</p>
+      <div className="home-actions"><a className="home-primary-link" href={href('studies')}>{text.browse} →</a><a href={href('studies/compare')}>{text.compare} →</a></div>
+    </section>
+    <section className="section home-findings" aria-labelledby="home-findings-title">
+      <div className="section-heading"><p className="eyebrow">{text.selected}</p>
+        <h2 id="home-findings-title">{text.findings}</h2>
+        <p className="section-description">{text.selectionNote}</p>
+      </div>
+      <div className="home-finding-grid">{selected.map(({ study, content }) =>
+        <article className="home-finding-card" key={study.id}>
+          <span className={'study-status study-status-' + study.status}>{content.status_label}</span>
+          <small>{content.family}</small>
+          <h3><a href={href('studies/' + study.id)}>{content.title}</a></h3>
+          <p>{copy.studyBriefs[study.id] ?? content.findings[0]}</p>
+          <SourceReviewWarning study={study} />
+          <dl className="home-study-sample"><dt>{text.sample}</dt><dd>{study.evidence_summary?.sample[locale] ?? content.period}</dd></dl>
+          <div className="home-finding-limit"><strong>{text.limit}</strong>{content.limits[0]}</div>
+          <EvidenceReviewDate recordKey={study.id} />
+          <a className="study-link" href={href('studies/' + study.id)}>{text.read}</a>
+        </article>)}</div>
+      {!selected.length && <p role="status">{text.empty}</p>}
+      <p className="home-records"><a href={href('studies')}>{text.browse} →</a><a href={href('studies/evidence')}>{text.records} →</a></p>
+    </section>
+    <section className="section home-tools" aria-labelledby="home-tools-title">
+      <div className="section-heading"><p className="eyebrow">{text.tools}</p><h2 id="home-tools-title">{text.toolsTitle}</h2><p className="section-description">{text.toolsIntro}</p></div>
+      <div className="home-tool-grid">
+        <a className="home-tool-card" href={href('factors')}><h3>{text.catalogTitle}</h3><p>{text.catalogBody}</p><span>{text.catalogLink}</span></a>
+        <a className="home-tool-card" href={href('alpha810')}><h3>{text.alphaTitle}</h3><p>{text.alphaBody}</p><span>{text.alphaLink}</span></a>
+      </div>
+    </section>
+    <section className="section home-observations" aria-labelledby="home-observations-title">
+      <div className="section-heading"><p className="eyebrow">{text.observations}</p><h2 id="home-observations-title">{text.observationsTitle}</h2><p className="section-description">{text.observationsNote}</p></div>
+      <div className="home-observation-grid">{(['jumps', 'hermite', 'fundamentals'] as const).map(route =>
+        <a href={href(route)} key={route}><h3>{text[route]} →</h3><p>{text[route + 'Body' as keyof typeof text]}</p></a>)}</div>
+      <p className="home-records"><a href={href('quality')}>{text.quality} →</a></p>
+    </section>
   </main>
 }

@@ -572,3 +572,8 @@
   --surface: #131a27;
   --accent: #ef8d5e;
 }
+
+.study-reading-guide { margin: 0 0 20px; border-block: 1px solid var(--rule); padding: 14px 0; }
+.study-reading-guide summary { cursor: pointer; color: var(--accent); font-size: 14px; }
+.study-reading-guide summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
+.study-page > .research-exploration-entries { margin-top: 48px; }

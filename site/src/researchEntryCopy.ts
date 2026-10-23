@@ -3,7 +3,7 @@ import type { Locale } from './i18n'
 export const researchEntryCopy = {
   'en-US': {
     title: 'Explore research topics',
-    note: 'Open an interactive analysis with its sample scope and evidence limits. Reviewed study records follow below.',
+    note: 'Open an interactive analysis with its sample scope and evidence limits. Study records are listed above.',
     back: 'Back to research studies',
     sourceQuality: 'Source and data quality',
     snapshot: 'Public source snapshot',
@@ -15,14 +15,14 @@ export const researchEntryCopy = {
   },
   'zh-CN': {
     title: '探索专题',
-    note: '进入交互分析前，先了解样本范围和证据限制。已复核的研究记录列在下方。',
+    note: '进入交互分析前，先了解样本范围和证据限制。研究记录列在上方。',
     back: '返回研究专题',
     sourceQuality: '来源与数据质量',
     snapshot: '公开来源快照',
     availability: '覆盖范围与可得性',
     jumps: { title: '跳跃分解', stage: '历史描述性证据与独立演示', description: '比较已留存股票日样本中的跳跃变差和连续方差余项。历史聚合与演示观测采用各自的视图；预测价值仍待核验。' },
     hermite: { title: 'Hermite 体制', stage: '历史描述性证据与独立演示', description: '探索已留存观测中的已实现方差形态指标，并查看窗口与尾部敏感性。这些指标描述方差形态，与未来收益的关系仍待核验。' },
-    fundamentals: { title: '基本面经营状态', stage: '可得性诊断', description: '查看独立 PIT 财务快照中的公司历史示例与全市场覆盖。历史财报版本和逐因子预测证据，需结合下方研究记录判断。' },
+    fundamentals: { title: '基本面经营状态', stage: '可得性诊断', description: '查看独立 PIT 财务快照中的公司历史示例与全市场覆盖。历史财报版本和逐因子预测证据，需结合对应研究记录判断。' },
     alpha810: { title: 'Alpha 810', stage: '独立发布的因子集合', description: '浏览已发布的市场因子快照、汇总验证与数据检查。该集合保留自身的定义、样本与证据范围；下方目录表仍展示原有条目。', link: '浏览 Alpha 810 →' },
   },
 } satisfies Record<Locale, unknown>

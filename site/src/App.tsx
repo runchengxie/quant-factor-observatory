@@ -24,7 +24,7 @@ const QualityPage = lazy(() => import('./pages/QualityPage'))
 type Theme = 'light' | 'dark'
 type FundamentalData = { catalog: FundamentalCatalog; snapshot: FundamentalSnapshot }
 type RouteData =
-  | { kind: 'overview'; snapshot: Snapshot; fundamental: FundamentalData; studies: StudyCatalog }
+  | { kind: 'overview'; studies: StudyCatalog }
   | { kind: 'market'; snapshot: Snapshot; riskHistory: RiskHistory | null }
   | { kind: 'quality'; riskHistory: RiskHistory | null }
   | { kind: 'fundamentals'; fundamental: FundamentalData }
@@ -39,8 +39,7 @@ function currentPath() {
 
 async function loadRouteData(path: string): Promise<RouteData> {
   if (path === '' || path === 'index.html') {
-    const [snapshot, fundamental, studies] = await Promise.all([loadSnapshot(), loadFundamentalData(), loadStudies()])
-    return { kind: 'overview', snapshot, fundamental, studies }
+    return { kind: 'overview', studies: await loadStudies() }
   }
   if (path === 'jumps' || path === 'hermite') {
     const [snapshot, riskHistory] = await Promise.all([loadSnapshot(), loadRiskHistory()])
@@ -66,8 +65,7 @@ async function loadRouteData(path: string): Promise<RouteData> {
 function pathView(path: string, data: RouteData, copy: Copy) {
   if (data.kind === 'not-found') return <main className="empty"><h1>{copy.notFound}</h1><a href={import.meta.env.BASE_URL}>{copy.backHome}</a></main>
   if (data.kind === 'overview') {
-    const records = toResearchRecords(data.snapshot, data.fundamental.catalog, data.fundamental.snapshot)
-    return <OverviewPage snapshot={data.snapshot} records={records} context={buildResearchContext(data.snapshot)} fundamental={data.fundamental.snapshot} studies={data.studies} />
+    return <OverviewPage studies={data.studies} />
   }
   if (data.kind === 'market') return path === 'jumps' ? <JumpPage snapshot={data.snapshot} riskHistory={data.riskHistory} /> : <HermitePage snapshot={data.snapshot} riskHistory={data.riskHistory} />
   if (data.kind === 'quality') return <QualityPage riskHistory={data.riskHistory} />
@@ -129,7 +127,7 @@ function AppContent({ theme, setTheme }: { theme: Theme; setTheme: (theme: Theme
     setLocale(next)
   }
   const switchTheme = () => setTheme(theme === 'dark' ? 'light' : 'dark')
-  const sourceLabel = data?.kind === 'studies' || path.startsWith('studies/') ? copy.nav.studies : data?.kind === 'quality' ? copy.nav.quality : data && data.kind !== 'alpha810' && data.kind !== 'fundamentals' && data.kind !== 'not-found' && data.snapshot.source === 'demo' ? copy.sourceDemo : copy.sourcePublic
+  const sourceLabel = data?.kind === 'overview' || data?.kind === 'studies' || path.startsWith('studies/') ? copy.nav.studies : data?.kind === 'quality' ? copy.nav.quality : data && data.kind !== 'alpha810' && data.kind !== 'fundamentals' && data.kind !== 'not-found' && data.snapshot.source === 'demo' ? copy.sourceDemo : copy.sourcePublic
   return <><header className="site-header"><div className="site-masthead"><a className="brand" href={import.meta.env.BASE_URL}><span className="brand-kicker">QUANT FACTOR</span><strong>OBSERVATORY</strong></a><div className="site-meta"><strong>{copy.brandMeta}</strong><span>{copy.brandMetaSub}</span></div></div><SiteNavigation path={path}><button type="button" className="locale-toggle" onClick={switchLocale} aria-label={copy.switchLanguage.replace('{language}', copy.switchTo)}>{copy.switchTo}</button><button type="button" className="theme-toggle" onClick={switchTheme} aria-pressed={theme === 'dark'}>{theme === 'dark' ? '☼' : '☾'} <span>{theme === 'dark' ? copy.themeLight : copy.themeToggle}</span></button></SiteNavigation></header>
     {error ? <main className="empty"><h1>{copy.loadError}</h1><p>{formatDataLoadError(error, locale)}</p><button onClick={() => window.location.reload()}>{copy.retry}</button></main> : !data ? <main className="empty"><p>{copy.loading}</p></main> : <Suspense fallback={<main className="empty"><p>{copy.loading}</p></main>}>{pathView(path, data, copy)}</Suspense>}
     <footer className="site-footer"><span>quant-factor-observatory · {sourceLabel}</span><span>{copy.footerNote}</span></footer></>

@@ -12,7 +12,7 @@ test.beforeEach(async ({ page }) => {
 
 test('data load failures follow the selected locale and retain HTTP details', async ({ page }) => {
   await page.route('**/data/factor-snapshot.json', route => route.fulfill({ status: 503, body: '{}' }))
-  await page.goto('/')
+  await page.goto('/factors')
   await expect(page.locator('main')).toContainText('HTTP 503')
   expect(await page.locator('main').innerText()).not.toMatch(chinese)
   await page.getByRole('button', { name: 'Switch to 中文' }).click()
@@ -23,24 +23,25 @@ test('data load failures follow the selected locale and retain HTTP details', as
 test('unknown stored locales fall back to English for schema errors', async ({ page }) => {
   await page.addInitScript(() => localStorage.setItem('quant-factor-locale', 'fr-FR'))
   await page.route('**/data/factor-snapshot.json', route => route.fulfill({ json: {} }))
-  await page.goto('/')
+  await page.goto('/factors')
   await expect(page.locator('main')).toContainText('schema_version')
   expect(await page.locator('main').innerText()).not.toMatch(chinese)
 })
 
-test('Chinese shell labels preserve snapshot requests and numerical facts', async ({ page }) => {
+test('Chinese shell preserves research requests and sample facts', async ({ page }) => {
   const requests: string[] = []
   page.on('request', request => {
     if (request.url().endsWith('.json')) requests.push(request.url())
   })
   await page.goto('/', { waitUntil: 'domcontentloaded' })
-  await expect(page.locator('.metrics .metric-card').first()).toBeVisible()
-  const values = await page.locator('.metrics .metric-card strong').allTextContents()
+  await expect(page.locator('.home-finding-card')).toHaveCount(3)
   const sourceRequests = [...requests]
+  const links = await page.locator('.home-finding-card h3 a').evaluateAll(nodes => nodes.map(node => node.getAttribute('href')))
   await page.getByRole('button', { name: 'Switch to 中文' }).click()
-  await expect.soft(page.locator('.site-footer')).toContainText('演示快照')
-  await expect.soft(page.getByRole('button', { name: '切换为 English' })).toBeVisible()
-  expect(await page.locator('.metrics .metric-card strong').allTextContents()).toEqual(values)
+  await expect(page.locator('.site-footer')).toContainText('研究专题')
+  await expect(page.getByRole('button', { name: '切换为 English' })).toBeVisible()
+  await expect(page.locator('.home-study-sample').first()).toContainText('样本与口径')
+  expect(await page.locator('.home-finding-card h3 a').evaluateAll(nodes => nodes.map(node => node.getAttribute('href')))).toEqual(links)
   expect(requests).toEqual(sourceRequests)
   await page.getByRole('button', { name: '深色模式' }).click()
   await expect(page.getByRole('button', { name: '浅色模式' })).toBeVisible()
@@ -57,11 +58,11 @@ test('English public pages do not render Chinese catalog content', async ({ page
   }
 })
 
-test('English overview translates every factor group label', async ({ page }) => {
+test('English overview translates every research entry', async ({ page }) => {
   await page.goto('/')
-  await expect(page.getByRole('heading', { name: 'What do these market patterns tell us?' })).toBeVisible({ timeout: 15000 })
-  await expect(page.getByRole('heading', { name: 'Distribution shape states' })).toBeVisible()
-  await expect(page.getByRole('heading', { name: 'Fundamental research' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'What have we learned about factors?' })).toBeVisible({ timeout: 15000 })
+  await expect(page.getByRole('heading', { name: 'Distribution shape →' })).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'Fundamental data →' })).toBeVisible()
 })
 
 test('Alpha 810 schema 1.1 shows annual and uncertainty evidence', async ({ page }) => {
@@ -360,14 +361,14 @@ test('exploration pages localize new controls and evidence notes into Chinese', 
   await expect(page.getByText(/历史指数与行业生效时点也没有完全按点时核实/).first()).toBeVisible()
 })
 
-test('deferred native charts do not blank the page on a mobile viewport', async ({ page }) => {
+test('research home stays readable on a mobile viewport', async ({ page }) => {
   const runtimeErrors: string[] = []
   page.on('pageerror', (error) => runtimeErrors.push(error.message))
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/')
-  await expect(page.getByRole('heading', { name: 'What do these market patterns tell us?' })).toBeVisible()
-  await page.getByRole('heading', { name: 'Factor map' }).scrollIntoViewIfNeeded()
-  await expect(page.locator('svg.chart-svg').first()).toBeVisible()
+  await expect(page.getByRole('heading', { name: 'What have we learned about factors?' })).toBeVisible()
+  await page.getByRole('heading', { name: 'Explore the underlying observations' }).scrollIntoViewIfNeeded()
+  expect(await page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
   expect(runtimeErrors).toEqual([])
   await expect(page.locator('main')).toBeVisible()
 })
@@ -386,13 +387,10 @@ test('routes request only the public data snapshots they need', async ({ page })
   })
 
   await page.goto('/')
-  await expect.poll(() => dataResponses.length).toBe(4)
+  await expect.poll(() => dataResponses.length).toBe(1)
   await expect(page.getByRole('heading', { name: 'What the published evidence says' })).toBeVisible()
   const homeNames = dataResponses.map((response) => response.name)
   expect(homeNames).toEqual(expect.arrayContaining([
-    'factor-snapshot.json',
-    'fundamental-factor-catalog.json',
-    'fundamental-snapshot.json',
     'research-studies.json',
   ]))
   expect(homeNames).not.toContain('alpha810-snapshot.json')
