@@ -53,3 +53,7 @@ python scripts/audit_research_updates.py --owner-root "$RESEARCH_OWNER_ROOT" --r
 `scripts/systemd/` 提供用户服务和定时器模板，每天只读审计；安装时按现有个人配置分组调整 EnvironmentFile 路径。`OBSERVATORY_ROOT` 指向稳定生产 `current`，`RESEARCH_OWNER_ROOT` 指向权威 owner checkout，`RESEARCH_REVIEW_ROOT` 指向仓库外报告目录。个人路径写入项目配置目录的环境文件，不进入版本化模板。定时器明确使用 Asia/Shanghai 时区，不需要网络、凭证或自动发布。
 
 生产审计跟随合并后的正式版本。失败应通过用户服务状态与日志查看，不能将失败展示为成功检查。
+
+## 现金流指数公开研究迁移，2026-10-23
+
+完整公开记录由[市场研究站](https://runchengxie.github.io/quant-market-research/research/cashflow/replication/)维护。本站已移除原专题页、探索资产和当前目录及对照条目，不保留跳转。上文复核日志保留历史事实。此次仅迁移发布归属，没有增加实验或重新核验来源。

@@ -11,7 +11,7 @@ class StudyNavigationTests(unittest.TestCase):
         self.catalog = json.loads((DATA / 'research-studies.json').read_text())
         self.assets = [json.loads((ROOT / 'site/public' / s['navigation_asset']).read_text()) for s in self.catalog['studies']]
     def test_all_studies_have_source_bound_trust_and_honest_reproduction(self):
-        self.assertEqual(len(self.assets), 8)
+        self.assertEqual(len(self.assets), 7)
         for study, data in zip(self.catalog['studies'], self.assets):
             self.assertEqual(data['study_id'], study['id'])
             self.assertEqual(data['source_ref'], study['source_ref'])

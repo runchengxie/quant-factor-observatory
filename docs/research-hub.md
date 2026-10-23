@@ -57,3 +57,7 @@ The refreshed source hashes record this content review. They do not close the re
 The service and timer templates in `scripts/systemd/` perform a read-only daily audit. Install them as user units and adapt the EnvironmentFile location to the existing personal configuration grouping. Set `OBSERVATORY_ROOT` to the stable production `current` release, `RESEARCH_OWNER_ROOT` to the authoritative owner checkout, and `RESEARCH_REVIEW_ROOT` to external retained reports. Personal paths belong in the configured environment file under the user's project configuration grouping, never in versioned templates. The schedule explicitly uses Asia/Shanghai. No network, credentials, or automatic publication is required.
 
 The installed audit follows merged production releases. A failed audit is visible through the user service status and journal; it must not be represented as a successful source check.
+
+## Cash-flow index publication moved, 2026-10-23
+
+The complete public cash-flow index record is maintained by [Quant Market Research](https://runchengxie.github.io/quant-market-research/research/cashflow/replication/). Its original study page, exploration assets and current catalog/compare entries have been removed from this site. Historical review notes above remain historical. No redirect is retained. This is a publication move, not a new experiment or source revalidation.

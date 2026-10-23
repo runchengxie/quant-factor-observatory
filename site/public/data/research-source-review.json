@@ -16,7 +16,7 @@
       ],
       "study_id": "pb-roe",
       "source_revision": "e1984591be37073d9e1b3b1dee8a7e7813652cb3",
-      "catalog_sha256": "8dc85d75ff016043e52bfa0b8cd47d5f978f19f338ec12f2f41b9ad720e97b2e",
+      "catalog_sha256": "2e80ddf03144d7212f7332f385d83a099c4104796b208831cd3d801f8f4e047e",
       "exploration_sha256": "64e30df75c41e4bb6a4ad5cd2f0b10e7f9aed04dc38aa54d216d2862cda36df7",
       "sources": [
         {
@@ -128,44 +128,12 @@
       ],
       "study_id": "fundamental-family-shadow",
       "source_revision": "e1984591be37073d9e1b3b1dee8a7e7813652cb3",
-      "catalog_sha256": "2299b6c19f72774c476177e10e81b3ebb62a93a8a1c0ef31948f209f8e133974",
+      "catalog_sha256": "648f4d274cfbb179ce8389e874ae5d3a15d559112961ce670ecadff59ee377a2",
       "exploration_sha256": "625b272ed306aa445185c0663f647e91a5d1f55589f1adfc1fd7ed9c98560acc",
       "sources": [
         {
           "source_ref": "doc:quant-research.research.fundamental-family-shadow",
           "sha256": "7fb7ec8ddf7f4e9ad5399be064ab247bfde95415195176c8fe54fca0591439e9"
-        }
-      ]
-    },
-    {
-      "brief_sha256": "ede2acc0e0a8a2578a2295bbb8b34a09f8ab1c9e8312879a441f434138175946",
-      "navigation_sha256": "61c914d0a9d8bef166e984bf35478944dd0a27df8cbcd344e12375e61c0580bf",
-      "navigation_sources": [
-        {
-          "source_ref": "doc:quant-research.research.cashflow-indices-map",
-          "sha256": "3942ca7ab9f7a506b451e226f7650e5dacbefe7f6e1c48dfd7082e7dcb945da5"
-        },
-        {
-          "source_ref": "doc:quant-research.research.fundamental-evidence-navigation",
-          "sha256": "94dce6121b4a6178d6c1b3a768db4fab57500904338ebccc3e2435790b070edc"
-        }
-      ],
-      "study_id": "cashflow-indices",
-      "source_revision": "e1984591be37073d9e1b3b1dee8a7e7813652cb3",
-      "catalog_sha256": "6bfbdaafc752da1dedb39119bb40198cf3aed93c38af6a6fe91cb42474dd6930",
-      "exploration_sha256": "a052f5703fc0ff0e05c4fc95fa3586146f88a755d8a21c8ed4681255af3119c2",
-      "sources": [
-        {
-          "source_ref": "doc:quant-research.research.cashflow-indices-map",
-          "sha256": "3942ca7ab9f7a506b451e226f7650e5dacbefe7f6e1c48dfd7082e7dcb945da5"
-        },
-        {
-          "source_ref": "doc:quant-research.research.cashflow-indices.current-status",
-          "sha256": "e750c0c72b8e6b58266c10f323b4ab38a3381871d05125440c3ab4d1a17da3a2"
-        },
-        {
-          "source_ref": "doc:quant-research.decision.long-term-fundamental-v2-20260904",
-          "sha256": "2b944cd9718a00cb7db67d98e1d4f5ff4ce7b294a847ad49dc11a56ea37eaca4"
         }
       ]
     },
@@ -184,7 +152,7 @@
       ],
       "study_id": "hk-fundamental-archive",
       "source_revision": "e1984591be37073d9e1b3b1dee8a7e7813652cb3",
-      "catalog_sha256": "3ca99b5ea2feeb670bb5f97751aa7122139dc9f1d7b4bd9ce577f120ca695a04",
+      "catalog_sha256": "9f71e606be7e306c2b682ec577c3e076249678a15623a6fd034f315d4607ec6d",
       "exploration_sha256": "2df1f25114b6734da76c12fe54d4a96ae7b0a546eed1194138ed137743c2ba10",
       "sources": [
         {
@@ -274,7 +242,7 @@
       ]
     }
   ],
-  "hub_sha256": "810e790a834d06b9162e0f68fbe5d7b39781fea5cc6c60b1941ad204fc14d63a",
+  "hub_sha256": "1a65bbb9617db790d374ccb11306259855c5992be370e6c3203be53ca2bf14c0",
   "public_assets": [
     {
       "public_id": "risk-history",

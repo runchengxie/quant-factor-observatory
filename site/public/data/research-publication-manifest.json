@@ -1,6 +1,6 @@
 {
   "schema_version": "observatory.research_publication.v1",
-  "generated_at": "2026-10-15",
+  "generated_at": "2026-10-23",
   "source_repository": "quant-research",
   "source_manifest": "docs/research/knowledge-pilot.yml",
   "projections": [
@@ -50,53 +50,6 @@
       "exploration_asset": "data/study-exploration/absolute-level-forecast.json",
       "exploration_reviewed_at": "2026-10-02",
       "navigation_asset": "data/study-navigation/absolute-level-forecast.json"
-    },
-    {
-      "public_id": "cashflow-indices",
-      "source_ref": "doc:quant-research.research.cashflow-indices-map",
-      "source_status": "active",
-      "publication_status": "preliminary_aggregate",
-      "locales": [
-        "en-US",
-        "zh-CN"
-      ],
-      "allowed_fields": [
-        "title",
-        "family",
-        "status",
-        "summary",
-        "period",
-        "findings",
-        "limits",
-        "aggregate_rows",
-        "exploration_steps",
-        "aggregate_charts",
-        "source_references",
-        "next_question",
-        "evidence_summary",
-        "conclusion_changes",
-        "related_studies",
-        "source_review_status",
-        "navigation_asset",
-        "navigation_summary",
-        "trust",
-        "reproduction",
-        "next_tasks",
-        "diagnostic_intervals",
-        "scale_slices",
-        "calibration"
-      ],
-      "excluded_fields": [
-        "private_data_paths",
-        "credentials",
-        "per_security_signals",
-        "portfolio_weights",
-        "execution_details",
-        "private_code"
-      ],
-      "exploration_asset": "data/study-exploration/cashflow-indices.json",
-      "exploration_reviewed_at": "2026-10-02",
-      "navigation_asset": "data/study-navigation/cashflow-indices.json"
     },
     {
       "public_id": "employee-compensation",

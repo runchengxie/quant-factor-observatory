@@ -19,11 +19,6 @@
     "source_asset": "data/study-navigation/fundamental-family-shadow.json",
     "source_revision": "e83f2d10a5c45aa4b4bc4b28a288887f86500aa8"
   },
-  "cashflow-indices": {
-    "reviewed_at": "2026-10-14",
-    "source_asset": "data/study-navigation/cashflow-indices.json",
-    "source_revision": "e83f2d10a5c45aa4b4bc4b28a288887f86500aa8"
-  },
   "hk-fundamental-archive": {
     "reviewed_at": "2026-10-14",
     "source_asset": "data/study-navigation/hk-fundamental-archive.json",

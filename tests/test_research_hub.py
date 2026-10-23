@@ -16,7 +16,7 @@ class ResearchHubTests(unittest.TestCase):
         self.catalog = json.loads((ROOT / 'site/public/data/research-studies.json').read_text())
         self.baseline = json.loads((ROOT / 'site/public/data/research-source-review.json').read_text())
     def test_registry_references_same_chart_and_valid_baseline(self):
-        self.assertEqual(len(self.catalog['research_hub']['comparison_groups']), 12)
+        self.assertEqual(len(self.catalog['research_hub']['comparison_groups']), 11)
         studies = {s['id']: s for s in self.catalog['studies']}
         for group in self.catalog['research_hub']['comparison_groups']:
             data = json.loads((ROOT / 'site/public' / studies[group['study_id']]['exploration_asset']).read_text())
@@ -41,7 +41,7 @@ class ResearchHubTests(unittest.TestCase):
                 self.assertTrue(set(change['source_ids']) <= sources)
                 for field in ('before', 'trigger', 'after'):
                     self.assertEqual(set(change[field]), {'en-US', 'zh-CN'})
-        self.assertEqual(len(self.catalog['research_hub']['change_entries']), 11)
+        self.assertEqual(len(self.catalog['research_hub']['change_entries']), 10)
     def test_offline_baseline_and_status_metadata_are_independent(self):
         report = review.audit(self.catalog, self.baseline)
         self.assertFalse(report['hub_changed'])

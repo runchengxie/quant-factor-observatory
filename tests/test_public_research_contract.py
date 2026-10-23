@@ -41,7 +41,6 @@ class PublicResearchContractTests(unittest.TestCase):
             "fundamental-state-forecasting": "doc:quant-research.research.long-term-fundamental-v2",
             "absolute-level-forecast": "doc:quant-research.research.fundamental-state-forecasting",
             "fundamental-family-shadow": "doc:quant-research.research.fundamental-family-shadow",
-            "cashflow-indices": "doc:quant-research.research.cashflow-indices-map",
             "pb-roe": "doc:quant-research.strategy.pb-roe-value-quality",
             "hk-fundamental-archive": "doc:quant-research.archive.hk-experiment-recovery-20260928",
             "employee-compensation": "doc:quant-research.research.fundamental-research-series",
@@ -134,7 +133,7 @@ class PublicResearchContractTests(unittest.TestCase):
         studies = {study["id"]: study for study in catalog["studies"]}
         self.assertEqual(
             set(studies), {
-                "pb-roe", "rd-investment", "employee-compensation", "cashflow-indices",
+                "pb-roe", "rd-investment", "employee-compensation",
                 "fundamental-state-forecasting", "absolute-level-forecast",
                 "fundamental-family-shadow", "hk-fundamental-archive",
             }
@@ -145,8 +144,6 @@ class PublicResearchContractTests(unittest.TestCase):
         self.assertIn("遗留", studies["rd-investment"]["source_note"])
         self.assertEqual(studies["employee-compensation"]["status"], "hypothesis")
         self.assertEqual(studies["employee-compensation"]["rows"], [])
-        self.assertEqual(studies["cashflow-indices"]["status"], "preliminary")
-        self.assertEqual(len(studies["cashflow-indices"]["rows"]), 2)
 
     def test_study_pages_publish_complete_english_copy(self):
         catalog = json.loads((PUBLIC_DATA / "research-studies.json").read_text())
@@ -206,18 +203,6 @@ class PublicResearchContractTests(unittest.TestCase):
             self.assertIsNone(years[2015]["rank_ic"])
             self.assertEqual(years[2015]["evidence_status"], "missing_lookback")
             self.assertEqual(years[2016]["evidence_status"], "below_minimum_cross_section")
-
-    def test_cashflow_study_is_backed_by_a_stable_source_projection(self):
-        manifest = json.loads((PUBLIC_DATA / "research-publication-manifest.json").read_text())
-        projection = next(
-            item for item in manifest["projections"] if item["public_id"] == "cashflow-indices"
-        )
-        self.assertEqual(
-            projection["source_ref"], "doc:quant-research.research.cashflow-indices-map"
-        )
-        self.assertIn("aggregate_rows", projection["allowed_fields"])
-        self.assertIn("per_security_signals", projection["excluded_fields"])
-        self.assertIn("portfolio_weights", projection["excluded_fields"])
 
     def test_public_pages_do_not_render_formula_fields(self):
         source = "\n".join(path.read_text() for path in PUBLIC_SOURCE.rglob("*.tsx"))

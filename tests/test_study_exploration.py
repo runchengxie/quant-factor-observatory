@@ -18,7 +18,7 @@ class StudyExplorationTests(unittest.TestCase):
     def asset(self, study_id):
         return json.loads((ROOT / 'site/public' / self.studies[study_id]['exploration_asset']).read_text())
 
-    def test_all_eight_studies_have_localized_source_backed_exploration(self):
+    def test_all_current_studies_have_localized_source_backed_exploration(self):
         projections = {p['public_id']: p for p in self.manifest['projections']}
         for study_id, study in self.studies.items():
             data = self.asset(study_id)
@@ -78,16 +78,6 @@ class StudyExplorationTests(unittest.TestCase):
                 self.assertEqual(sum(p['wins'] for p in cash['fiscal_quarter']), cash['wins'])
         self.assertIn('omitted Q3', guide['paragraphs'][-1]['en-US'])
         self.assertTrue({'forecast-robustness', 'return-input-qualification'} <= set(guide['source_ids']))
-
-    def test_official_membership_does_not_claim_historical_weights(self):
-        data = self.asset('cashflow-indices')
-        step = next(s for s in data['steps'] if s['id'] == 'official-membership-boundary')
-        self.assertIn('nine', step['finding']['en-US'])
-        self.assertIn('2024-09-18', step['finding']['en-US'])
-        self.assertIn('no historical weights', step['finding']['en-US'])
-        self.assertIn('历史权重', step['finding']['zh-CN'])
-        self.assertIn('not', step['decision']['en-US'])
-        self.assertEqual(data['charts'][0]['series'][0]['values'][0], .1699)
 
     def test_protocol_and_hypothesis_publish_no_performance_chart(self):
         self.assertEqual(self.asset('fundamental-family-shadow')['charts'], [])

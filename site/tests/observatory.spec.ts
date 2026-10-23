@@ -440,16 +440,13 @@ test('routes request only the public data snapshots they need', async ({ page })
 })
 
 test('all fundamental studies show source-backed exploration and optional charts', async ({ page }) => {
-  const ids = ['pb-roe', 'rd-investment', 'fundamental-state-forecasting', 'fundamental-family-shadow', 'cashflow-indices', 'hk-fundamental-archive', 'employee-compensation', 'absolute-level-forecast']
+  const ids = ['pb-roe', 'rd-investment', 'fundamental-state-forecasting', 'fundamental-family-shadow', 'hk-fundamental-archive', 'employee-compensation', 'absolute-level-forecast']
   for (const id of ids) {
     await page.goto(`/studies/${id}`)
     if (id === 'fundamental-state-forecasting') await page.getByText('Research history and sources', { exact: true }).click()
     await expect(page.getByRole('heading', { name: 'How the evidence developed' })).toBeVisible()
-    await expect(page.locator('.study-exploration-steps > li')).toHaveCount(id === 'rd-investment' ? 8 : id === 'employee-compensation' ? 8 : ['cashflow-indices', 'fundamental-state-forecasting'].includes(id) ? 4 : 3)
-    if (id === 'cashflow-indices') {
-      await expect(page.locator('.study-exploration-steps')).toContainText('2024-09-18')
-      await expect(page.locator('.study-exploration-steps')).toContainText('no historical weights')
-    }
+    await expect(page.locator('.study-exploration-steps > li')).toHaveCount(id === 'rd-investment' ? 8 : id === 'employee-compensation' ? 8 : ['fundamental-state-forecasting'].includes(id) ? 4 : 3)
+
     if (id === 'employee-compensation') {
       await expect(page.locator('.study-evidence-summary')).toContainText('Source matches recorded baseline')
     }
@@ -547,7 +544,7 @@ test('research hub filters evidence and preserves conclusion changes', async ({ 
  await page.goto('/studies/evidence')
  const hub = page.locator('.research-evidence-hub')
  await expect(hub.getByRole('heading', { name: 'Research evidence matrix' })).toBeVisible()
- await expect(hub.locator('tbody tr')).toHaveCount(8)
+ await expect(hub.locator('tbody tr')).toHaveCount(7)
  await hub.getByLabel('Market', { exact: true }).selectOption('hong_kong')
  await expect(hub.locator('tbody tr')).toHaveCount(1)
  await hub.getByLabel('Market', { exact: true }).selectOption('')
@@ -620,7 +617,7 @@ test('study navigation shows trust, honest provenance and isolated paired diagno
 test('alternative research views distinguish negative tests from missing experiments', async ({ page }) => {
  await page.goto('/studies/evidence')
  await page.getByLabel('Browse research').selectOption('experiment')
- await expect(page.locator('.research-evidence-hub tbody tr')).toHaveCount(8)
+ await expect(page.locator('.research-evidence-hub tbody tr')).toHaveCount(7)
  await expect(page.locator('.research-evidence-hub')).toContainText('20261002-final-v4')
  await page.getByLabel('Browse research').selectOption('decision')
  await page.getByLabel('Show negative or inconclusive tests').check()
@@ -628,7 +625,7 @@ test('alternative research views distinguish negative tests from missing experim
  await expect(page.locator('.research-evidence-hub tbody')).not.toContainText('labor-cost-definition')
  await page.getByLabel('Show negative or inconclusive tests').uncheck()
  await page.getByLabel('Show only studies with unfinished tasks').check()
- await expect(page.locator('.research-evidence-hub tbody tr')).toHaveCount(8)
+ await expect(page.locator('.research-evidence-hub tbody tr')).toHaveCount(7)
  const rd = page.locator('.research-evidence-hub tbody tr').filter({ hasText: 'R&D Investment' })
  await expect(rd).toContainText('Keep the prospective October 2026–September 2027 holdout sealed.')
  await expect(rd).not.toContainText('Paired uncertainty, annual / size slices and calibration retained')
@@ -658,7 +655,7 @@ test('study index stays concise while each topic retains its evidence', async ({
     await route.fulfill({ response, json: catalog })
   })
   await page.goto('/studies')
-  await expect(page.locator('.study-card')).toHaveCount(8)
+  await expect(page.locator('.study-card')).toHaveCount(7)
   await expect(page.locator('.research-evidence-hub')).toHaveCount(0)
   await expect(page.locator('.study-card[href$="employee-compensation"]')).toContainText('Source changed; review required')
   await page.getByLabel('Search studies').fill('beat all six')
@@ -671,7 +668,7 @@ test('study index stays concise while each topic retains its evidence', async ({
   await expect(page.locator('.study-card')).toHaveCount(1)
   await page.getByRole('link', { name: 'Compare past experiments', exact: true }).click()
   await expect(page).toHaveURL(/studies\/evidence$/)
-  await expect(page.locator('.research-evidence-hub tbody tr')).toHaveCount(8)
+  await expect(page.locator('.research-evidence-hub tbody tr')).toHaveCount(7)
   await page.goto('/studies/rd-investment')
   await expect(page.locator('.study-evidence-summary')).toContainText('Baseline')
   await expect(page.locator('.study-source-record')).not.toHaveAttribute('open')
@@ -692,7 +689,7 @@ test('topic navigation and source details remain readable in Chinese on mobile',
   await page.setViewportSize({ width: 390, height: 844 })
   await page.goto('/studies')
   await page.getByRole('button', { name: 'Switch to 中文', exact: true }).click()
-  await expect(page.locator('.study-card')).toHaveCount(8)
+  await expect(page.locator('.study-card')).toHaveCount(7)
   await expect(page.locator('.research-evidence-hub')).toHaveCount(0)
   await page.getByLabel('证据阶段', { exact: true }).selectOption('hypothesis')
   await expect(page.locator('.study-card')).toHaveCount(1)
@@ -762,7 +759,7 @@ test('research exploration and Alpha 810 entries preserve routes and localized s
 
 test('grouped navigation works by keyboard and distinguishes evidence review from source checks', async ({ page }) => {
   await page.goto('/studies')
-  await expect(page.locator('.study-card .evidence-review-date')).toHaveCount(8)
+  await expect(page.locator('.study-card .evidence-review-date')).toHaveCount(7)
   await expect(page.locator('.study-card .evidence-review-date').first()).toContainText('Evidence record reviewed')
   await expect(page.locator('.exploration-entry').last()).toContainText('Review date not recorded')
   const nav = page.locator('.site-nav')
