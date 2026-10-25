@@ -32,7 +32,12 @@ export default defineConfig({
   outputDir: join(runDirectory, 'test-results'),
   fullyParallel: true,
   reporter: 'line',
-  use: { baseURL: `http://127.0.0.1:${port}/`, ...devices['Desktop Chrome'] },
+  use: {
+    baseURL: `http://127.0.0.1:${port}/`,
+    ...devices['Desktop Chrome'],
+    trace: 'retain-on-failure',
+    screenshot: 'only-on-failure',
+  },
   webServer: {
     command: `npm run build -- --outDir ${quotedBuildDirectory} && npm run preview -- --outDir ${quotedBuildDirectory} --host 127.0.0.1 --port ${port} --strictPort`,
     url: `http://127.0.0.1:${port}/`,

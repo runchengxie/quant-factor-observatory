@@ -65,7 +65,9 @@ Run these commands from the repository root. Browser checks use Chromium:
 npm run test:e2e --prefix site
 ```
 
-Each browser test invocation starts its own preview server on an available local port and stores its build, traces, and test output in a unique `observatory-playwright-*` directory under the system temporary directory (`TMPDIR` on Unix). Set `PLAYWRIGHT_PORT` to request a specific port; an occupied port fails rather than reusing another server. Temporary artifacts are retained for inspection and can be removed after review.
+Each browser test invocation starts its own preview server on an available local port and stores its build, traces, and test output in a unique `observatory-playwright-*` directory under the system temporary directory (`TMPDIR` on Unix). Set `PLAYWRIGHT_PORT` to request a specific port; an occupied port fails rather than reusing another server.
+
+Failed tests retain a Playwright trace, screenshot and error context in `test-results`; passing tests discard their trace and screenshot. Open a retained trace with `npx playwright show-trace <path-to-trace.zip>`. CI uploads failed browser diagnostics as `browser-failures-<commit>` for 14 days. Temporary artifacts are retained for inspection and can be removed after review.
 
 Functional browser tests use fallback fonts and a local fixture for the external font stylesheet. They validate data, controls, localization, and layout without depending on font-CDN availability; they do not validate the live font service. Language actions, theme labels, and snapshot source labels use the locale catalog.
 

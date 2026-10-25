@@ -36,4 +36,15 @@ jobs:
         working-directory: site
         run: npx playwright install --with-deps chromium
       - name: Run browser regression tests
+        id: browser_tests
+        env:
+          OBSERVATORY_PLAYWRIGHT_RUN_DIRECTORY: ${{ runner.temp }}/observatory-browser
         run: npm run test:e2e --prefix site
+      - name: Retain failed browser diagnostics
+        if: failure() && steps.browser_tests.outcome == 'failure'
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-failures-${{ github.sha }}
+          path: ${{ runner.temp }}/observatory-browser/test-results
+          retention-days: 14
+          if-no-files-found: warn
