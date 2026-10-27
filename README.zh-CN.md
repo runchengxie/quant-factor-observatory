@@ -41,14 +41,23 @@ npm run build --prefix site
 ```bash
 python scripts/audit_public_release.py
 python -m unittest discover -s tests -v
+python scripts/audit_research_updates.py --check
 ```
 
-以上命令从仓库根目录执行。浏览器检查使用 Chromium：
+以上命令从仓库根目录执行。复核基线检查将已提交的公开投影与记录的基线对比；未指定 `--owner-root` 时，私有来源仍标记为 `not_checked`。检查失败时应先复核证据变化，不能仅为通过检查而重新生成基线。
+
+构建依次执行旧因子证据契约检查、TypeScript 项目检查和 Vite。仓库没有单独配置 lint 命令或覆盖率阈值。`npm audit --prefix site` 单独检查依赖漏洞公告；公开发布审计通过不代表依赖安全检查通过。
+
+浏览器检查使用 Chromium：
 
 ```bash
 (cd site && npx playwright install chromium)
 npm run test:e2e --prefix site
 ```
+
+每次浏览器测试都会在可用的本地端口启动独立预览服务，并将构建、trace 和测试结果写入系统临时目录（Unix 上为 `TMPDIR`）中的独立 `observatory-playwright-*` 目录。可通过 `PLAYWRIGHT_PORT` 指定端口；端口被占用时会失败，不会复用其他服务。
+
+失败的测试在 `test-results` 中保留 Playwright trace、截图和错误上下文；通过的测试丢弃 trace 和截图。使用 `npx playwright show-trace <path-to-trace.zip>` 查看保留的 trace。CI 以 `browser-failures-<commit>` 上传失败诊断，保留 14 天。临时产物保留供检查，复核后可清理。
 
 浏览器功能测试使用备用字体和外部字体样式表的本地 fixture，验证数据、控件、本地化和布局，不依赖字体 CDN 是否可用，也不验证线上字体服务。语言操作、主题和快照来源标签使用 locale catalog。
 
