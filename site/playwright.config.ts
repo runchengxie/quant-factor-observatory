@@ -42,5 +42,6 @@ export default defineConfig({
     command: `npm run build -- --outDir ${quotedBuildDirectory} && npm run preview -- --outDir ${quotedBuildDirectory} --host 127.0.0.1 --port ${port} --strictPort`,
     url: `http://127.0.0.1:${port}/`,
     reuseExistingServer: false,
+    timeout: 180_000,
   },
 })

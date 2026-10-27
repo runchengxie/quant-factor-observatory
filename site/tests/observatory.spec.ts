@@ -490,6 +490,8 @@ test('exploration assets load only on the matching study route and failure suppo
   await page.route('**/study-exploration/pb-roe.json', (route) => fail ? route.abort() : route.continue())
   await page.goto('/studies/pb-roe')
   await expect(page.getByText('Additional exploration evidence is unavailable.', { exact: false })).toBeVisible()
+  await expect(page.locator('#historical-comparison')).toBeVisible()
+  await page.locator('#full-evidence > details > summary').click()
   await expect(page.getByRole('heading', { name: 'What the evidence says so far' })).toBeVisible()
   fail = false
   await page.getByRole('button', { name: 'Retry', exact: true }).click()
@@ -501,6 +503,8 @@ test('invalid exploration identity fails safely without changing published concl
   await page.route('**/study-exploration/employee-compensation.json', (route) => route.fulfill({ json: { schema_version: 'observatory.study_exploration.v1', study_id: 'wrong-study' } }))
   await page.goto('/studies/employee-compensation')
   await expect(page.getByText('Additional exploration evidence is unavailable.', { exact: false })).toBeVisible()
+  await expect(page.locator('#historical-comparison')).toBeVisible()
+  await page.locator('#full-evidence > details > summary').click()
   await expect(page.getByRole('heading', { name: 'What the evidence says so far' })).toBeVisible()
   await expect(page.locator('.study-exploration .study-exploration-svg')).toHaveCount(0)
 })

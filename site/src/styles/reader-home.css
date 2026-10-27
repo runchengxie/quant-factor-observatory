@@ -43,3 +43,21 @@
   .home-tool-grid { grid-template-columns: 1fr; }
   .home-tool-card + .home-tool-card { border-left: 0; border-top: 1px solid var(--rule); }
 }
+
+@media (max-width: 600px) {
+ .reader-home .hero { padding-top: 20px; padding-bottom: 8px; }
+ .reader-home .hero h1 { font-size: 28px; margin-block: 8px; }
+ .reader-home .hero .lede { font-size: 15px; line-height: 1.6; }
+ .reader-home .home-actions { margin-top: 12px; gap: 8px 16px; }
+ .reader-home .home-findings { padding-top: 16px; }
+ .reader-home .home-findings > .section-heading { margin-bottom: 16px; }
+ .reader-home .home-finding-card { padding: 16px; gap: 8px; }
+ .reader-home .home-study-sample, .reader-home .home-finding-limit { font-size: 14px; }
+}
+@media (max-width: 600px) {
+ body:has(.reader-home) .site-masthead { display: flex; align-items: center; padding: 20px 0 14px; gap: 12px; }
+ body:has(.reader-home) .site-meta { margin-top: 0; font-size: 10px; }
+ .reader-home.page { padding-top: 16px; }
+ .reader-home .hero { padding-top: 0; }
+ .reader-home .home-findings > .section-heading h2 { font-size: 24px; }
+}
