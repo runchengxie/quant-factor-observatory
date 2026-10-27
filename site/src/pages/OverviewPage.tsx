@@ -1,3 +1,4 @@
+import { sampleReading } from '../readerAuditCopy'
 import type { StudyCatalog } from '../types'
 import { useLocale } from '../i18n'
 import { homeCopy } from '../homeCopy'
@@ -32,7 +33,7 @@ export default function OverviewPage({ studies }: { studies: StudyCatalog }) {
           <h3><a href={href('studies/' + study.id)}>{content.title}</a></h3>
           <p>{copy.studyBriefs[study.id] ?? content.findings[0]}</p>
           <SourceReviewWarning study={study} />
-          <dl className="home-study-sample"><dt>{text.sample}</dt><dd>{study.evidence_summary?.sample[locale] ?? content.period}</dd></dl>
+          <dl className="home-study-sample"><dt>{text.sample}</dt><dd>{sampleReading[study.id]?.[locale] ?? study.evidence_summary?.sample[locale] ?? content.period}</dd></dl>
           <div className="home-finding-limit"><strong>{text.limit}</strong>{content.limits[0]}</div>
           <EvidenceReviewDate recordKey={study.id} />
           <a className="study-link" href={href('studies/' + study.id)}>{text.read}</a>
