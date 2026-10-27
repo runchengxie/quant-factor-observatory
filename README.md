@@ -56,9 +56,14 @@ Generate redacted results in the private research environment before replacing p
 ```bash
 python scripts/audit_public_release.py
 python -m unittest discover -s tests -v
+python scripts/audit_research_updates.py --check
 ```
 
-Run these commands from the repository root. Browser checks use Chromium:
+Run these commands from the repository root. The review-baseline check compares the committed public projections with their recorded baseline; without `--owner-root`, private sources remain `not_checked`. Do not recapture the baseline merely to clear a failure. Review the changed evidence first.
+
+The build runs the legacy evidence contract check, TypeScript project checking, and Vite. There is no separate configured lint command or coverage threshold. `npm audit --prefix site` checks dependency advisories separately; a passing public-release audit does not establish dependency security.
+
+Browser checks use Chromium:
 
 ```bash
 (cd site && npx playwright install chromium)
