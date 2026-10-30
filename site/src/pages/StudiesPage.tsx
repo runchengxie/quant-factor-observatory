@@ -1,3 +1,4 @@
+import { pbRoeInterpretationCopy } from '../pbRoeInterpretationCopy'
 import { readerAuditCopy, sampleReading } from '../readerAuditCopy'
 import { homeCopy } from '../homeCopy'
 import EvidenceReviewDate from '../components/EvidenceReviewDate'
@@ -91,6 +92,7 @@ export function StudyDetailPage({ study, updatedAt, rdAnnual, catalog }: { catal
   const rdGuide = rdInvestmentCopy[locale]
   const reader = readerAuditCopy[locale]
   const pbRoe = study.id === 'pb-roe'
+  const pbRoeText = pbRoeInterpretationCopy[locale]
   const forecast = study.id === 'fundamental-state-forecasting'
   const updatedDate = new Date(updatedAt)
   const displayUpdatedAt = forecast && Number.isFinite(updatedDate.getTime()) ? new Intl.DateTimeFormat(locale, { dateStyle: 'long', timeZone: 'UTC' }).format(updatedDate) : updatedAt
@@ -117,7 +119,7 @@ export function StudyDetailPage({ study, updatedAt, rdAnnual, catalog }: { catal
   return <main className="page study-page">
     <a className="back" href={`${import.meta.env.BASE_URL}studies`}>← {english ? 'All studies' : '全部研究专题'}</a>
     <section className="detail-head"><p className="eyebrow">{content.family}</p><h1>{content.title}</h1><p className="lede">{forecast ? forecastReaderCopy[locale].summary : content.summary}</p><div className="detail-tags"><span className={`study-status study-status-${study.status}`}>{content.status_label}</span><span className="tag">{copy.studies.updated} {displayUpdatedAt}</span>{!forecast && taxonomyLabels(study, copy.studyTaxonomy).map((label) => <span className="tag" key={label}>{label}</span>)}</div></section>
-    {pbRoe && <><p className="panel-note">{reader.definitions}</p>{comparison}<section className="panel" id="comparison-limits"><h2>{reader.comparison}</h2><p>{content.period}</p><ul>{content.limits.map(item => <li key={item}>{item}</li>)}</ul><a href="#full-evidence">{reader.records} ↓</a></section></>}
+    {pbRoe && <><section className="panel" id="pb-roe-interpretation"><h2>{pbRoeText.title}</h2><p>{pbRoeText.finding}</p><p>{pbRoeText.use}</p><p className="panel-note">{pbRoeText.review}</p>{study.source_url && <a href={study.source_url}>{pbRoeText.source}</a>}</section><p className="panel-note">{reader.definitions}</p>{comparison}<section className="panel" id="comparison-limits"><h2>{reader.comparison}</h2><p>{content.period}</p><ul>{content.limits.map(item => <li key={item}>{item}</li>)}</ul><a href="#full-evidence">{reader.records} ↓</a></section></>}
     {forecast && exploration}
     {forecast ? <details className="forecast-study-records"><summary>{forecastReaderCopy[locale].records}</summary>{records}</details> : pbRoe ? <div id="full-evidence">{records}</div> : records}
     {catalog && <StudyConnections study={study} catalog={catalog} />}
