@@ -17,8 +17,8 @@ class StudyNavigationTests(unittest.TestCase):
             self.assertEqual(data['source_ref'], study['source_ref'])
             self.assertEqual(data['schema_version'], 'observatory.study_navigation.v1')
             self.assertRegex(data['source_revision'], '^[a-f0-9]{40}$')
-            self.assertEqual(len(data['trust']),6)
-            self.assertEqual(len({c['dimension'] for c in data['trust']}),6)
+            self.assertEqual(len(data['trust']), 6)
+            self.assertEqual(len({c['dimension'] for c in data['trust']}), 6)
             for claim in data['trust']:
                 self.assertEqual(set(claim['detail']),{'en-US','zh-CN'})
                 self.assertNotRegex(claim['detail']['en-US'], r'[\u4e00-\u9fff]')

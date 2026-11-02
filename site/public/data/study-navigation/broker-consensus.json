@@ -2,7 +2,7 @@
   "schema_version": "observatory.study_navigation.v1",
   "study_id": "broker-consensus",
   "source_ref": "doc:quant-research.research.broker-consensus-20261102",
-  "source_revision": "85888563c3f50f3df59e27463c459177fefbbfc1",
+  "source_revision": "d15080a74702a8913c612128aa34846946f54b28",
   "reviewed_at": "2026-11-02",
   "authority_ref": "doc:quant-research.research.broker-consensus-20261102",
   "trust": [
@@ -21,11 +21,12 @@
       "dimension": "financial_versions",
       "status": "unverified",
       "detail": {
-        "en-US": "Original provider vintages remain unknown, especially before the 2022 update batch.",
-        "zh-CN": "原始历史版本仍缺少记录，2022年批量更新之前尤其明显。"
+        "en-US": "Original provider vintages remain unknown. Paired forecast-minus-reported results include zero, while the forecast rank residual remains descriptive.",
+        "zh-CN": "原始供应商版本仍未知。预测减已披露盈利的配对差值区间包含零，预测排序残差仍只作历史描述。"
       },
       "source_refs": [
-        "doc:quant-research.research.broker-consensus-20261102"
+        "doc:quant-research.research.broker-consensus-20261102",
+        "doc:quant-research.research.broker-consensus-followup-20261102"
       ]
     },
     {
@@ -96,8 +97,8 @@
   },
   "decision": "research_only",
   "resume_when": {
-    "en-US": "Does forecast information add to currently reported valuation on newly observed snapshots?",
-    "zh-CN": "在新观察日版本中，预测信息能否比当前已公布盈利多提供一些帮助？"
+    "en-US": "Do genuinely observed monthly snapshots add value when compared with reported valuation on identical stocks and dates?",
+    "zh-CN": "在同一批股票和日期上，真实按月保存的预测快照能否比已披露估值多提供信息？"
   },
   "next_tasks": [
     {
@@ -130,5 +131,8 @@
   "diagnostic_intervals": [],
   "diagnostic_note": null,
   "scale_slices": [],
-  "calibration": []
+  "calibration": [],
+  "source_refs": [
+    "doc:quant-research.research.broker-consensus-followup-20261102"
+  ]
 }
