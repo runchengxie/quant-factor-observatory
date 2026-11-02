@@ -1,0 +1,134 @@
+{
+  "schema_version": "observatory.study_navigation.v1",
+  "study_id": "broker-consensus",
+  "source_ref": "doc:quant-research.research.broker-consensus-20261102",
+  "source_revision": "85888563c3f50f3df59e27463c459177fefbbfc1",
+  "reviewed_at": "2026-11-02",
+  "authority_ref": "doc:quant-research.research.broker-consensus-20261102",
+  "trust": [
+    {
+      "dimension": "announcement_clock",
+      "status": "partial",
+      "detail": {
+        "en-US": "Separate report and provider clocks, with matched recent samples.",
+        "zh-CN": "分别核对研报和供应商时间，并保留近期同样本对照。"
+      },
+      "source_refs": [
+        "doc:quant-research.research.broker-consensus-20261102"
+      ]
+    },
+    {
+      "dimension": "financial_versions",
+      "status": "unverified",
+      "detail": {
+        "en-US": "Original provider vintages remain unknown, especially before the 2022 update batch.",
+        "zh-CN": "原始历史版本仍缺少记录，2022年批量更新之前尤其明显。"
+      },
+      "source_refs": [
+        "doc:quant-research.research.broker-consensus-20261102"
+      ]
+    },
+    {
+      "dimension": "historical_universe",
+      "status": "partial",
+      "detail": {
+        "en-US": "Historical price observations are used; analyst coverage and industry vintages remain selected or reconstructed.",
+        "zh-CN": "使用历史行情中的股票，券商覆盖有选择性，行业归属按记录重建。"
+      },
+      "source_refs": [
+        "doc:quant-research.research.broker-consensus-20261102"
+      ]
+    },
+    {
+      "dimension": "delisting_and_terminal",
+      "status": "unverified",
+      "detail": {
+        "en-US": "Selected missing prices suppress the monthly spread; settlement values remain unresolved.",
+        "zh-CN": "选中股票缺价格时整月不报收益差，退市结算价值仍待补齐。"
+      },
+      "source_refs": [
+        "doc:quant-research.research.broker-consensus-20261102"
+      ]
+    },
+    {
+      "dimension": "execution_timing",
+      "status": "partial",
+      "detail": {
+        "en-US": "Next-session close to next formation next-session close; actual fills are unqualified.",
+        "zh-CN": "从汇总日的下一交易日收盘算到下次入场日收盘，实际成交仍待核对。"
+      },
+      "source_refs": [
+        "doc:quant-research.research.broker-consensus-20261102"
+      ]
+    },
+    {
+      "dimension": "transaction_costs",
+      "status": "partial",
+      "detail": {
+        "en-US": "Three per-side fee assumptions; borrowing, impact and terminal liquidation are excluded.",
+        "zh-CN": "比较三档单边费用，尚未计入借券、冲击和最终清仓费用。"
+      },
+      "source_refs": [
+        "doc:quant-research.research.broker-consensus-20261102"
+      ]
+    }
+  ],
+  "reproduction": {
+    "run_id": "consensus_forecasts_20261102_run02",
+    "status": "artifact_verified",
+    "code_revision": "fe38eba06e56fb2947b947667511cdf951e5f397",
+    "runner_sha256": "41646532d03daed06f1e6e93bea19eab457defc39edee62945e3e35c56dce078",
+    "data_version": {
+      "en-US": "Completed 191-month acquisition and hashed run-02 inputs/results.",
+      "zh-CN": "已完成191个月回补，并记录第二次运行的输入和结果哈希。"
+    },
+    "missing": {
+      "en-US": "Historical vintages, delisting settlement and actual fills are unverified. Intervals are descriptive and multiple comparisons are unadjusted.",
+      "zh-CN": "历史版本、退市结算和实际成交仍待核实。不确定区间用于描述样本波动，多项比较尚未作统一校正。"
+    },
+    "source_refs": [
+      "doc:quant-research.research.broker-consensus-20261102"
+    ],
+    "artifact_sha256": {
+      "research_result": "b7940fd5f142dde77a13cf59ce4d46cca414a63ac9b5b0c69f5382883e7dfb8a",
+      "public_aggregate": "52654cbdc8cf5ccdc3853cad45cdf9e026691006ed93101032fefab2c7860711"
+    }
+  },
+  "decision": "research_only",
+  "resume_when": {
+    "en-US": "Does forecast information add to currently reported valuation on newly observed snapshots?",
+    "zh-CN": "在新观察日版本中，预测信息能否比当前已公布盈利多提供一些帮助？"
+  },
+  "next_tasks": [
+    {
+      "id": "consensus-observation-vintages",
+      "priority": "P1",
+      "status": "ready",
+      "action": {
+        "en-US": "Accumulate immutable observation-date snapshots and score later outcomes.",
+        "zh-CN": "积累不可变的观察日快照，再检验随后结果。"
+      },
+      "acceptance": {
+        "en-US": "Retain original retrieval versions and predeclared future outcomes.",
+        "zh-CN": "保留原始抓取版本，事先记录未来检验的结果口径。"
+      }
+    },
+    {
+      "id": "consensus-terminal-prices",
+      "priority": "P1",
+      "status": "blocked",
+      "action": {
+        "en-US": "Resolve missing terminal prices and qualify trading constraints.",
+        "zh-CN": "补齐期末价格和终止事件，核对交易限制。"
+      },
+      "acceptance": {
+        "en-US": "Every selected endpoint has a justified value and fill assumptions are separately qualified.",
+        "zh-CN": "每个选中股票的期末价值有据可查，成交假设另行核对。"
+      }
+    }
+  ],
+  "diagnostic_intervals": [],
+  "diagnostic_note": null,
+  "scale_slices": [],
+  "calibration": []
+}

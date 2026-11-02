@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-10-23",
+  "updated_at": "2026-11-02",
   "studies": [
     {
       "id": "pb-roe",
@@ -197,7 +197,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T10:05:57+00:00"
+        "checked_at": "2026-11-02T04:47:18+00:00"
       },
       "navigation_asset": "data/study-navigation/pb-roe.json",
       "navigation_summary": {
@@ -540,7 +540,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T10:05:57+00:00"
+        "checked_at": "2026-11-02T04:47:18+00:00"
       },
       "navigation_asset": "data/study-navigation/rd-investment.json",
       "navigation_summary": {
@@ -753,8 +753,8 @@
         }
       ],
       "source_review_status": {
-        "status": "matched",
-        "checked_at": "2026-10-14T10:05:57+00:00"
+        "status": "needs_review",
+        "checked_at": "2026-11-02T04:47:18+00:00"
       },
       "navigation_asset": "data/study-navigation/fundamental-state-forecasting.json",
       "navigation_summary": {
@@ -916,7 +916,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T10:05:57+00:00"
+        "checked_at": "2026-11-02T04:47:18+00:00"
       },
       "navigation_asset": "data/study-navigation/fundamental-family-shadow.json",
       "navigation_summary": {
@@ -1040,7 +1040,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T10:05:57+00:00"
+        "checked_at": "2026-11-02T04:47:18+00:00"
       },
       "navigation_asset": "data/study-navigation/hk-fundamental-archive.json",
       "navigation_summary": {
@@ -1171,7 +1171,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T13:08:13+00:00"
+        "checked_at": "2026-11-02T04:47:18+00:00"
       },
       "navigation_asset": "data/study-navigation/employee-compensation.json",
       "navigation_summary": {
@@ -1537,7 +1537,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-10-14T10:05:57+00:00"
+        "checked_at": "2026-11-02T04:47:18+00:00"
       },
       "navigation_asset": "data/study-navigation/absolute-level-forecast.json",
       "navigation_summary": {
@@ -1578,6 +1578,204 @@
           }
         ]
       }
+    },
+    {
+      "id": "broker-consensus",
+      "series": "fundamental",
+      "market": "a_share",
+      "method": [
+        "direct_factor_test",
+        "cross_sectional_ranking",
+        "robustness"
+      ],
+      "frequency": [
+        "monthly",
+        "event_driven"
+      ],
+      "evidence_stage": "retrospective_diagnostic",
+      "publication_id": "broker-consensus",
+      "source_ref": "doc:quant-research.research.broker-consensus-20261102",
+      "status": "preliminary",
+      "translations": {
+        "en-US": {
+          "title": "Can broker earnings forecasts help rank stocks?",
+          "family": "Earnings expectations and valuation",
+          "status_label": "Historical diagnostic complete; original vintages unverified",
+          "summary": "Profit revision has a weak exposure-adjusted ranking relationship. Forward earnings yield has the clearest association, with original availability and investability unresolved.",
+          "period": "Formations January 2011–August 2026; source forecasts through November 1, 2026",
+          "source_note": "Forecasts are collected on each month's last trading day. Returns run from the next session close to the following entry close. Table uses report-date reconstruction and exposure adjustment. RankIC is a ranking association; return diagnostics are separate. Intervals are not adjusted for multiple comparisons.",
+          "columns": [
+            "Score",
+            "What it compares",
+            "Mean RankIC",
+            "Descriptive 95% interval",
+            "Valid months"
+          ],
+          "rows": [
+            [
+              "Profit revision",
+              "How much the same brokers changed their profit forecasts",
+              "0.00149",
+              "[-0.01150, 0.01449]",
+              "186"
+            ],
+            [
+              "Net upgrade breadth",
+              "Share upgrading minus share downgrading",
+              "0.02144",
+              "[0.01277, 0.03011]",
+              "186"
+            ],
+            [
+              "Low forecast disagreement",
+              "How close brokers' profit estimates are",
+              "0.01498",
+              "[0.00713, 0.02282]",
+              "188"
+            ],
+            [
+              "Forward earnings yield",
+              "Forecast profit relative to total market value",
+              "0.03649",
+              "[0.01939, 0.05360]",
+              "188"
+            ]
+          ],
+          "findings": [
+            "191 monthly partitions contain 2,749,081 report/period records; all payload hashes were checked.",
+            "2011 provider updates are in 2022; the provider-clock cohort begins in May 2022.",
+            "Adjusted report-clock profit-revision RankIC is 0.00149; forward yield is 0.03649.",
+            "Adjusted spread samples have only 46–54 complete months. All 10-bps net-spread intervals include zero."
+          ],
+          "limits": [
+            "Historical vintages, delisting settlement and actual fills are unverified. Intervals are descriptive and multiple comparisons are unadjusted.",
+            "Group returns use complete endpoint months only; a continuous investable strategy is unqualified."
+          ]
+        },
+        "zh-CN": {
+          "title": "券商盈利预测能帮助选股吗？",
+          "family": "盈利预期与估值",
+          "status_label": "回溯检验已完成，历史版本仍待核实",
+          "summary": "盈利预测上调幅度在扣除行业和市值影响后关系较弱。预期盈利相对市值的关联较清楚，历史版本和交易可行性仍待核实。",
+          "period": "汇总日从2011年1月至2026年8月，预测原始记录截至2026年11月1日",
+          "source_note": "我们在每月最后一个交易日汇总预测，从下一交易日收盘算到下次入场日收盘。下表按研报日期重建，并扣除行业和市值影响。排名相关系数表示排序接近程度，收益结果另列。区间没有校正多项比较。",
+          "columns": [
+            "排序依据",
+            "它比较什么",
+            "平均排名相关系数",
+            "描述性95％区间",
+            "有效月份"
+          ],
+          "rows": [
+            [
+              "盈利预测上调幅度",
+              "同一家机构提高或降低了多少盈利预测",
+              "0.00149",
+              "[-0.01150, 0.01449]",
+              "186"
+            ],
+            [
+              "机构净上调比例",
+              "上调机构占比减去下调机构占比",
+              "0.02144",
+              "[0.01277, 0.03011]",
+              "186"
+            ],
+            [
+              "机构预测接近程度",
+              "机构给出的盈利预测是否接近",
+              "0.01498",
+              "[0.00713, 0.02282]",
+              "188"
+            ],
+            [
+              "预期盈利相对市值",
+              "预测盈利相对公司总市值有多高",
+              "0.03649",
+              "[0.01939, 0.05360]",
+              "188"
+            ]
+          ],
+          "findings": [
+            "191个月共2749081条研报预测记录，逐月载荷哈希已核对。",
+            "2011年记录的供应商更新时间在2022年，供应商时间口径从2022年5月起有足够样本。",
+            "研报日期口径中，上调幅度的调整后排名相关系数为0.00149，预期盈利相对市值为0.03649。",
+            "调整后的分组收益各有46至54个完整月份。单边费用0.10％时，四项净收益差的不确定区间都包含零。"
+          ],
+          "limits": [
+            "历史版本、退市结算和实际成交仍待核实。不确定区间用于描述样本波动，多项比较尚未作统一校正。",
+            "分组收益只覆盖价格完整月份，连续策略收益仍缺少证据。"
+          ]
+        }
+      },
+      "exploration_asset": "data/study-exploration/broker-consensus.json",
+      "exploration_counts": {
+        "steps": 4,
+        "charts": 12
+      },
+      "navigation_asset": "data/study-navigation/broker-consensus.json",
+      "navigation_summary": {
+        "run_id": "consensus_forecasts_20261102_run02",
+        "reproduction_status": "artifact_verified",
+        "decision": "research_only",
+        "negative_result": true,
+        "resume_when": {
+          "en-US": "Does forecast information add to currently reported valuation on newly observed snapshots?",
+          "zh-CN": "在新观察日版本中，预测信息能否比当前已公布盈利多提供一些帮助？"
+        },
+        "tasks": [
+          {
+            "id": "consensus-observation-vintages",
+            "priority": "P1",
+            "status": "ready",
+            "action": {
+              "en-US": "Accumulate immutable observation-date snapshots and score later outcomes.",
+              "zh-CN": "积累不可变的观察日快照，再检验随后结果。"
+            },
+            "acceptance": {
+              "en-US": "Retain original retrieval versions and predeclared future outcomes.",
+              "zh-CN": "保留原始抓取版本，事先记录未来检验的结果口径。"
+            }
+          },
+          {
+            "id": "consensus-terminal-prices",
+            "priority": "P1",
+            "status": "blocked",
+            "action": {
+              "en-US": "Resolve missing terminal prices and qualify trading constraints.",
+              "zh-CN": "补齐期末价格和终止事件，核对交易限制。"
+            },
+            "acceptance": {
+              "en-US": "Every selected endpoint has a justified value and fill assumptions are separately qualified.",
+              "zh-CN": "每个选中股票的期末价值有据可查，成交假设另行核对。"
+            }
+          }
+        ]
+      },
+      "evidence_summary": {
+        "decision": "research_only",
+        "scope": {
+          "en-US": "Four broker forecast score families",
+          "zh-CN": "四类券商盈利预测排序"
+        },
+        "baseline": {
+          "en-US": "Exposure controls and matched timing samples",
+          "zh-CN": "行业市值控制和同样本时间口径对照"
+        },
+        "input_basis": {
+          "en-US": "Historical vintages, delisting settlement and actual fills are unverified. Intervals are descriptive and multiple comparisons are unadjusted.",
+          "zh-CN": "历史版本、退市结算和实际成交仍待核实。不确定区间用于描述样本波动，多项比较尚未作统一校正。"
+        },
+        "sample": {
+          "en-US": "188 formation months; source vintage incomplete",
+          "zh-CN": "188个汇总月份，历史原始版本记录不完整"
+        }
+      },
+      "related_studies": [],
+      "source_review_status": {
+        "status": "matched",
+        "checked_at": "2026-11-02"
+      }
     }
   ],
   "series": [
@@ -1595,7 +1793,8 @@
         "fundamental-family-shadow",
         "hk-fundamental-archive",
         "employee-compensation",
-        "absolute-level-forecast"
+        "absolute-level-forecast",
+        "broker-consensus"
       ],
       "translations": {
         "en-US": {

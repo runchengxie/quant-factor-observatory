@@ -60,7 +60,7 @@ def navigation_refs(navigation):
     visit(navigation)
     return sorted(refs)
 
-def capture(catalog, owner):
+def capture(catalog, owner, previous=None):
     briefs = card_briefs()
     indexes = {}
     entries = []
@@ -87,7 +87,7 @@ def capture(catalog, owner):
                     raise ValueError('Missing pinned navigation source: ' + ref)
                 navigation_sources.append({'source_ref': ref, 'sha256': digest(git(owner, 'show', nav_revision + ':' + nav_index[ref]))})
         entries.append({'brief_sha256': brief_digest(briefs, study['id']), 'navigation_sha256': digest(navigation) if navigation else None, 'navigation_sources': navigation_sources, 'study_id': study['id'], 'source_revision': revision, 'catalog_sha256': digest(projection(study)), 'exploration_sha256': digest(data), 'sources': sources})
-    return {'schema_version': 'observatory.source_review.v1', 'studies': entries, 'hub_sha256': digest(catalog.get('research_hub'))}
+    return {**(previous or {}), 'schema_version': 'observatory.source_review.v1', 'studies': entries, 'hub_sha256': digest(catalog.get('research_hub'))}
 
 def audit(catalog, baseline, owner=None):
     briefs = card_briefs()
@@ -136,7 +136,8 @@ def main():
     if args.capture_baseline:
         if not args.owner_root:
             parser.error('--capture-baseline requires --owner-root')
-        baseline_path.write_text(json.dumps(capture(catalog, args.owner_root), indent=2) + '\n')
+        previous = json.loads(baseline_path.read_text()) if baseline_path.is_file() else {}
+        baseline_path.write_text(json.dumps(capture(catalog, args.owner_root, previous), indent=2) + '\n')
         return
     report = audit(catalog, json.loads(baseline_path.read_text()), args.owner_root)
     if args.report_dir:

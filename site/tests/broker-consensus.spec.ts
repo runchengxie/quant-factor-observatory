@@ -1,0 +1,41 @@
+import { expect, test } from '@playwright/test'
+
+test.beforeEach(async ({ page }) => {
+  await page.context().route('https://fonts.googleapis.com/**', route => route.fulfill({ contentType: 'text/css', body: '' }))
+  await page.addInitScript(() => window.localStorage.setItem('quant-factor-locale', 'en-US'))
+})
+
+test('broker study retains exact values and switches every evidence chart', async ({ page }) => {
+  await page.goto('/studies/broker-consensus')
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('Can broker earnings forecasts help rank stocks?')
+  const selector = page.locator('.study-exploration-select select')
+  await expect(selector.locator('option')).toHaveCount(12)
+  await expect(page.locator('.study-values')).toHaveAttribute('open', '')
+  for (const id of await selector.locator('option').evaluateAll(options => options.map(option => (option as HTMLOptionElement).value))) {
+    await selector.selectOption(id)
+    await expect(page.locator('.study-exploration-svg')).toBeVisible()
+    await expect(page.locator('.study-values tbody tr')).not.toHaveCount(0)
+  }
+  await selector.selectOption('matched-timing-ranks')
+  await expect(page.locator('.study-values')).toContainText('52 months')
+  await expect(page.locator('.study-uncertainty').first()).toBeVisible()
+  await page.locator('#study-exploration-comparison').screenshot({ path: test.info().outputPath('broker-consensus-intervals.png') })
+  await expect(page.locator('.study-chart-context')).toContainText('Identical stocks')
+  await expect(page.locator('.study-trust-card')).toContainText('Original provider vintages remain unknown')
+  await expect(page.locator('.study-reproduction')).toContainText('fe38eba06e56fb2947b947667511cdf951e5f397')
+  await page.screenshot({ path: test.info().outputPath('broker-consensus-desktop.png'), fullPage: true })
+})
+
+test('Chinese mobile study explains coverage and stays within the viewport', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 })
+  await page.goto('/studies/broker-consensus')
+  await page.getByRole('button', { name: 'Switch to 中文' }).click()
+  await expect(page.getByRole('heading', { level: 1 })).toHaveText('券商盈利预测能帮助选股吗？')
+  const selector = page.locator('.study-exploration-select select')
+  await selector.selectOption('provider-delay')
+  await expect(page.locator('.study-intermediate-conclusion')).toContainText('2022年5月')
+  await expect(page.locator('.study-values')).toHaveAttribute('open', '')
+  await expect(page.locator('.study-exploration-steps li')).toHaveCount(4)
+  await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+  await page.screenshot({ path: test.info().outputPath('broker-consensus-mobile.png'), fullPage: true })
+})
