@@ -598,3 +598,13 @@
 #study-exploration-comparison{scroll-margin-top:24px}
 @media(max-width:600px){.study-reader-body p{font-size:15px}.study-reader-charts{display:grid}.study-reader-nav a{font-size:13px}.study-chart-legend{flex-wrap:wrap}}
 .broker-study-page .detail-tags{flex-direction:row;align-items:center}
+.study-reader-block{padding:clamp(20px,4vw,42px);scroll-margin-top:24px}
+.study-reader-block>.study-reader-body{margin-bottom:30px}
+.study-reader-body h3,.study-reader-block>h3{font-size:24px;line-height:1.5}
+.study-reader-body>p{line-height:1.95;font-size:16px}
+.study-reader-charts a{display:block;max-width:100%;white-space:normal;line-height:1.6}
+.study-expanded-chart{padding:32px 0;scroll-margin-top:24px;min-width:0}
+.study-expanded-chart+.study-expanded-chart{border-top:1px solid var(--line,#ddd)}
+.study-expanded-chart h4{font-size:20px;line-height:1.6;margin:0 0 14px}
+.study-expanded-chart .study-values h5{font-size:14px;font-weight:500;margin:20px 0 12px}
+@media(max-width:600px){.study-reader-body>p{font-size:15px}.study-expanded-chart h4{font-size:18px}}

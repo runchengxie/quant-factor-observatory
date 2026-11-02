@@ -1,3 +1,4 @@
+import ExpandedStudyReader from './ExpandedStudyReader'
 import { forecastReaderCopy } from '../forecastReaderCopy'
 import ForecastGuide from './ForecastGuide'
 import { Fragment, useEffect, useState } from 'react'
@@ -24,20 +25,12 @@ function ExplorationContent({ data }: { data: StudyExplorationData }) {
         <details className="study-values" open={data.expanded_details}><summary>{labels.values}</summary><div className="table-scroll"><table className="factor-table"><caption>{chart.title[locale]} · {chart.metric[locale]}</caption><thead><tr><th>{labels.category}</th>{chart.series.map((s) => <th key={s.id}>{s.label[locale]}</th>)}</tr></thead><tbody>{chart.categories.map((category, i) => <tr key={i}><th scope="row">{category[locale]}</th>{chart.series.map((s) => <td key={s.id}>{formatStudyValue(s.values[i], chart, locale)}{(s.months || s.lower) && <small className="study-interval">{formatStudyEvidence(s, i, chart, locale)}</small>}</td>)}</tr>)}</tbody></table></div></details>
       </> : <p className="study-no-performance">{labels.noPerformance}</p>}
     </section>)
-  return <section className="study-exploration" aria-labelledby="study-exploration-title">
-    {data.reader && <section className="panel study-reader" aria-labelledby="study-reader-title">
-      <h2 id="study-reader-title">{data.reader.title[locale]}</h2>
-      <p className="study-reader-verdict">{data.reader.verdict[locale]}</p>
-      <nav aria-label={data.reader.navigation[locale]} className="study-reader-nav">{data.reader.sections.map(section => <a key={section.id} href={`#reader-${section.id}`}>{section.title[locale]}</a>)}</nav>
-      <div className="study-reader-body">{data.reader.sections.map(section => <article key={section.id} id={`reader-${section.id}`}>
-        <h3>{section.title[locale]}</h3>{section.paragraphs.map((paragraph, index) => <p key={index}>{paragraph[locale]}</p>)}
-        <div className="study-reader-charts">{section.chart_ids.map(id => <button className="quiet-button" type="button" key={id} onClick={() => { setChartId(id); document.getElementById('study-exploration-comparison')?.scrollIntoView({ block: 'start' }) }}>{data.reader!.open_chart[locale]} · {data.charts.find(chart => chart.id === id)?.title[locale]}</button>)}</div>
-      </article>)}</div>
-    </section>}
+  return <section className="study-exploration" aria-labelledby={data.reader ? "study-reader-title" : "study-exploration-title"}>
+    {data.reader && <ExpandedStudyReader data={data} />}
     {data.guide && <ForecastGuide guide={data.guide} exploration={data} comparison={comparison} />}
     <Archive {...(data.guide ? { className: 'forecast-archive' } : {})}>{data.guide && <summary>{forecastReaderCopy[locale].archive}</summary>}
-    <section className="panel study-exploration-head"><p className="eyebrow">{labels.eyebrow}</p><h2 id="study-exploration-title">{labels.title}</h2><p>{data.summary[locale]}</p><nav className="study-exploration-nav" aria-label={labels.navigation}><a href="#study-exploration-comparison">{labels.comparison}</a><a href="#study-exploration-path">{labels.path}</a><a href="#study-exploration-sources">{labels.sources}</a></nav></section>
-    {!data.guide && comparison}
+    {!data.reader && <section className="panel study-exploration-head"><p className="eyebrow">{labels.eyebrow}</p><h2 id="study-exploration-title">{labels.title}</h2><p>{data.summary[locale]}</p><nav className="study-exploration-nav" aria-label={labels.navigation}><a href="#study-exploration-comparison">{labels.comparison}</a><a href="#study-exploration-path">{labels.path}</a><a href="#study-exploration-sources">{labels.sources}</a></nav></section>}
+    {!data.guide && !data.reader && comparison}
     <section className="panel" id="study-exploration-path" aria-labelledby="study-path-title"><h2 id="study-path-title">{labels.path}</h2><p className="panel-note">{labels.pathNote}</p><ol className="study-exploration-steps">{data.steps.map((step, index) => <li key={step.id}>
       <div className="study-step-marker"><span>{String(index + 1).padStart(2, '0')}</span><small>{step.period[locale]}</small><span className="study-step-status">{labels[step.status] ?? labels.diagnostic}</span></div>
       <article><h3>{step.title[locale]}</h3><dl><div><dt>{labels.question}</dt><dd>{step.question[locale]}</dd></div><div><dt>{labels.finding}</dt><dd>{step.finding[locale]}</dd></div><div><dt>{labels.decision}</dt><dd>{step.decision[locale]}</dd></div></dl>{sourceNames(step.source_ids)}</article>
