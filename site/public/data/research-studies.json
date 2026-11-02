@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "updated_at": "2026-11-02",
+  "updated_at": "2026-11-03",
   "studies": [
     {
       "id": "pb-roe",
@@ -1601,7 +1601,7 @@
           "title": "Can broker earnings forecasts help rank stocks?",
           "family": "Earnings expectations and valuation",
           "status_label": "Historical diagnostic complete; original vintages unverified",
-          "summary": "The new matched-sample comparison does not establish that forecast earnings yield improves on reported earnings yield. A forecast rank residual remains positively associated with later returns in the retrospective sample. Price gaps are mostly linked to recorded suspensions, while settlement values and executable returns remain unresolved.",
+          "summary": "Current evidence is insufficient to use broker consensus as a reliable standalone stock-selection factor.",
           "period": "Formations January 2011–August 2026; source forecasts through November 1, 2026",
           "source_note": "Forecasts are collected on each month's last trading day. Returns run from the next session close to the following entry close. Table uses report-date reconstruction and exposure adjustment. RankIC is a ranking association; return diagnostics are separate. Intervals are not adjusted for multiple comparisons.",
           "columns": [
@@ -1660,7 +1660,7 @@
           "title": "券商盈利预测能帮助选股吗？",
           "family": "盈利预期与估值",
           "status_label": "回溯检验已完成，历史版本仍待核实",
-          "summary": "同样本比较没有确认预测盈利收益率优于已披露盈利收益率。预测排序残差在这段历史样本里仍与随后收益正相关。大多数缺失价格对应到停牌记录，终止价值和实际可交易收益仍未确认。",
+          "summary": "目前证据还不足以把券商一致预期当作可靠、可直接使用的选股因子。",
           "period": "汇总日从2011年1月至2026年8月，预测原始记录截至2026年11月1日",
           "source_note": "我们在每月最后一个交易日汇总预测，从下一交易日收盘算到下次入场日收盘。下表按研报日期重建，并扣除行业和市值影响。排名相关系数表示排序接近程度，收益结果另列。区间没有校正多项比较。",
           "columns": [
@@ -1719,7 +1719,7 @@
       "exploration_asset": "data/study-exploration/broker-consensus.json",
       "exploration_counts": {
         "steps": 7,
-        "charts": 18
+        "charts": 25
       },
       "navigation_asset": "data/study-navigation/broker-consensus.json",
       "navigation_summary": {

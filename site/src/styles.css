@@ -579,3 +579,22 @@
 .study-page > .research-exploration-entries { margin-top: 48px; }
 /* Keep optional uncertainty evidence visible alongside exact chart values. */
 .study-interval { display: block; max-width: 18rem; margin-top: .35rem; white-space: normal; line-height: 1.5; }
+
+/* The reader keeps the narrative and original evidence visible on one page. */
+.study-reader{padding:clamp(20px,4vw,42px)}
+.study-reader-verdict{font-size:clamp(19px,2.5vw,25px);line-height:1.65;max-width:46em;border-left:4px solid var(--study-series-1,#315b74);padding-left:18px}
+.study-reader-nav{display:flex;flex-wrap:wrap;gap:10px;margin:24px 0}
+.study-reader-nav a{border:1px solid var(--line,#ddd);border-radius:6px;padding:8px 12px;font-size:14px}
+.study-reader-body{max-width:78ch;margin-inline:auto}
+.study-reader-body article{padding:24px 0;scroll-margin-top:28px}
+.study-reader-body article+article{border-top:1px solid var(--line,#ddd)}
+.study-reader-body h3{font-size:21px;line-height:1.5;margin-bottom:16px}
+.study-reader-body p{line-height:1.95;margin:12px 0;font-size:16px;overflow-wrap:anywhere}
+.study-reader-charts{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px}
+.study-reader-charts button{text-align:left;white-space:normal;line-height:1.6;max-width:100%}
+.study-chart-legend button{display:inline-flex;align-items:center;gap:7px;border:1px solid var(--line,#ddd);background:transparent;color:inherit;border-radius:5px;padding:7px 10px;cursor:pointer;font:inherit}
+.study-chart-legend button[aria-pressed="false"]{opacity:.5;text-decoration:line-through}
+.study-chart-legend button:focus-visible,.study-reader-charts button:focus-visible{outline:2px solid var(--study-series-1,#315b74);outline-offset:3px}
+#study-exploration-comparison{scroll-margin-top:24px}
+@media(max-width:600px){.study-reader-body p{font-size:15px}.study-reader-charts{display:grid}.study-reader-nav a{font-size:13px}.study-chart-legend{flex-wrap:wrap}}
+.broker-study-page .detail-tags{flex-direction:row;align-items:center}

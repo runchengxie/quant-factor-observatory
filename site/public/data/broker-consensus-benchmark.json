@@ -1,0 +1,397 @@
+{
+  "schema_version": "observatory.consensus_benchmark.v1",
+  "source_ref": "doc:quant-research.research.broker-consensus-benchmark-20261102",
+  "source_revision": "8559b14fd5bbbfa1ec6a14440efc2231f29dbc34",
+  "reviewed_at": "2026-11-02",
+  "evidence_stage": "retrospective_diagnostic",
+  "comparisons": [
+    {
+      "horizon_days": 30,
+      "outcome": "loss",
+      "stock_years": 1540,
+      "baseline_missing": 111,
+      "broker_median_relative_error": 1.1479296486857609,
+      "baseline_median_relative_error": 1.2390078676878638,
+      "median_paired_error_improvement": 0.026291344715105525,
+      "broker_win_share": 0.522077922077922,
+      "tie_share": 0.0,
+      "mean_year_median_improvement": 0.04096312183789789,
+      "year_block_interval": [
+        -0.023898071900446897,
+        0.10374948201408368
+      ],
+      "years": 11
+    },
+    {
+      "horizon_days": 30,
+      "outcome": "profit",
+      "stock_years": 18225,
+      "baseline_missing": 682,
+      "broker_median_relative_error": 0.13484633145820576,
+      "baseline_median_relative_error": 0.2744507675158237,
+      "median_paired_error_improvement": 0.10496628633431787,
+      "broker_win_share": 0.6662277091906722,
+      "tie_share": 0.0,
+      "mean_year_median_improvement": 0.10384456488341764,
+      "year_block_interval": [
+        0.08974762568115005,
+        0.11699687437919531
+      ],
+      "years": 11
+    },
+    {
+      "horizon_days": 90,
+      "outcome": "loss",
+      "stock_years": 1618,
+      "baseline_missing": 117,
+      "broker_median_relative_error": 1.2999920368644888,
+      "baseline_median_relative_error": 1.2453060049597524,
+      "median_paired_error_improvement": -0.10005573962803249,
+      "broker_win_share": 0.3621755253399258,
+      "tie_share": 0.0,
+      "mean_year_median_improvement": -0.10352178491045229,
+      "year_block_interval": [
+        -0.14218034722512637,
+        -0.06545406018052148
+      ],
+      "years": 11
+    },
+    {
+      "horizon_days": 90,
+      "outcome": "profit",
+      "stock_years": 18488,
+      "baseline_missing": 719,
+      "broker_median_relative_error": 0.19291196384371528,
+      "baseline_median_relative_error": 0.2776713065703996,
+      "median_paired_error_improvement": 0.054259200628096846,
+      "broker_win_share": 0.5759952401557767,
+      "tie_share": 0.0,
+      "mean_year_median_improvement": 0.054585333236518756,
+      "year_block_interval": [
+        0.03641231329675963,
+        0.07253473709165555
+      ],
+      "years": 11
+    },
+    {
+      "horizon_days": 180,
+      "outcome": "loss",
+      "stock_years": 1877,
+      "baseline_missing": 143,
+      "broker_median_relative_error": 1.5301790901529366,
+      "baseline_median_relative_error": 1.239047633175037,
+      "median_paired_error_improvement": -0.28733981240557993,
+      "broker_win_share": 0.16515716568993075,
+      "tie_share": 0.0,
+      "mean_year_median_improvement": -0.26340975303857395,
+      "year_block_interval": [
+        -0.32546346469350035,
+        -0.20424507332571373
+      ],
+      "years": 11
+    },
+    {
+      "horizon_days": 180,
+      "outcome": "profit",
+      "stock_years": 18432,
+      "baseline_missing": 744,
+      "broker_median_relative_error": 0.2610605026910529,
+      "baseline_median_relative_error": 0.2770118629835146,
+      "median_paired_error_improvement": -0.007095980498599483,
+      "broker_win_share": 0.49169921875,
+      "tie_share": 0.0,
+      "mean_year_median_improvement": -0.010906177435000558,
+      "year_block_interval": [
+        -0.044876640872775646,
+        0.02280618870298903
+      ],
+      "years": 11
+    }
+  ],
+  "coverage": [
+    {
+      "horizon_days": 30,
+      "outcome": "loss",
+      "coverage": "one",
+      "stock_years": 654,
+      "median_relative_error": 1.1700712292067332
+    },
+    {
+      "horizon_days": 30,
+      "outcome": "loss",
+      "coverage": "three_plus",
+      "stock_years": 673,
+      "median_relative_error": 1.1284689015930303
+    },
+    {
+      "horizon_days": 30,
+      "outcome": "loss",
+      "coverage": "two",
+      "stock_years": 324,
+      "median_relative_error": 1.153237215326907
+    },
+    {
+      "horizon_days": 30,
+      "outcome": "profit",
+      "coverage": "one",
+      "stock_years": 4176,
+      "median_relative_error": 0.2174537369822077
+    },
+    {
+      "horizon_days": 30,
+      "outcome": "profit",
+      "coverage": "three_plus",
+      "stock_years": 12011,
+      "median_relative_error": 0.10852425276908854
+    },
+    {
+      "horizon_days": 30,
+      "outcome": "profit",
+      "coverage": "two",
+      "stock_years": 2720,
+      "median_relative_error": 0.18780432270500969
+    },
+    {
+      "horizon_days": 90,
+      "outcome": "loss",
+      "coverage": "one",
+      "stock_years": 646,
+      "median_relative_error": 1.2802798484423097
+    },
+    {
+      "horizon_days": 90,
+      "outcome": "loss",
+      "coverage": "three_plus",
+      "stock_years": 805,
+      "median_relative_error": 1.3169911219961592
+    },
+    {
+      "horizon_days": 90,
+      "outcome": "loss",
+      "coverage": "two",
+      "stock_years": 284,
+      "median_relative_error": 1.3127046279693522
+    },
+    {
+      "horizon_days": 90,
+      "outcome": "profit",
+      "coverage": "one",
+      "stock_years": 3945,
+      "median_relative_error": 0.2884109852683962
+    },
+    {
+      "horizon_days": 90,
+      "outcome": "profit",
+      "coverage": "three_plus",
+      "stock_years": 12611,
+      "median_relative_error": 0.16372057004964943
+    },
+    {
+      "horizon_days": 90,
+      "outcome": "profit",
+      "coverage": "two",
+      "stock_years": 2651,
+      "median_relative_error": 0.25885674433025596
+    },
+    {
+      "horizon_days": 180,
+      "outcome": "loss",
+      "coverage": "one",
+      "stock_years": 734,
+      "median_relative_error": 1.4189927967604512
+    },
+    {
+      "horizon_days": 180,
+      "outcome": "loss",
+      "coverage": "three_plus",
+      "stock_years": 941,
+      "median_relative_error": 1.6084371644408193
+    },
+    {
+      "horizon_days": 180,
+      "outcome": "loss",
+      "coverage": "two",
+      "stock_years": 345,
+      "median_relative_error": 1.5705016249510264
+    },
+    {
+      "horizon_days": 180,
+      "outcome": "profit",
+      "coverage": "one",
+      "stock_years": 4010,
+      "median_relative_error": 0.37427459288661546
+    },
+    {
+      "horizon_days": 180,
+      "outcome": "profit",
+      "coverage": "three_plus",
+      "stock_years": 12484,
+      "median_relative_error": 0.22577409014524935
+    },
+    {
+      "horizon_days": 180,
+      "outcome": "profit",
+      "coverage": "two",
+      "stock_years": 2682,
+      "median_relative_error": 0.34255394136055944
+    }
+  ],
+  "controlled_coverage": [
+    {
+      "horizon_days": 30,
+      "outcome": "loss",
+      "status": "estimated",
+      "rows": 1575,
+      "missing_industry": 76,
+      "companies": 1051,
+      "terms": [
+        {
+          "term": "two_institutions",
+          "coefficient": 0.04247072812764304,
+          "interval": [
+            -0.00710596421854872,
+            0.0920474204738348
+          ]
+        },
+        {
+          "term": "three_plus_institutions",
+          "coefficient": 0.10965050654478405,
+          "interval": [
+            0.060714971590262984,
+            0.1585860414993051
+          ]
+        }
+      ]
+    },
+    {
+      "horizon_days": 30,
+      "outcome": "profit",
+      "status": "estimated",
+      "rows": 17899,
+      "missing_industry": 1008,
+      "companies": 3885,
+      "terms": [
+        {
+          "term": "two_institutions",
+          "coefficient": 0.0014724840630113718,
+          "interval": [
+            -0.01845970654941393,
+            0.02140467467543667
+          ]
+        },
+        {
+          "term": "three_plus_institutions",
+          "coefficient": 0.014423442770456589,
+          "interval": [
+            -0.001569576666323614,
+            0.030416462207236792
+          ]
+        }
+      ]
+    },
+    {
+      "horizon_days": 90,
+      "outcome": "loss",
+      "status": "estimated",
+      "rows": 1658,
+      "missing_industry": 77,
+      "companies": 1103,
+      "terms": [
+        {
+          "term": "two_institutions",
+          "coefficient": 0.055351595847846054,
+          "interval": [
+            0.00687210449449864,
+            0.10383108720119347
+          ]
+        },
+        {
+          "term": "three_plus_institutions",
+          "coefficient": 0.151028116209761,
+          "interval": [
+            0.10528922853832724,
+            0.19676700388119478
+          ]
+        }
+      ]
+    },
+    {
+      "horizon_days": 90,
+      "outcome": "profit",
+      "status": "estimated",
+      "rows": 18182,
+      "missing_industry": 1025,
+      "companies": 3908,
+      "terms": [
+        {
+          "term": "two_institutions",
+          "coefficient": 0.009072963218304315,
+          "interval": [
+            -0.013079095368192944,
+            0.031225021804801575
+          ]
+        },
+        {
+          "term": "three_plus_institutions",
+          "coefficient": 0.05329562909852826,
+          "interval": [
+            0.0344659852152614,
+            0.07212527298179512
+          ]
+        }
+      ]
+    },
+    {
+      "horizon_days": 180,
+      "outcome": "loss",
+      "status": "estimated",
+      "rows": 1867,
+      "missing_industry": 153,
+      "companies": 1243,
+      "terms": [
+        {
+          "term": "two_institutions",
+          "coefficient": 0.0620813638543932,
+          "interval": [
+            0.019846001109610795,
+            0.10431672659917561
+          ]
+        },
+        {
+          "term": "three_plus_institutions",
+          "coefficient": 0.22809331893137805,
+          "interval": [
+            0.18677750548700806,
+            0.26940913237574804
+          ]
+        }
+      ]
+    },
+    {
+      "horizon_days": 180,
+      "outcome": "profit",
+      "status": "estimated",
+      "rows": 17982,
+      "missing_industry": 1194,
+      "companies": 3887,
+      "terms": [
+        {
+          "term": "two_institutions",
+          "coefficient": 0.0195630917028881,
+          "interval": [
+            -0.0035542959586982274,
+            0.04268047936447443
+          ]
+        },
+        {
+          "term": "three_plus_institutions",
+          "coefficient": 0.10403218128595029,
+          "interval": [
+            0.08307146770510457,
+            0.12499289486679602
+          ]
+        }
+      ]
+    }
+  ]
+}

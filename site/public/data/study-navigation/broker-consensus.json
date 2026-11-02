@@ -2,8 +2,8 @@
   "schema_version": "observatory.study_navigation.v1",
   "study_id": "broker-consensus",
   "source_ref": "doc:quant-research.research.broker-consensus-20261102",
-  "source_revision": "d15080a74702a8913c612128aa34846946f54b28",
-  "reviewed_at": "2026-11-02",
+  "source_revision": "8559b14fd5bbbfa1ec6a14440efc2231f29dbc34",
+  "reviewed_at": "2026-11-03",
   "authority_ref": "doc:quant-research.research.broker-consensus-20261102",
   "trust": [
     {
@@ -133,6 +133,7 @@
   "scale_slices": [],
   "calibration": [],
   "source_refs": [
-    "doc:quant-research.research.broker-consensus-followup-20261102"
+    "doc:quant-research.research.broker-consensus-followup-20261102",
+    "doc:quant-research.research.broker-consensus-benchmark-20261102"
   ]
 }

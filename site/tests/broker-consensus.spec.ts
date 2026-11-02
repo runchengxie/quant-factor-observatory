@@ -9,7 +9,7 @@ test('broker study retains exact values and switches every evidence chart', asyn
   await page.goto('/studies/broker-consensus')
   await expect(page.getByRole('heading', { level: 1 })).toHaveText('Can broker earnings forecasts help rank stocks?')
   const selector = page.locator('.study-exploration-select select')
-  await expect(selector.locator('option')).toHaveCount(18)
+  await expect(selector.locator('option')).toHaveCount(25)
   await expect(page.locator('.study-values')).toHaveAttribute('open', '')
   for (const id of await selector.locator('option').evaluateAll(options => options.map(option => (option as HTMLOptionElement).value))) {
     await selector.selectOption(id)
@@ -52,4 +52,48 @@ test('Chinese mobile study explains coverage and stays within the viewport', asy
   await expect(page.locator('.study-values')).toContainText('供应商更新时间，扣除行业和市值影响')
   await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
   await page.screenshot({ path: test.info().outputPath('broker-consensus-mobile.png'), fullPage: true })
+})
+
+
+test('reader links open evidence and legend filters preserve all exact values', async ({ page }) => {
+  await page.goto('/studies/broker-consensus')
+  const reader = page.locator('.study-reader')
+  await expect(page.locator('.detail-head .lede')).toContainText('insufficient to use broker consensus as a reliable standalone stock-selection factor')
+  await expect(reader.locator('article')).toHaveCount(5)
+  await expect(reader.locator('details')).toHaveCount(0)
+  await reader.getByRole('button', { name: /View chart · Profitable companies: do forecasts beat/ }).click()
+  await expect(page.locator('.study-exploration-select select')).toHaveValue('benchmark-profit')
+  const chart = page.locator('.study-comparison-chart')
+  await expect(chart.locator('rect')).toHaveCount(6)
+  await chart.getByRole('button', { name: 'Broker forecast', exact: true }).click()
+  await expect(chart.getByRole('button', { name: 'Broker forecast', exact: true })).toHaveAttribute('aria-pressed', 'false')
+  await expect(chart.locator('rect')).toHaveCount(3)
+  await expect(page.locator('.study-values')).toContainText('13.48%')
+  await expect(page.locator('.study-values thead th')).toHaveCount(3)
+  await page.locator('.study-exploration-select select').selectOption('benchmark-paired-improvement')
+  await expect(chart.locator('rect')).toHaveCount(6)
+  await expect(page.locator('.study-values')).toContainText('95% interval')
+  await expect(page.locator('.study-values')).not.toContainText('11 months')
+  await page.getByRole('button', { name: 'Switch to 中文' }).click()
+  await expect(page.locator('.detail-head .lede')).toContainText('目前证据还不足以把券商一致预期当作可靠、可直接使用的选股因子')
+  await expect(reader).toContainText('预测利润更准，也不能保证买股票多赚钱')
+  await reader.locator('h2').scrollIntoViewIfNeeded()
+  await page.screenshot({ path: test.info().outputPath('broker-reader-desktop-viewport.png') })
+  await page.setViewportSize({ width: 390, height: 844 })
+  await reader.locator('h2').scrollIntoViewIfNeeded()
+  await expect.poll(() => page.evaluate(() => document.documentElement.scrollWidth <= window.innerWidth)).toBe(true)
+  await page.screenshot({ path: test.info().outputPath('broker-reader-mobile-viewport.png') })
+
+})
+
+
+test('malformed reader chart links preserve the study and offer a retry', async ({ page }) => {
+  await page.route('**/data/study-exploration/broker-consensus.json', async route => {
+    const data = await (await route.fetch()).json()
+    data.reader.sections[0].chart_ids = ['missing-evidence']
+    await route.fulfill({ json: data })
+  })
+  await page.goto('/studies/broker-consensus')
+  await expect(page.locator('h1')).toHaveText('Can broker earnings forecasts help rank stocks?')
+  await expect(page.getByRole('button', { name: 'Retry' }).last()).toBeVisible()
 })

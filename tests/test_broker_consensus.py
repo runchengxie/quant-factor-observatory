@@ -55,6 +55,39 @@ class BrokerConsensusTests(unittest.TestCase):
         self.assertIn("历史版本", text)
         self.assertNotIn("/home/", text)
 
+
+    def test_reader_retains_stock_selection_limits_and_new_comparisons(self):
+        data = json.loads((DATA / "study-exploration/broker-consensus.json").read_text())
+        ids = {chart["id"] for chart in data["charts"]}
+        self.assertEqual(len(ids), 25)
+        self.assertTrue({"benchmark-profit", "benchmark-loss", "benchmark-paired-improvement",
+                         "coverage-profit", "coverage-loss", "coverage-controlled-profit",
+                         "coverage-controlled-loss"} <= ids)
+        self.assertIn("还需要更多证据", data["reader"]["verdict"]["zh-CN"])
+        self.assertEqual(data["reader_source_revision"], "8559b14fd5bbbfa1ec6a14440efc2231f29dbc34")
+        for section in data["reader"]["sections"]:
+            self.assertTrue(set(section["chart_ids"]) <= ids)
+            self.assertTrue(section["paragraphs"])
+        paired = next(c for c in data["charts"] if c["id"] == "benchmark-paired-improvement")
+        self.assertNotIn("months", paired["series"][0])
+        self.assertLess(paired["series"][0]["lower"][2], 0)
+        self.assertGreater(paired["series"][0]["upper"][2], 0)
+
+    def test_benchmark_public_projection_strips_private_fields_recursively(self):
+        import importlib.util
+        spec = importlib.util.spec_from_file_location("broker_reader", ROOT / "scripts/build_broker_consensus_reader.py")
+        module = importlib.util.module_from_spec(spec)
+        spec.loader.exec_module(module)
+        source = json.loads((DATA / "broker-consensus-benchmark.json").read_text())
+        source["source_hashes"] = {"/private/path": "secret"}
+        source["comparisons"][0]["ts_code"] = "private-security"
+        source["controlled_coverage"][0]["terms"][0]["private_path"] = "secret"
+        projected = module.project(source)
+        encoded = json.dumps(projected)
+        self.assertNotIn("private", encoded)
+        self.assertNotIn("source_hashes", encoded)
+        self.assertEqual(projected["comparisons"][0]["stock_years"], source["comparisons"][0]["stock_years"])
+
     def test_followup_projection_contains_only_aggregates_and_paired_uncertainty(self):
         data = json.loads((DATA / "broker-consensus-followup.json").read_text())
         self.assertEqual(data["schema_version"], "broker_consensus.followup.public.v1")
