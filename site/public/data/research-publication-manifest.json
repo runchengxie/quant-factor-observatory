@@ -1,6 +1,6 @@
 {
   "schema_version": "observatory.research_publication.v1",
-  "generated_at": "2026-10-23",
+  "generated_at": "2026-11-02",
   "source_repository": "quant-research",
   "source_manifest": "docs/research/knowledge-pilot.yml",
   "projections": [
@@ -386,6 +386,41 @@
       "producer_revision": "5e556c25737e46dd10b590ed7735d42f034f5438",
       "reviewed_at": "2026-10-14",
       "source_note_revision": "7b7d2de3f6e714fef7003a269e429c3c97a73e05"
+    },
+    {
+      "public_id": "broker-consensus",
+      "source_ref": "doc:quant-research.research.broker-consensus-20261102",
+      "source_status": "pilot",
+      "publication_status": "reviewed_aggregate",
+      "locales": [
+        "en-US",
+        "zh-CN"
+      ],
+      "allowed_fields": [
+        "title",
+        "family",
+        "status",
+        "summary",
+        "period",
+        "findings",
+        "limits",
+        "aggregate_rows",
+        "aggregate_charts",
+        "source_references",
+        "evidence_summary",
+        "navigation_summary"
+      ],
+      "excluded_fields": [
+        "private_data_paths",
+        "credentials",
+        "per_security_signals",
+        "portfolio_weights",
+        "execution_details",
+        "private_code"
+      ],
+      "exploration_asset": "data/study-exploration/broker-consensus.json",
+      "exploration_reviewed_at": "2026-11-02",
+      "navigation_asset": "data/study-navigation/broker-consensus.json"
     }
   ],
   "hub_schema": "observatory.research_hub.v1"

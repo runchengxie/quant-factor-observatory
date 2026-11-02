@@ -4,7 +4,7 @@ import { Fragment, useEffect, useState } from 'react'
 import { useLocale } from '../i18n'
 import type { Study } from '../types'
 import { isStudyExploration, type StudyExplorationData } from '../studyExploration'
-import StudyComparisonChart, { formatStudyValue } from './StudyComparisonChart'
+import StudyComparisonChart, { formatStudyEvidence, formatStudyValue } from './StudyComparisonChart'
 
 function ExplorationContent({ data }: { data: StudyExplorationData }) {
   const { locale, copy } = useLocale()
@@ -21,7 +21,7 @@ function ExplorationContent({ data }: { data: StudyExplorationData }) {
         <h3>{chart.title[locale]}</h3><p className="panel-note">{chart.metric[locale]}</p><p className="study-chart-context">{chart.context[locale]}</p>
         <p className="study-chart-mobile-note">{labels.scrollNote}</p><StudyComparisonChart chart={chart} locale={locale} />
         <p className="study-intermediate-conclusion"><strong>{labels.readChart}</strong> {chart.interpretation[locale]}</p>{sourceNames(chart.source_ids)}
-        <details className="study-values"><summary>{labels.values}</summary><div className="table-scroll"><table className="factor-table"><caption>{chart.title[locale]} · {chart.metric[locale]}</caption><thead><tr><th>{labels.category}</th>{chart.series.map((s) => <th key={s.id}>{s.label[locale]}</th>)}</tr></thead><tbody>{chart.categories.map((category, i) => <tr key={i}><th scope="row">{category[locale]}</th>{chart.series.map((s) => <td key={s.id}>{formatStudyValue(s.values[i], chart, locale)}</td>)}</tr>)}</tbody></table></div></details>
+        <details className="study-values" open={data.expanded_details}><summary>{labels.values}</summary><div className="table-scroll"><table className="factor-table"><caption>{chart.title[locale]} · {chart.metric[locale]}</caption><thead><tr><th>{labels.category}</th>{chart.series.map((s) => <th key={s.id}>{s.label[locale]}</th>)}</tr></thead><tbody>{chart.categories.map((category, i) => <tr key={i}><th scope="row">{category[locale]}</th>{chart.series.map((s) => <td key={s.id}>{formatStudyValue(s.values[i], chart, locale)}{s.months && <small className="study-interval">{formatStudyEvidence(s, i, chart, locale)}</small>}</td>)}</tr>)}</tbody></table></div></details>
       </> : <p className="study-no-performance">{labels.noPerformance}</p>}
     </section>)
   return <section className="study-exploration" aria-labelledby="study-exploration-title">
@@ -34,7 +34,7 @@ function ExplorationContent({ data }: { data: StudyExplorationData }) {
       <article><h3>{step.title[locale]}</h3><dl><div><dt>{labels.question}</dt><dd>{step.question[locale]}</dd></div><div><dt>{labels.finding}</dt><dd>{step.finding[locale]}</dd></div><div><dt>{labels.decision}</dt><dd>{step.decision[locale]}</dd></div></dl>{sourceNames(step.source_ids)}</article>
     </li>)}</ol><div className="study-next-question"><strong>{labels.nextQuestion}</strong><p>{data.next_question[locale]}</p></div></section>
     {!!data.conclusion_changes?.length && <section className="panel study-conclusion-changes"><h2>{copy.researchHub.changes}</h2>{data.conclusion_changes.map(change => <article className="hub-change" key={change.id}><p>{change.period[locale]}</p><dl><dt>{copy.researchHub.before}</dt><dd>{change.before[locale]}</dd><dt>{copy.researchHub.trigger}</dt><dd>{change.trigger[locale]}</dd><dt>{copy.researchHub.after}</dt><dd>{change.after[locale]}</dd></dl>{sourceNames(change.source_ids)}</article>)}</section>}
-    <details className="panel study-exploration-sources" id="study-exploration-sources"><summary>{labels.sources}</summary><p className="panel-note">{labels.sourceNote} · {labels.reviewed}: {data.reviewed_at}</p><ul>{data.sources.map((source) => <li id={`study-source-${data.study_id}-${source.id}`} key={source.id}><strong>{source.label[locale]}</strong><code>{source.source_ref}</code></li>)}</ul><small>{labels.sourceRevision}: <code>{data.source_revision.slice(0, 12)}</code></small></details>
+    <details open={data.expanded_details} className="panel study-exploration-sources" id="study-exploration-sources"><summary>{labels.sources}</summary><p className="panel-note">{labels.sourceNote} · {labels.reviewed}: {data.reviewed_at}</p><ul>{data.sources.map((source) => <li id={`study-source-${data.study_id}-${source.id}`} key={source.id}><strong>{source.label[locale]}</strong><code>{source.source_ref}</code></li>)}</ul><small>{labels.sourceRevision}: <code>{data.source_revision.slice(0, 12)}</code></small></details>
     </Archive>
   </section>
 }

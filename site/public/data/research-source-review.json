@@ -240,6 +240,26 @@
           "sha256": "bbdf276fb7a0d65e9004c4ba3ffd84c1ebf4bfd3ff98b3c23204d1dd0bef8e0b"
         }
       ]
+    },
+    {
+      "brief_sha256": "99b45c6b1e26587f0524e953fa8c1b6434fec28303bce0274b8982846b66873d",
+      "navigation_sha256": "26b5bf99616a8546bf3a3e352712f4ac63f41d7b47c4eb244db83ebb6a74b170",
+      "navigation_sources": [
+        {
+          "source_ref": "doc:quant-research.research.broker-consensus-20261102",
+          "sha256": "200636a48b06a22cf20f526d2f9d7674d13b7351dc1a73b94f98251650aa405a"
+        }
+      ],
+      "study_id": "broker-consensus",
+      "source_revision": "85888563c3f50f3df59e27463c459177fefbbfc1",
+      "catalog_sha256": "86291013335a8cf85c1c2cf2ea14b98b79467910ca26f599861371e228dd988f",
+      "exploration_sha256": "7b4ccb6e23866520f3e09b273526ab46826624dd47af2eadbe1837381b6e827d",
+      "sources": [
+        {
+          "source_ref": "doc:quant-research.research.broker-consensus-20261102",
+          "sha256": "200636a48b06a22cf20f526d2f9d7674d13b7351dc1a73b94f98251650aa405a"
+        }
+      ]
     }
   ],
   "hub_sha256": "1a65bbb9617db790d374ccb11306259855c5992be370e6c3203be53ca2bf14c0",

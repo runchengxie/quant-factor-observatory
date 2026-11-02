@@ -34,6 +34,11 @@
     "source_asset": "data/study-navigation/absolute-level-forecast.json",
     "source_revision": "e83f2d10a5c45aa4b4bc4b28a288887f86500aa8"
   },
+  "broker-consensus": {
+    "reviewed_at": "2026-11-02",
+    "source_asset": "data/study-navigation/broker-consensus.json",
+    "source_revision": "85888563c3f50f3df59e27463c459177fefbbfc1"
+  },
   "jumps": {
     "reviewed_at": "2026-10-14",
     "source_asset": "data/risk-history.json",

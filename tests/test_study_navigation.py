@@ -11,7 +11,7 @@ class StudyNavigationTests(unittest.TestCase):
         self.catalog = json.loads((DATA / 'research-studies.json').read_text())
         self.assets = [json.loads((ROOT / 'site/public' / s['navigation_asset']).read_text()) for s in self.catalog['studies']]
     def test_all_studies_have_source_bound_trust_and_honest_reproduction(self):
-        self.assertEqual(len(self.assets), 7)
+        self.assertEqual(len(self.assets), len(self.catalog["studies"]))
         for study, data in zip(self.catalog['studies'], self.assets):
             self.assertEqual(data['study_id'], study['id'])
             self.assertEqual(data['source_ref'], study['source_ref'])
@@ -23,7 +23,10 @@ class StudyNavigationTests(unittest.TestCase):
                 self.assertEqual(set(claim['detail']),{'en-US','zh-CN'})
                 self.assertNotRegex(claim['detail']['en-US'], r'[\u4e00-\u9fff]')
                 self.assertTrue(claim['source_refs'])
-            self.assertIsNone(data['reproduction']['code_revision'])
+            if study['id'] == 'broker-consensus':
+                self.assertRegex(data['reproduction']['code_revision'], r'^[a-f0-9]{40}$')
+            else:
+                self.assertIsNone(data['reproduction']['code_revision'])
             for key in ['source_path','private_reproduction','artifact_root','runner','config','symbol','ticker','weights']:
                 self.assertNotIn('"'+key+'"',json.dumps(data))
             self.assertNotIn('/home/',json.dumps(data))

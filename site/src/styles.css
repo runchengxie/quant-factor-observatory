@@ -577,3 +577,5 @@
 .study-reading-guide summary { cursor: pointer; color: var(--accent); font-size: 14px; }
 .study-reading-guide summary:focus-visible { outline: 2px solid var(--accent); outline-offset: 4px; }
 .study-page > .research-exploration-entries { margin-top: 48px; }
+/* Keep optional uncertainty evidence visible alongside exact chart values. */
+.study-interval { display: block; max-width: 18rem; margin-top: .35rem; white-space: normal; line-height: 1.5; }

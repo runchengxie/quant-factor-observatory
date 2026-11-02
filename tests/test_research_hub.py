@@ -50,6 +50,12 @@ class ResearchHubTests(unittest.TestCase):
         self.assertFalse(review.audit(self.catalog, self.baseline)['studies'][0]['public_changed'])
         self.catalog['studies'][0]['summary'] += ' changed'
         self.assertTrue(review.audit(self.catalog, self.baseline)['studies'][0]['public_changed'])
+
+    def test_capture_preserves_reviewed_auxiliary_public_asset_records(self):
+        previous = {'public_assets': [{'asset_sha256': 'a' * 64}], 'schema_version': 'old'}
+        result = review.capture({'studies': [], 'research_hub': {}}, None, previous)
+        self.assertEqual(result['public_assets'], previous['public_assets'])
+        self.assertEqual(result['schema_version'], 'observatory.source_review.v1')
     def test_source_change_missing_and_unrelated_revision(self):
         with tempfile.TemporaryDirectory() as folder:
             owner = Path(folder); (owner / 'source.md').write_bytes(b'original')

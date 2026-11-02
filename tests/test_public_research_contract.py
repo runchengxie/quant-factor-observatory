@@ -135,7 +135,7 @@ class PublicResearchContractTests(unittest.TestCase):
             set(studies), {
                 "pb-roe", "rd-investment", "employee-compensation",
                 "fundamental-state-forecasting", "absolute-level-forecast",
-                "fundamental-family-shadow", "hk-fundamental-archive",
+                "fundamental-family-shadow", "hk-fundamental-archive", "broker-consensus",
             }
         )
         self.assertEqual(studies["pb-roe"]["status"], "historical-reviewed")
@@ -228,7 +228,7 @@ class PublicResearchContractTests(unittest.TestCase):
         workflow = (ROOT / ".github" / "workflows" / "deploy-pages.yml").read_text()
         self.assertIn("cp site/dist/index.html site/dist/404.html", workflow)
         self.assertIn("cmp site/dist/index.html site/dist/404.html", workflow)
-        self.assertIn('for route in hermite jumps fundamentals quality studies studies/pb-roe; do', workflow)
+        self.assertIn('for route in hermite jumps fundamentals quality studies studies/pb-roe studies/broker-consensus; do', workflow)
         self.assertIn('mkdir -p "site/dist/$route"', workflow)
         self.assertIn('cp site/dist/index.html "site/dist/$route/index.html"', workflow)
         self.assertIn('cmp site/dist/index.html "site/dist/$route/index.html"', workflow)

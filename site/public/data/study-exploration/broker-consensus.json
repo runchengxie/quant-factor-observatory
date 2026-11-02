@@ -1,0 +1,2431 @@
+{
+  "schema_version": "observatory.study_exploration.v1",
+  "study_id": "broker-consensus",
+  "source_ref": "doc:quant-research.research.broker-consensus-20261102",
+  "source_revision": "85888563c3f50f3df59e27463c459177fefbbfc1",
+  "reviewed_at": "2026-11-02",
+  "evidence_stage": "retrospective_diagnostic",
+  "expanded_details": true,
+  "summary": {
+    "en-US": "Profit revision has a weak exposure-adjusted ranking relationship. Forward earnings yield has the clearest association, with original availability and investability unresolved.",
+    "zh-CN": "盈利预测上调幅度在扣除行业和市值影响后关系较弱。预期盈利相对市值的关联较清楚，历史版本和交易可行性仍待核实。"
+  },
+  "sources": [
+    {
+      "id": "study",
+      "source_ref": "doc:quant-research.research.broker-consensus-20261102",
+      "label": {
+        "en-US": "Study methods and retained results",
+        "zh-CN": "研究方法与核对结果"
+      }
+    }
+  ],
+  "charts": [
+    {
+      "id": "annual-records",
+      "title": {
+        "en-US": "How much history was retrieved?",
+        "zh-CN": "每年拉到了多少预测记录？"
+      },
+      "metric": {
+        "en-US": "Report and forecast-period records",
+        "zh-CN": "记录数，同一研报的不同预测年份分别计数"
+      },
+      "context": {
+        "en-US": "Retrospective reconstruction. Report-clock and provider-clock full histories cover different months. Original forecast vintages remain unverified.",
+        "zh-CN": "本页按历史记录重建研究。研报日期口径和供应商时间口径覆盖的月份不同，历史版本仍未核实。"
+      },
+      "interpretation": {
+        "en-US": "2026 ends on November 1; this partial year should not be compared as a full year.",
+        "zh-CN": "2026年数据截至11月1日，全年记录数还会变化。"
+      },
+      "unit": "number",
+      "categories": [
+        {
+          "en-US": "2011",
+          "zh-CN": "2011"
+        },
+        {
+          "en-US": "2012",
+          "zh-CN": "2012"
+        },
+        {
+          "en-US": "2013",
+          "zh-CN": "2013"
+        },
+        {
+          "en-US": "2014",
+          "zh-CN": "2014"
+        },
+        {
+          "en-US": "2015",
+          "zh-CN": "2015"
+        },
+        {
+          "en-US": "2016",
+          "zh-CN": "2016"
+        },
+        {
+          "en-US": "2017",
+          "zh-CN": "2017"
+        },
+        {
+          "en-US": "2018",
+          "zh-CN": "2018"
+        },
+        {
+          "en-US": "2019",
+          "zh-CN": "2019"
+        },
+        {
+          "en-US": "2020",
+          "zh-CN": "2020"
+        },
+        {
+          "en-US": "2021",
+          "zh-CN": "2021"
+        },
+        {
+          "en-US": "2022",
+          "zh-CN": "2022"
+        },
+        {
+          "en-US": "2023",
+          "zh-CN": "2023"
+        },
+        {
+          "en-US": "2024",
+          "zh-CN": "2024"
+        },
+        {
+          "en-US": "2025",
+          "zh-CN": "2025"
+        },
+        {
+          "en-US": "2026",
+          "zh-CN": "2026"
+        }
+      ],
+      "series": [
+        {
+          "id": "records",
+          "label": {
+            "en-US": "Forecast records",
+            "zh-CN": "预测记录"
+          },
+          "values": [
+            147198,
+            139122,
+            135138,
+            95182,
+            91954,
+            78292,
+            129981,
+            197712,
+            205667,
+            211135,
+            205767,
+            259680,
+            269909,
+            247274,
+            199596,
+            135474
+          ]
+        }
+      ],
+      "source_ids": [
+        "study"
+      ]
+    },
+    {
+      "id": "annual-securities",
+      "title": {
+        "en-US": "How many stocks have forecasts?",
+        "zh-CN": "每年有多少只股票获得预测？"
+      },
+      "metric": {
+        "en-US": "Distinct covered securities",
+        "zh-CN": "当年至少有一条研报预测的股票数"
+      },
+      "context": {
+        "en-US": "Retrospective reconstruction. Report-clock and provider-clock full histories cover different months. Original forecast vintages remain unverified.",
+        "zh-CN": "本页按历史记录重建研究。研报日期口径和供应商时间口径覆盖的月份不同，历史版本仍未核实。"
+      },
+      "interpretation": {
+        "en-US": "Coverage is a selected analyst-followed population, not the entire market.",
+        "zh-CN": "券商覆盖集中在部分股票，研究结果适用于这些样本。"
+      },
+      "unit": "number",
+      "categories": [
+        {
+          "en-US": "2011",
+          "zh-CN": "2011"
+        },
+        {
+          "en-US": "2012",
+          "zh-CN": "2012"
+        },
+        {
+          "en-US": "2013",
+          "zh-CN": "2013"
+        },
+        {
+          "en-US": "2014",
+          "zh-CN": "2014"
+        },
+        {
+          "en-US": "2015",
+          "zh-CN": "2015"
+        },
+        {
+          "en-US": "2016",
+          "zh-CN": "2016"
+        },
+        {
+          "en-US": "2017",
+          "zh-CN": "2017"
+        },
+        {
+          "en-US": "2018",
+          "zh-CN": "2018"
+        },
+        {
+          "en-US": "2019",
+          "zh-CN": "2019"
+        },
+        {
+          "en-US": "2020",
+          "zh-CN": "2020"
+        },
+        {
+          "en-US": "2021",
+          "zh-CN": "2021"
+        },
+        {
+          "en-US": "2022",
+          "zh-CN": "2022"
+        },
+        {
+          "en-US": "2023",
+          "zh-CN": "2023"
+        },
+        {
+          "en-US": "2024",
+          "zh-CN": "2024"
+        },
+        {
+          "en-US": "2025",
+          "zh-CN": "2025"
+        },
+        {
+          "en-US": "2026",
+          "zh-CN": "2026"
+        }
+      ],
+      "series": [
+        {
+          "id": "securities",
+          "label": {
+            "en-US": "Covered stocks",
+            "zh-CN": "覆盖股票数"
+          },
+          "values": [
+            2161,
+            2232,
+            2059,
+            2123,
+            2428,
+            2623,
+            2887,
+            2409,
+            2528,
+            2516,
+            2641,
+            3085,
+            3499,
+            3351,
+            3380,
+            3169
+          ]
+        }
+      ],
+      "source_ids": [
+        "study"
+      ]
+    },
+    {
+      "id": "provider-delay",
+      "title": {
+        "en-US": "When was old information updated?",
+        "zh-CN": "旧研报的供应商更新时间晚了多久？"
+      },
+      "metric": {
+        "en-US": "Median days from report date to provider update",
+        "zh-CN": "供应商更新时间减去研报日期，中位数，单位为天"
+      },
+      "context": {
+        "en-US": "Retrospective reconstruction. Report-clock and provider-clock full histories cover different months. Original forecast vintages remain unverified.",
+        "zh-CN": "本页按历史记录重建研究。研报日期口径和供应商时间口径覆盖的月份不同，历史版本仍未核实。"
+      },
+      "interpretation": {
+        "en-US": "January 2011 records were updated in May 2022. Their original first availability is unknown.",
+        "zh-CN": "2011年1月记录的供应商更新时间在2022年5月。我们还不知道原始版本何时首次可用。"
+      },
+      "unit": "number",
+      "categories": [
+        {
+          "en-US": "2011",
+          "zh-CN": "2011"
+        },
+        {
+          "en-US": "2012",
+          "zh-CN": "2012"
+        },
+        {
+          "en-US": "2013",
+          "zh-CN": "2013"
+        },
+        {
+          "en-US": "2014",
+          "zh-CN": "2014"
+        },
+        {
+          "en-US": "2015",
+          "zh-CN": "2015"
+        },
+        {
+          "en-US": "2016",
+          "zh-CN": "2016"
+        },
+        {
+          "en-US": "2017",
+          "zh-CN": "2017"
+        },
+        {
+          "en-US": "2018",
+          "zh-CN": "2018"
+        },
+        {
+          "en-US": "2019",
+          "zh-CN": "2019"
+        },
+        {
+          "en-US": "2020",
+          "zh-CN": "2020"
+        },
+        {
+          "en-US": "2021",
+          "zh-CN": "2021"
+        },
+        {
+          "en-US": "2022",
+          "zh-CN": "2022"
+        },
+        {
+          "en-US": "2023",
+          "zh-CN": "2023"
+        },
+        {
+          "en-US": "2024",
+          "zh-CN": "2024"
+        },
+        {
+          "en-US": "2025",
+          "zh-CN": "2025"
+        },
+        {
+          "en-US": "2026",
+          "zh-CN": "2026"
+        }
+      ],
+      "series": [
+        {
+          "id": "delay",
+          "label": {
+            "en-US": "Median update delay",
+            "zh-CN": "更新时间相差天数中位数"
+          },
+          "values": [
+            3953.0,
+            3586.0,
+            3233.0,
+            2878.0,
+            2496.0,
+            2143.0,
+            1710.0,
+            1388.0,
+            1029.0,
+            712.0,
+            273.0,
+            2.0,
+            1.0,
+            1.0,
+            1.0,
+            1.0
+          ]
+        }
+      ],
+      "source_ids": [
+        "study"
+      ]
+    },
+    {
+      "id": "timing-coverage",
+      "title": {
+        "en-US": "How does the timing rule change coverage?",
+        "zh-CN": "改用供应商时间后，还能研究多少股票？"
+      },
+      "metric": {
+        "en-US": "Mean eligible stocks per formation month",
+        "zh-CN": "每个汇总月份的平均合格股票数，预测数量门槛保持相同"
+      },
+      "context": {
+        "en-US": "Retrospective reconstruction. Report-clock and provider-clock full histories cover different months. Original forecast vintages remain unverified.",
+        "zh-CN": "本页按历史记录重建研究。研报日期口径和供应商时间口径覆盖的月份不同，历史版本仍未核实。"
+      },
+      "interpretation": {
+        "en-US": "The provider-time sample begins in May 2022. Earlier zero coverage is not evidence of zero predictive ability.",
+        "zh-CN": "供应商时间口径从2022年5月起才有足够样本。更早的合格股票数为零，缺少可检验样本。"
+      },
+      "unit": "number",
+      "categories": [
+        {
+          "en-US": "2011",
+          "zh-CN": "2011"
+        },
+        {
+          "en-US": "2012",
+          "zh-CN": "2012"
+        },
+        {
+          "en-US": "2013",
+          "zh-CN": "2013"
+        },
+        {
+          "en-US": "2014",
+          "zh-CN": "2014"
+        },
+        {
+          "en-US": "2015",
+          "zh-CN": "2015"
+        },
+        {
+          "en-US": "2016",
+          "zh-CN": "2016"
+        },
+        {
+          "en-US": "2017",
+          "zh-CN": "2017"
+        },
+        {
+          "en-US": "2018",
+          "zh-CN": "2018"
+        },
+        {
+          "en-US": "2019",
+          "zh-CN": "2019"
+        },
+        {
+          "en-US": "2020",
+          "zh-CN": "2020"
+        },
+        {
+          "en-US": "2021",
+          "zh-CN": "2021"
+        },
+        {
+          "en-US": "2022",
+          "zh-CN": "2022"
+        },
+        {
+          "en-US": "2023",
+          "zh-CN": "2023"
+        },
+        {
+          "en-US": "2024",
+          "zh-CN": "2024"
+        },
+        {
+          "en-US": "2025",
+          "zh-CN": "2025"
+        },
+        {
+          "en-US": "2026",
+          "zh-CN": "2026"
+        }
+      ],
+      "series": [
+        {
+          "id": "report",
+          "label": {
+            "en-US": "Report-date reconstruction",
+            "zh-CN": "按研报日期重建"
+          },
+          "values": [
+            1136.75,
+            1313.8333333333333,
+            1181.6666666666667,
+            1139.4166666666667,
+            1179.4166666666667,
+            1186.6666666666667,
+            1336.5,
+            1371.1666666666667,
+            1311.75,
+            1327.0833333333333,
+            1377.1666666666667,
+            1703.1666666666667,
+            1986.3333333333333,
+            1989.6666666666667,
+            1938.0833333333333,
+            1762.125
+          ]
+        },
+        {
+          "id": "provider",
+          "label": {
+            "en-US": "Provider-update guard",
+            "zh-CN": "增加供应商更新时间限制"
+          },
+          "values": [
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            0.0,
+            1194.3333333333333,
+            1985.9166666666667,
+            1989.5,
+            1937.75,
+            1761.875
+          ]
+        }
+      ],
+      "source_ids": [
+        "study"
+      ]
+    },
+    {
+      "id": "rank-comparison",
+      "title": {
+        "en-US": "Which scores line up with later stock returns?",
+        "zh-CN": "哪些排序与随后收益较接近？"
+      },
+      "metric": {
+        "en-US": "Monthly mean RankIC, a rank correlation",
+        "zh-CN": "月度平均排名相关系数，正值表示高分股票随后往往表现较好"
+      },
+      "context": {
+        "en-US": "Retrospective reconstruction. Report-clock and provider-clock full histories cover different months. Original forecast vintages remain unverified. Lines show descriptive 95% intervals. The table retains each series' valid months and bounds; fewer than 12 months has no interval.",
+        "zh-CN": "本页按历史记录重建研究。研报日期口径和供应商时间口径覆盖的月份不同，历史版本仍未核实。 横线显示描述性95％区间，越长表示估计越不确定，跨过零时方向还不清楚。表格保留有效月份和区间，少于12个月时不估计区间。"
+      },
+      "interpretation": {
+        "en-US": "Raw profit revision weakens after exposure adjustment. Correlations are not return percentages or success probabilities.",
+        "zh-CN": "上调幅度在扣除行业和市值影响后关系较弱。相关系数表示排序接近程度，数值单位与收益率不同。"
+      },
+      "unit": "number",
+      "categories": [
+        {
+          "en-US": "Profit revision",
+          "zh-CN": "盈利预测上调幅度"
+        },
+        {
+          "en-US": "Net upgrade breadth",
+          "zh-CN": "机构净上调比例"
+        },
+        {
+          "en-US": "Low forecast disagreement",
+          "zh-CN": "机构预测接近程度"
+        },
+        {
+          "en-US": "Forward earnings yield",
+          "zh-CN": "预期盈利相对市值"
+        }
+      ],
+      "series": [
+        {
+          "id": "report-raw",
+          "label": {
+            "en-US": "Report date, raw",
+            "zh-CN": "研报日期口径，原始排序"
+          },
+          "values": [
+            0.01327337230148275,
+            0.025359325160717292,
+            0.014927757592262435,
+            0.03358138992750953
+          ],
+          "months": [
+            186,
+            186,
+            188,
+            188
+          ],
+          "lower": [
+            0.005387141309021973,
+            0.015081423587542038,
+            0.004026387520194092,
+            0.00700349712320851
+          ],
+          "upper": [
+            0.02115960329394353,
+            0.035637226733892545,
+            0.025829127664330778,
+            0.06015928273181055
+          ]
+        },
+        {
+          "id": "report-neutral",
+          "label": {
+            "en-US": "Report date, exposure adjusted",
+            "zh-CN": "研报日期口径，扣除行业和市值影响"
+          },
+          "values": [
+            0.0014926202386998733,
+            0.021438502245328117,
+            0.014975231048209324,
+            0.036493629917222284
+          ],
+          "months": [
+            186,
+            186,
+            188,
+            188
+          ],
+          "lower": [
+            -0.011502789452022953,
+            0.01277037766976879,
+            0.007125764880495874,
+            0.019387259517262605
+          ],
+          "upper": [
+            0.014488029929422701,
+            0.030106626820887446,
+            0.022824697215922774,
+            0.05360000031718196
+          ]
+        },
+        {
+          "id": "provider-neutral",
+          "label": {
+            "en-US": "Provider time, exposure adjusted",
+            "zh-CN": "供应商时间口径，扣除行业和市值影响"
+          },
+          "values": [
+            0.007616084069950262,
+            0.007155805896578438,
+            0.013469609650484845,
+            0.03306051520455828
+          ],
+          "months": [
+            50,
+            50,
+            52,
+            52
+          ],
+          "lower": [
+            -0.01216160231735229,
+            -0.010884759175330962,
+            -0.0028263129725261803,
+            0.010373534414039234
+          ],
+          "upper": [
+            0.027393770457252817,
+            0.025196370968487838,
+            0.02976553227349587,
+            0.05574749599507732
+          ]
+        }
+      ],
+      "source_ids": [
+        "study"
+      ]
+    },
+    {
+      "id": "matched-timing-ranks",
+      "title": {
+        "en-US": "Compare timing on identical stocks and months",
+        "zh-CN": "在同一批股票和月份上比较时间口径"
+      },
+      "metric": {
+        "en-US": "Exposure-adjusted mean RankIC on matched samples",
+        "zh-CN": "相同股票、月份和有效因子样本，扣除行业和市值影响后的平均排名相关系数"
+      },
+      "context": {
+        "en-US": "Identical stocks, months and valid factor values in both arms. Revision and breadth have 50 months; agreement and yield have 52. Original vintages remain unverified. Lines show descriptive 95% intervals. The table retains each series' valid months and bounds; fewer than 12 months has no interval.",
+        "zh-CN": "此图比较相同股票、月份和有效因子样本。上调幅度和净上调比例各有50个月，另两项各有52个月。历史版本仍未核实。 横线显示描述性95％区间，越长表示估计越不确定，跨过零时方向还不清楚。表格保留有效月份和区间，少于12个月时不估计区间。"
+      },
+      "interpretation": {
+        "en-US": "Matched recent results are similar. Full-history differences also reflect period and coverage changes.",
+        "zh-CN": "近期配对结果接近。完整历史图中的差异也受到年份和覆盖变化影响。"
+      },
+      "unit": "number",
+      "categories": [
+        {
+          "en-US": "Profit revision",
+          "zh-CN": "盈利预测上调幅度"
+        },
+        {
+          "en-US": "Net upgrade breadth",
+          "zh-CN": "机构净上调比例"
+        },
+        {
+          "en-US": "Low forecast disagreement",
+          "zh-CN": "机构预测接近程度"
+        },
+        {
+          "en-US": "Forward earnings yield",
+          "zh-CN": "预期盈利相对市值"
+        }
+      ],
+      "series": [
+        {
+          "id": "report",
+          "label": {
+            "en-US": "Report date",
+            "zh-CN": "研报日期"
+          },
+          "values": [
+            0.006482530060428071,
+            0.006906379444277791,
+            0.013441347891797326,
+            0.03302943746480844
+          ],
+          "months": [
+            50,
+            50,
+            52,
+            52
+          ],
+          "lower": [
+            -0.013017238758075164,
+            -0.011120302853830177,
+            -0.002917775530138285,
+            0.01033602680684104
+          ],
+          "upper": [
+            0.025982298878931304,
+            0.024933061742385756,
+            0.029800471313732937,
+            0.05572284812277584
+          ]
+        },
+        {
+          "id": "provider",
+          "label": {
+            "en-US": "Provider update",
+            "zh-CN": "供应商更新时间"
+          },
+          "values": [
+            0.007616084069950262,
+            0.007155805896578438,
+            0.013469609650484845,
+            0.03306051520455828
+          ],
+          "months": [
+            50,
+            50,
+            52,
+            52
+          ],
+          "lower": [
+            -0.01216160231735229,
+            -0.010884759175330962,
+            -0.0028263129725261803,
+            0.010373534414039234
+          ],
+          "upper": [
+            0.027393770457252817,
+            0.025196370968487838,
+            0.02976553227349587,
+            0.05574749599507732
+          ]
+        }
+      ],
+      "source_ids": [
+        "study"
+      ]
+    },
+    {
+      "id": "profit-revision-years",
+      "title": {
+        "en-US": "Annual stability of profit revision",
+        "zh-CN": "盈利预测上调幅度在不同年份怎样变化？"
+      },
+      "metric": {
+        "en-US": "Mean monthly RankIC within each year",
+        "zh-CN": "当年各有效月份的排名相关系数平均值"
+      },
+      "context": {
+        "en-US": "Retrospective reconstruction. Report-clock and provider-clock full histories cover different months. Original forecast vintages remain unverified. Lines show descriptive 95% intervals. The table retains each series' valid months and bounds; fewer than 12 months has no interval.",
+        "zh-CN": "本页按历史记录重建研究。研报日期口径和供应商时间口径覆盖的月份不同，历史版本仍未核实。 横线显示描述性95％区间，越长表示估计越不确定，跨过零时方向还不清楚。表格保留有效月份和区间，少于12个月时不估计区间。"
+      },
+      "interpretation": {
+        "en-US": "Blank values have no valid sample. Year slices are retrospective and do not establish an untouched holdout.",
+        "zh-CN": "空白年份缺少有效样本。各年份都属于回溯检查，尚未形成前瞻验证。"
+      },
+      "unit": "number",
+      "categories": [
+        {
+          "en-US": "2011",
+          "zh-CN": "2011"
+        },
+        {
+          "en-US": "2012",
+          "zh-CN": "2012"
+        },
+        {
+          "en-US": "2013",
+          "zh-CN": "2013"
+        },
+        {
+          "en-US": "2014",
+          "zh-CN": "2014"
+        },
+        {
+          "en-US": "2015",
+          "zh-CN": "2015"
+        },
+        {
+          "en-US": "2016",
+          "zh-CN": "2016"
+        },
+        {
+          "en-US": "2017",
+          "zh-CN": "2017"
+        },
+        {
+          "en-US": "2018",
+          "zh-CN": "2018"
+        },
+        {
+          "en-US": "2019",
+          "zh-CN": "2019"
+        },
+        {
+          "en-US": "2020",
+          "zh-CN": "2020"
+        },
+        {
+          "en-US": "2021",
+          "zh-CN": "2021"
+        },
+        {
+          "en-US": "2022",
+          "zh-CN": "2022"
+        },
+        {
+          "en-US": "2023",
+          "zh-CN": "2023"
+        },
+        {
+          "en-US": "2024",
+          "zh-CN": "2024"
+        },
+        {
+          "en-US": "2025",
+          "zh-CN": "2025"
+        },
+        {
+          "en-US": "2026",
+          "zh-CN": "2026"
+        }
+      ],
+      "series": [
+        {
+          "id": "report-raw",
+          "label": {
+            "en-US": "Report date, raw",
+            "zh-CN": "研报日期口径，原始排序"
+          },
+          "values": [
+            0.01974973902923326,
+            0.00852535140682231,
+            0.0316776944198822,
+            0.010056772539201252,
+            0.01765806480612552,
+            -0.0035731431231314837,
+            0.03392704168642204,
+            0.0108760558183773,
+            0.01765608305267689,
+            0.029953604133307807,
+            0.007764663753760354,
+            -0.025091951990302685,
+            0.009434505298624805,
+            0.02620672134187829,
+            -0.0009087095416466149,
+            0.022674601819935445
+          ],
+          "months": [
+            10,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            8
+          ],
+          "lower": [
+            null,
+            -0.024672568565524265,
+            0.013573309025541054,
+            -0.006365635012499496,
+            0.0017824316507014971,
+            -0.019401139194392788,
+            0.013634537792008367,
+            -0.02460066877785628,
+            -0.013060603176741244,
+            -0.0006587695903344098,
+            -0.043070573344995214,
+            -0.07659626364198373,
+            -0.01105158315677186,
+            0.004043758565794364,
+            -0.02072658985990664,
+            null
+          ],
+          "upper": [
+            null,
+            0.04172327137916889,
+            0.04978207981422334,
+            0.026479180090902,
+            0.03353369796154955,
+            0.01225485294812982,
+            0.05421954558083572,
+            0.04635278041461088,
+            0.048372769282095024,
+            0.060565977856950025,
+            0.05859990085251593,
+            0.02641235966137836,
+            0.02992059375402147,
+            0.04836968411796221,
+            0.018909170776613412,
+            null
+          ]
+        },
+        {
+          "id": "report-neutral",
+          "label": {
+            "en-US": "Report date, exposure adjusted",
+            "zh-CN": "研报日期口径，扣除行业和市值影响"
+          },
+          "values": [
+            0.02616239953139774,
+            0.05828395998764154,
+            0.008592713581129492,
+            0.0021433206277273313,
+            -0.03798201882835146,
+            -0.03313258735653207,
+            -0.0256498515546195,
+            0.04576529442595064,
+            -0.005453960628543717,
+            -0.04700739972245064,
+            0.023893962937580098,
+            -0.01881818096751316,
+            0.03676274325108458,
+            -0.00296753004305486,
+            -0.007384809144477734,
+            0.006431936287169059
+          ],
+          "months": [
+            10,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            8
+          ],
+          "lower": [
+            null,
+            0.006852120941377771,
+            -0.01537555878580849,
+            -0.032971089903781836,
+            -0.07099199272188259,
+            -0.07566077219161538,
+            -0.06807051754904449,
+            0.015488790343040158,
+            -0.050797685181416606,
+            -0.08465614498375967,
+            -0.012976288586822964,
+            -0.05357200704491816,
+            0.00144984325393549,
+            -0.02550373826650845,
+            -0.05410037525995178,
+            null
+          ],
+          "upper": [
+            null,
+            0.10971579903390531,
+            0.03256098594806747,
+            0.0372577311592365,
+            -0.004972044934820334,
+            0.009395597478551225,
+            0.016770814439805482,
+            0.07604179850886113,
+            0.03988976392432917,
+            -0.009358654461141598,
+            0.06076421446198316,
+            0.01593564510989184,
+            0.07207564324823366,
+            0.019568678180398726,
+            0.03933075697099631,
+            null
+          ]
+        },
+        {
+          "id": "provider-neutral",
+          "label": {
+            "en-US": "Provider time, exposure adjusted",
+            "zh-CN": "供应商时间口径，扣除行业和市值影响"
+          },
+          "values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -0.004521609017601962,
+            0.03828896741374163,
+            -0.002357407887046846,
+            -0.006890737318516551,
+            0.0074304988881232666
+          ],
+          "months": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            6,
+            12,
+            12,
+            12,
+            8
+          ],
+          "lower": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            0.0026939519339778534,
+            -0.02477905071236856,
+            -0.05492045817705768,
+            null
+          ],
+          "upper": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            0.07388398289350541,
+            0.02006423493827487,
+            0.04113898354002457,
+            null
+          ]
+        }
+      ],
+      "source_ids": [
+        "study"
+      ]
+    },
+    {
+      "id": "revision-breadth-years",
+      "title": {
+        "en-US": "Annual stability of net upgrade breadth",
+        "zh-CN": "机构净上调比例在不同年份怎样变化？"
+      },
+      "metric": {
+        "en-US": "Mean monthly RankIC within each year",
+        "zh-CN": "当年各有效月份的排名相关系数平均值"
+      },
+      "context": {
+        "en-US": "Retrospective reconstruction. Report-clock and provider-clock full histories cover different months. Original forecast vintages remain unverified. Lines show descriptive 95% intervals. The table retains each series' valid months and bounds; fewer than 12 months has no interval.",
+        "zh-CN": "本页按历史记录重建研究。研报日期口径和供应商时间口径覆盖的月份不同，历史版本仍未核实。 横线显示描述性95％区间，越长表示估计越不确定，跨过零时方向还不清楚。表格保留有效月份和区间，少于12个月时不估计区间。"
+      },
+      "interpretation": {
+        "en-US": "Blank values have no valid sample. Year slices are retrospective and do not establish an untouched holdout.",
+        "zh-CN": "空白年份缺少有效样本。各年份都属于回溯检查，尚未形成前瞻验证。"
+      },
+      "unit": "number",
+      "categories": [
+        {
+          "en-US": "2011",
+          "zh-CN": "2011"
+        },
+        {
+          "en-US": "2012",
+          "zh-CN": "2012"
+        },
+        {
+          "en-US": "2013",
+          "zh-CN": "2013"
+        },
+        {
+          "en-US": "2014",
+          "zh-CN": "2014"
+        },
+        {
+          "en-US": "2015",
+          "zh-CN": "2015"
+        },
+        {
+          "en-US": "2016",
+          "zh-CN": "2016"
+        },
+        {
+          "en-US": "2017",
+          "zh-CN": "2017"
+        },
+        {
+          "en-US": "2018",
+          "zh-CN": "2018"
+        },
+        {
+          "en-US": "2019",
+          "zh-CN": "2019"
+        },
+        {
+          "en-US": "2020",
+          "zh-CN": "2020"
+        },
+        {
+          "en-US": "2021",
+          "zh-CN": "2021"
+        },
+        {
+          "en-US": "2022",
+          "zh-CN": "2022"
+        },
+        {
+          "en-US": "2023",
+          "zh-CN": "2023"
+        },
+        {
+          "en-US": "2024",
+          "zh-CN": "2024"
+        },
+        {
+          "en-US": "2025",
+          "zh-CN": "2025"
+        },
+        {
+          "en-US": "2026",
+          "zh-CN": "2026"
+        }
+      ],
+      "series": [
+        {
+          "id": "report-raw",
+          "label": {
+            "en-US": "Report date, raw",
+            "zh-CN": "研报日期口径，原始排序"
+          },
+          "values": [
+            0.04913532025820472,
+            0.03210518049859764,
+            0.049676031558795596,
+            0.007554254506388005,
+            0.0398471993874379,
+            0.0079822989811226,
+            0.06864006856730433,
+            0.023793968622889215,
+            0.023404032716920497,
+            0.046377915380173385,
+            0.001004916400633152,
+            -0.007437865701523517,
+            0.012332770170792063,
+            0.023845094194197863,
+            0.010501215781159902,
+            0.018744538066588226
+          ],
+          "months": [
+            10,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            8
+          ],
+          "lower": [
+            null,
+            -0.006736455027867343,
+            0.019321328830871263,
+            -0.01663722520754703,
+            0.016647167631772198,
+            -0.01632750804969124,
+            0.04642210761656318,
+            -0.02182787598655835,
+            -0.009929016027358125,
+            0.00947489309750807,
+            -0.06202918253421986,
+            -0.07727090479231814,
+            -0.013956907609639116,
+            -0.006125177553389472,
+            -0.008033713064627225,
+            null
+          ],
+          "upper": [
+            null,
+            0.07094681602506261,
+            0.08003073428671993,
+            0.03174573422032304,
+            0.06304723114310361,
+            0.03229210601193644,
+            0.09085802951804547,
+            0.06941581323233678,
+            0.056737081461199115,
+            0.0832809376628387,
+            0.06403901533548616,
+            0.06239517338927111,
+            0.03862244795122324,
+            0.053815365941785195,
+            0.02903614462694703,
+            null
+          ]
+        },
+        {
+          "id": "report-neutral",
+          "label": {
+            "en-US": "Report date, exposure adjusted",
+            "zh-CN": "研报日期口径，扣除行业和市值影响"
+          },
+          "values": [
+            0.0425799885736992,
+            0.03380505322316662,
+            0.04912190487171347,
+            0.011218092314141148,
+            0.026270072304009972,
+            -0.0009774197234748586,
+            0.05215273223575385,
+            0.0374727269411148,
+            0.015412739377334964,
+            0.023444024779463887,
+            0.009085605329032229,
+            -0.005060216544625277,
+            0.024183728687798386,
+            0.021056413950573467,
+            -0.00344207120209963,
+            0.004605111670900175
+          ],
+          "months": [
+            10,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            8
+          ],
+          "lower": [
+            null,
+            0.007275107320652358,
+            0.015921694338585674,
+            -0.004923272290506908,
+            0.0040211498848422116,
+            -0.017045312000745404,
+            0.0427009882409682,
+            0.008481770138846177,
+            -0.014487790573179553,
+            -0.010725969546255525,
+            -0.02730809919287333,
+            -0.051641689617916216,
+            -0.01174854092740606,
+            -0.0011743873458469542,
+            -0.028810161066805402,
+            null
+          ],
+          "upper": [
+            null,
+            0.06033499912568088,
+            0.08232211540484127,
+            0.0273594569187892,
+            0.048518994723177736,
+            0.015090472553795685,
+            0.061604476230539496,
+            0.06646368374338343,
+            0.04531326932784948,
+            0.057614019105183295,
+            0.04547930985093779,
+            0.041521256528665666,
+            0.060115998303002835,
+            0.04328721524699389,
+            0.021926018662606142,
+            null
+          ]
+        },
+        {
+          "id": "provider-neutral",
+          "label": {
+            "en-US": "Provider time, exposure adjusted",
+            "zh-CN": "供应商时间口径，扣除行业和市值影响"
+          },
+          "values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -0.03198470136167334,
+            0.024787777357484813,
+            0.021303244360993734,
+            -0.0033620292158552875,
+            0.004618824120935365
+          ],
+          "months": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            6,
+            12,
+            12,
+            12,
+            8
+          ],
+          "lower": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -0.011240527696682937,
+            -0.0009274199791125398,
+            -0.029235044263971444,
+            null
+          ],
+          "upper": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            0.06081608241165257,
+            0.04353390870110001,
+            0.02251098583226087,
+            null
+          ]
+        }
+      ],
+      "source_ids": [
+        "study"
+      ]
+    },
+    {
+      "id": "agreement-years",
+      "title": {
+        "en-US": "Annual stability of low forecast disagreement",
+        "zh-CN": "机构预测接近程度在不同年份怎样变化？"
+      },
+      "metric": {
+        "en-US": "Mean monthly RankIC within each year",
+        "zh-CN": "当年各有效月份的排名相关系数平均值"
+      },
+      "context": {
+        "en-US": "Retrospective reconstruction. Report-clock and provider-clock full histories cover different months. Original forecast vintages remain unverified. Lines show descriptive 95% intervals. The table retains each series' valid months and bounds; fewer than 12 months has no interval.",
+        "zh-CN": "本页按历史记录重建研究。研报日期口径和供应商时间口径覆盖的月份不同，历史版本仍未核实。 横线显示描述性95％区间，越长表示估计越不确定，跨过零时方向还不清楚。表格保留有效月份和区间，少于12个月时不估计区间。"
+      },
+      "interpretation": {
+        "en-US": "Blank values have no valid sample. Year slices are retrospective and do not establish an untouched holdout.",
+        "zh-CN": "空白年份缺少有效样本。各年份都属于回溯检查，尚未形成前瞻验证。"
+      },
+      "unit": "number",
+      "categories": [
+        {
+          "en-US": "2011",
+          "zh-CN": "2011"
+        },
+        {
+          "en-US": "2012",
+          "zh-CN": "2012"
+        },
+        {
+          "en-US": "2013",
+          "zh-CN": "2013"
+        },
+        {
+          "en-US": "2014",
+          "zh-CN": "2014"
+        },
+        {
+          "en-US": "2015",
+          "zh-CN": "2015"
+        },
+        {
+          "en-US": "2016",
+          "zh-CN": "2016"
+        },
+        {
+          "en-US": "2017",
+          "zh-CN": "2017"
+        },
+        {
+          "en-US": "2018",
+          "zh-CN": "2018"
+        },
+        {
+          "en-US": "2019",
+          "zh-CN": "2019"
+        },
+        {
+          "en-US": "2020",
+          "zh-CN": "2020"
+        },
+        {
+          "en-US": "2021",
+          "zh-CN": "2021"
+        },
+        {
+          "en-US": "2022",
+          "zh-CN": "2022"
+        },
+        {
+          "en-US": "2023",
+          "zh-CN": "2023"
+        },
+        {
+          "en-US": "2024",
+          "zh-CN": "2024"
+        },
+        {
+          "en-US": "2025",
+          "zh-CN": "2025"
+        },
+        {
+          "en-US": "2026",
+          "zh-CN": "2026"
+        }
+      ],
+      "series": [
+        {
+          "id": "report-raw",
+          "label": {
+            "en-US": "Report date, raw",
+            "zh-CN": "研报日期口径，原始排序"
+          },
+          "values": [
+            0.030216398526605293,
+            0.016161665068367557,
+            0.07381478084214908,
+            -0.0013461860060573194,
+            0.017251542504225437,
+            0.01017312684622319,
+            0.020070089507673614,
+            0.009424067639812869,
+            0.00981631893370751,
+            0.009928923465685633,
+            0.0028395114983517065,
+            -0.015816272347101572,
+            0.04114430275226933,
+            0.02177328988190999,
+            -0.025605583395308537,
+            0.021033339840396514
+          ],
+          "months": [
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            8
+          ],
+          "lower": [
+            -0.009967086890495906,
+            -0.025960069686036296,
+            0.04734436353196715,
+            -0.023426053253215038,
+            -0.021360490394745548,
+            -0.013620077708022333,
+            -0.02317072381259856,
+            -0.014853220008529977,
+            -0.036800498823938564,
+            -0.023945143602699906,
+            -0.04911955058780397,
+            -0.039483207148578434,
+            0.010640739241443507,
+            -0.03195071648831077,
+            -0.06643169033485077,
+            null
+          ],
+          "upper": [
+            0.0703998839437065,
+            0.058283399822771406,
+            0.10028519815233101,
+            0.020733681241100397,
+            0.05586357540319642,
+            0.033966331400468716,
+            0.06331090282794578,
+            0.03370135528815572,
+            0.05643313669135359,
+            0.043802990534071176,
+            0.054798573584507376,
+            0.007850662454375285,
+            0.07164786626309516,
+            0.07549729625213075,
+            0.015220523544233693,
+            null
+          ]
+        },
+        {
+          "id": "report-neutral",
+          "label": {
+            "en-US": "Report date, exposure adjusted",
+            "zh-CN": "研报日期口径，扣除行业和市值影响"
+          },
+          "values": [
+            0.04251337003464036,
+            0.013896356448865532,
+            0.0337131713966712,
+            0.006160721143558266,
+            0.011979042839043457,
+            0.021251049144098175,
+            0.020956545070761223,
+            -0.000580500055803778,
+            0.0046717556797446665,
+            0.01564702876008588,
+            0.012484333422351989,
+            -0.011734490609165057,
+            0.03821943514789854,
+            0.027427463483389786,
+            -0.00962680498905224,
+            0.011450214257287105
+          ],
+          "months": [
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            8
+          ],
+          "lower": [
+            0.009346171689976764,
+            -0.01979883568387906,
+            0.016981066655253556,
+            -0.005118763460531612,
+            -0.015979549685050762,
+            0.0048912366664119675,
+            -0.009739579229652278,
+            -0.019228988942784048,
+            -0.03103512923044875,
+            -0.0034075987129728418,
+            -0.022920547780291213,
+            -0.02997838637027706,
+            0.013971297761837222,
+            -0.01620564970845083,
+            -0.03768692356129294,
+            null
+          ],
+          "upper": [
+            0.07568056837930395,
+            0.047591548581610126,
+            0.05044527613808885,
+            0.017440205747648145,
+            0.03993763536313768,
+            0.03761086162178438,
+            0.05165266937117473,
+            0.01806798883117649,
+            0.04037864058993808,
+            0.0347016562331446,
+            0.04788921462499519,
+            0.006509405151946946,
+            0.06246757253395985,
+            0.0710605766752304,
+            0.018433313583188456,
+            null
+          ]
+        },
+        {
+          "id": "provider-neutral",
+          "label": {
+            "en-US": "Provider time, exposure adjusted",
+            "zh-CN": "供应商时间口径，扣除行业和市值影响"
+          },
+          "values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            -0.007698542037080891,
+            0.03807064328004176,
+            0.02721544530255422,
+            -0.009470728050682687,
+            0.011527963967362446
+          ],
+          "months": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            12,
+            12,
+            12,
+            8
+          ],
+          "lower": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            0.013888416114320585,
+            -0.016344829429368202,
+            -0.03754346078332152,
+            null
+          ],
+          "upper": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            0.06225287044576294,
+            0.07077572003447664,
+            0.01860200468195615,
+            null
+          ]
+        }
+      ],
+      "source_ids": [
+        "study"
+      ]
+    },
+    {
+      "id": "earnings-yield-years",
+      "title": {
+        "en-US": "Annual stability of forward earnings yield",
+        "zh-CN": "预期盈利相对市值在不同年份怎样变化？"
+      },
+      "metric": {
+        "en-US": "Mean monthly RankIC within each year",
+        "zh-CN": "当年各有效月份的排名相关系数平均值"
+      },
+      "context": {
+        "en-US": "Retrospective reconstruction. Report-clock and provider-clock full histories cover different months. Original forecast vintages remain unverified. Lines show descriptive 95% intervals. The table retains each series' valid months and bounds; fewer than 12 months has no interval.",
+        "zh-CN": "本页按历史记录重建研究。研报日期口径和供应商时间口径覆盖的月份不同，历史版本仍未核实。 横线显示描述性95％区间，越长表示估计越不确定，跨过零时方向还不清楚。表格保留有效月份和区间，少于12个月时不估计区间。"
+      },
+      "interpretation": {
+        "en-US": "Blank values have no valid sample. Year slices are retrospective and do not establish an untouched holdout.",
+        "zh-CN": "空白年份缺少有效样本。各年份都属于回溯检查，尚未形成前瞻验证。"
+      },
+      "unit": "number",
+      "categories": [
+        {
+          "en-US": "2011",
+          "zh-CN": "2011"
+        },
+        {
+          "en-US": "2012",
+          "zh-CN": "2012"
+        },
+        {
+          "en-US": "2013",
+          "zh-CN": "2013"
+        },
+        {
+          "en-US": "2014",
+          "zh-CN": "2014"
+        },
+        {
+          "en-US": "2015",
+          "zh-CN": "2015"
+        },
+        {
+          "en-US": "2016",
+          "zh-CN": "2016"
+        },
+        {
+          "en-US": "2017",
+          "zh-CN": "2017"
+        },
+        {
+          "en-US": "2018",
+          "zh-CN": "2018"
+        },
+        {
+          "en-US": "2019",
+          "zh-CN": "2019"
+        },
+        {
+          "en-US": "2020",
+          "zh-CN": "2020"
+        },
+        {
+          "en-US": "2021",
+          "zh-CN": "2021"
+        },
+        {
+          "en-US": "2022",
+          "zh-CN": "2022"
+        },
+        {
+          "en-US": "2023",
+          "zh-CN": "2023"
+        },
+        {
+          "en-US": "2024",
+          "zh-CN": "2024"
+        },
+        {
+          "en-US": "2025",
+          "zh-CN": "2025"
+        },
+        {
+          "en-US": "2026",
+          "zh-CN": "2026"
+        }
+      ],
+      "series": [
+        {
+          "id": "report-raw",
+          "label": {
+            "en-US": "Report date, raw",
+            "zh-CN": "研报日期口径，原始排序"
+          },
+          "values": [
+            0.06759472406872413,
+            0.03163659839087749,
+            -0.08464737056207129,
+            0.06485872591239213,
+            0.036487748081097414,
+            0.10773926765440694,
+            0.12535952425777197,
+            -0.021682153779669266,
+            -0.04699957706753021,
+            -0.013968111345174436,
+            0.08666093281426786,
+            0.017162638141943302,
+            0.09552679491829603,
+            0.011602488447567902,
+            0.019214090629675846,
+            0.044343182452610444
+          ],
+          "months": [
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            8
+          ],
+          "lower": [
+            -0.05800427323692259,
+            -0.04118559778726207,
+            -0.17186704747597337,
+            -0.04583941725036196,
+            -0.08510178132402185,
+            0.02804963264123604,
+            0.032956712108087344,
+            -0.1328354247608172,
+            -0.12168248165778328,
+            -0.11880863891607842,
+            -0.05760419042129601,
+            -0.040556601705094925,
+            -0.009677954454157672,
+            -0.0579553063009842,
+            -0.04323253388767352,
+            null
+          ],
+          "upper": [
+            0.19319372137437085,
+            0.10445879456901705,
+            0.002572306351830783,
+            0.17555686907514623,
+            0.15807727748621667,
+            0.18742890266757783,
+            0.2177623364074566,
+            0.08947111720147866,
+            0.027683327522722852,
+            0.09087241622572954,
+            0.23092605604983174,
+            0.07488187798898152,
+            0.20073154429074974,
+            0.08116028319612001,
+            0.08166071514702522,
+            null
+          ]
+        },
+        {
+          "id": "report-neutral",
+          "label": {
+            "en-US": "Report date, exposure adjusted",
+            "zh-CN": "研报日期口径，扣除行业和市值影响"
+          },
+          "values": [
+            0.05478295455249096,
+            0.04864398730714812,
+            -0.0055080143838812075,
+            0.06852550529836227,
+            0.07397937513093931,
+            0.10603419311517881,
+            0.07922906856758324,
+            -0.02396357497220653,
+            -0.011608135432843487,
+            -0.01750452150676781,
+            0.05139103026588357,
+            0.017307386631759045,
+            0.06996722324382831,
+            0.020247982319788204,
+            0.020858616779978734,
+            0.02902568767886128
+          ],
+          "months": [
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            12,
+            8
+          ],
+          "lower": [
+            -0.010741956921805372,
+            0.018846249449055833,
+            -0.057492668837790833,
+            0.014763637952827098,
+            -0.006560511935911978,
+            0.05851503959352988,
+            0.029499175801633762,
+            -0.0731235773213693,
+            -0.06372263567321161,
+            -0.09217452394528683,
+            -0.047504906877481004,
+            -0.019691404468870004,
+            0.017240268109848127,
+            -0.0178370394275664,
+            -0.020637362964251286,
+            null
+          ],
+          "upper": [
+            0.12030786602678728,
+            0.07844172516524041,
+            0.04647664007002841,
+            0.12228737264389744,
+            0.1545192621977906,
+            0.15355334663682774,
+            0.12895896133353274,
+            0.02519642737695624,
+            0.04050636480752464,
+            0.0571654809317512,
+            0.15028696740924813,
+            0.05430617773238809,
+            0.1226941783778085,
+            0.05833300406714281,
+            0.06235459652420876,
+            null
+          ]
+        },
+        {
+          "id": "provider-neutral",
+          "label": {
+            "en-US": "Provider time, exposure adjusted",
+            "zh-CN": "供应商时间口径，扣除行业和市值影响"
+          },
+          "values": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            0.01944861303056808,
+            0.06997920855662901,
+            0.020208488880596894,
+            0.020835810243937335,
+            0.02890947427731587
+          ],
+          "months": [
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            0,
+            8,
+            12,
+            12,
+            12,
+            8
+          ],
+          "lower": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            0.01725964023890271,
+            -0.017792181703916967,
+            -0.020628659733209414,
+            null
+          ],
+          "upper": [
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            null,
+            0.1226987768743553,
+            0.05820915946511075,
+            0.06230028022108408,
+            null
+          ]
+        }
+      ],
+      "source_ids": [
+        "study"
+      ]
+    },
+    {
+      "id": "complete-spread-months",
+      "title": {
+        "en-US": "How many months have complete group returns?",
+        "zh-CN": "有多少个月能完整计算分组收益？"
+      },
+      "metric": {
+        "en-US": "Months with every selected endpoint priced",
+        "zh-CN": "选中股票都有入场和期末价格的月份数"
+      },
+      "context": {
+        "en-US": "Retrospective reconstruction. Report-clock and provider-clock full histories cover different months. Original forecast vintages remain unverified.",
+        "zh-CN": "本页按历史记录重建研究。研报日期口径和供应商时间口径覆盖的月份不同，历史版本仍未核实。"
+      },
+      "interpretation": {
+        "en-US": "Many months are incomplete. These subsets cannot support a continuous portfolio return claim.",
+        "zh-CN": "缺失月份较多，现有分组收益只能作为局部诊断，连续策略收益仍待补齐。"
+      },
+      "unit": "number",
+      "categories": [
+        {
+          "en-US": "Profit revision",
+          "zh-CN": "盈利预测上调幅度"
+        },
+        {
+          "en-US": "Net upgrade breadth",
+          "zh-CN": "机构净上调比例"
+        },
+        {
+          "en-US": "Low forecast disagreement",
+          "zh-CN": "机构预测接近程度"
+        },
+        {
+          "en-US": "Forward earnings yield",
+          "zh-CN": "预期盈利相对市值"
+        }
+      ],
+      "series": [
+        {
+          "id": "report-raw",
+          "label": {
+            "en-US": "Report date, raw",
+            "zh-CN": "研报日期口径，原始排序"
+          },
+          "values": [
+            5,
+            21,
+            25,
+            39
+          ]
+        },
+        {
+          "id": "report-neutral",
+          "label": {
+            "en-US": "Report date, exposure adjusted",
+            "zh-CN": "研报日期口径，扣除行业和市值影响"
+          },
+          "values": [
+            54,
+            52,
+            48,
+            46
+          ]
+        },
+        {
+          "id": "provider-neutral",
+          "label": {
+            "en-US": "Provider time, exposure adjusted",
+            "zh-CN": "供应商时间口径，扣除行业和市值影响"
+          },
+          "values": [
+            29,
+            27,
+            27,
+            24
+          ]
+        }
+      ],
+      "source_ids": [
+        "study"
+      ]
+    },
+    {
+      "id": "cost-sensitivity",
+      "title": {
+        "en-US": "What happens after assumed transaction costs?",
+        "zh-CN": "加上交易费用后，完整月份的结果怎样？"
+      },
+      "metric": {
+        "en-US": "Mean monthly top-minus-bottom return, complete months only",
+        "zh-CN": "扣除行业和市值影响后，高分组减去低分组的月度平均收益，仅含价格完整月份"
+      },
+      "context": {
+        "en-US": "Retrospective reconstruction. Report-clock and provider-clock full histories cover different months. Original forecast vintages remain unverified. Lines show descriptive 95% intervals. The table retains each series' valid months and bounds; fewer than 12 months has no interval.",
+        "zh-CN": "本页按历史记录重建研究。研报日期口径和供应商时间口径覆盖的月份不同，历史版本仍未核实。 横线显示描述性95％区间，越长表示估计越不确定，跨过零时方向还不清楚。表格保留有效月份和区间，少于12个月时不估计区间。"
+      },
+      "interpretation": {
+        "en-US": "Every 10-bps net-spread uncertainty interval includes zero. Borrow, execution constraints and terminal liquidation are excluded.",
+        "zh-CN": "单边费用0.10％时，四项净收益差的不确定区间都包含零。这里尚未计入借券、交易限制和最终清仓费用。"
+      },
+      "unit": "percent",
+      "categories": [
+        {
+          "en-US": "Profit revision",
+          "zh-CN": "盈利预测上调幅度"
+        },
+        {
+          "en-US": "Net upgrade breadth",
+          "zh-CN": "机构净上调比例"
+        },
+        {
+          "en-US": "Low forecast disagreement",
+          "zh-CN": "机构预测接近程度"
+        },
+        {
+          "en-US": "Forward earnings yield",
+          "zh-CN": "预期盈利相对市值"
+        }
+      ],
+      "series": [
+        {
+          "id": "0",
+          "label": {
+            "en-US": "Before costs",
+            "zh-CN": "费用前"
+          },
+          "values": [
+            -1.093656788742507e-05,
+            0.00601658529015985,
+            0.0009974132100664642,
+            0.004523500351077759
+          ],
+          "months": [
+            54,
+            52,
+            48,
+            46
+          ],
+          "lower": [
+            -0.0076366153104366445,
+            5.994613740947438e-05,
+            -0.003916240732236763,
+            -0.006928252939848266
+          ],
+          "upper": [
+            0.0076147421746617944,
+            0.011973224442910225,
+            0.005911067152369691,
+            0.015975253642003785
+          ]
+        },
+        {
+          "id": "5",
+          "label": {
+            "en-US": "5 bps per side",
+            "zh-CN": "单边费用0.05％"
+          },
+          "values": [
+            -0.0011371608904862582,
+            0.004951105660013507,
+            0.00010648717360112727,
+            0.003834653257736802
+          ],
+          "months": [
+            54,
+            52,
+            48,
+            46
+          ],
+          "lower": [
+            -0.00877368266331438,
+            -0.0010069544576959636,
+            -0.004831576456589977,
+            -0.007600420770921595
+          ],
+          "upper": [
+            0.006499360882341864,
+            0.010909165777722978,
+            0.005044550803792232,
+            0.0152697272863952
+          ]
+        },
+        {
+          "id": "10",
+          "label": {
+            "en-US": "10 bps per side",
+            "zh-CN": "单边费用0.10％"
+          },
+          "values": [
+            -0.002263385213085093,
+            0.0038856260298671644,
+            -0.0007844388628642083,
+            0.0031458061643958447
+          ],
+          "months": [
+            54,
+            52,
+            48,
+            46
+          ],
+          "lower": [
+            -0.009911201678289927,
+            -0.0020741170177538035,
+            -0.0057473465167451054,
+            -0.008273130329503827
+          ],
+          "upper": [
+            0.00538443125211974,
+            0.009845369077488132,
+            0.004178468791016689,
+            0.014564742658295517
+          ]
+        },
+        {
+          "id": "25",
+          "label": {
+            "en-US": "25 bps per side",
+            "zh-CN": "单边费用0.25％"
+          },
+          "values": [
+            -0.005642058180881589,
+            0.0006891871394281423,
+            -0.0034572169722602145,
+            0.0010792648843729728
+          ],
+          "months": [
+            54,
+            52,
+            48,
+            46
+          ],
+          "lower": [
+            -0.013326448381724757,
+            -0.005277174098339307,
+            -0.008497197920689096,
+            -0.0102945320419433
+          ],
+          "upper": [
+            0.0020423320199615793,
+            0.006655548377195592,
+            0.0015827639761686672,
+            0.012453061810689245
+          ]
+        }
+      ],
+      "source_ids": [
+        "study"
+      ]
+    }
+  ],
+  "conclusion_changes": [],
+  "steps": [
+    {
+      "id": "history",
+      "period": {
+        "en-US": "Reviewed November 2, 2026",
+        "zh-CN": "2026年11月2日核对"
+      },
+      "status": "diagnostic",
+      "title": {
+        "en-US": "Retrieve and verify the history",
+        "zh-CN": "拉取历史记录并核对完整性"
+      },
+      "question": {
+        "en-US": "What does the source actually cover?",
+        "zh-CN": "这批数据覆盖了什么？"
+      },
+      "finding": {
+        "en-US": "191 monthly partitions contain 2,749,081 report/period records; all payload hashes were checked.",
+        "zh-CN": "191个月共2749081条研报预测记录，逐月载荷哈希已核对。"
+      },
+      "decision": {
+        "en-US": "Keep vendor records private and retain annual coverage.",
+        "zh-CN": "原始研报留在数据平台，页面展示逐年覆盖。"
+      },
+      "source_ids": [
+        "study"
+      ]
+    },
+    {
+      "id": "availability",
+      "period": {
+        "en-US": "Reviewed November 2, 2026",
+        "zh-CN": "2026年11月2日核对"
+      },
+      "status": "diagnostic",
+      "title": {
+        "en-US": "Check historical availability",
+        "zh-CN": "核对历史数据何时可见"
+      },
+      "question": {
+        "en-US": "Can old report dates establish original availability?",
+        "zh-CN": "旧研报的日期能支持多长的历史检验？"
+      },
+      "finding": {
+        "en-US": "2011 provider updates are in 2022; the provider-clock cohort begins in May 2022.",
+        "zh-CN": "2011年记录的供应商更新时间在2022年，供应商时间口径从2022年5月起有足够样本。"
+      },
+      "decision": {
+        "en-US": "Retain separate full-history and matched-clock comparisons.",
+        "zh-CN": "分别保留完整历史结果和同样本时间口径对照。"
+      },
+      "source_ids": [
+        "study"
+      ]
+    },
+    {
+      "id": "factors",
+      "period": {
+        "en-US": "Reviewed November 2, 2026",
+        "zh-CN": "2026年11月2日核对"
+      },
+      "status": "diagnostic",
+      "title": {
+        "en-US": "Compare the four fixed scores",
+        "zh-CN": "比较四类固定排序"
+      },
+      "question": {
+        "en-US": "Which association remains after exposure controls?",
+        "zh-CN": "扣除行业和市值影响后，哪些关系还存在？"
+      },
+      "finding": {
+        "en-US": "Adjusted report-clock profit-revision RankIC is 0.00149; forward yield is 0.03649.",
+        "zh-CN": "研报日期口径中，上调幅度的调整后排名相关系数为0.00149，预期盈利相对市值为0.03649。"
+      },
+      "decision": {
+        "en-US": "Keep all definitions as research candidates; no trading rule is promoted.",
+        "zh-CN": "四类定义继续保留为研究候选，交易规则仍需验证。"
+      },
+      "source_ids": [
+        "study"
+      ]
+    },
+    {
+      "id": "returns",
+      "period": {
+        "en-US": "Reviewed November 2, 2026",
+        "zh-CN": "2026年11月2日核对"
+      },
+      "status": "diagnostic",
+      "title": {
+        "en-US": "Retain missing-return and cost limits",
+        "zh-CN": "保留价格缺失和费用限制"
+      },
+      "question": {
+        "en-US": "Can the return diagnostic support an investable strategy?",
+        "zh-CN": "现有收益结果离实际交易还有多远？"
+      },
+      "finding": {
+        "en-US": "Adjusted spread samples have only 46–54 complete months. All 10-bps net-spread intervals include zero.",
+        "zh-CN": "调整后的分组收益各有46至54个完整月份。单边费用0.10％时，四项净收益差的不确定区间都包含零。"
+      },
+      "decision": {
+        "en-US": "Resolve terminal events and observe genuinely later snapshots before promotion.",
+        "zh-CN": "继续核对终止事件，并积累新观察日版本及随后结果。"
+      },
+      "source_ids": [
+        "study"
+      ]
+    }
+  ],
+  "next_question": {
+    "en-US": "Does forecast information add to currently reported valuation on newly observed snapshots?",
+    "zh-CN": "在新观察日版本中，预测信息能否比当前已公布盈利多提供一些帮助？"
+  }
+}
