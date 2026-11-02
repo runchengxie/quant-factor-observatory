@@ -420,7 +420,13 @@
       ],
       "exploration_asset": "data/study-exploration/broker-consensus.json",
       "exploration_reviewed_at": "2026-11-02",
-      "navigation_asset": "data/study-navigation/broker-consensus.json"
+      "navigation_asset": "data/study-navigation/broker-consensus.json",
+      "source_refs": [
+        "doc:quant-research.research.broker-consensus-20261102",
+        "doc:quant-research.research.broker-consensus-followup-20261102"
+      ],
+      "source_note_revision": "d15080a74702a8913c612128aa34846946f54b28",
+      "followup_asset": "data/broker-consensus-followup.json"
     }
   ],
   "hub_schema": "observatory.research_hub.v1"

@@ -2,13 +2,13 @@
   "schema_version": "observatory.study_exploration.v1",
   "study_id": "broker-consensus",
   "source_ref": "doc:quant-research.research.broker-consensus-20261102",
-  "source_revision": "85888563c3f50f3df59e27463c459177fefbbfc1",
+  "source_revision": "d15080a74702a8913c612128aa34846946f54b28",
   "reviewed_at": "2026-11-02",
   "evidence_stage": "retrospective_diagnostic",
   "expanded_details": true,
   "summary": {
-    "en-US": "Profit revision has a weak exposure-adjusted ranking relationship. Forward earnings yield has the clearest association, with original availability and investability unresolved.",
-    "zh-CN": "盈利预测上调幅度在扣除行业和市值影响后关系较弱。预期盈利相对市值的关联较清楚，历史版本和交易可行性仍待核实。"
+    "en-US": "The new matched-sample comparison does not establish that forecast earnings yield improves on reported earnings yield. A forecast rank residual remains positively associated with later returns in the retrospective sample. Price gaps are mostly linked to recorded suspensions, while settlement values and executable returns remain unresolved.",
+    "zh-CN": "同样本比较没有确认预测盈利收益率优于已披露盈利收益率。预测排序残差在这段历史样本里仍与随后收益正相关。大多数缺失价格对应到停牌记录，终止价值和实际可交易收益仍未确认。"
   },
   "sources": [
     {
@@ -17,6 +17,14 @@
       "label": {
         "en-US": "Study methods and retained results",
         "zh-CN": "研究方法与核对结果"
+      }
+    },
+    {
+      "id": "followup",
+      "source_ref": "doc:quant-research.research.broker-consensus-followup-20261102",
+      "label": {
+        "en-US": "Matched valuation and missing-price follow-up",
+        "zh-CN": "同样本估值对照与缺失价格核查"
       }
     }
   ],
@@ -2311,6 +2319,617 @@
       "source_ids": [
         "study"
       ]
+    },
+    {
+      "id": "paired-valuation-rankic",
+      "title": {
+        "en-US": "How do reported and forecast earnings yields rank stocks?",
+        "zh-CN": "已披露和预测盈利收益率怎样给股票排序？"
+      },
+      "metric": {
+        "en-US": "Mean monthly RankIC with calendar-aware 95% intervals",
+        "zh-CN": "月度平均排名相关系数与日历时间95％区间"
+      },
+      "context": {
+        "en-US": "The forecast rank residual is the part of the forecast ranking left after removing its relationship with the reported earnings yield ranking. The adjusted version also removes industry and size effects. All three scores use the same positive-PE, positive-market-value and known-industry stock-month cohort within each timing rule.",
+        "zh-CN": "预测排序残差表示预测盈利排序中扣除已披露盈利排序后剩下的部分，调整版还扣除了行业和市值的影响。三类排序在每种时间口径下使用相同的正市盈率、正市值和已知行业股票月份样本。"
+      },
+      "interpretation": {
+        "en-US": "The adjusted forecast-only estimate is close to the reported-yield estimate. Their direct paired differences are shown next.",
+        "zh-CN": "调整后的预测盈利收益率与已披露盈利收益率估计接近。下一张图直接比较同月差值。"
+      },
+      "unit": "number",
+      "categories": [
+        {
+          "en-US": "Reported earnings yield",
+          "zh-CN": "已披露盈利收益率"
+        },
+        {
+          "en-US": "Forecast earnings yield",
+          "zh-CN": "预测盈利收益率"
+        },
+        {
+          "en-US": "Forecast rank residual",
+          "zh-CN": "预测盈利排序残差"
+        }
+      ],
+      "series": [
+        {
+          "id": "report-neutral",
+          "label": {
+            "en-US": "Report date, adjusted",
+            "zh-CN": "研报日期，已调整"
+          },
+          "values": [
+            0.03489308131985164,
+            0.03711177283442751,
+            0.0190877489229878
+          ],
+          "months": [
+            188,
+            188,
+            188
+          ],
+          "lower": [
+            0.017676443322865335,
+            0.01936184417978456,
+            0.007932839115188193
+          ],
+          "upper": [
+            0.052109719316837944,
+            0.05486170148907046,
+            0.030242658730787405
+          ]
+        },
+        {
+          "id": "provider-neutral",
+          "label": {
+            "en-US": "Provider time, adjusted",
+            "zh-CN": "供应商更新时间，已调整"
+          },
+          "values": [
+            0.03472897582247306,
+            0.034875197763562515,
+            0.017751659235044945
+          ],
+          "months": [
+            52,
+            52,
+            52
+          ],
+          "lower": [
+            0.008933959605404513,
+            0.012291956771684456,
+            0.0062009130087647985
+          ],
+          "upper": [
+            0.060523992039541605,
+            0.05745843875544057,
+            0.029302405461325093
+          ]
+        },
+        {
+          "id": "report-raw",
+          "label": {
+            "en-US": "Report date, raw",
+            "zh-CN": "研报日期，未调整"
+          },
+          "values": [
+            0.025463214313929648,
+            0.03143812696218216,
+            0.022291331682354247
+          ],
+          "months": [
+            188,
+            188,
+            188
+          ],
+          "lower": [
+            -0.002809320467569012,
+            0.003656633507704638,
+            0.006967345533467997
+          ],
+          "upper": [
+            0.0537357490954283,
+            0.05921962041665968,
+            0.037615317831240495
+          ]
+        },
+        {
+          "id": "provider-raw",
+          "label": {
+            "en-US": "Provider time, raw",
+            "zh-CN": "供应商更新时间，未调整"
+          },
+          "values": [
+            0.03114377574905515,
+            0.03707071121195082,
+            0.029881606552634783
+          ],
+          "months": [
+            52,
+            52,
+            52
+          ],
+          "lower": [
+            -0.009375042851096707,
+            0.0002440716098859319,
+            0.009394926033859656
+          ],
+          "upper": [
+            0.071662594349207,
+            0.0738973508140157,
+            0.05036828707140991
+          ]
+        }
+      ],
+      "source_ids": [
+        "followup"
+      ]
+    },
+    {
+      "id": "forecast-reported-rankic-delta",
+      "title": {
+        "en-US": "Does forecast yield improve RankIC over reported yield?",
+        "zh-CN": "预测盈利收益率的排名相关性比已披露盈利高多少？"
+      },
+      "metric": {
+        "en-US": "Paired forecast-minus-reported mean monthly RankIC",
+        "zh-CN": "同月预测减已披露盈利的平均排名相关系数"
+      },
+      "context": {
+        "en-US": "For each common month, calculate RankIC for forecast and reported earnings-yield rankings, then subtract the reported RankIC from the forecast RankIC.",
+        "zh-CN": "每个共同月份先分别计算预测和已披露盈利排序的RankIC，再用预测值减去已披露值。"
+      },
+      "interpretation": {
+        "en-US": "All four intervals include zero. The paired sample does not establish a forecast-only improvement.",
+        "zh-CN": "四组区间都包含零。配对样本无法确认预测盈利单独带来改善。"
+      },
+      "unit": "number",
+      "categories": [
+        {
+          "en-US": "Provider update time, industry and size adjusted",
+          "zh-CN": "供应商更新时间，扣除行业和市值影响"
+        },
+        {
+          "en-US": "Provider update time, raw ranking",
+          "zh-CN": "供应商更新时间，未调整排序"
+        },
+        {
+          "en-US": "Report date, industry and size adjusted",
+          "zh-CN": "研报日期，扣除行业和市值影响"
+        },
+        {
+          "en-US": "Report date, raw ranking",
+          "zh-CN": "研报日期，未调整排序"
+        }
+      ],
+      "series": [
+        {
+          "id": "paired-delta",
+          "label": {
+            "en-US": "Does forecast yield improve RankIC over reported yield?",
+            "zh-CN": "预测盈利收益率的排名相关性比已披露盈利高多少？"
+          },
+          "values": [
+            0.00014622194108946136,
+            0.005926935462895669,
+            0.002218691514575874,
+            0.005974912648252513
+          ],
+          "months": [
+            52,
+            52,
+            188,
+            188
+          ],
+          "lower": [
+            -0.007411546379016033,
+            -0.005252812876833109,
+            -0.0022489176126976743,
+            -0.00012148820138716768
+          ],
+          "upper": [
+            0.007703990261194956,
+            0.017106683802624447,
+            0.006686300641849423,
+            0.012071313497892193
+          ]
+        }
+      ],
+      "source_ids": [
+        "followup"
+      ]
+    },
+    {
+      "id": "forecast-reported-net-spread-delta",
+      "title": {
+        "en-US": "How do paired net-spread differences look after 10 bps per side?",
+        "zh-CN": "单边扣除10基点后，配对净收益差怎样？"
+      },
+      "metric": {
+        "en-US": "Forecast-minus-reported monthly top-minus-bottom return",
+        "zh-CN": "预测减已披露盈利的月度高低组收益差"
+      },
+      "context": {
+        "en-US": "For each common month with complete endpoints, calculate both after-cost top-minus-bottom returns, then subtract the reported-yield spread from the forecast-yield spread.",
+        "zh-CN": "每个价格完整的共同月份先分别计算两种排序扣费后的高低组收益差，再用预测盈利收益差减去已披露盈利收益差。"
+      },
+      "interpretation": {
+        "en-US": "Only months complete in both compared groups enter each estimate. The four samples contain different numbers of months.",
+        "zh-CN": "每组只纳入两种排序都有完整价格的月份。四组有效月份数不同。"
+      },
+      "unit": "percent",
+      "categories": [
+        {
+          "en-US": "Provider update time, industry and size adjusted",
+          "zh-CN": "供应商更新时间，扣除行业和市值影响"
+        },
+        {
+          "en-US": "Provider update time, raw ranking",
+          "zh-CN": "供应商更新时间，未调整排序"
+        },
+        {
+          "en-US": "Report date, industry and size adjusted",
+          "zh-CN": "研报日期，扣除行业和市值影响"
+        },
+        {
+          "en-US": "Report date, raw ranking",
+          "zh-CN": "研报日期，未调整排序"
+        }
+      ],
+      "series": [
+        {
+          "id": "paired-delta",
+          "label": {
+            "en-US": "How do paired net-spread differences look after 10 bps per side?",
+            "zh-CN": "单边扣除10基点后，配对净收益差怎样？"
+          },
+          "values": [
+            -5.0776506903772446e-05,
+            -0.0003742383401980238,
+            0.002809446728971804,
+            0.0023822781551079576
+          ],
+          "months": [
+            25,
+            21,
+            45,
+            39
+          ],
+          "lower": [
+            -0.003404967423915143,
+            -0.005332524912504212,
+            -0.00024754293173720595,
+            -0.0026048330725977576
+          ],
+          "upper": [
+            0.003303414410107598,
+            0.004584048232108164,
+            0.005866436389680815,
+            0.007369389382813673
+          ]
+        }
+      ],
+      "source_ids": [
+        "followup"
+      ]
+    },
+    {
+      "id": "missing-endpoint-reasons",
+      "title": {
+        "en-US": "Why are endpoint prices missing?",
+        "zh-CN": "入场日和出场日的价格为何缺失？"
+      },
+      "metric": {
+        "en-US": "Missing endpoint observations by diagnostic evidence",
+        "zh-CN": "按诊断线索统计的缺失价格端点数"
+      },
+      "context": {
+        "en-US": "There are 11,498 missing endpoints across 8,399 stock-month rows. One stock-month can have two missing endpoints.",
+        "zh-CN": "8399条股票月份记录中有11498个缺失价格端点。同一条记录可能同时缺入场和出场价格。"
+      },
+      "interpretation": {
+        "en-US": "Suspension records overlap most missing endpoints. Delisting data is diagnostic evidence; no terminal value was filled.",
+        "zh-CN": "大多数缺失端点对应到停牌记录。退市信息只用于诊断，没有补入终止价格。"
+      },
+      "unit": "number",
+      "categories": [
+        {
+          "en-US": "Suspension record",
+          "zh-CN": "有停牌记录"
+        },
+        {
+          "en-US": "Before listing",
+          "zh-CN": "上市之前"
+        },
+        {
+          "en-US": "Delisting record",
+          "zh-CN": "有退市记录"
+        },
+        {
+          "en-US": "Unresolved",
+          "zh-CN": "原因未确认"
+        }
+      ],
+      "series": [
+        {
+          "id": "entry_date",
+          "label": {
+            "en-US": "Entry date",
+            "zh-CN": "入场日"
+          },
+          "values": [
+            5283,
+            235,
+            37,
+            196
+          ]
+        },
+        {
+          "id": "exit_date",
+          "label": {
+            "en-US": "Exit date",
+            "zh-CN": "出场日"
+          },
+          "values": [
+            5481,
+            14,
+            51,
+            201
+          ]
+        }
+      ],
+      "source_ids": [
+        "followup"
+      ]
+    },
+    {
+      "id": "missing-endpoints-by-year",
+      "title": {
+        "en-US": "How do missing endpoints change by formation year?",
+        "zh-CN": "不同汇总年份的缺失价格端点怎样变化？"
+      },
+      "metric": {
+        "en-US": "Count of missing endpoints, split by evidence",
+        "zh-CN": "按诊断线索拆分的缺失价格端点数"
+      },
+      "context": {
+        "en-US": "Years refer to portfolio formation dates. The suspension source ends September 17, 2026.",
+        "zh-CN": "年份按组合汇总日计算。停牌数据覆盖到2026年9月17日。"
+      },
+      "interpretation": {
+        "en-US": "395 unresolved endpoints fall within suspension-source coverage and 2 fall after it. The 20-case API probe returned no quotes and is not representative.",
+        "zh-CN": "395个未确认端点位于停牌数据覆盖期内，2个在覆盖期后。另抽查20个案例均未返回报价，这组抽查不代表全部缺失案例。"
+      },
+      "unit": "number",
+      "categories": [
+        {
+          "en-US": "2011",
+          "zh-CN": "2011"
+        },
+        {
+          "en-US": "2012",
+          "zh-CN": "2012"
+        },
+        {
+          "en-US": "2013",
+          "zh-CN": "2013"
+        },
+        {
+          "en-US": "2014",
+          "zh-CN": "2014"
+        },
+        {
+          "en-US": "2015",
+          "zh-CN": "2015"
+        },
+        {
+          "en-US": "2016",
+          "zh-CN": "2016"
+        },
+        {
+          "en-US": "2017",
+          "zh-CN": "2017"
+        },
+        {
+          "en-US": "2018",
+          "zh-CN": "2018"
+        },
+        {
+          "en-US": "2019",
+          "zh-CN": "2019"
+        },
+        {
+          "en-US": "2020",
+          "zh-CN": "2020"
+        },
+        {
+          "en-US": "2021",
+          "zh-CN": "2021"
+        },
+        {
+          "en-US": "2022",
+          "zh-CN": "2022"
+        },
+        {
+          "en-US": "2023",
+          "zh-CN": "2023"
+        },
+        {
+          "en-US": "2024",
+          "zh-CN": "2024"
+        },
+        {
+          "en-US": "2025",
+          "zh-CN": "2025"
+        },
+        {
+          "en-US": "2026",
+          "zh-CN": "2026"
+        }
+      ],
+      "series": [
+        {
+          "id": "suspension_evidence",
+          "label": {
+            "en-US": "Suspension record",
+            "zh-CN": "有停牌记录"
+          },
+          "values": [
+            498,
+            515,
+            729,
+            1689,
+            2901,
+            1766,
+            1471,
+            890,
+            55,
+            32,
+            28,
+            34,
+            17,
+            48,
+            66,
+            25
+          ]
+        },
+        {
+          "id": "before_listing",
+          "label": {
+            "en-US": "Before listing",
+            "zh-CN": "上市之前"
+          },
+          "values": [
+            110,
+            61,
+            0,
+            38,
+            18,
+            5,
+            1,
+            2,
+            9,
+            1,
+            4,
+            0,
+            0,
+            0,
+            0,
+            0
+          ]
+        },
+        {
+          "id": "delisting_evidence",
+          "label": {
+            "en-US": "Delisting record",
+            "zh-CN": "有退市记录"
+          },
+          "values": [
+            11,
+            1,
+            10,
+            11,
+            23,
+            2,
+            1,
+            3,
+            11,
+            0,
+            9,
+            0,
+            5,
+            0,
+            0,
+            1
+          ]
+        },
+        {
+          "id": "unresolved_price_gap",
+          "label": {
+            "en-US": "Unresolved",
+            "zh-CN": "原因未确认"
+          },
+          "values": [
+            20,
+            42,
+            109,
+            100,
+            64,
+            14,
+            9,
+            12,
+            3,
+            12,
+            6,
+            0,
+            0,
+            2,
+            2,
+            2
+          ]
+        }
+      ],
+      "source_ids": [
+        "followup"
+      ]
+    },
+    {
+      "id": "paired-valuation-coverage",
+      "title": {
+        "en-US": "How many stock-months enter the matched valuation sample?",
+        "zh-CN": "估值对照样本保留了多少股票月份？"
+      },
+      "metric": {
+        "en-US": "Stock-month rows over the 188-month report-clock history",
+        "zh-CN": "研报日期口径188个月内的股票月份记录数"
+      },
+      "context": {
+        "en-US": "Rows can repeat a company across months. Blank or non-positive reported PE and other missing inputs are excluded before looking at future returns.",
+        "zh-CN": "研报日期口径覆盖188个月，共有271841条股票月份记录，估值配对样本保留219014条。同一家公司会在不同月份重复出现。市盈率为空或不为正、其他必要字段缺失的记录都在查看未来收益前剔除。"
+      },
+      "interpretation": {
+        "en-US": "The paired valuation analysis retains 219,014 of 271,841 source stock-month rows. Excluded PE rows include loss-making companies and other vendor blanks.",
+        "zh-CN": "估值配对分析保留219014条，共271841条原始股票月份记录。市盈率剔除项既包括亏损公司，也包括供应商未提供数值的情况。"
+      },
+      "unit": "number",
+      "categories": [
+        {
+          "en-US": "Source panel",
+          "zh-CN": "原始样本"
+        },
+        {
+          "en-US": "Paired valuation cohort",
+          "zh-CN": "配对估值样本"
+        },
+        {
+          "en-US": "Excluded PE",
+          "zh-CN": "市盈率不可用"
+        },
+        {
+          "en-US": "Other inputs missing",
+          "zh-CN": "其他输入缺失"
+        }
+      ],
+      "series": [
+        {
+          "id": "coverage",
+          "label": {
+            "en-US": "Stock-month rows",
+            "zh-CN": "股票月份记录"
+          },
+          "values": [
+            271841,
+            219014,
+            21663,
+            31164
+          ]
+        }
+      ],
+      "source_ids": [
+        "followup"
+      ]
     }
   ],
   "conclusion_changes": [],
@@ -2422,10 +3041,91 @@
       "source_ids": [
         "study"
       ]
+    },
+    {
+      "id": "paired-valuation",
+      "period": {
+        "en-US": "Retrospective follow-up, November 2, 2026",
+        "zh-CN": "回溯补充分析，2026年11月2日"
+      },
+      "status": "diagnostic",
+      "title": {
+        "en-US": "Compare forecasts with reported valuation",
+        "zh-CN": "把预测盈利和已披露盈利放在同样本比较"
+      },
+      "question": {
+        "en-US": "Does forecast earnings yield improve stock ranking beyond reported earnings yield?",
+        "zh-CN": "预测盈利收益率比已披露盈利收益率多提供多少排序信息？"
+      },
+      "finding": {
+        "en-US": "The paired forecast-minus-reported RankIC intervals include zero. The adjusted forecast residual has a positive historical association, which is descriptive.",
+        "zh-CN": "预测减已披露盈利的配对区间都包含零。调整后的预测排序残差与随后收益呈正相关，这只是历史样本描述。"
+      },
+      "decision": {
+        "en-US": "Keep the forecast residual as a research candidate and collect genuinely dated snapshots before testing future returns.",
+        "zh-CN": "保留预测排序残差作为研究候选，积累带真实日期的快照后再检验未来收益。"
+      },
+      "source_ids": [
+        "followup"
+      ]
+    },
+    {
+      "id": "price-gap-diagnosis",
+      "period": {
+        "en-US": "Endpoint audit, November 2, 2026",
+        "zh-CN": "价格端点核查，2026年11月2日"
+      },
+      "status": "diagnostic",
+      "title": {
+        "en-US": "Classify missing prices",
+        "zh-CN": "给缺失价格分类"
+      },
+      "question": {
+        "en-US": "Do missing rows represent suspensions, listing dates or unresolved gaps?",
+        "zh-CN": "缺失记录对应停牌、上市时间还是未确认缺口？"
+      },
+      "finding": {
+        "en-US": "10,764 of 11,498 endpoints overlap suspension records. The audit did not fill terminal settlement values.",
+        "zh-CN": "11498个缺失端点中有10764个对应停牌记录。核查没有补入终止结算价值。"
+      },
+      "decision": {
+        "en-US": "Keep incomplete months out of net-spread estimates and retain unresolved cases as missing.",
+        "zh-CN": "净收益差只使用价格完整的月份，未确认案例继续标为缺失。"
+      },
+      "source_ids": [
+        "followup"
+      ]
+    },
+    {
+      "id": "prospective-protocol",
+      "period": {
+        "en-US": "Registered for prospective collection, starting November 2026",
+        "zh-CN": "登记前瞻采集规则，2026年11月开始"
+      },
+      "status": "protocol",
+      "title": {
+        "en-US": "Start immutable daily snapshots",
+        "zh-CN": "开始保存不可变的每日快照"
+      },
+      "question": {
+        "en-US": "Can stored forecasts be evaluated using only information completed before each decision date?",
+        "zh-CN": "能否只用决策日前已完成保存的预测检验？"
+      },
+      "finding": {
+        "en-US": "The daily job and cutoff protocol are registered. No prospective forecasts or future returns are available yet.",
+        "zh-CN": "每日采集和时间截止规则已经登记，目前还没有前瞻预测或未来收益结果。"
+      },
+      "decision": {
+        "en-US": "Use a snapshot only when its recorded completion time precedes the decision cutoff. Do not backfill missed observation days.",
+        "zh-CN": "只使用记录的完成时间早于决策截止时点的快照。漏掉的观测日不补造。"
+      },
+      "source_ids": [
+        "followup"
+      ]
     }
   ],
   "next_question": {
-    "en-US": "Does forecast information add to currently reported valuation on newly observed snapshots?",
-    "zh-CN": "在新观察日版本中，预测信息能否比当前已公布盈利多提供一些帮助？"
+    "en-US": "Do genuinely observed monthly snapshots add value when compared with reported valuation on identical stocks and dates?",
+    "zh-CN": "在同一批股票和日期上，真实按月保存的预测快照能否比已披露估值多提供信息？"
   }
 }

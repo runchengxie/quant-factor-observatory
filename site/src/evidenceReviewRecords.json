@@ -37,7 +37,7 @@
   "broker-consensus": {
     "reviewed_at": "2026-11-02",
     "source_asset": "data/study-navigation/broker-consensus.json",
-    "source_revision": "85888563c3f50f3df59e27463c459177fefbbfc1"
+    "source_revision": "d15080a74702a8913c612128aa34846946f54b28"
   },
   "jumps": {
     "reviewed_at": "2026-10-14",

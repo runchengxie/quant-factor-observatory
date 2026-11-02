@@ -197,7 +197,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-11-02T04:47:18+00:00"
+        "checked_at": "2026-11-02T12:35:55+00:00"
       },
       "navigation_asset": "data/study-navigation/pb-roe.json",
       "navigation_summary": {
@@ -540,7 +540,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-11-02T04:47:18+00:00"
+        "checked_at": "2026-11-02T12:35:55+00:00"
       },
       "navigation_asset": "data/study-navigation/rd-investment.json",
       "navigation_summary": {
@@ -754,7 +754,7 @@
       ],
       "source_review_status": {
         "status": "needs_review",
-        "checked_at": "2026-11-02T04:47:18+00:00"
+        "checked_at": "2026-11-02T12:35:55+00:00"
       },
       "navigation_asset": "data/study-navigation/fundamental-state-forecasting.json",
       "navigation_summary": {
@@ -916,7 +916,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-11-02T04:47:18+00:00"
+        "checked_at": "2026-11-02T12:35:55+00:00"
       },
       "navigation_asset": "data/study-navigation/fundamental-family-shadow.json",
       "navigation_summary": {
@@ -1040,7 +1040,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-11-02T04:47:18+00:00"
+        "checked_at": "2026-11-02T12:35:55+00:00"
       },
       "navigation_asset": "data/study-navigation/hk-fundamental-archive.json",
       "navigation_summary": {
@@ -1171,7 +1171,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-11-02T04:47:18+00:00"
+        "checked_at": "2026-11-02T12:35:55+00:00"
       },
       "navigation_asset": "data/study-navigation/employee-compensation.json",
       "navigation_summary": {
@@ -1537,7 +1537,7 @@
       ],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-11-02T04:47:18+00:00"
+        "checked_at": "2026-11-02T12:35:55+00:00"
       },
       "navigation_asset": "data/study-navigation/absolute-level-forecast.json",
       "navigation_summary": {
@@ -1601,7 +1601,7 @@
           "title": "Can broker earnings forecasts help rank stocks?",
           "family": "Earnings expectations and valuation",
           "status_label": "Historical diagnostic complete; original vintages unverified",
-          "summary": "Profit revision has a weak exposure-adjusted ranking relationship. Forward earnings yield has the clearest association, with original availability and investability unresolved.",
+          "summary": "The new matched-sample comparison does not establish that forecast earnings yield improves on reported earnings yield. A forecast rank residual remains positively associated with later returns in the retrospective sample. Price gaps are mostly linked to recorded suspensions, while settlement values and executable returns remain unresolved.",
           "period": "Formations January 2011–August 2026; source forecasts through November 1, 2026",
           "source_note": "Forecasts are collected on each month's last trading day. Returns run from the next session close to the following entry close. Table uses report-date reconstruction and exposure adjustment. RankIC is a ranking association; return diagnostics are separate. Intervals are not adjusted for multiple comparisons.",
           "columns": [
@@ -1645,18 +1645,22 @@
             "191 monthly partitions contain 2,749,081 report/period records; all payload hashes were checked.",
             "2011 provider updates are in 2022; the provider-clock cohort begins in May 2022.",
             "Adjusted report-clock profit-revision RankIC is 0.00149; forward yield is 0.03649.",
-            "Adjusted spread samples have only 46–54 complete months. All 10-bps net-spread intervals include zero."
+            "Adjusted spread samples have only 46–54 complete months. All 10-bps net-spread intervals include zero.",
+            "The paired forecast-minus-reported RankIC intervals include zero. The adjusted forecast residual has a positive historical association, which is descriptive.",
+            "10,764 of 11,498 endpoints overlap suspension records. The audit did not fill terminal settlement values.",
+            "The daily job and cutoff protocol are registered. No prospective forecasts or future returns are available yet."
           ],
           "limits": [
             "Historical vintages, delisting settlement and actual fills are unverified. Intervals are descriptive and multiple comparisons are unadjusted.",
-            "Group returns use complete endpoint months only; a continuous investable strategy is unqualified."
+            "Group returns use complete endpoint months only; a continuous investable strategy is unqualified.",
+            "The paired forecast-minus-reported intervals include zero. Forecast residual results are descriptive, with no untouched holdout."
           ]
         },
         "zh-CN": {
           "title": "券商盈利预测能帮助选股吗？",
           "family": "盈利预期与估值",
           "status_label": "回溯检验已完成，历史版本仍待核实",
-          "summary": "盈利预测上调幅度在扣除行业和市值影响后关系较弱。预期盈利相对市值的关联较清楚，历史版本和交易可行性仍待核实。",
+          "summary": "同样本比较没有确认预测盈利收益率优于已披露盈利收益率。预测排序残差在这段历史样本里仍与随后收益正相关。大多数缺失价格对应到停牌记录，终止价值和实际可交易收益仍未确认。",
           "period": "汇总日从2011年1月至2026年8月，预测原始记录截至2026年11月1日",
           "source_note": "我们在每月最后一个交易日汇总预测，从下一交易日收盘算到下次入场日收盘。下表按研报日期重建，并扣除行业和市值影响。排名相关系数表示排序接近程度，收益结果另列。区间没有校正多项比较。",
           "columns": [
@@ -1700,18 +1704,22 @@
             "191个月共2749081条研报预测记录，逐月载荷哈希已核对。",
             "2011年记录的供应商更新时间在2022年，供应商时间口径从2022年5月起有足够样本。",
             "研报日期口径中，上调幅度的调整后排名相关系数为0.00149，预期盈利相对市值为0.03649。",
-            "调整后的分组收益各有46至54个完整月份。单边费用0.10％时，四项净收益差的不确定区间都包含零。"
+            "调整后的分组收益各有46至54个完整月份。单边费用0.10％时，四项净收益差的不确定区间都包含零。",
+            "预测减已披露盈利的配对区间都包含零。调整后的预测排序残差与随后收益呈正相关，这只是历史样本描述。",
+            "11498个缺失端点中有10764个对应停牌记录。核查没有补入终止结算价值。",
+            "每日采集和时间截止规则已经登记，目前还没有前瞻预测或未来收益结果。"
           ],
           "limits": [
             "历史版本、退市结算和实际成交仍待核实。不确定区间用于描述样本波动，多项比较尚未作统一校正。",
-            "分组收益只覆盖价格完整月份，连续策略收益仍缺少证据。"
+            "分组收益只覆盖价格完整月份，连续策略收益仍缺少证据。",
+            "预测减已披露盈利的配对区间包含零。预测排序残差只作历史描述，也没有独立留出样本。"
           ]
         }
       },
       "exploration_asset": "data/study-exploration/broker-consensus.json",
       "exploration_counts": {
-        "steps": 4,
-        "charts": 12
+        "steps": 7,
+        "charts": 18
       },
       "navigation_asset": "data/study-navigation/broker-consensus.json",
       "navigation_summary": {
@@ -1774,7 +1782,7 @@
       "related_studies": [],
       "source_review_status": {
         "status": "matched",
-        "checked_at": "2026-11-02"
+        "checked_at": "2026-11-02T12:35:55+00:00"
       }
     }
   ],
