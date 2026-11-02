@@ -4,7 +4,8 @@ import type { Locale } from './i18n'
 export type BilingualText = Record<Locale, string>
 export type ExplorationStep = { id: string; period: BilingualText; status: string; title: BilingualText; question: BilingualText; finding: BilingualText; decision: BilingualText; source_ids: string[] }
 export type ExplorationChart = { id: string; title: BilingualText; metric: BilingualText; context: BilingualText; interpretation: BilingualText; unit: 'number' | 'percent'; categories: BilingualText[]; series: { id: string; label: BilingualText; values: (number | null)[]; months?: number[]; lower?: (number | null)[]; upper?: (number | null)[] }[]; source_ids: string[] }
-export type StudyExplorationData = { expanded_details?: boolean; guide?: ForecastGuideData; conclusion_changes?: import("./researchHub").ConclusionChange[]; schema_version: string; study_id: string; source_ref: string; source_revision: string; reviewed_at: string; evidence_stage: string; summary: BilingualText; next_question: BilingualText; sources: { id: string; source_ref: string; label: BilingualText }[]; steps: ExplorationStep[]; charts: ExplorationChart[] }
+export type StudyReaderData = { title: BilingualText; verdict: BilingualText; navigation: BilingualText; open_chart: BilingualText; legend_note: BilingualText; sections: { id: string; title: BilingualText; paragraphs: BilingualText[]; chart_ids: string[] }[] }
+export type StudyExplorationData = { reader?: StudyReaderData; reader_source_revision?: string; expanded_details?: boolean; guide?: ForecastGuideData; conclusion_changes?: import("./researchHub").ConclusionChange[]; schema_version: string; study_id: string; source_ref: string; source_revision: string; reviewed_at: string; evidence_stage: string; summary: BilingualText; next_question: BilingualText; sources: { id: string; source_ref: string; label: BilingualText }[]; steps: ExplorationStep[]; charts: ExplorationChart[] }
 
 export function isStudyExploration(value: unknown, studyId: string, sourceRef?: string): value is StudyExplorationData {
   if (!value || typeof value !== 'object') return false
@@ -21,6 +22,13 @@ export function isStudyExploration(value: unknown, studyId: string, sourceRef?: 
   if (!data.steps.every((s) => s && typeof s.id === 'string' && ['diagnostic', 'protocol', 'pending', 'archive', 'hypothesis'].includes(s.status) && text(s.period) && text(s.title) && text(s.question) && text(s.finding) && text(s.decision) && sources(s.source_ids))) return false
   if (data.conclusion_changes && (!Array.isArray(data.conclusion_changes) || !data.conclusion_changes.every(c => c && typeof c.id === 'string' && typeof c.kind === 'string' && text(c.period) && text(c.before) && text(c.trigger) && text(c.after) && sources(c.source_ids)))) return false
   if (data.guide && (studyId !== 'fundamental-state-forecasting' || !isForecastGuide(data.guide) || !sources(data.guide.source_ids))) return false
+  if (data.reader) {
+    const reader = data.reader
+    const chartIds = new Set(data.charts.flatMap(chart => chart && typeof chart.id === 'string' ? [chart.id] : []))
+    if (!text(reader.title) || !text(reader.verdict) || !text(reader.navigation) || !text(reader.open_chart) || !text(reader.legend_note) || !Array.isArray(reader.sections) || !reader.sections.length) return false
+    if (!reader.sections.every(section => section && /^[a-z0-9-]+$/.test(section.id) && text(section.title) && Array.isArray(section.paragraphs) && section.paragraphs.length > 0 && section.paragraphs.every(text) && Array.isArray(section.chart_ids) && section.chart_ids.every(id => chartIds.has(id)))) return false
+    if (new Set(reader.sections.map(section => section.id)).size !== reader.sections.length || !/^[0-9a-f]{40}$/.test(data.reader_source_revision ?? '')) return false
+  }
   const uncertainty = (s: ExplorationChart['series'][number], count: number) => {
     if (s.months !== undefined && (!Array.isArray(s.months) || s.months.length !== count || !s.months.every(n => Number.isInteger(n) && n >= 0))) return false
     if (s.lower === undefined && s.upper === undefined) return true

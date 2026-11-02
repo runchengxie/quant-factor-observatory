@@ -35,9 +35,9 @@
     "source_revision": "e83f2d10a5c45aa4b4bc4b28a288887f86500aa8"
   },
   "broker-consensus": {
-    "reviewed_at": "2026-11-02",
+    "reviewed_at": "2026-11-03",
     "source_asset": "data/study-navigation/broker-consensus.json",
-    "source_revision": "d15080a74702a8913c612128aa34846946f54b28"
+    "source_revision": "8559b14fd5bbbfa1ec6a14440efc2231f29dbc34"
   },
   "jumps": {
     "reviewed_at": "2026-10-14",

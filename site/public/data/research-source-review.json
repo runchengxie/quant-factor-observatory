@@ -242,30 +242,38 @@
       ]
     },
     {
-      "brief_sha256": "99b45c6b1e26587f0524e953fa8c1b6434fec28303bce0274b8982846b66873d",
-      "navigation_sha256": "0ae5cff61625fafa16a88d1e3b81a2500750383d2f9c40937bb8c0bfb8a26c79",
+      "brief_sha256": "b16354c8ce06d0a790e34b2baeae82b1bea3e14375c74cce5a7e67b813e5ba0f",
+      "navigation_sha256": "cab3735f16ecb939497746761be06dfc282d568555f0f0ed47425d2f958b549f",
       "navigation_sources": [
         {
           "source_ref": "doc:quant-research.research.broker-consensus-20261102",
-          "sha256": "200636a48b06a22cf20f526d2f9d7674d13b7351dc1a73b94f98251650aa405a"
+          "sha256": "8ca2d51b3a3245d04ab5bc338e089b3fd9fa685b8ff1445f7f17221b066b50ab"
+        },
+        {
+          "source_ref": "doc:quant-research.research.broker-consensus-benchmark-20261102",
+          "sha256": "ce03dba21d28b36c48c4aef7e203b23bac0823f42be216ffdaa4c3301d9170af"
         },
         {
           "source_ref": "doc:quant-research.research.broker-consensus-followup-20261102",
-          "sha256": "0da6338725be7cdae479685a23f75fd6d003d3893694830384614d6095fa1e81"
+          "sha256": "055c4ad15099b4d01b5db47191ce66bf0eb4ea6779ab4322536ecabeebb9d687"
         }
       ],
       "study_id": "broker-consensus",
-      "source_revision": "d15080a74702a8913c612128aa34846946f54b28",
-      "catalog_sha256": "d026b7202e0a9b4ce7f0e3a35c3f0cac75141438d84b02d63b76ac93b4b2d443",
-      "exploration_sha256": "f8e8d2263c8579e45c6df76f13e06c7bb12dcdb881b5e73b39678a75ce9b527b",
+      "source_revision": "8559b14fd5bbbfa1ec6a14440efc2231f29dbc34",
+      "catalog_sha256": "b57e0c07496caa227b72ab8cf38a1e83555c35d09e154b46f24c9b812d3c56d7",
+      "exploration_sha256": "c70d249f0b146cb348b040bea3048df370997bc3a09fa42f759e2f996e6a730b",
       "sources": [
         {
           "source_ref": "doc:quant-research.research.broker-consensus-20261102",
-          "sha256": "200636a48b06a22cf20f526d2f9d7674d13b7351dc1a73b94f98251650aa405a"
+          "sha256": "8ca2d51b3a3245d04ab5bc338e089b3fd9fa685b8ff1445f7f17221b066b50ab"
         },
         {
           "source_ref": "doc:quant-research.research.broker-consensus-followup-20261102",
-          "sha256": "0da6338725be7cdae479685a23f75fd6d003d3893694830384614d6095fa1e81"
+          "sha256": "055c4ad15099b4d01b5db47191ce66bf0eb4ea6779ab4322536ecabeebb9d687"
+        },
+        {
+          "source_ref": "doc:quant-research.research.broker-consensus-benchmark-20261102",
+          "sha256": "ce03dba21d28b36c48c4aef7e203b23bac0823f42be216ffdaa4c3301d9170af"
         }
       ]
     }
@@ -282,6 +290,16 @@
       "evidence_stage": "archived_descriptive_panel",
       "point_in_time_qualified": false,
       "source_note_revision": "7b7d2de3f6e714fef7003a269e429c3c97a73e05"
+    },
+    {
+      "public_id": "broker-consensus-benchmark",
+      "asset": "data/broker-consensus-benchmark.json",
+      "asset_sha256": "8a31e5c25432b6c9007f47cc355282c3b4eea1b0ff93b1313609eabf4f52ad0b",
+      "source_ref": "doc:quant-research.research.broker-consensus-benchmark-20261102",
+      "source_revision": "8559b14fd5bbbfa1ec6a14440efc2231f29dbc34",
+      "reviewed_at": "2026-11-03",
+      "evidence_stage": "retrospective_diagnostic",
+      "point_in_time_qualified": false
     }
   ]
 }

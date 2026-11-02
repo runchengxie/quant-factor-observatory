@@ -2,13 +2,13 @@
   "schema_version": "observatory.study_exploration.v1",
   "study_id": "broker-consensus",
   "source_ref": "doc:quant-research.research.broker-consensus-20261102",
-  "source_revision": "d15080a74702a8913c612128aa34846946f54b28",
-  "reviewed_at": "2026-11-02",
+  "source_revision": "8559b14fd5bbbfa1ec6a14440efc2231f29dbc34",
+  "reviewed_at": "2026-11-03",
   "evidence_stage": "retrospective_diagnostic",
   "expanded_details": true,
   "summary": {
-    "en-US": "The new matched-sample comparison does not establish that forecast earnings yield improves on reported earnings yield. A forecast rank residual remains positively associated with later returns in the retrospective sample. Price gaps are mostly linked to recorded suspensions, while settlement values and executable returns remain unresolved.",
-    "zh-CN": "同样本比较没有确认预测盈利收益率优于已披露盈利收益率。预测排序残差在这段历史样本里仍与随后收益正相关。大多数缺失价格对应到停牌记录，终止价值和实际可交易收益仍未确认。"
+    "en-US": "Current evidence is insufficient to use broker consensus as a reliable standalone stock-selection factor.",
+    "zh-CN": "目前证据还不足以把券商一致预期当作可靠、可直接使用的选股因子。"
   },
   "sources": [
     {
@@ -26,9 +26,542 @@
         "en-US": "Matched valuation and missing-price follow-up",
         "zh-CN": "同样本估值对照与缺失价格核查"
       }
+    },
+    {
+      "id": "benchmark",
+      "source_ref": "doc:quant-research.research.broker-consensus-benchmark-20261102",
+      "label": {
+        "en-US": "Prior-profit benchmark and coverage controls, 2015–2025",
+        "zh-CN": "2015年至2025年去年利润基准与覆盖家数研究"
+      }
     }
   ],
   "charts": [
+    {
+      "id": "benchmark-profit",
+      "title": {
+        "en-US": "Profitable companies: do forecasts beat last year’s profit?",
+        "zh-CN": "最终盈利的公司，券商预测比沿用去年利润更准吗？"
+      },
+      "metric": {
+        "en-US": "Median absolute error / absolute realized profit; lower is closer",
+        "zh-CN": "误差中位数，数值越低，预测越接近实际利润"
+      },
+      "context": {
+        "en-US": "2015–2025. Identical stocks in each paired comparison. Paired stock-years at 30 / 90 / 180 days: 18225 / 18488 / 18432; missing baselines: 682 / 719 / 744. Absolute realized profit above CNY10m. Prior-year values must be disclosed by the cutoff. Historical versions remain unverified.",
+        "zh-CN": "2015年至2025年。每个期限内，两种方法比较同一批股票年度。30天、90天、180天的配对样本数分别为18225 / 18488 / 18432，缺少基准的样本数分别为682 / 719 / 744。只计算实际盈利或亏损绝对值超过1000万元的公司。上一年财报须在截止日前公布，历史数值版本仍未核实。"
+      },
+      "interpretation": {
+        "en-US": "The pooled medians and the median company-level paired improvement are different statistics. Read the paired-improvement chart before comparing horizons.",
+        "zh-CN": "两列分别计算各自的误差中位数。判断券商是否更准，还要看逐家公司配对后的结果。下方的配对改善图保留了这个比较。"
+      },
+      "categories": [
+        {
+          "en-US": "30 days before year-end",
+          "zh-CN": "年末前约30天"
+        },
+        {
+          "en-US": "90 days before year-end",
+          "zh-CN": "年末前约90天"
+        },
+        {
+          "en-US": "180 days before year-end",
+          "zh-CN": "年末前约180天"
+        }
+      ],
+      "series": [
+        {
+          "id": "broker",
+          "label": {
+            "en-US": "Broker forecast",
+            "zh-CN": "券商预测"
+          },
+          "values": [
+            0.13484633145820576,
+            0.19291196384371528,
+            0.2610605026910529
+          ]
+        },
+        {
+          "id": "prior-profit",
+          "label": {
+            "en-US": "Previous annual profit",
+            "zh-CN": "沿用上一年利润"
+          },
+          "values": [
+            0.2744507675158237,
+            0.2776713065703996,
+            0.2770118629835146
+          ]
+        }
+      ],
+      "unit": "percent",
+      "source_ids": [
+        "benchmark"
+      ]
+    },
+    {
+      "id": "coverage-profit",
+      "title": {
+        "en-US": "Profitable companies: does wider coverage mean smaller errors?",
+        "zh-CN": "最终盈利的公司，多家券商覆盖的误差更小吗？"
+      },
+      "metric": {
+        "en-US": "Raw median relative errors by institutions with a recent eligible forecast",
+        "zh-CN": "按近期有效预测的券商家数分组，比较误差中位数"
+      },
+      "context": {
+        "en-US": "All broker/outcome matches, including missing baselines. Groups differ in company characteristics. Counts by one / two / three-plus institutions, each ordered 30 / 90 / 180 days: 4176 / 3945 / 4010 / 2720 / 2651 / 2682 / 12011 / 12611 / 12484.",
+        "zh-CN": "使用全部合格预测和财报配对，包括缺少去年利润基准的公司。各组公司的特点不同。按一家、两家、至少三家券商分组，每组按30天、90天、180天排列的样本数为4176 / 3945 / 4010 / 2720 / 2651 / 2682 / 12011 / 12611 / 12484。"
+      },
+      "interpretation": {
+        "en-US": "Raw group differences do not isolate the effect of analyst counts. Compare the profit and industry controls as well.",
+        "zh-CN": "这张图只展示分组差异。利润水平和行业等特点也会影响误差，请接着看控制这些特点后的图。"
+      },
+      "categories": [
+        {
+          "en-US": "30 days before year-end",
+          "zh-CN": "年末前约30天"
+        },
+        {
+          "en-US": "90 days before year-end",
+          "zh-CN": "年末前约90天"
+        },
+        {
+          "en-US": "180 days before year-end",
+          "zh-CN": "年末前约180天"
+        }
+      ],
+      "series": [
+        {
+          "id": "one",
+          "label": {
+            "en-US": "One institution",
+            "zh-CN": "一家券商"
+          },
+          "values": [
+            0.2174537369822077,
+            0.2884109852683962,
+            0.37427459288661546
+          ]
+        },
+        {
+          "id": "two",
+          "label": {
+            "en-US": "Two institutions",
+            "zh-CN": "两家券商"
+          },
+          "values": [
+            0.18780432270500969,
+            0.25885674433025596,
+            0.34255394136055944
+          ]
+        },
+        {
+          "id": "three_plus",
+          "label": {
+            "en-US": "Three or more",
+            "zh-CN": "至少三家券商"
+          },
+          "values": [
+            0.10852425276908854,
+            0.16372057004964943,
+            0.22577409014524935
+          ]
+        }
+      ],
+      "unit": "percent",
+      "source_ids": [
+        "benchmark"
+      ]
+    },
+    {
+      "id": "coverage-controlled-profit",
+      "title": {
+        "en-US": "Profitable companies: compare coverage after controls",
+        "zh-CN": "最终盈利的公司，考虑利润和行业后结果怎样？"
+      },
+      "metric": {
+        "en-US": "Change in log(1 + relative error) versus one institution; zero means no estimated difference",
+        "zh-CN": "相对一家券商的误差差异，使用对数转换后的误差，零表示估计没有差异"
+      },
+      "context": {
+        "en-US": "Separate regressions at each cutoff control log absolute realized profit, year and industry. Company-clustered 95% intervals. This is one descriptive model, using later-realized profit and reconstructed industries; coefficients are not raw error percentage points. Rows: 17899 / 18182 / 17982; missing industry: 1008 / 1025 / 1194.",
+        "zh-CN": "每个期限单独比较，并控制实际利润绝对值、年份和行业。细线表示按公司聚类计算的95％区间。这是一个描述性模型，使用了后来实现的利润和重建行业。系数单位与原始误差百分比不同。样本数为17899 / 18182 / 17982，缺少行业的数量为1008 / 1025 / 1194。"
+      },
+      "interpretation": {
+        "en-US": "Negative coefficients would accompany smaller transformed errors. This specification does not support a general accuracy benefit from wider coverage; it does not establish causation.",
+        "zh-CN": "负值才表示更多覆盖伴随更小的转换后误差。当前模型没有支持多家覆盖普遍更准，也不能据此推断覆盖家数导致了误差变化。"
+      },
+      "categories": [
+        {
+          "en-US": "30 days before year-end",
+          "zh-CN": "年末前约30天"
+        },
+        {
+          "en-US": "90 days before year-end",
+          "zh-CN": "年末前约90天"
+        },
+        {
+          "en-US": "180 days before year-end",
+          "zh-CN": "年末前约180天"
+        }
+      ],
+      "series": [
+        {
+          "id": "two_institutions",
+          "label": {
+            "en-US": "Two versus one",
+            "zh-CN": "两家相对一家"
+          },
+          "values": [
+            0.0014724840630113718,
+            0.009072963218304315,
+            0.0195630917028881
+          ],
+          "lower": [
+            -0.01845970654941393,
+            -0.013079095368192944,
+            -0.0035542959586982274
+          ],
+          "upper": [
+            0.02140467467543667,
+            0.031225021804801575,
+            0.04268047936447443
+          ]
+        },
+        {
+          "id": "three_plus_institutions",
+          "label": {
+            "en-US": "Three-plus versus one",
+            "zh-CN": "至少三家相对一家"
+          },
+          "values": [
+            0.014423442770456589,
+            0.05329562909852826,
+            0.10403218128595029
+          ],
+          "lower": [
+            -0.001569576666323614,
+            0.0344659852152614,
+            0.08307146770510457
+          ],
+          "upper": [
+            0.030416462207236792,
+            0.07212527298179512,
+            0.12499289486679602
+          ]
+        }
+      ],
+      "unit": "number",
+      "source_ids": [
+        "benchmark"
+      ]
+    },
+    {
+      "id": "benchmark-loss",
+      "title": {
+        "en-US": "Loss-making companies: do forecasts beat last year’s profit?",
+        "zh-CN": "最终亏损的公司，券商预测比沿用去年利润更准吗？"
+      },
+      "metric": {
+        "en-US": "Median absolute error / absolute realized profit; lower is closer",
+        "zh-CN": "误差中位数，数值越低，预测越接近实际利润"
+      },
+      "context": {
+        "en-US": "2015–2025. Identical stocks in each paired comparison. Paired stock-years at 30 / 90 / 180 days: 1540 / 1618 / 1877; missing baselines: 111 / 117 / 143. Absolute realized profit above CNY10m. Prior-year values must be disclosed by the cutoff. Historical versions remain unverified.",
+        "zh-CN": "2015年至2025年。每个期限内，两种方法比较同一批股票年度。30天、90天、180天的配对样本数分别为1540 / 1618 / 1877，缺少基准的样本数分别为111 / 117 / 143。只计算实际盈利或亏损绝对值超过1000万元的公司。上一年财报须在截止日前公布，历史数值版本仍未核实。"
+      },
+      "interpretation": {
+        "en-US": "The pooled medians and the median company-level paired improvement are different statistics. Read the paired-improvement chart before comparing horizons.",
+        "zh-CN": "两列分别计算各自的误差中位数。判断券商是否更准，还要看逐家公司配对后的结果。下方的配对改善图保留了这个比较。"
+      },
+      "categories": [
+        {
+          "en-US": "30 days before year-end",
+          "zh-CN": "年末前约30天"
+        },
+        {
+          "en-US": "90 days before year-end",
+          "zh-CN": "年末前约90天"
+        },
+        {
+          "en-US": "180 days before year-end",
+          "zh-CN": "年末前约180天"
+        }
+      ],
+      "series": [
+        {
+          "id": "broker",
+          "label": {
+            "en-US": "Broker forecast",
+            "zh-CN": "券商预测"
+          },
+          "values": [
+            1.1479296486857609,
+            1.2999920368644888,
+            1.5301790901529366
+          ]
+        },
+        {
+          "id": "prior-profit",
+          "label": {
+            "en-US": "Previous annual profit",
+            "zh-CN": "沿用上一年利润"
+          },
+          "values": [
+            1.2390078676878638,
+            1.2453060049597524,
+            1.239047633175037
+          ]
+        }
+      ],
+      "unit": "percent",
+      "source_ids": [
+        "benchmark"
+      ]
+    },
+    {
+      "id": "coverage-loss",
+      "title": {
+        "en-US": "Loss-making companies: does wider coverage mean smaller errors?",
+        "zh-CN": "最终亏损的公司，多家券商覆盖的误差更小吗？"
+      },
+      "metric": {
+        "en-US": "Raw median relative errors by institutions with a recent eligible forecast",
+        "zh-CN": "按近期有效预测的券商家数分组，比较误差中位数"
+      },
+      "context": {
+        "en-US": "All broker/outcome matches, including missing baselines. Groups differ in company characteristics. Counts by one / two / three-plus institutions, each ordered 30 / 90 / 180 days: 654 / 646 / 734 / 324 / 284 / 345 / 673 / 805 / 941.",
+        "zh-CN": "使用全部合格预测和财报配对，包括缺少去年利润基准的公司。各组公司的特点不同。按一家、两家、至少三家券商分组，每组按30天、90天、180天排列的样本数为654 / 646 / 734 / 324 / 284 / 345 / 673 / 805 / 941。"
+      },
+      "interpretation": {
+        "en-US": "Raw group differences do not isolate the effect of analyst counts. Compare the profit and industry controls as well.",
+        "zh-CN": "这张图只展示分组差异。利润水平和行业等特点也会影响误差，请接着看控制这些特点后的图。"
+      },
+      "categories": [
+        {
+          "en-US": "30 days before year-end",
+          "zh-CN": "年末前约30天"
+        },
+        {
+          "en-US": "90 days before year-end",
+          "zh-CN": "年末前约90天"
+        },
+        {
+          "en-US": "180 days before year-end",
+          "zh-CN": "年末前约180天"
+        }
+      ],
+      "series": [
+        {
+          "id": "one",
+          "label": {
+            "en-US": "One institution",
+            "zh-CN": "一家券商"
+          },
+          "values": [
+            1.1700712292067332,
+            1.2802798484423097,
+            1.4189927967604512
+          ]
+        },
+        {
+          "id": "two",
+          "label": {
+            "en-US": "Two institutions",
+            "zh-CN": "两家券商"
+          },
+          "values": [
+            1.153237215326907,
+            1.3127046279693522,
+            1.5705016249510264
+          ]
+        },
+        {
+          "id": "three_plus",
+          "label": {
+            "en-US": "Three or more",
+            "zh-CN": "至少三家券商"
+          },
+          "values": [
+            1.1284689015930303,
+            1.3169911219961592,
+            1.6084371644408193
+          ]
+        }
+      ],
+      "unit": "percent",
+      "source_ids": [
+        "benchmark"
+      ]
+    },
+    {
+      "id": "coverage-controlled-loss",
+      "title": {
+        "en-US": "Loss-making companies: compare coverage after controls",
+        "zh-CN": "最终亏损的公司，考虑利润和行业后结果怎样？"
+      },
+      "metric": {
+        "en-US": "Change in log(1 + relative error) versus one institution; zero means no estimated difference",
+        "zh-CN": "相对一家券商的误差差异，使用对数转换后的误差，零表示估计没有差异"
+      },
+      "context": {
+        "en-US": "Separate regressions at each cutoff control log absolute realized profit, year and industry. Company-clustered 95% intervals. This is one descriptive model, using later-realized profit and reconstructed industries; coefficients are not raw error percentage points. Rows: 1575 / 1658 / 1867; missing industry: 76 / 77 / 153.",
+        "zh-CN": "每个期限单独比较，并控制实际利润绝对值、年份和行业。细线表示按公司聚类计算的95％区间。这是一个描述性模型，使用了后来实现的利润和重建行业。系数单位与原始误差百分比不同。样本数为1575 / 1658 / 1867，缺少行业的数量为76 / 77 / 153。"
+      },
+      "interpretation": {
+        "en-US": "Negative coefficients would accompany smaller transformed errors. This specification does not support a general accuracy benefit from wider coverage; it does not establish causation.",
+        "zh-CN": "负值才表示更多覆盖伴随更小的转换后误差。当前模型没有支持多家覆盖普遍更准，也不能据此推断覆盖家数导致了误差变化。"
+      },
+      "categories": [
+        {
+          "en-US": "30 days before year-end",
+          "zh-CN": "年末前约30天"
+        },
+        {
+          "en-US": "90 days before year-end",
+          "zh-CN": "年末前约90天"
+        },
+        {
+          "en-US": "180 days before year-end",
+          "zh-CN": "年末前约180天"
+        }
+      ],
+      "series": [
+        {
+          "id": "two_institutions",
+          "label": {
+            "en-US": "Two versus one",
+            "zh-CN": "两家相对一家"
+          },
+          "values": [
+            0.04247072812764304,
+            0.055351595847846054,
+            0.0620813638543932
+          ],
+          "lower": [
+            -0.00710596421854872,
+            0.00687210449449864,
+            0.019846001109610795
+          ],
+          "upper": [
+            0.0920474204738348,
+            0.10383108720119347,
+            0.10431672659917561
+          ]
+        },
+        {
+          "id": "three_plus_institutions",
+          "label": {
+            "en-US": "Three-plus versus one",
+            "zh-CN": "至少三家相对一家"
+          },
+          "values": [
+            0.10965050654478405,
+            0.151028116209761,
+            0.22809331893137805
+          ],
+          "lower": [
+            0.060714971590262984,
+            0.10528922853832724,
+            0.18677750548700806
+          ],
+          "upper": [
+            0.1585860414993051,
+            0.19676700388119478,
+            0.26940913237574804
+          ]
+        }
+      ],
+      "unit": "number",
+      "source_ids": [
+        "benchmark"
+      ]
+    },
+    {
+      "id": "benchmark-paired-improvement",
+      "title": {
+        "en-US": "Does the paired broker advantage persist?",
+        "zh-CN": "逐家公司比较后，券商预测改善了多少？"
+      },
+      "metric": {
+        "en-US": "Mean annual median paired error improvement; positive favors the broker",
+        "zh-CN": "先逐家公司计算误差改善，再取各年中位数的平均，正值表示券商更准"
+      },
+      "context": {
+        "en-US": "Baseline error minus broker error, measured on paired stock-years. Eleven target years, 2000 year-block resamples, descriptive 95% intervals. The intervals describe the mean annual median, not pooled medians. Few year blocks, repeated companies and serial dependence limit precision; no multiple-comparison correction.",
+        "zh-CN": "每家公司用去年利润基准的误差减去券商误差，再按年汇总。共11个目标年度，按年份重抽样2000次，细线表示描述性95％区间。区间对应各年中位数的平均，与前图的整体中位数不同。年份较少，同一公司会重复出现，跨年也可能相关，区间精度有限，尚未校正多项比较。"
+      },
+      "interpretation": {
+        "en-US": "Profitable-company advantages are clearer at 30 and 90 days. The 180-day interval includes zero. Loss-making-company forecasts fare worse at 90 and 180 days.",
+        "zh-CN": "盈利公司在30天和90天的改善较清楚，180天的区间跨过零，优势还不确定。亏损公司在90天和180天表现更差。"
+      },
+      "categories": [
+        {
+          "en-US": "30 days before year-end",
+          "zh-CN": "年末前约30天"
+        },
+        {
+          "en-US": "90 days before year-end",
+          "zh-CN": "年末前约90天"
+        },
+        {
+          "en-US": "180 days before year-end",
+          "zh-CN": "年末前约180天"
+        }
+      ],
+      "series": [
+        {
+          "id": "profit",
+          "label": {
+            "en-US": "Profitable companies",
+            "zh-CN": "最终盈利的公司"
+          },
+          "values": [
+            0.10384456488341764,
+            0.054585333236518756,
+            -0.010906177435000558
+          ],
+          "lower": [
+            0.08974762568115005,
+            0.03641231329675963,
+            -0.044876640872775646
+          ],
+          "upper": [
+            0.11699687437919531,
+            0.07253473709165555,
+            0.02280618870298903
+          ]
+        },
+        {
+          "id": "loss",
+          "label": {
+            "en-US": "Loss-making companies",
+            "zh-CN": "最终亏损的公司"
+          },
+          "values": [
+            0.04096312183789789,
+            -0.10352178491045229,
+            -0.26340975303857395
+          ],
+          "lower": [
+            -0.023898071900446897,
+            -0.14218034722512637,
+            -0.32546346469350035
+          ],
+          "upper": [
+            0.10374948201408368,
+            -0.06545406018052148,
+            -0.20424507332571373
+          ]
+        }
+      ],
+      "unit": "percent",
+      "source_ids": [
+        "benchmark"
+      ]
+    },
     {
       "id": "annual-records",
       "title": {
@@ -3127,5 +3660,142 @@
   "next_question": {
     "en-US": "Do genuinely observed monthly snapshots add value when compared with reported valuation on identical stocks and dates?",
     "zh-CN": "在同一批股票和日期上，真实按月保存的预测快照能否比已披露估值多提供信息？"
-  }
+  },
+  "reader": {
+    "title": {
+      "en-US": "What do these results tell us?",
+      "zh-CN": "这些结果怎么理解？"
+    },
+    "verdict": {
+      "en-US": "Near year-end, forecasts help estimate profitable companies’ annual earnings. Reliable stock selection still needs more evidence.",
+      "zh-CN": "临近年底，券商预测能帮助估计盈利公司这一年赚了多少。用它稳定选出收益更高的股票，还需要更多证据。"
+    },
+    "navigation": {
+      "en-US": "Choose a question",
+      "zh-CN": "按问题阅读"
+    },
+    "open_chart": {
+      "en-US": "View chart",
+      "zh-CN": "查看对应图表"
+    },
+    "legend_note": {
+      "en-US": "Use the legend buttons to show or hide a series. Axes rescale to visible series. Exact tables retain every series.",
+      "zh-CN": "点击图例可以显示或隐藏一组数据，坐标轴会随显示的数据调整，精确数值表始终保留全部数据。"
+    },
+    "sections": [
+      {
+        "id": "selection",
+        "title": {
+          "en-US": "Can we use it to select stocks now?",
+          "zh-CN": "现在能靠它选股吗？"
+        },
+        "paragraphs": [
+          {
+            "en-US": "Some forecast-based rankings accompany later returns in historical samples. Profit-revision relationships weaken after industry and size controls. Forecast earnings yield has a clearer association, but its advantage over reported earnings yield remains uncertain.",
+            "zh-CN": "部分预测指标在历史样本中与后续收益有关。预测上调幅度在考虑行业和市值后关系较弱。用预测利润衡量股票贵不贵，关联更清楚一些，但它比已经公布的盈利多提供多少选股帮助，还没有明确证据。"
+          },
+          {
+            "en-US": "Rank correlation compares two orderings: one by the forecast score and one by subsequent stock returns. A positive value means higher scores tend to accompany higher later returns. Different ways of constructing a consensus score have different evidence.",
+            "zh-CN": "图里的排名相关系数，衡量两种排序有多接近。一种按指标分数高低排，另一种按随后收益高低排。正值表示高分股票后来往往表现更好。一致预期可以做成不同的选股分数，各种分数的证据强弱也不同。"
+          },
+          {
+            "en-US": "All reviewed intervals for the original cost-adjusted spread diagnostics include zero. Original provider vintages, missing terminal prices and actual trading conditions remain unresolved. Predicting profits more accurately does not establish higher investment returns. Current findings support further research, and have not established a dependable trading rule.",
+            "zh-CN": "高低分组收益差，就是高分组收益减去低分组收益。原研究扣费后的差值区间都包含零，历史数据版本、部分期末价格和真实交易条件还没有核实。预测利润更准，也不能保证买股票多赚钱。现有结果支持继续研究，距离稳定可用的选股规则还有证据缺口。"
+          }
+        ],
+        "chart_ids": [
+          "forecast-reported-rankic-delta",
+          "forecast-reported-net-spread-delta",
+          "cost-sensitivity"
+        ]
+      },
+      {
+        "id": "profit",
+        "title": {
+          "en-US": "Forecasts help more near year-end",
+          "zh-CN": "临近年底，盈利公司的预测更有帮助"
+        },
+        "paragraphs": [
+          {
+            "en-US": "The simple baseline carries last year’s annual profit forward as this year’s forecast. Among companies that ultimately earned more than CNY10m, broker and baseline median errors are 13.5% and 27.4% at the roughly one-month cutoff. At three months they are 19.3% and 27.8%.",
+            "zh-CN": "我们用一个简单方法作比较，把公司去年赚的钱直接当作今年的预测。对最终盈利超过1000万元的公司，年底前约一个月，券商预测和简单方法的误差中位数分别为13.5％和27.4％。提前约三个月时，两者分别为19.3％和27.8％。"
+          },
+          {
+            "en-US": "A 13.5% error corresponds to CNY13.5m for a CNY100m realized profit. This illustrates the scale of the ratio, not a prediction for an individual company. Half-year paired comparisons do not establish a clear broker advantage. Forecasts nearer year-end can draw on more quarterly reports.",
+            "zh-CN": "用实际赚了1亿元来理解，13.5％的误差相当于差了约1350万元。这只是帮助理解比例，每家公司的误差会不同。提前约半年时，逐家公司配对后的比较还看不出明确优势。临近年底，分析师已经能看到更多季度财报。"
+          }
+        ],
+        "chart_ids": [
+          "benchmark-profit",
+          "benchmark-paired-improvement"
+        ]
+      },
+      {
+        "id": "loss",
+        "title": {
+          "en-US": "Loss-making companies need a separate view",
+          "zh-CN": "亏损公司的预测更难用"
+        },
+        "paragraphs": [
+          {
+            "en-US": "For companies that ultimately lost more than CNY10m, forecasts at the three- and six-month cutoffs perform worse than carrying forward last year’s profit. At one month the improvement remains uncertain.",
+            "zh-CN": "对最终亏损超过1000万元的公司，提前约三个月或半年时，券商预测比沿用去年利润更差。到年底前约一个月，改善仍不确定。"
+          },
+          {
+            "en-US": "Profit and loss groups use later-realized outcomes. They help describe where errors occur and cannot serve as a ready-made screen at the forecast cutoff.",
+            "zh-CN": "这里按后来实际盈利还是亏损分组，帮助我们看清误差发生在哪里。预测截止日还不知道最终结果，不能直接照这个分组筛股票。"
+          }
+        ],
+        "chart_ids": [
+          "benchmark-loss",
+          "benchmark-paired-improvement"
+        ]
+      },
+      {
+        "id": "coverage",
+        "title": {
+          "en-US": "More coverage is not an accuracy guarantee",
+          "zh-CN": "多家券商覆盖，也需要看公司特点"
+        },
+        "paragraphs": [
+          {
+            "en-US": "Raw profitable-company groups with three or more institutions have smaller median errors than the one-institution group. Once realized profit level, year and industry enter the chosen model, that apparent advantage does not persist.",
+            "zh-CN": "原始分组里，至少三家券商覆盖的盈利公司，误差中位数比只有一家覆盖的公司低。把利润水平、年份和行业放进当前模型后，这个优势没有保留下来。"
+          },
+          {
+            "en-US": "Institution counts remain useful context. The present sample does not justify a rule that three or more forecasts are sufficiently reliable. The controls use realized profits, and the association is descriptive rather than causal.",
+            "zh-CN": "覆盖家数可以帮助理解样本特点。现有结果不足以支持至少三家覆盖就更可靠这样的筛选门槛。模型使用后来实现的利润，只能描述关联，无法说明覆盖家数导致了什么变化。"
+          }
+        ],
+        "chart_ids": [
+          "coverage-profit",
+          "coverage-controlled-profit",
+          "coverage-loss",
+          "coverage-controlled-loss"
+        ]
+      },
+      {
+        "id": "availability",
+        "title": {
+          "en-US": "What still needs verification?",
+          "zh-CN": "这些结果还需要怎样验证？"
+        },
+        "paragraphs": [
+          {
+            "en-US": "Historical forecasts were retrieved later. Their original unchanged availability is unverified. The profit-accuracy work covers 2015–2025; stock-return evidence has its own periods and cohorts. Compare each chart within its stated sample.",
+            "zh-CN": "历史预测是后来补拉的，我们还不能确认每个数值在当年是否已经原样可见。预测准确度研究覆盖2015年至2025年，选股研究有各自的区间和样本，请按每张图说明的范围理解。"
+          },
+          {
+            "en-US": "Immutable daily observations started on November 2, 2026. Future evaluation will use preserved observations and later outcomes. No prospective formation score or forward-return evaluation has yet been recorded in this evidence release.",
+            "zh-CN": "2026年11月2日已经开始保存每天实际拿到的快照。后续会用当时留存的预测，检验它之后真正发生的结果。本版证据还没有前瞻形成分数或后续收益评估。"
+          }
+        ],
+        "chart_ids": [
+          "provider-delay",
+          "missing-endpoint-reasons"
+        ]
+      }
+    ]
+  },
+  "reader_source_revision": "8559b14fd5bbbfa1ec6a14440efc2231f29dbc34"
 }

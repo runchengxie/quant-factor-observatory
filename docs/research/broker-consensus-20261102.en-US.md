@@ -27,3 +27,20 @@ Retain each estimate's valid-month count and descriptive interval. The chart sca
 The source auditor now preserves auxiliary public-asset review records when appending a study baseline. Existing seven study baselines and risk-history asset records remain unchanged. The live source check detected a pre-existing owner-source change for the fundamental-state-forecasting topic; that topic is marked for review without rewriting its evidence or recapturing its pinned source baseline.
 
 Independent publication review confirmed aggregate equality and found missing per-series sample counts and intervals beside charts. The final projection and chart rendering include these fields, with contract and browser regressions. Chinese copy states that earlier provider-clock eligible counts are zero and explains the monthly collection/return dates at first use.
+
+## Plain-language reader and benchmark evidence, reviewed November 3, 2026
+
+The page now leads with the current stock-selection decision. Evidence is insufficient to treat broker consensus as a reliable standalone stock-selection factor. Some retrospective associations remain, while original vintages, forecast-specific return increments and investability remain unresolved. Profit-prediction accuracy is discussed separately from stock returns.
+
+The benchmark and coverage follow-up is `doc:quant-research.research.broker-consensus-benchmark-20261102`, reviewed at owner revision `8559b14fd5bbbfa1ec6a14440efc2231f29dbc34`. It compares forecasts with the prior annual profit disclosed by each cutoff, reports profitable and loss-making companies separately, and retains paired uncertainty and missing-baseline counts. Coverage comparisons include raw groups and a fixed profit/year/industry-controlled regression. The regression is descriptive, uses later-realized profit, and does not establish causation or a minimum-coverage rule.
+
+`broker-consensus-benchmark.json` contains only the allowlisted aggregate comparisons, coverage counts, regression estimates, intervals and source identity. Private paths, source-file maps and company records are excluded recursively. Seven new charts bring the total to 25. All 18 original charts and seven research stages are retained. The reader paragraphs, precise tables and source records remain expanded. Reader buttons select the corresponding chart, and legend buttons can hide a series while retaining every exact table value. Axes rescale with the visible series. Intervals without monthly sample counts retain interval labels without inventing a month count.
+
+After rebuilding the initial and paired-valuation projections above, regenerate the reader using the reviewed public asset:
+
+```bash
+python scripts/build_broker_consensus_reader.py
+python scripts/build_evidence_review_records.py
+```
+
+To review a new private-owner result, pass `--result` to the reader builder. Its fixed recursive allowlist emits the public aggregate first. Review the source note, numbers and context before capturing the broker study's updated source baseline. Other studies' review records must remain unchanged.
