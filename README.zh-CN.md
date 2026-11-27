@@ -69,6 +69,8 @@ Alpha 810 快照由 [`money-trees`](https://github.com/runchengxie/money-trees) 
 
 本站维护因子目录组织、标准化因子专题、发布状态和符合发布契约的审核投影。独立的市场研究项目及其项目级方法由 [`quant-market-research`](https://github.com/runchengxie/quant-market-research) 维护。符合本站来源身份和审核要求的因子专题可以在此展示；应链接到权威方法与证据，不复制整份源材料。私有策略证据仍由所属仓库维护，只有明确审核并脱敏的投影可以发布到本站。
 
+小盘股与微盘股的持续深入研究、文献交叉核查和跨市场研究，现由 [A Study in Small Caps](https://runchengxie.github.io/a-study-in-small-caps/) 维护。本站现有图表与记录保留为注明日期的历史来源；本次衔接没有重新运行研究。
+
 ## 人力资本与职工薪酬研究
 
 目录包含职工薪酬强度、人力资本效率、职工薪酬变化、收入与薪酬背离，以及劳动强度与投资状态等实验性专题。这些条目表达研究假设，不代表已完成 A 股预测验证。公开评估不可用时，页面会明确显示。
