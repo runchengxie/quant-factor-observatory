@@ -1,17 +1,19 @@
 import { Alpha810CatalogEntry } from '../components/ResearchExplorationEntries'
 import { useMemo, useState } from 'react'
 import { filterResearchRecords, sortResearchRecords } from '../research'
-import { localizeFactorRecord, localizedStatus } from '../researchLocale'
+import { localizeFactorRecord, localizedFamily, localizedStatus } from '../researchLocale'
 import type { ExplorerFilters, ExplorerSort, FactorRecord, ResearchContext } from '../types'
 import { useLocale } from '../i18n'
 import ContextStrip from '../components/ContextStrip'
 
-function initialFilters(): ExplorerFilters {
+function initialFilters(families: string[]): ExplorerFilters {
   const params = new URLSearchParams(window.location.search)
   const status = params.get('status')
+  const family = params.get('family') ?? ''
   return {
     query: params.get('q') ?? '',
-    family: params.get('family') ?? '',
+    // Keep existing source identifiers; accept URLs written with translated labels.
+    family: families.includes(family) ? family : families.find(value => localizedFamily(value, 'en-US') === family) ?? family,
     frequency: params.get('frequency') ?? '',
     status: status === 'descriptive' || status === 'experimental' || status === 'validated' ? status : '',
   }
@@ -32,11 +34,15 @@ export default function FactorExplorerPage({ records, context }: { records: Fact
   const { locale, copy } = useLocale()
   const english = locale === 'en-US'
   const localizedRecords = useMemo(() => records.map((record) => localizeFactorRecord(record, locale)), [records, locale])
-  const [filters, setFilters] = useState<ExplorerFilters>(initialFilters)
+  const families = useMemo(() => [...new Set(records.map((record) => record.family))].sort(), [records])
+  const [filters, setFilters] = useState<ExplorerFilters>(() => initialFilters(families))
   const [sort, setSort] = useState<ExplorerSort>((new URLSearchParams(window.location.search).get('sort') as ExplorerSort) || 'name')
-  const families = useMemo(() => [...new Set(localizedRecords.map((record) => record.family))].sort(), [localizedRecords])
   const frequencies = useMemo(() => [...new Set(localizedRecords.map((record) => record.frequencyIn).filter(Boolean))] as string[], [localizedRecords])
-  const visible = useMemo(() => sortResearchRecords(filterResearchRecords(localizedRecords, filters), sort), [filters, localizedRecords, sort])
+  const visible = useMemo(() => {
+    const familyRecords = records.filter(record => !filters.family || record.family === filters.family)
+    const translated = familyRecords.map(record => localizeFactorRecord(record, locale))
+    return sortResearchRecords(filterResearchRecords(translated, { ...filters, family: '' }), sort)
+  }, [filters, records, locale, sort])
   const tableHeaders = english ? ['Factor', 'Family', 'Frequency', 'Valid values', 'Status'] : ['因子', '因子族', '频率', '有效值', '状态']
 
   function changeFilters(next: Partial<ExplorerFilters>) {
@@ -66,7 +72,7 @@ export default function FactorExplorerPage({ records, context }: { records: Fact
     <section className="panel explorer-panel">
       <div className="explorer-toolbar">
         <label className="search-field"><span>{english ? 'Search' : '搜索'}</span><input value={filters.query} onChange={(event) => changeFilters({ query: event.target.value })} placeholder={english ? 'Factor name, definition, input…' : '因子名、定义、输入字段…'} /></label>
-        <label><span>{english ? 'Family' : '因子族'}</span><select value={filters.family} onChange={(event) => changeFilters({ family: event.target.value })}><option value="">{english ? 'All' : '全部'}</option>{families.map((family) => <option key={family} value={family}>{family}</option>)}</select></label>
+        <label><span>{english ? 'Family' : '因子族'}</span><select value={filters.family} onChange={(event) => changeFilters({ family: event.target.value })}><option value="">{english ? 'All' : '全部'}</option>{families.map((family) => <option key={family} value={family}>{localizedFamily(family, locale)}</option>)}</select></label>
         <label><span>{english ? 'Frequency' : '频率'}</span><select value={filters.frequency} onChange={(event) => changeFilters({ frequency: event.target.value })}><option value="">{english ? 'All' : '全部'}</option>{frequencies.map((frequency) => <option key={frequency} value={frequency}>{frequency}</option>)}</select></label>
         <label><span>{english ? 'Status' : '状态'}</span><select value={filters.status} onChange={(event) => changeFilters({ status: event.target.value as ExplorerFilters['status'] })}><option value="">{english ? 'All' : '全部'}</option><option value="descriptive">{english ? 'Descriptive snapshot' : '描述性快照'}</option><option value="experimental">{english ? 'Experimental' : '实验性'}</option><option value="validated">{english ? 'Validated' : '已验证'}</option></select></label>
         <label><span>{english ? 'Sort' : '排序'}</span><select value={sort} onChange={(event) => changeSort(event.target.value as ExplorerSort)}><option value="name">{english ? 'Name' : '名称'}</option><option value="coverage">{english ? 'Valid values' : '有效值'}</option><option value="status">{english ? 'Status' : '状态'}</option></select></label>
